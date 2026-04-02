@@ -1,20 +1,10 @@
 /* ═══════════════════════════════════════
    CLINICFLOW PRO — script.js
+   Ocean Breeze Theme
+═══════════════════════════════════════════ */
 
-   COMPLETE FIXED VERSION
-   - Fixed header button functionality
-   - Added Coming Soon modal
-   - Fixed GSAP animations
-   - Added all interactive features
-═══════════════════════════════════════ */
-
-/* ─────────────────────────────────────
-   STEP 1: Immediately tell CSS that JS
-   is running
-───────────────────────────────────── */
 document.documentElement.classList.add("js-ready");
 
-// Set initial states for GSAP animations
 document.addEventListener("DOMContentLoaded", function() {
   const gsaplElements = [
     ".line-1", ".line-2", ".hero-sub", ".hero-btns", ".hero-stats",
@@ -28,9 +18,6 @@ document.addEventListener("DOMContentLoaded", function() {
   });
 });
 
-/* ─────────────────────────────────────
-   STEP 2: Emergency net — if GSAP never fires
-───────────────────────────────────── */
 var emergencyTimer = setTimeout(function () {
   if (typeof gsap === "undefined") {
     forceShowAll();
@@ -57,9 +44,6 @@ function forceShowAll() {
   });
 }
 
-/* ─────────────────────────────────────
-   STEP 3: Non-GSAP inits on DOMContentLoaded
-───────────────────────────────────── */
 document.addEventListener("DOMContentLoaded", function () {
   initParticles();
   initNavbar();
@@ -69,12 +53,10 @@ document.addEventListener("DOMContentLoaded", function () {
   initSmoothScroll();
   initSimpleReveal();
   initChartAnimation();
-  initComingSoonModal(); // Initialize modal
+  initComingSoonModal();
+  initMobileMenu();
 });
 
-/* ─────────────────────────────────────
-   STEP 4: GSAP on window.load
-───────────────────────────────────── */
 window.addEventListener("load", function () {
   clearTimeout(emergencyTimer);
 
@@ -90,9 +72,6 @@ window.addEventListener("load", function () {
   initGSAP();
 });
 
-/* ═══════════════════════════════════════
-   PARTICLE CANVAS
-═══════════════════════════════════════ */
 function initParticles() {
   var canvas = document.getElementById("particleCanvas");
   if (!canvas) return;
@@ -111,7 +90,7 @@ function initParticles() {
       vy: (Math.random() - 0.5) * 0.35,
       r: Math.random() * 1.6 + 0.4,
       opacity: Math.random() * 0.45 + 0.08,
-      color: Math.random() > 0.5 ? "124,58,237" : "37,99,235"
+      color: Math.random() > 0.5 ? "0,119,182" : "0,180,216"
     });
   }
 
@@ -142,7 +121,7 @@ function initParticles() {
           ctx.beginPath();
           ctx.moveTo(particles[i].x, particles[i].y);
           ctx.lineTo(particles[j].x, particles[j].y);
-          ctx.strokeStyle = "rgba(124,58,237," + (0.1 * (1 - dist / 100)) + ")";
+          ctx.strokeStyle = "rgba(0,119,182," + (0.1 * (1 - dist / 100)) + ")";
           ctx.lineWidth = 0.5;
           ctx.stroke();
         }
@@ -160,9 +139,6 @@ function initParticles() {
   }, { passive: true });
 }
 
-/* ═══════════════════════════════════════
-   NAVBAR
-═══════════════════════════════════════ */
 function initNavbar() {
   var nav = document.getElementById("navbar");
   if (!nav) return;
@@ -171,9 +147,6 @@ function initNavbar() {
   }, { passive: true });
 }
 
-/* ═══════════════════════════════════════
-   MOUSE PARALLAX
-═══════════════════════════════════════ */
 function initParallax() {
   var panels = document.querySelectorAll(".float-panel");
   if (!panels.length) return;
@@ -196,9 +169,6 @@ function initParallax() {
   }, { passive: true });
 }
 
-/* ═══════════════════════════════════════
-   STAT COUNTERS
-═══════════════════════════════════════ */
 function initCounters() {
   var cards = document.querySelectorAll(".stat-card[data-target]");
   if (!cards.length) return;
@@ -231,9 +201,6 @@ function initCounters() {
   cards.forEach(function (c) { obs.observe(c); });
 }
 
-/* ═══════════════════════════════════════
-   3D CARD TILT
-═══════════════════════════════════════ */
 function initCardTilt() {
   document.querySelectorAll(".feat-card, .team-card").forEach(function (card) {
     card.addEventListener("mousemove", function (e) {
@@ -252,9 +219,6 @@ function initCardTilt() {
   });
 }
 
-/* ═══════════════════════════════════════
-   SMOOTH SCROLL
-═══════════════════════════════════════ */
 function initSmoothScroll() {
   document.querySelectorAll('a[href^="#"]').forEach(function (a) {
     a.addEventListener("click", function (e) {
@@ -267,9 +231,6 @@ function initSmoothScroll() {
   });
 }
 
-/* ═══════════════════════════════════════
-   SIMPLE REVEAL (fallback for CSS reveal classes)
-═══════════════════════════════════════ */
 function initSimpleReveal() {
   var obs = new IntersectionObserver(function (entries) {
     entries.forEach(function (entry) {
@@ -291,9 +252,6 @@ function initSimpleReveal() {
   });
 }
 
-/* ═══════════════════════════════════════
-   CHART BAR HOVER
-═══════════════════════════════════════ */
 function initChartAnimation() {
   document.querySelectorAll(".mock-chart").forEach(function (chart) {
     var bars = chart.querySelectorAll(".chart-bar");
@@ -310,11 +268,24 @@ function initChartAnimation() {
   });
 }
 
-/* ═══════════════════════════════════════
-   COMING SOON MODAL
-═══════════════════════════════════════ */
+function initMobileMenu() {
+  const menuToggle = document.getElementById('menuToggle');
+  const navLinks = document.querySelector('.nav-links');
+  
+  if (menuToggle && navLinks) {
+    menuToggle.addEventListener('click', function() {
+      navLinks.classList.toggle('active');
+    });
+    
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+      });
+    });
+  }
+}
+
 function initComingSoonModal() {
-  // Create modal HTML if it doesn't exist
   if (!document.getElementById('comingSoonModal')) {
     const modalHTML = `
       <div class="modal-overlay" id="comingSoonModal">
@@ -328,8 +299,8 @@ function initComingSoonModal() {
                 <circle cx="40" cy="40" r="4" fill="url(#modalGradient)"/>
                 <defs>
                   <linearGradient id="modalGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stop-color="#7c3aed"/>
-                    <stop offset="100%" stop-color="#2563eb"/>
+                    <stop offset="0%" stop-color="#0077B6"/>
+                    <stop offset="100%" stop-color="#00B4D8"/>
                   </linearGradient>
                 </defs>
               </svg>
@@ -337,32 +308,14 @@ function initComingSoonModal() {
             <h2 class="modal-title">Coming Soon!</h2>
             <p class="modal-subtitle">We're crafting something extraordinary</p>
             <div class="modal-features">
-              <div class="modal-feature">
-                <span class="modal-feature-icon">🚀</span>
-                <span>Full Dashboard Suite</span>
-              </div>
-              <div class="modal-feature">
-                <span class="modal-feature-icon">⚡</span>
-                <span>Real-time Analytics</span>
-              </div>
-              <div class="modal-feature">
-                <span class="modal-feature-icon">🔒</span>
-                <span>Enterprise Security</span>
-              </div>
-              <div class="modal-feature">
-                <span class="modal-feature-icon">📱</span>
-                <span>Mobile App</span>
-              </div>
+              <div class="modal-feature"><span class="modal-feature-icon">🚀</span><span>Full Dashboard Suite</span></div>
+              <div class="modal-feature"><span class="modal-feature-icon">⚡</span><span>Real-time Analytics</span></div>
+              <div class="modal-feature"><span class="modal-feature-icon">🔒</span><span>Enterprise Security</span></div>
+              <div class="modal-feature"><span class="modal-feature-icon">📱</span><span>Mobile App</span></div>
             </div>
-            <div class="modal-progress">
-              <div class="modal-progress-bar" style="width: 75%"></div>
-              <span class="modal-progress-text">75% Ready</span>
-            </div>
+            <div class="modal-progress"><div class="modal-progress-bar" style="width: 75%"></div><span class="modal-progress-text">75% Ready</span></div>
             <p class="modal-notify">Want to know when it launches?</p>
-            <form class="modal-form" id="notifyForm">
-              <input type="email" placeholder="Enter your email" class="modal-input" required>
-              <button type="submit" class="modal-notify-btn">Notify Me</button>
-            </form>
+            <form class="modal-form" id="notifyForm"><input type="email" placeholder="Enter your email" class="modal-input" required><button type="submit" class="modal-notify-btn">Notify Me</button></form>
             <p class="modal-small">No spam, only launch updates</p>
           </div>
         </div>
@@ -378,13 +331,11 @@ function initComingSoonModal() {
   
   if (!downloadBtn || !modal || !closeBtn) return;
   
-  // Open modal
   downloadBtn.addEventListener('click', function(e) {
     e.preventDefault();
     modal.classList.add('active');
     document.body.style.overflow = 'hidden';
     
-    // Add entrance animation
     if (typeof gsap !== "undefined") {
       gsap.fromTo('.modal-container', 
         { opacity: 0, y: 50, scale: 0.9 },
@@ -393,44 +344,27 @@ function initComingSoonModal() {
     }
   });
   
-  // Close modal functions
   function closeModal() {
     modal.classList.remove('active');
     document.body.style.overflow = '';
   }
   
   closeBtn.addEventListener('click', closeModal);
+  modal.addEventListener('click', function(e) { if (e.target === modal) closeModal(); });
+  document.addEventListener('keydown', function(e) { if (e.key === 'Escape' && modal.classList.contains('active')) closeModal(); });
   
-  // Click outside to close
-  modal.addEventListener('click', function(e) {
-    if (e.target === modal) {
-      closeModal();
-    }
-  });
-  
-  // Escape key to close
-  document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape' && modal.classList.contains('active')) {
-      closeModal();
-    }
-  });
-  
-  // Handle form submission
   if (notifyForm) {
     notifyForm.addEventListener('submit', function(e) {
       e.preventDefault();
       const email = this.querySelector('input[type="email"]').value;
-      
       const btn = this.querySelector('button');
       const originalText = btn.textContent;
       btn.innerHTML = '<svg width="20" height="20" viewBox="0 0 20 20" fill="none" style="animation:spin 1s linear infinite"><circle cx="10" cy="10" r="8" stroke="currentColor" stroke-width="2" stroke-dasharray="25 50" stroke-linecap="round"/></svg> Sending...';
       btn.disabled = true;
       
-      // Simulate API call
       setTimeout(() => {
         btn.innerHTML = '✓ Thank You!';
         btn.style.background = 'linear-gradient(135deg,#16a34a,#15803d)';
-        
         const input = this.querySelector('input');
         input.style.display = 'none';
         
@@ -451,22 +385,10 @@ function initComingSoonModal() {
   }
 }
 
-/* ═══════════════════════════════════════
-   GSAP ANIMATIONS
-═══════════════════════════════════════ */
 function initGSAP() {
-  // Set initial states
-  gsap.set(".line-1, .line-2, .hero-sub, .hero-btns, .hero-stats", {
-    opacity: 0,
-    y: 20
-  });
-  
-  gsap.set(".float-panel", {
-    opacity: 0,
-    y: 30
-  });
+  gsap.set(".line-1, .line-2, .hero-sub, .hero-btns, .hero-stats", { opacity: 0, y: 20 });
+  gsap.set(".float-panel", { opacity: 0, y: 30 });
 
-  /* Hero entrance */
   gsap.timeline({ delay: 0.1 })
     .to(".line-1", { opacity: 1, y: 0, duration: 0.85, ease: "power3.out" })
     .to(".line-2", { opacity: 1, y: 0, duration: 0.85, ease: "power3.out" }, "-=0.55")
@@ -477,124 +399,17 @@ function initGSAP() {
 
   if (typeof ScrollTrigger === "undefined") return;
 
-  function st(el, start) {
-    return { trigger: el, start: start || "top 82%", toggleActions: "play none none none" };
-  }
+  function st(el, start) { return { trigger: el, start: start || "top 82%", toggleActions: "play none none none" }; }
 
-  // Story scenes
-  gsap.from("#scene-paper", {
-    scrollTrigger: st("#scene-paper"),
-    opacity: 0,
-    y: 50,
-    duration: 0.75,
-    ease: "power3.out"
-  });
-  
-  gsap.from("#scene-digital", {
-    scrollTrigger: st("#scene-digital"),
-    opacity: 0,
-    y: 50,
-    duration: 0.75,
-    ease: "power3.out"
-  });
-
-  // Feature cards
-  gsap.from(".feat-card", {
-    scrollTrigger: st(".feature-grid"),
-    opacity: 0,
-    y: 40,
-    stagger: { each: 0.05, from: "start" },
-    duration: 0.55,
-    ease: "power2.out",
-    onComplete: function() {
-      document.querySelectorAll(".feat-card").forEach(el => el.classList.add('gsap-animated'));
-    }
-  });
-
-  // Architecture nodes
-  gsap.from(".arch-node", {
-    scrollTrigger: st(".arch-diagram"),
-    opacity: 0,
-    scale: 0.75,
-    stagger: 0.12,
-    duration: 0.6,
-    ease: "back.out(1.5)",
-    onComplete: function() {
-      document.querySelectorAll(".arch-node").forEach(el => el.classList.add('gsap-animated'));
-    }
-  });
-
-  // Screen cards
-  gsap.from(".screen-card", {
-    scrollTrigger: st(".screens-grid"),
-    opacity: 0,
-    y: 40,
-    stagger: 0.1,
-    duration: 0.75,
-    ease: "power3.out",
-    onComplete: function() {
-      document.querySelectorAll(".screen-card").forEach(el => el.classList.add('gsap-animated'));
-    }
-  });
-
-  // Tech cards
-  gsap.from(".tech-card", {
-    scrollTrigger: st(".tech-grid"),
-    opacity: 0,
-    y: 28,
-    stagger: 0.13,
-    duration: 0.6,
-    ease: "power2.out",
-    onComplete: function() {
-      document.querySelectorAll(".tech-card").forEach(el => el.classList.add('gsap-animated'));
-    }
-  });
-
-  // Team cards
-  gsap.from(".team-card", {
-    scrollTrigger: st(".team-grid"),
-    opacity: 0,
-    y: 45,
-    stagger: 0.18,
-    duration: 0.8,
-    ease: "power3.out",
-    onComplete: function() {
-      document.querySelectorAll(".team-card").forEach(el => el.classList.add('gsap-animated'));
-    }
-  });
-
-  // Download section
-  gsap.from(".dl-inner > *", {
-    scrollTrigger: st("#download", "top 78%"),
-    opacity: 0,
-    y: 28,
-    stagger: 0.08,
-    duration: 0.65,
-    ease: "power2.out"
-  });
-
-  // Section headings
-  gsap.from(".section-label", {
-    scrollTrigger: { trigger: ".section-label", start: "top 88%", toggleActions: "play none none none" },
-    opacity: 0,
-    y: 18,
-    duration: 0.55,
-    ease: "power2.out"
-  });
-  
-  gsap.from(".section-title", {
-    scrollTrigger: { trigger: ".section-title", start: "top 88%", toggleActions: "play none none none" },
-    opacity: 0,
-    y: 18,
-    duration: 0.55,
-    ease: "power2.out"
-  });
-  
-  gsap.from(".section-sub", {
-    scrollTrigger: { trigger: ".section-sub", start: "top 88%", toggleActions: "play none none none" },
-    opacity: 0,
-    y: 18,
-    duration: 0.55,
-    ease: "power2.out"
-  });
+  gsap.from("#scene-paper", { scrollTrigger: st("#scene-paper"), opacity: 0, y: 50, duration: 0.75, ease: "power3.out" });
+  gsap.from("#scene-digital", { scrollTrigger: st("#scene-digital"), opacity: 0, y: 50, duration: 0.75, ease: "power3.out" });
+  gsap.from(".feat-card", { scrollTrigger: st(".feature-grid"), opacity: 0, y: 40, stagger: { each: 0.05, from: "start" }, duration: 0.55, ease: "power2.out" });
+  gsap.from(".arch-node", { scrollTrigger: st(".arch-diagram"), opacity: 0, scale: 0.75, stagger: 0.12, duration: 0.6, ease: "back.out(1.5)" });
+  gsap.from(".screen-card", { scrollTrigger: st(".screens-grid"), opacity: 0, y: 40, stagger: 0.1, duration: 0.75, ease: "power3.out" });
+  gsap.from(".tech-card", { scrollTrigger: st(".tech-grid"), opacity: 0, y: 28, stagger: 0.13, duration: 0.6, ease: "power2.out" });
+  gsap.from(".team-card", { scrollTrigger: st(".team-grid"), opacity: 0, y: 45, stagger: 0.18, duration: 0.8, ease: "power3.out" });
+  gsap.from(".dl-inner > *", { scrollTrigger: st("#download", "top 78%"), opacity: 0, y: 28, stagger: 0.08, duration: 0.65, ease: "power2.out" });
+  gsap.from(".section-label", { scrollTrigger: { trigger: ".section-label", start: "top 88%", toggleActions: "play none none none" }, opacity: 0, y: 18, duration: 0.55, ease: "power2.out" });
+  gsap.from(".section-title", { scrollTrigger: { trigger: ".section-title", start: "top 88%", toggleActions: "play none none none" }, opacity: 0, y: 18, duration: 0.55, ease: "power2.out" });
+  gsap.from(".section-sub", { scrollTrigger: { trigger: ".section-sub", start: "top 88%", toggleActions: "play none none none" }, opacity: 0, y: 18, duration: 0.55, ease: "power2.out" });
 }
