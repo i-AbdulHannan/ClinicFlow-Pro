@@ -413,3 +413,53 @@ function initGSAP() {
   gsap.from(".section-title", { scrollTrigger: { trigger: ".section-title", start: "top 88%", toggleActions: "play none none none" }, opacity: 0, y: 18, duration: 0.55, ease: "power2.out" });
   gsap.from(".section-sub", { scrollTrigger: { trigger: ".section-sub", start: "top 88%", toggleActions: "play none none none" }, opacity: 0, y: 18, duration: 0.55, ease: "power2.out" });
 }
+
+// Add to existing script.js after init functions
+
+// Update counter targets
+function initCounters() {
+  var cards = document.querySelectorAll(".stat-card[data-target]");
+  if (!cards.length) return;
+
+  var done = new Set();
+  var obs = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (!entry.isIntersecting || done.has(entry.target)) return;
+      done.add(entry.target);
+
+      var card = entry.target;
+      var target = parseFloat(card.dataset.target);
+      var suffix = card.dataset.suffix || "";
+      var counter = card.querySelector(".stat-counter");
+      if (!counter) return;
+
+      var duration = 2000;
+      var startTime = null;
+      var isFloat = target % 1 !== 0;
+
+      (function tick(now) {
+        if (!startTime) startTime = now;
+        var progress = Math.min((now - startTime) / duration, 1);
+        var eased = 1 - Math.pow(1 - progress, 3);
+        var value = eased * target;
+        if (isFloat) {
+          counter.textContent = value.toFixed(1) + suffix;
+        } else {
+          counter.textContent = Math.round(value) + suffix;
+        }
+        if (progress < 1) requestAnimationFrame(tick);
+      })(performance.now());
+    });
+  }, { threshold: 0.3 });
+
+  cards.forEach(function (c) { obs.observe(c); });
+}
+
+// Smooth scroll for pricing and CTA links
+document.querySelectorAll('a[href="#pricing"], a[href="#testimonials"], a[href="#contact"]').forEach(link => {
+  link.addEventListener('click', function(e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute('href'));
+    if(target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+});

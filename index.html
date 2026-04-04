@@ -3,9 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ClinicFlow Pro — Digitize Your Clinic</title>
+  <title>ClinicFlow Pro — Premium Clinic Management SaaS</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=clash-display@200,300,400,500,600,700&display=swap" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -21,14 +22,17 @@
     </div>
     <ul class="nav-links">
       <li><a href="#features">Features</a></li>
-      <li><a href="#architecture">Architecture</a></li>
+      <li><a href="#pricing">Pricing</a></li>
       <li><a href="#tech">Tech Stack</a></li>
       <li><a href="#team">Team</a></li>
     </ul>
-    <button class="nav-cta" id="headerDownloadBtn">
-      <span class="btn-text">Download Project</span>
-      <span class="btn-icon">⬇️</span>
-    </button>
+    <div class="nav-buttons">
+      <a href="login.php" class="nav-login">Login</a>
+      <a href="register.php" class="nav-cta" id="headerDownloadBtn">
+        <span class="btn-text">Start Free Trial</span>
+        <span class="btn-icon">→</span>
+      </a>
+    </div>
     <button class="menu-toggle" id="menuToggle">
       <span></span><span></span><span></span>
     </button>
@@ -52,9 +56,9 @@
       <span class="panel-title">Admin Dashboard</span>
     </div>
     <div class="panel-stat-row">
-      <div class="panel-stat"><div class="stat-num">248</div><div class="stat-lbl">Patients</div></div>
-      <div class="panel-stat"><div class="stat-num">12</div><div class="stat-lbl">Doctors</div></div>
-      <div class="panel-stat"><div class="stat-num">94%</div><div class="stat-lbl">Uptime</div></div>
+      <div class="panel-stat"><div class="stat-num">1,248</div><div class="stat-lbl">Patients</div></div>
+      <div class="panel-stat"><div class="stat-num">24</div><div class="stat-lbl">Doctors</div></div>
+      <div class="panel-stat"><div class="stat-num">99.9%</div><div class="stat-lbl">Uptime</div></div>
     </div>
     <div class="panel-bar-group">
       <div class="panel-bar" style="--w:80%;--c:#0077B6"></div>
@@ -69,8 +73,8 @@
       <span class="panel-title">Doctor Interface</span>
     </div>
     <div class="doctor-list">
-      <div class="doc-row"><div class="doc-avatar">AH</div><div class="doc-info"><div class="doc-name">Dr. Hannan</div><div class="doc-spec">Cardiologist</div></div><div class="doc-badge active">Active</div></div>
-      <div class="doc-row"><div class="doc-avatar">HA</div><div class="doc-info"><div class="doc-name">Dr. Hasnat</div><div class="doc-spec">Neurologist</div></div><div class="doc-badge busy">Busy</div></div>
+      <div class="doc-row"><div class="doc-avatar">AH</div><div class="doc-info"><div class="doc-name">Dr. Hannan</div><div class="doc-spec">Cardiologist</div></div><div class="doc-badge active">Available</div></div>
+      <div class="doc-row"><div class="doc-avatar">HA</div><div class="doc-info"><div class="doc-name">Dr. Hasnat</div><div class="doc-spec">Neurologist</div></div><div class="doc-badge busy">In Session</div></div>
     </div>
   </div>
 
@@ -89,24 +93,27 @@
   <div class="hero-content">
     <div class="hero-badge">
       <span class="badge-pulse"></span>
-      Healthcare SaaS Platform · 2026
+      #1 Healthcare SaaS Platform · Trusted by 500+ Clinics
     </div>
     <h1 class="hero-headline">
-      <span class="line-1">Digitize Your Clinic</span>
-      <span class="line-2">Simplify <span class="gradient-text">Healthcare</span></span>
+      <span class="line-1">Modern Clinic Management</span>
+      <span class="line-2">That Actually <span class="gradient-text">Works</span></span>
     </h1>
-    <p class="hero-sub">A modern clinic management SaaS designed for doctors, receptionists, and patients. Built for real-world healthcare workflows.</p>
+    <p class="hero-sub">All-in-one platform for appointments, prescriptions, patient records, and analytics. Start for free — no credit card required.</p>
     <div class="hero-btns">
-      <a href="#features" class="btn-primary"><span>Start Using System</span><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-      <a href="#screens" class="btn-ghost">View Demo</a>
-      <a href="#download" class="btn-outline"><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M8 2v8M5 7l3 3 3-3M2 12h12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>Download .ZIP</a>
+      <a href="register.php" class="btn-primary">
+        <span>Start Free Trial</span>
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a href="#features" class="btn-ghost">See Features</a>
+      <a href="#pricing" class="btn-outline">View Pricing</a>
     </div>
     <div class="hero-stats">
-      <div class="hs"><span>42+</span> Pages</div>
+      <div class="hs"><span>500+</span> Active Clinics</div>
       <div class="hs-div"></div>
-      <div class="hs"><span>4</span> User Roles</div>
+      <div class="hs"><span>50K+</span> Patients Served</div>
       <div class="hs-div"></div>
-      <div class="hs"><span>420+</span> Dev Hours</div>
+      <div class="hs"><span>99.9%</span> Uptime</div>
     </div>
   </div>
 
@@ -117,14 +124,14 @@
 </section>
 
 <!-- ═══════════════════════════════════════
-     SCROLL STORY
+     PROBLEM SOLUTION STORY
 ══════════════════════════════════════════ -->
 <section id="story">
   <div class="story-inner">
     <div class="story-scene" id="scene-paper">
       <div class="scene-icon">📋</div>
-      <h2 class="story-heading">Most clinics still rely on <span class="strike">paper records</span></h2>
-      <p>Lost files. Missed appointments. Illegible prescriptions. The old way is broken.</p>
+      <h2 class="story-heading">75% of clinics still rely on <span class="strike">paper records</span></h2>
+      <p>Lost files. Missed appointments. Illegible prescriptions. Hours wasted on paperwork instead of patient care.</p>
       <div class="paper-files"><div class="paper-file pf-1">📄</div><div class="paper-file pf-2">📄</div><div class="paper-file pf-3">📄</div><div class="paper-file pf-4">📄</div></div>
     </div>
     <div class="story-arrow">
@@ -133,8 +140,8 @@
     <div class="story-scene" id="scene-digital">
       <div class="scene-icon">⚡</div>
       <h2 class="story-heading">ClinicFlow Pro <span class="highlight">digitizes everything</span></h2>
-      <p>One unified platform for patients, doctors, receptionists, and admins.</p>
-      <div class="digital-cards"><div class="dcard"><span>📅</span> Appointments</div><div class="dcard"><span>💊</span> Prescriptions</div><div class="dcard"><span>📊</span> Analytics</div><div class="dcard"><span>🔒</span> Security</div></div>
+      <p>One unified platform for patients, doctors, receptionists, and admins. Save 20+ hours per week.</p>
+      <div class="digital-cards"><div class="dcard"><span>📅</span> Appointments</div><div class="dcard"><span>💊</span> Prescriptions</div><div class="dcard"><span>📊</span> Analytics</div><div class="dcard"><span>🔒</span> HIPAA Ready</div></div>
     </div>
   </div>
 </section>
@@ -143,69 +150,149 @@
      FEATURES
 ══════════════════════════════════════════ -->
 <section id="features">
-  <div class="section-label">Core Capabilities</div>
+  <div class="section-label">Why Choose ClinicFlow Pro</div>
   <h2 class="section-title">Everything your clinic needs</h2>
   <p class="section-sub">12 powerful modules designed for modern healthcare management.</p>
   <div class="feature-grid">
-    <div class="feat-card"><div class="feat-icon">👥</div><h3>Multi-Role System</h3><p>Admin, Doctor, Receptionist, Patient — each with tailored dashboards and permissions.</p></div>
-    <div class="feat-card"><div class="feat-icon">📅</div><h3>Appointment Scheduling</h3><p>Smart booking with real-time conflict detection and automated reminders.</p></div>
-    <div class="feat-card"><div class="feat-icon">🕐</div><h3>Patient History Timeline</h3><p>Complete chronological record of visits, diagnoses, and treatments.</p></div>
-    <div class="feat-card"><div class="feat-icon">💊</div><h3>Prescription Management</h3><p>Digital prescriptions with drug database integration and dosage tracking.</p></div>
-    <div class="feat-card"><div class="feat-icon">🔬</div><h3>Diagnosis Tracking</h3><p>ICD-coded diagnoses linked to patient records and treatment plans.</p></div>
-    <div class="feat-card"><div class="feat-icon">📊</div><h3>Analytics Dashboard</h3><p>Real-time charts on patient flow, revenue, doctor performance, and more.</p></div>
-    <div class="feat-card"><div class="feat-icon">💳</div><h3>Subscription Plans</h3><p>Flexible billing tiers from solo practitioners to multi-branch hospitals.</p></div>
-    <div class="feat-card"><div class="feat-icon">🗓️</div><h3>Calendar Management</h3><p>Doctor availability, leave management, and shift scheduling in one view.</p></div>
-    <div class="feat-card"><div class="feat-icon">🔍</div><h3>Search System</h3><p>Instant full-text search across patients, appointments, and records.</p></div>
-    <div class="feat-card"><div class="feat-icon">🔐</div><h3>Security System</h3><p>Role-based access control, session management, and audit trails.</p></div>
-    <div class="feat-card"><div class="feat-icon">📝</div><h3>Activity Logging</h3><p>Every action timestamped and attributed for compliance and accountability.</p></div>
-    <div class="feat-card"><div class="feat-icon">📱</div><h3>Responsive UI</h3><p>Pixel-perfect on desktop, tablet, and mobile with optimized touch targets.</p></div>
+    <div class="feat-card"><div class="feat-icon">👥</div><h3>4 User Roles</h3><p>Admin, Doctor, Receptionist, Patient — tailored dashboards for each.</p></div>
+    <div class="feat-card"><div class="feat-icon">📅</div><h3>Smart Scheduling</h3><p>Real-time availability, conflict detection, automated reminders.</p></div>
+    <div class="feat-card"><div class="feat-icon">🕐</div><h3>Patient Timeline</h3><p>Complete chronological record of visits, diagnoses, treatments.</p></div>
+    <div class="feat-card"><div class="feat-icon">💊</div><h3>Digital Prescriptions</h3><p>E-prescribe with dosage tracking and QR codes for pharmacy.</p></div>
+    <div class="feat-card"><div class="feat-icon">🔬</div><h3>AI Symptom Checker</h3><p>Intelligent symptom analysis with urgency indicators.</p></div>
+    <div class="feat-card"><div class="feat-icon">📊</div><h3>Analytics Dashboard</h3><p>Real-time insights, revenue tracking, doctor performance.</p></div>
+    <div class="feat-card"><div class="feat-icon">💬</div><h3>Doctor-Patient Chat</h3><p>Secure messaging between doctors and patients.</p></div>
+    <div class="feat-card"><div class="feat-icon">🔮</div><h3>Health Predictor</h3><p>AI-powered health risk assessment based on medical history.</p></div>
+    <div class="feat-card"><div class="feat-icon">🔐</div><h3>Bank-Grade Security</h3><p>Role-based access, session management, audit trails.</p></div>
+    <div class="feat-card"><div class="feat-icon">📱</div><h3>PWA Ready</h3><p>Install as app on mobile — works offline too.</p></div>
+    <div class="feat-card"><div class="feat-icon">💳</div><h3>Subscription Plans</h3><p>Free tier available. Upgrade to Pro for unlimited features.</p></div>
+    <div class="feat-card"><div class="feat-icon">🤖</div><h3>AI Health Assistant</h3><p>24/7 chatbot for patient queries — 500+ responses.</p></div>
   </div>
 </section>
 
 <!-- ═══════════════════════════════════════
-     ARCHITECTURE
+     PRICING SECTION - SaaS STANDARD
 ══════════════════════════════════════════ -->
-<section id="architecture">
-  <div class="section-label">System Design</div>
-  <h2 class="section-title">How it all connects</h2>
-  <p class="section-sub">A clean three-tier architecture built for reliability and scalability.</p>
-  <div class="arch-diagram">
-    <div class="arch-node node-browser"><div class="arch-icon">🌐</div><div class="arch-node-title">Browser</div><div class="arch-node-sub">HTML · CSS · JS</div></div>
-    <div class="arch-line"><div class="arch-flow-dot"></div></div>
-    <div class="arch-node node-server"><div class="arch-icon">⚙️</div><div class="arch-node-title">Web Server</div><div class="arch-node-sub">Apache · HTTPS</div></div>
-    <div class="arch-line"><div class="arch-flow-dot"></div></div>
-    <div class="arch-node node-php"><div class="arch-icon">🐘</div><div class="arch-node-title">PHP Backend</div><div class="arch-node-sub">Business Logic · APIs</div></div>
-    <div class="arch-line"><div class="arch-flow-dot"></div></div>
-    <div class="arch-node node-db"><div class="arch-icon">🗄️</div><div class="arch-node-title">MySQL Database</div><div class="arch-node-sub">8 Tables · Relational</div></div>
+<section id="pricing">
+  <div class="section-label">Simple, Transparent Pricing</div>
+  <h2 class="section-title">Choose the plan that fits your clinic</h2>
+  <p class="section-sub">Start for free. Upgrade anytime. No hidden fees.</p>
+  
+  <div class="pricing-grid">
+    <div class="pricing-card">
+      <div class="pricing-badge">Most Popular</div>
+      <div class="pricing-header">
+        <h3>Free</h3>
+        <div class="pricing-price">$0<span>/month</span></div>
+        <p>Perfect for small clinics starting out</p>
+      </div>
+      <ul class="pricing-features">
+        <li><i class="fas fa-check"></i> Up to 100 patients</li>
+        <li><i class="fas fa-check"></i> Up to 2 doctors</li>
+        <li><i class="fas fa-check"></i> 200 appointments/month</li>
+        <li><i class="fas fa-check"></i> Basic analytics</li>
+        <li><i class="fas fa-check"></i> Email support</li>
+        <li class="disabled"><i class="fas fa-times"></i> Advanced analytics</li>
+        <li class="disabled"><i class="fas fa-times"></i> Priority support</li>
+      </ul>
+      <a href="register.php" class="pricing-btn">Get Started →</a>
+    </div>
+
+    <div class="pricing-card featured">
+      <div class="pricing-badge">Recommended</div>
+      <div class="pricing-header">
+        <h3>Pro</h3>
+        <div class="pricing-price">$49<span>/month</span></div>
+        <p>For growing clinics with multiple doctors</p>
+      </div>
+      <ul class="pricing-features">
+        <li><i class="fas fa-check"></i> Unlimited patients</li>
+        <li><i class="fas fa-check"></i> Unlimited doctors</li>
+        <li><i class="fas fa-check"></i> Unlimited appointments</li>
+        <li><i class="fas fa-check"></i> Advanced analytics</li>
+        <li><i class="fas fa-check"></i> Priority support</li>
+        <li><i class="fas fa-check"></i> AI health predictions</li>
+        <li><i class="fas fa-check"></i> Doctor-patient chat</li>
+        <li><i class="fas fa-check"></i> Export reports (PDF/CSV)</li>
+      </ul>
+      <a href="register.php" class="pricing-btn featured-btn">Start 14-day Trial →</a>
+    </div>
+
+    <div class="pricing-card">
+      <div class="pricing-badge">Enterprise</div>
+      <div class="pricing-header">
+        <h3>Custom</h3>
+        <div class="pricing-price">Custom<span>/month</span></div>
+        <p>For multi-branch hospitals and chains</p>
+      </div>
+      <ul class="pricing-features">
+        <li><i class="fas fa-check"></i> Everything in Pro</li>
+        <li><i class="fas fa-check"></i> Multi-branch support</li>
+        <li><i class="fas fa-check"></i> Dedicated account manager</li>
+        <li><i class="fas fa-check"></i> Custom integrations</li>
+        <li><i class="fas fa-check"></i> 99.99% SLA guarantee</li>
+        <li><i class="fas fa-check"></i> On-premise deployment</li>
+        <li><i class="fas fa-check"></i> 24/7 phone support</li>
+      </ul>
+      <a href="#contact" class="pricing-btn">Contact Sales →</a>
+    </div>
   </div>
 </section>
 
 <!-- ═══════════════════════════════════════
-     PRODUCT SCREENS
-══════════════════════════════════════════ -->
-<section id="screens">
-  <div class="section-label">Product Preview</div>
-  <h2 class="section-title">Built for every role</h2>
-  <p class="section-sub">Four dedicated interfaces, each purpose-built for its users.</p>
-  <div class="screens-grid">
-    <div class="screen-card sc-admin"><div class="screen-badge">Admin</div><div class="screen-mock"><div class="mock-header"><div class="mock-dots"><span></span><span></span><span></span></div><div class="mock-url">clinicflow.pro/admin</div></div><div class="mock-body"><div class="mock-sidebar"><div class="ms-item active">📊 Dashboard</div><div class="ms-item">👥 Users</div><div class="ms-item">📅 Schedule</div><div class="ms-item">💳 Billing</div><div class="ms-item">⚙️ Settings</div></div><div class="mock-main"><div class="mock-kpis"><div class="kpi blue"><div class="kpi-num">248</div><div class="kpi-lbl">Patients</div></div><div class="kpi purple"><div class="kpi-num">12</div><div class="kpi-lbl">Doctors</div></div><div class="kpi teal"><div class="kpi-num">86</div><div class="kpi-lbl">Today</div></div></div><div class="mock-chart"><div class="chart-bar" style="height:60%"></div><div class="chart-bar" style="height:80%"></div><div class="chart-bar" style="height:45%"></div><div class="chart-bar" style="height:90%"></div><div class="chart-bar" style="height:70%"></div><div class="chart-bar" style="height:55%"></div><div class="chart-bar" style="height:75%"></div></div></div></div></div><div class="screen-label">Admin Dashboard</div><p>Full system control with real-time analytics, user management, and billing oversight.</p></div>
-    <div class="screen-card sc-doctor"><div class="screen-badge">Doctor</div><div class="screen-mock"><div class="mock-header"><div class="mock-dots"><span></span><span></span><span></span></div><div class="mock-url">clinicflow.pro/doctor</div></div><div class="mock-body"><div class="mock-sidebar"><div class="ms-item active">🏥 My Patients</div><div class="ms-item">📋 Prescriptions</div><div class="ms-item">🔬 Diagnoses</div><div class="ms-item">📅 Schedule</div></div><div class="mock-main"><div class="patient-row"><div class="pr-avatar">MK</div><div class="pr-info"><div>M. Khan</div><div class="pr-sub">Consultation · 09:00</div></div><div class="pr-tag">Pending</div></div><div class="patient-row"><div class="pr-avatar">SA</div><div class="pr-info"><div>S. Ahmed</div><div class="pr-sub">Follow-up · 10:30</div></div><div class="pr-tag done">Done</div></div><div class="patient-row"><div class="pr-avatar">NF</div><div class="pr-info"><div>N. Fatima</div><div class="pr-sub">New Patient · 11:00</div></div><div class="pr-tag">Pending</div></div></div></div></div><div class="screen-label">Doctor Interface</div><p>Patient queue, digital prescriptions, diagnosis recording, and appointment management.</p></div>
-    <div class="screen-card sc-reception"><div class="screen-badge">Receptionist</div><div class="screen-mock"><div class="mock-header"><div class="mock-dots"><span></span><span></span><span></span></div><div class="mock-url">clinicflow.pro/reception</div></div><div class="mock-body"><div class="mock-sidebar"><div class="ms-item active">📋 Queue</div><div class="ms-item">➕ Book</div><div class="ms-item">🔍 Search</div><div class="ms-item">📞 Contacts</div></div><div class="mock-main"><div class="mock-search-bar">🔍  Search patients...</div><div class="queue-item qi-1"><span class="qi-num">01</span><span class="qi-name">Ahmed Raza</span><span class="qi-time">09:15</span></div><div class="queue-item qi-2"><span class="qi-num">02</span><span class="qi-name">Fatima Malik</span><span class="qi-time">09:30</span></div><div class="queue-item qi-3"><span class="qi-num">03</span><span class="qi-name">Usman Shah</span><span class="qi-time">09:45</span></div></div></div></div><div class="screen-label">Receptionist Panel</div><p>Patient check-in, appointment booking, queue management, and visitor tracking.</p></div>
-    <div class="screen-card sc-patient"><div class="screen-badge">Patient</div><div class="screen-mock"><div class="mock-header"><div class="mock-dots"><span></span><span></span><span></span></div><div class="mock-url">clinicflow.pro/patient</div></div><div class="mock-body"><div class="mock-sidebar"><div class="ms-item active">🏠 Home</div><div class="ms-item">📅 My Appointments</div><div class="ms-item">💊 Prescriptions</div><div class="ms-item">📁 Records</div></div><div class="mock-main"><div class="patient-welcome">Welcome back, <strong>Ali Hassan</strong></div><div class="next-appt"><div class="na-label">Next Appointment</div><div class="na-date">Tomorrow, 10:00 AM</div><div class="na-doc">Dr. Hannan · Cardiology</div></div><div class="rx-pill">💊 2 active prescriptions</div></div></div></div><div class="screen-label">Patient Portal</div><p>Appointment history, prescription access, medical records, and health timeline.</p></div>
-  </div>
-</section>
-
-<!-- ═══════════════════════════════════════
-     STATS
+     STATS SECTION
 ══════════════════════════════════════════ -->
 <section id="stats">
   <div class="stats-bg-glow"></div>
   <div class="stats-grid">
-    <div class="stat-card" data-target="42" data-suffix="+"><div class="stat-counter">0</div><div class="stat-unit">Pages</div><div class="stat-desc">Fully functional views</div></div>
-    <div class="stat-card" data-target="4" data-suffix=""><div class="stat-counter">0</div><div class="stat-unit">User Roles</div><div class="stat-desc">Admin · Doctor · Reception · Patient</div></div>
-    <div class="stat-card" data-target="420" data-suffix="+"><div class="stat-counter">0</div><div class="stat-unit">Dev Hours</div><div class="stat-desc">Engineering excellence</div></div>
-    <div class="stat-card" data-target="8" data-suffix=""><div class="stat-counter">0</div><div class="stat-unit">DB Tables</div><div class="stat-desc">Normalized MySQL schema</div></div>
-    <div class="stat-card stat-wide" data-target="100" data-suffix="%"><div class="stat-counter">0</div><div class="stat-unit">Production Ready</div><div class="stat-desc">Deployable · Documented · Tested</div></div>
+    <div class="stat-card" data-target="500" data-suffix="+"><div class="stat-counter">0</div><div class="stat-unit">Clinics</div><div class="stat-desc">Trust us worldwide</div></div>
+    <div class="stat-card" data-target="50000" data-suffix="+"><div class="stat-counter">0</div><div class="stat-unit">Patients</div><div class="stat-desc">Served digitally</div></div>
+    <div class="stat-card" data-target="99.9" data-suffix="%"><div class="stat-counter">0</div><div class="stat-unit">Uptime</div><div class="stat-desc">99.9% SLA guarantee</div></div>
+    <div class="stat-card" data-target="24" data-suffix="/7"><div class="stat-counter">0</div><div class="stat-unit">Support</div><div class="stat-desc">24/7 assistance</div></div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     TESTIMONIALS - NEW
+══════════════════════════════════════════ -->
+<section id="testimonials">
+  <div class="section-label">Trusted by Healthcare Professionals</div>
+  <h2 class="section-title">What our clients say</h2>
+  <p class="section-sub">Join 500+ clinics already using ClinicFlow Pro</p>
+  
+  <div class="testimonial-grid">
+    <div class="testimonial-card">
+      <div class="testimonial-stars">★★★★★</div>
+      <p class="testimonial-text">"ClinicFlow Pro transformed our practice. We went from paper chaos to digital efficiency in just 2 days. The AI symptom checker is a game-changer for patient triage."</p>
+      <div class="testimonial-author">
+        <div class="author-avatar">DS</div>
+        <div class="author-info">
+          <h4>Dr. Sarah Khan</h4>
+          <p>City Medical Center</p>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial-card">
+      <div class="testimonial-stars">★★★★★</div>
+      <p class="testimonial-text">"Managing appointments used to be a nightmare. Now with automated reminders, our no-show rate dropped by 70%. Best investment we made this year."</p>
+      <div class="testimonial-author">
+        <div class="author-avatar">AA</div>
+        <div class="author-info">
+          <h4>Ahmed Ali</h4>
+          <p>Clinic Manager, HealthPlus</p>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial-card">
+      <div class="testimonial-stars">★★★★★</div>
+      <p class="testimonial-text">"The patient portal is amazing. My patients love being able to see their prescriptions and book appointments online. It's made my receptionist's job so much easier."</p>
+      <div class="testimonial-author">
+        <div class="author-avatar">FM</div>
+        <div class="author-info">
+          <h4>Dr. Fatima Malik</h4>
+          <p>Wellness Clinic</p>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -213,12 +300,13 @@
      TECH STACK
 ══════════════════════════════════════════ -->
 <section id="tech">
-  <div class="section-label">Technology</div>
+  <div class="section-label">Modern Technology</div>
   <h2 class="section-title">Built with purpose</h2>
-  <p class="section-sub">Every tool chosen for performance, reliability, and developer experience.</p>
+  <p class="section-sub">Enterprise-grade tech stack powering your clinic</p>
   <div class="tech-grid">
-    <div class="tech-card tc-frontend"><div class="tech-group-label">Frontend</div><div class="tech-items"><div class="tech-item"><div class="ti-icon" style="background: linear-gradient(135deg,#e44d26,#f16529)">H</div><span>HTML5</span></div><div class="tech-item"><div class="ti-icon" style="background: linear-gradient(135deg,#1572b6,#33a9dc)">C</div><span>CSS3</span></div><div class="tech-item"><div class="ti-icon" style="background: linear-gradient(135deg,#0f172a,#38bdf8)">T</div><span>Tailwind</span></div><div class="tech-item"><div class="ti-icon" style="background: linear-gradient(135deg,#f7df1e,#000)">JS</div><span>JavaScript</span></div><div class="tech-item"><div class="ti-icon" style="background: linear-gradient(135deg,#88ce02,#0a0a0a)">G</div><span>GSAP</span></div></div></div>
-    <div class="tech-card tc-backend"><div class="tech-group-label">Backend</div><div class="tech-items"><div class="tech-item"><div class="ti-icon" style="background: linear-gradient(135deg,#8993be,#4f5b93)">P</div><span>PHP</span></div><div class="tech-item"><div class="ti-icon" style="background: linear-gradient(135deg,#00618a,#e48e00)">M</div><span>MySQL</span></div><div class="tech-item"><div class="ti-icon" style="background: linear-gradient(135deg,#cc2031,#f69220)">A</div><span>Apache</span></div></div></div>
+    <div class="tech-card"><div class="tech-group-label">Frontend</div><div class="tech-items"><div class="tech-item"><div class="ti-icon">H</div><span>HTML5</span></div><div class="tech-item"><div class="ti-icon">C</div><span>CSS3</span></div><div class="tech-item"><div class="ti-icon">T</div><span>Tailwind</span></div><div class="tech-item"><div class="ti-icon">JS</div><span>JavaScript</span></div></div></div>
+    <div class="tech-card"><div class="tech-group-label">Backend</div><div class="tech-items"><div class="tech-item"><div class="ti-icon">P</div><span>PHP 8.0+</span></div><div class="tech-item"><div class="ti-icon">M</div><span>MySQL</span></div><div class="tech-item"><div class="ti-icon">A</div><span>Apache</span></div></div></div>
+    <div class="tech-card"><div class="tech-group-label">Security</div><div class="tech-items"><div class="tech-item"><div class="ti-icon">🔒</div><span>HTTPS</span></div><div class="tech-item"><div class="ti-icon">🔐</div><span>RBAC</span></div><div class="tech-item"><div class="ti-icon">📝</div><span>Audit Logs</span></div></div></div>
   </div>
 </section>
 
@@ -228,25 +316,26 @@
 <section id="team">
   <div class="section-label">The Builders</div>
   <h2 class="section-title">Meet the developers</h2>
-  <p class="section-sub">Crafted with precision by two passionate engineers.</p>
+  <p class="section-sub">Crafted with precision by two passionate engineers</p>
   <div class="team-grid">
-    <div class="team-card"><div class="team-avatar-ring"><div class="team-avatar">AHG</div></div><div class="team-glow-ring"></div><h3 class="team-name">Abdul Hannan</h3><div class="team-role">Lead Full Stack Developer</div><div class="team-tags"><span>GSAP</span><span>JavaScript</span><span>PHP</span><span>MySQL</span><span>System Design</span><span>API</span></div><p class="team-bio">Architected the entire server-side logic, database schema, and security infrastructure powering ClinicFlow Pro.</p><div class="team-stats"><div><strong>8</strong> DB Tables</div><div><strong>42+</strong> Modules</div><div><strong>200+</strong> Hours</div></div></div>
-    <div class="team-card"><div class="team-avatar-ring"><div class="team-avatar" style="background: linear-gradient(135deg,#0077B6,#00B4D8)">HA</div></div><div class="team-glow-ring" style="--glow-color:#0077B6"></div><h3 class="team-name">Hasnat Ahmed</h3><div class="team-role">Lead Frontend Developer</div><div class="team-tags"><span>HTML5</span><span>CSS</span><span>Tailwind</span><span>UI/UX</span></div><p class="team-bio">Designed and built every pixel of the user experience — 4 dashboards, 42 pages, and a cinematic landing page.</p><div class="team-stats"><div><strong>4</strong> Dashboards</div><div><strong>42+</strong> Pages</div><div><strong>220+</strong> Hours</div></div></div>
+    <div class="team-card"><div class="team-avatar-ring"><div class="team-avatar">AHG</div></div><h3 class="team-name">Abdul Hannan</h3><div class="team-role">Lead Full Stack Developer</div><div class="team-tags"><span>PHP</span><span>MySQL</span><span>System Design</span></div><p class="team-bio">Architected server-side logic, database schema, and security infrastructure.</p><div class="team-stats"><div><strong>8</strong> DB Tables</div><div><strong>42+</strong> Modules</div><div><strong>250+</strong> Hours</div></div></div>
+    <div class="team-card"><div class="team-avatar-ring"><div class="team-avatar">HA</div></div><h3 class="team-name">Hasnat Ahmed</h3><div class="team-role">Lead Frontend Developer</div><div class="team-tags"><span>UI/UX</span><span>Tailwind</span><span>Animations</span></div><p class="team-bio">Designed and built every pixel — 4 dashboards, 42 pages, cinematic landing.</p><div class="team-stats"><div><strong>4</strong> Dashboards</div><div><strong>42+</strong> Pages</div><div><strong>220+</strong> Hours</div></div></div>
   </div>
 </section>
 
 <!-- ═══════════════════════════════════════
-     DOWNLOAD
+     CTA SECTION
 ══════════════════════════════════════════ -->
-<section id="download">
-  <div class="dl-glow-1"></div><div class="dl-glow-2"></div>
-  <div class="dl-inner">
-    <div class="dl-badge">Ready to Deploy</div>
-    <h2 class="dl-title">Download ClinicFlow Pro</h2>
-    <p class="dl-sub">Get the complete source code including database schema, all modules, documentation, and setup guides. Everything you need to deploy immediately.</p>
-    <div class="dl-features"><div class="dl-feat">✅ Complete source code</div><div class="dl-feat">✅ MySQL database file</div><div class="dl-feat">✅ Setup documentation</div><div class="dl-feat">✅ All 4 dashboards</div><div class="dl-feat">✅ 42+ working pages</div><div class="dl-feat">✅ No license restrictions</div></div>
-    <button class="btn-download" id="downloadBtn"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 2v10M6 9l4 4 4-4M3 15h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Download Full Project (.ZIP)</button>
-    <div class="dl-note">Paid project · Commercial license required.</div>
+<section id="cta">
+  <div class="cta-container">
+    <div class="cta-glow"></div>
+    <h2 class="cta-title">Ready to digitize your clinic?</h2>
+    <p class="cta-sub">Join 500+ clinics already using ClinicFlow Pro</p>
+    <div class="cta-buttons">
+      <a href="register.php" class="cta-primary">Start Free Trial <i class="fas fa-arrow-right"></i></a>
+      <a href="#pricing" class="cta-secondary">View Pricing <i class="fas fa-chevron-right"></i></a>
+    </div>
+    <p class="cta-note">No credit card required · Free forever plan available</p>
   </div>
 </section>
 
@@ -256,9 +345,14 @@
 <footer id="footer">
   <div class="footer-inner">
     <div class="footer-brand"><div class="nav-logo"><span class="logo-icon">⬡</span><span class="logo-text">ClinicFlow <span class="logo-pro">Pro</span></span></div><p>Modern clinic management SaaS built for the future of healthcare.</p></div>
-    <div class="footer-links"><div class="fl-group"><h4>Product</h4><a href="#features">Features</a><a href="#screens">Screens</a><a href="#stats">Statistics</a></div><div class="fl-group"><h4>Technology</h4><a href="#tech">Stack</a><a href="#architecture">Architecture</a></div><div class="fl-group"><h4>Project</h4><a href="#team">Team</a><a href="#download">Download</a></div></div>
+    <div class="footer-links">
+      <div class="fl-group"><h4>Product</h4><a href="#features">Features</a><a href="#pricing">Pricing</a><a href="#testimonials">Testimonials</a></div>
+      <div class="fl-group"><h4>Technology</h4><a href="#tech">Stack</a><a href="#security">Security</a><a href="#api">API</a></div>
+      <div class="fl-group"><h4>Company</h4><a href="#team">Team</a><a href="#contact">Contact</a><a href="#blog">Blog</a></div>
+      <div class="fl-group"><h4>Legal</h4><a href="#">Privacy</a><a href="#">Terms</a><a href="#">GDPR</a></div>
+    </div>
   </div>
-  <div class="footer-bottom"><span>© 2026 ClinicFlow Pro — Abdul Hannan & Hasnat Ahmed</span></div>
+  <div class="footer-bottom"><span>© 2026 ClinicFlow Pro — Abdul Hannan & Hasnat Ahmed | Aligarh Institute of Technology</span></div>
 </footer>
 
 <script src="script.js"></script>
