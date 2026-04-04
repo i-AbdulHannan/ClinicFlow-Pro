@@ -5,19 +5,23 @@
 
 document.documentElement.classList.add("js-ready");
 
+// DOM Content Loaded
 document.addEventListener("DOMContentLoaded", function() {
-  const gsaplElements = [
-    ".line-1", ".line-2", ".hero-sub", ".hero-btns", ".hero-stats",
-    ".feat-card", ".arch-node", ".tech-card", ".team-card",
-    ".screen-card", ".story-scene", ".dl-inner > *",
-    ".section-label", ".section-title", ".section-sub"
-  ].join(",");
-  
-  document.querySelectorAll(gsaplElements).forEach(function (el) {
-    el.dataset.gsapReady = "true";
-  });
+  initParticles();
+  initNavbar();
+  initParallax();
+  initCounters();
+  initCardTilt();
+  initSmoothScroll();
+  initSimpleReveal();
+  initChartAnimation();
+  initComingSoonModal();
+  initMobileMenu();
+  initDownloadModal();
+  initPollSystem();
 });
 
+// Emergency timer for GSAP
 var emergencyTimer = setTimeout(function () {
   if (typeof gsap === "undefined") {
     forceShowAll();
@@ -44,19 +48,6 @@ function forceShowAll() {
   });
 }
 
-document.addEventListener("DOMContentLoaded", function () {
-  initParticles();
-  initNavbar();
-  initParallax();
-  initCounters();
-  initCardTilt();
-  initSmoothScroll();
-  initSimpleReveal();
-  initChartAnimation();
-  initComingSoonModal();
-  initMobileMenu();
-});
-
 window.addEventListener("load", function () {
   clearTimeout(emergencyTimer);
 
@@ -72,6 +63,7 @@ window.addEventListener("load", function () {
   initGSAP();
 });
 
+// Particle Canvas
 function initParticles() {
   var canvas = document.getElementById("particleCanvas");
   if (!canvas) return;
@@ -139,6 +131,7 @@ function initParticles() {
   }, { passive: true });
 }
 
+// Navbar Scroll Effect
 function initNavbar() {
   var nav = document.getElementById("navbar");
   if (!nav) return;
@@ -147,6 +140,7 @@ function initNavbar() {
   }, { passive: true });
 }
 
+// Parallax Effect for Floating Panels
 function initParallax() {
   var panels = document.querySelectorAll(".float-panel");
   if (!panels.length) return;
@@ -169,6 +163,7 @@ function initParallax() {
   }, { passive: true });
 }
 
+// Counters Animation
 function initCounters() {
   var cards = document.querySelectorAll(".stat-card[data-target]");
   if (!cards.length) return;
@@ -201,8 +196,9 @@ function initCounters() {
   cards.forEach(function (c) { obs.observe(c); });
 }
 
+// Card Tilt Effect
 function initCardTilt() {
-  document.querySelectorAll(".feat-card, .team-card").forEach(function (card) {
+  document.querySelectorAll(".feat-card, .team-card, .role-card").forEach(function (card) {
     card.addEventListener("mousemove", function (e) {
       var r = card.getBoundingClientRect();
       var x = (e.clientX - r.left) / r.width - 0.5;
@@ -219,6 +215,7 @@ function initCardTilt() {
   });
 }
 
+// Smooth Scroll for Anchor Links
 function initSmoothScroll() {
   document.querySelectorAll('a[href^="#"]').forEach(function (a) {
     a.addEventListener("click", function (e) {
@@ -231,6 +228,7 @@ function initSmoothScroll() {
   });
 }
 
+// Simple Reveal on Scroll
 function initSimpleReveal() {
   var obs = new IntersectionObserver(function (entries) {
     entries.forEach(function (entry) {
@@ -252,6 +250,7 @@ function initSimpleReveal() {
   });
 }
 
+// Chart Bar Animation
 function initChartAnimation() {
   document.querySelectorAll(".mock-chart").forEach(function (chart) {
     var bars = chart.querySelectorAll(".chart-bar");
@@ -268,6 +267,7 @@ function initChartAnimation() {
   });
 }
 
+// Mobile Menu Toggle
 function initMobileMenu() {
   const menuToggle = document.getElementById('menuToggle');
   const navLinks = document.querySelector('.nav-links');
@@ -285,6 +285,7 @@ function initMobileMenu() {
   }
 }
 
+// Coming Soon Modal
 function initComingSoonModal() {
   if (!document.getElementById('comingSoonModal')) {
     const modalHTML = `
@@ -385,6 +386,194 @@ function initComingSoonModal() {
   }
 }
 
+// Download Modal
+function initDownloadModal() {
+  const modal = document.getElementById('downloadModal');
+  const closeBtn = document.getElementById('closeModal');
+  const downloadBtns = ['downloadNavBtn', 'downloadHeroBtn', 'downloadCtaBtn', 'downloadMobileBtn'];
+  
+  function openModal() { 
+    if(modal) {
+      modal.classList.add('active'); 
+      document.body.style.overflow = 'hidden'; 
+    }
+  }
+  function closeModalFunc() { 
+    if(modal) {
+      modal.classList.remove('active'); 
+      document.body.style.overflow = ''; 
+    }
+  }
+  
+  downloadBtns.forEach(id => { 
+    const btn = document.getElementById(id); 
+    if (btn) btn.addEventListener('click', openModal); 
+  });
+  
+  if(closeBtn) closeBtn.addEventListener('click', closeModalFunc);
+  if(modal) modal.addEventListener('click', (e) => { if (e.target === modal) closeModalFunc(); });
+  
+  const form = document.getElementById('downloadForm');
+  const submitBtn = document.getElementById('submitDownload');
+  const successMsg = document.getElementById('successMsg');
+  
+  if(form) {
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const email = document.getElementById('downloadEmail').value;
+      if (!email) return;
+      
+      let emails = JSON.parse(localStorage.getItem('download_emails') || '[]');
+      emails.push({ email, date: new Date().toISOString() });
+      localStorage.setItem('download_emails', JSON.stringify(emails));
+      
+      if(submitBtn) {
+        submitBtn.disabled = true;
+        const spanText = submitBtn.querySelector('span:first-child');
+        const loader = submitBtn.querySelector('.loader');
+        if(spanText) spanText.classList.add('hidden');
+        if(loader) loader.classList.remove('hidden');
+      }
+      
+      setTimeout(() => {
+        if(submitBtn) submitBtn.classList.add('hidden');
+        if(successMsg) successMsg.classList.remove('hidden');
+        setTimeout(() => {
+          closeModalFunc();
+          setTimeout(() => {
+            if(form) form.reset();
+            if(submitBtn) {
+              submitBtn.disabled = false;
+              const spanText = submitBtn.querySelector('span:first-child');
+              const loader = submitBtn.querySelector('.loader');
+              if(spanText) spanText.classList.remove('hidden');
+              if(loader) loader.classList.add('hidden');
+              submitBtn.classList.remove('hidden');
+            }
+            if(successMsg) successMsg.classList.add('hidden');
+          }, 500);
+        }, 2000);
+      }, 1500);
+    });
+  }
+}
+
+// Pricing Poll System
+function initPollSystem() {
+  let votes = { '5k-10k': 0, '10k-15k': 0, '15k-20k': 0, '20k-30k': 0, 'custom': 0 };
+  let totalVotes = 0;
+  let userVoted = localStorage.getItem('userVotedPoll') || false;
+  let userChoice = localStorage.getItem('userChoicePoll') || null;
+  
+  function loadVotes() {
+    const savedVotes = localStorage.getItem('pricingPollVotes');
+    if (savedVotes) {
+      votes = JSON.parse(savedVotes);
+      totalVotes = Object.values(votes).reduce((a, b) => a + b, 0);
+    }
+    updateUI();
+  }
+  
+  function saveVotes() { localStorage.setItem('pricingPollVotes', JSON.stringify(votes)); }
+  
+  function updateUI() {
+    const totalEl = document.getElementById('totalVotes');
+    if(totalEl) totalEl.textContent = totalVotes;
+    
+    document.querySelectorAll('.poll-option').forEach(option => {
+      const priceKey = option.dataset.price;
+      const voteCount = votes[priceKey] || 0;
+      const percentage = totalVotes > 0 ? (voteCount / totalVotes) * 100 : 0;
+      const voteCountEl = option.querySelector('.vote-count');
+      const progressEl = option.querySelector('.poll-progress');
+      const percentageEl = option.querySelector('.percentage');
+      if(voteCountEl) voteCountEl.textContent = voteCount;
+      if(progressEl) progressEl.style.width = `${percentage}%`;
+      if(percentageEl) percentageEl.textContent = `${percentage.toFixed(1)}%`;
+    });
+    updateLeaderboard();
+    
+    const votedMsg = document.getElementById('votedMessage');
+    if (votedMsg) {
+      if (userVoted && userChoice) {
+        const selectedOption = document.querySelector(`[data-price="${userChoice}"]`);
+        const priceRange = selectedOption?.dataset.priceRange || userChoice;
+        votedMsg.innerHTML = `✅ You voted for: <strong class="text-[#00B4D8]">${priceRange}</strong>. Thank you!`;
+        votedMsg.className = 'text-sm text-green-400';
+      } else {
+        votedMsg.innerHTML = 'Click on any option to vote for your preferred price range';
+        votedMsg.className = 'text-sm text-gray-500';
+      }
+    }
+  }
+  
+  function updateLeaderboard() {
+    const leaderboardDiv = document.getElementById('leaderboard');
+    if(!leaderboardDiv) return;
+    
+    const sorted = Object.entries(votes).map(([key, count]) => {
+      let label = '', icon = '';
+      switch(key) {
+        case '5k-10k': label = 'PKR 5,000 - 10,000'; icon = '💰'; break;
+        case '10k-15k': label = 'PKR 10,000 - 15,000'; icon = '⭐'; break;
+        case '15k-20k': label = 'PKR 15,000 - 20,000'; icon = '💎'; break;
+        case '20k-30k': label = 'PKR 20,000 - 30,000'; icon = '👑'; break;
+        case 'custom': label = 'Free Tier + Custom'; icon = '🎁'; break;
+      }
+      return { label, icon, count };
+    }).sort((a, b) => b.count - a.count);
+    
+    leaderboardDiv.innerHTML = sorted.map(item => `
+      <div class="flex justify-between items-center p-3 bg-gray-800/50 rounded-lg">
+        <div class="flex items-center gap-3"><span class="text-xl">${item.icon}</span><span>${item.label}</span></div>
+        <div class="flex items-center gap-4"><span class="text-[#00B4D8] font-bold">${item.count} votes</span>${item.count === Math.max(...Object.values(votes)) && totalVotes > 0 ? '<span class="text-yellow-500 text-xs">🏆 Leading</span>' : ''}</div>
+      </div>
+    `).join('');
+  }
+  
+  function addVote(priceKey, priceRange) {
+    if (userVoted) { 
+      alert(`You've already voted for ${userChoice}. You cannot vote again.`); 
+      return false; 
+    }
+    votes[priceKey]++; 
+    totalVotes++; 
+    userVoted = true; 
+    userChoice = priceKey;
+    saveVotes();
+    localStorage.setItem('userVotedPoll', 'true');
+    localStorage.setItem('userChoicePoll', priceKey);
+    updateUI();
+    const selectedOption = document.querySelector(`[data-price="${priceKey}"]`);
+    if(selectedOption) {
+      selectedOption.style.transform = 'scale(1.02)';
+      setTimeout(() => { if(selectedOption) selectedOption.style.transform = ''; }, 300);
+    }
+    return true;
+  }
+  
+  function resetPoll() {
+    if (confirm('⚠️ Are you sure you want to reset all votes?')) {
+      votes = { '5k-10k': 0, '10k-15k': 0, '15k-20k': 0, '20k-30k': 0, 'custom': 0 };
+      totalVotes = 0; userVoted = false; userChoice = null;
+      localStorage.removeItem('userVotedPoll'); localStorage.removeItem('userChoicePoll');
+      saveVotes(); updateUI();
+      alert('Poll has been reset successfully!');
+    }
+  }
+  
+  document.querySelectorAll('.poll-option').forEach(option => {
+    option.addEventListener('click', (e) => {
+      e.stopPropagation();
+      addVote(option.dataset.price, option.dataset.priceRange);
+    });
+  });
+  const resetBtn = document.getElementById('resetPollBtn');
+  if(resetBtn) resetBtn.addEventListener('click', resetPoll);
+  loadVotes();
+}
+
+// GSAP Animations
 function initGSAP() {
   gsap.set(".line-1, .line-2, .hero-sub, .hero-btns, .hero-stats", { opacity: 0, y: 20 });
   gsap.set(".float-panel", { opacity: 0, y: 30 });
@@ -404,62 +593,10 @@ function initGSAP() {
   gsap.from("#scene-paper", { scrollTrigger: st("#scene-paper"), opacity: 0, y: 50, duration: 0.75, ease: "power3.out" });
   gsap.from("#scene-digital", { scrollTrigger: st("#scene-digital"), opacity: 0, y: 50, duration: 0.75, ease: "power3.out" });
   gsap.from(".feat-card", { scrollTrigger: st(".feature-grid"), opacity: 0, y: 40, stagger: { each: 0.05, from: "start" }, duration: 0.55, ease: "power2.out" });
-  gsap.from(".arch-node", { scrollTrigger: st(".arch-diagram"), opacity: 0, scale: 0.75, stagger: 0.12, duration: 0.6, ease: "back.out(1.5)" });
-  gsap.from(".screen-card", { scrollTrigger: st(".screens-grid"), opacity: 0, y: 40, stagger: 0.1, duration: 0.75, ease: "power3.out" });
+  gsap.from(".role-card", { scrollTrigger: st("#roles"), opacity: 0, y: 40, stagger: 0.1, duration: 0.6, ease: "back.out(1.2)" });
   gsap.from(".tech-card", { scrollTrigger: st(".tech-grid"), opacity: 0, y: 28, stagger: 0.13, duration: 0.6, ease: "power2.out" });
   gsap.from(".team-card", { scrollTrigger: st(".team-grid"), opacity: 0, y: 45, stagger: 0.18, duration: 0.8, ease: "power3.out" });
-  gsap.from(".dl-inner > *", { scrollTrigger: st("#download", "top 78%"), opacity: 0, y: 28, stagger: 0.08, duration: 0.65, ease: "power2.out" });
   gsap.from(".section-label", { scrollTrigger: { trigger: ".section-label", start: "top 88%", toggleActions: "play none none none" }, opacity: 0, y: 18, duration: 0.55, ease: "power2.out" });
   gsap.from(".section-title", { scrollTrigger: { trigger: ".section-title", start: "top 88%", toggleActions: "play none none none" }, opacity: 0, y: 18, duration: 0.55, ease: "power2.out" });
   gsap.from(".section-sub", { scrollTrigger: { trigger: ".section-sub", start: "top 88%", toggleActions: "play none none none" }, opacity: 0, y: 18, duration: 0.55, ease: "power2.out" });
 }
-
-// Add to existing script.js after init functions
-
-// Update counter targets
-function initCounters() {
-  var cards = document.querySelectorAll(".stat-card[data-target]");
-  if (!cards.length) return;
-
-  var done = new Set();
-  var obs = new IntersectionObserver(function (entries) {
-    entries.forEach(function (entry) {
-      if (!entry.isIntersecting || done.has(entry.target)) return;
-      done.add(entry.target);
-
-      var card = entry.target;
-      var target = parseFloat(card.dataset.target);
-      var suffix = card.dataset.suffix || "";
-      var counter = card.querySelector(".stat-counter");
-      if (!counter) return;
-
-      var duration = 2000;
-      var startTime = null;
-      var isFloat = target % 1 !== 0;
-
-      (function tick(now) {
-        if (!startTime) startTime = now;
-        var progress = Math.min((now - startTime) / duration, 1);
-        var eased = 1 - Math.pow(1 - progress, 3);
-        var value = eased * target;
-        if (isFloat) {
-          counter.textContent = value.toFixed(1) + suffix;
-        } else {
-          counter.textContent = Math.round(value) + suffix;
-        }
-        if (progress < 1) requestAnimationFrame(tick);
-      })(performance.now());
-    });
-  }, { threshold: 0.3 });
-
-  cards.forEach(function (c) { obs.observe(c); });
-}
-
-// Smooth scroll for pricing and CTA links
-document.querySelectorAll('a[href="#pricing"], a[href="#testimonials"], a[href="#contact"]').forEach(link => {
-  link.addEventListener('click', function(e) {
-    e.preventDefault();
-    const target = document.querySelector(this.getAttribute('href'));
-    if(target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  });
-});

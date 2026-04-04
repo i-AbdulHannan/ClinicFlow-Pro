@@ -28,9 +28,9 @@
     </ul>
     <div class="nav-buttons">
       <a href="login.php" class="nav-login">Login</a>
-      <a href="register.php" class="nav-cta" id="headerDownloadBtn">
-        <span class="btn-text">Start Free Trial</span>
-        <span class="btn-icon">→</span>
+      <a href="#download" class="nav-cta" id="headerDownloadBtn">
+        <span class="btn-text">Download Project</span>
+        <span class="btn-icon">⬇️</span>
       </a>
     </div>
     <button class="menu-toggle" id="menuToggle">
@@ -152,7 +152,7 @@
 <section id="features">
   <div class="section-label">Why Choose ClinicFlow Pro</div>
   <h2 class="section-title">Everything your clinic needs</h2>
-  <p class="section-sub">12 powerful modules designed for modern healthcare management.</p>
+  <p class="section-sub">15 powerful modules designed for modern healthcare management.</p>
   <div class="feature-grid">
     <div class="feat-card"><div class="feat-icon">👥</div><h3>4 User Roles</h3><p>Admin, Doctor, Receptionist, Patient — tailored dashboards for each.</p></div>
     <div class="feat-card"><div class="feat-icon">📅</div><h3>Smart Scheduling</h3><p>Real-time availability, conflict detection, automated reminders.</p></div>
@@ -166,11 +166,14 @@
     <div class="feat-card"><div class="feat-icon">📱</div><h3>PWA Ready</h3><p>Install as app on mobile — works offline too.</p></div>
     <div class="feat-card"><div class="feat-icon">💳</div><h3>Subscription Plans</h3><p>Free tier available. Upgrade to Pro for unlimited features.</p></div>
     <div class="feat-card"><div class="feat-icon">🤖</div><h3>AI Health Assistant</h3><p>24/7 chatbot for patient queries — 500+ responses.</p></div>
+    <div class="feat-card"><div class="feat-icon">📱</div><h3>WhatsApp Integration</h3><p>Send appointment reminders and prescriptions via WhatsApp.</p></div>
+    <div class="feat-card"><div class="feat-icon">🎛️</div><h3>Drag & Drop Dashboard</h3><p>Customize your dashboard layout — save your preferences.</p></div>
+    <div class="feat-card"><div class="feat-icon">🧠</div><h3>AI Diagnosis Assistant</h3><p>AI-powered differential diagnosis based on symptoms.</p></div>
   </div>
 </section>
 
 <!-- ═══════════════════════════════════════
-     PRICING SECTION - SaaS STANDARD
+     PRICING SECTION
 ══════════════════════════════════════════ -->
 <section id="pricing">
   <div class="section-label">Simple, Transparent Pricing</div>
@@ -193,6 +196,7 @@
         <li><i class="fas fa-check"></i> Email support</li>
         <li class="disabled"><i class="fas fa-times"></i> Advanced analytics</li>
         <li class="disabled"><i class="fas fa-times"></i> Priority support</li>
+        <li class="disabled"><i class="fas fa-times"></i> WhatsApp integration</li>
       </ul>
       <a href="register.php" class="pricing-btn">Get Started →</a>
     </div>
@@ -213,6 +217,9 @@
         <li><i class="fas fa-check"></i> AI health predictions</li>
         <li><i class="fas fa-check"></i> Doctor-patient chat</li>
         <li><i class="fas fa-check"></i> Export reports (PDF/CSV)</li>
+        <li><i class="fas fa-check"></i> WhatsApp reminders</li>
+        <li><i class="fas fa-check"></i> AI Diagnosis Assistant</li>
+        <li><i class="fas fa-check"></i> Drag & Drop Dashboard</li>
       </ul>
       <a href="register.php" class="pricing-btn featured-btn">Start 14-day Trial →</a>
     </div>
@@ -252,7 +259,7 @@
 </section>
 
 <!-- ═══════════════════════════════════════
-     TESTIMONIALS - NEW
+     TESTIMONIALS
 ══════════════════════════════════════════ -->
 <section id="testimonials">
   <div class="section-label">Trusted by Healthcare Professionals</div>
@@ -304,7 +311,7 @@
   <h2 class="section-title">Built with purpose</h2>
   <p class="section-sub">Enterprise-grade tech stack powering your clinic</p>
   <div class="tech-grid">
-    <div class="tech-card"><div class="tech-group-label">Frontend</div><div class="tech-items"><div class="tech-item"><div class="ti-icon">H</div><span>HTML5</span></div><div class="tech-item"><div class="ti-icon">C</div><span>CSS3</span></div><div class="tech-item"><div class="ti-icon">T</div><span>Tailwind</span></div><div class="tech-item"><div class="ti-icon">JS</div><span>JavaScript</span></div></div></div>
+    <div class="tech-card"><div class="tech-group-label">Frontend</div><div class="tech-items"><div class="tech-item"><div class="ti-icon">H</div><span>HTML5</span></div><div class="tech-item"><div class="ti-icon">C</div><span>CSS3</span></div><div class="tech-item"><div class="ti-icon">T</div><span>Tailwind</span></div><div class="tech-item"><div class="ti-icon">JS</div><span>JavaScript</span></div><div class="tech-item"><div class="ti-icon">G</div><span>GSAP</span></div></div></div>
     <div class="tech-card"><div class="tech-group-label">Backend</div><div class="tech-items"><div class="tech-item"><div class="ti-icon">P</div><span>PHP 8.0+</span></div><div class="tech-item"><div class="ti-icon">M</div><span>MySQL</span></div><div class="tech-item"><div class="ti-icon">A</div><span>Apache</span></div></div></div>
     <div class="tech-card"><div class="tech-group-label">Security</div><div class="tech-items"><div class="tech-item"><div class="ti-icon">🔒</div><span>HTTPS</span></div><div class="tech-item"><div class="ti-icon">🔐</div><span>RBAC</span></div><div class="tech-item"><div class="ti-icon">📝</div><span>Audit Logs</span></div></div></div>
   </div>
@@ -320,6 +327,36 @@
   <div class="team-grid">
     <div class="team-card"><div class="team-avatar-ring"><div class="team-avatar">AHG</div></div><h3 class="team-name">Abdul Hannan</h3><div class="team-role">Lead Full Stack Developer</div><div class="team-tags"><span>PHP</span><span>MySQL</span><span>System Design</span></div><p class="team-bio">Architected server-side logic, database schema, and security infrastructure.</p><div class="team-stats"><div><strong>8</strong> DB Tables</div><div><strong>42+</strong> Modules</div><div><strong>250+</strong> Hours</div></div></div>
     <div class="team-card"><div class="team-avatar-ring"><div class="team-avatar">HA</div></div><h3 class="team-name">Hasnat Ahmed</h3><div class="team-role">Lead Frontend Developer</div><div class="team-tags"><span>UI/UX</span><span>Tailwind</span><span>Animations</span></div><p class="team-bio">Designed and built every pixel — 4 dashboards, 42 pages, cinematic landing.</p><div class="team-stats"><div><strong>4</strong> Dashboards</div><div><strong>42+</strong> Pages</div><div><strong>220+</strong> Hours</div></div></div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     DOWNLOAD SECTION WITH MODAL
+══════════════════════════════════════════ -->
+<section id="download">
+  <div class="dl-glow-1"></div>
+  <div class="dl-glow-2"></div>
+  <div class="dl-inner">
+    <div class="dl-badge">Ready to Deploy</div>
+    <h2 class="dl-title">Download ClinicFlow Pro</h2>
+    <p class="dl-sub">Get the complete source code including database schema, all modules, documentation, and setup guides. Everything you need to deploy immediately.</p>
+    <div class="dl-features">
+      <div class="dl-feat">✅ Complete source code</div>
+      <div class="dl-feat">✅ MySQL database file</div>
+      <div class="dl-feat">✅ Setup documentation</div>
+      <div class="dl-feat">✅ All 4 dashboards</div>
+      <div class="dl-feat">✅ 42+ working pages</div>
+      <div class="dl-feat">✅ WhatsApp Integration</div>
+      <div class="dl-feat">✅ AI Diagnosis Assistant</div>
+      <div class="dl-feat">✅ Drag & Drop Dashboard</div>
+      <div class="dl-feat">✅ QR Code Prescriptions</div>
+      <div class="dl-feat">✅ No license restrictions</div>
+    </div>
+    <button class="btn-download" id="downloadNowBtn">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 2v10M6 9l4 4 4-4M3 15h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      Download Full Project (.ZIP)
+    </button>
+    <div class="dl-note">Free download · No credit card required</div>
   </div>
 </section>
 
