@@ -600,3 +600,175 @@ function initGSAP() {
   gsap.from(".section-title", { scrollTrigger: { trigger: ".section-title", start: "top 88%", toggleActions: "play none none none" }, opacity: 0, y: 18, duration: 0.55, ease: "power2.out" });
   gsap.from(".section-sub", { scrollTrigger: { trigger: ".section-sub", start: "top 88%", toggleActions: "play none none none" }, opacity: 0, y: 18, duration: 0.55, ease: "power2.out" });
 }
+
+// ═══════════════════════════════════════
+// PRICING POLL FUNCTIONALITY
+// ═══════════════════════════════════════
+
+// Initialize poll data from localStorage
+let pollData = {
+  '5000-10000': 0,
+  '10000-20000': 0,
+  '20000-30000': 0,
+  '30000-50000': 0,
+  '50000-100000': 0,
+  'custom': 0
+};
+
+let selectedPrice = null;
+let totalVotes = 0;
+
+// Load saved data from localStorage
+function loadPollData() {
+  const saved = localStorage.getItem('clinicflow_poll_data');
+  if (saved) {
+    pollData = JSON.parse(saved);
+    totalVotes = Object.values(pollData).reduce((a, b) => a + b, 0);
+  }
+  updateResultsUI();
+}
+
+// Save poll data to localStorage
+function savePollData() {
+  localStorage.setItem('clinicflow_poll_data', JSON.stringify(pollData));
+}
+
+// Update results UI
+function updateResultsUI() {
+  totalVotes = Object.values(pollData).reduce((a, b) => a + b, 0);
+  
+  // Update vote counts on options
+  document.querySelectorAll('.poll-option').forEach(option => {
+    const priceRange = option.dataset.price;
+    const voteCount = pollData[priceRange] || 0;
+    const voteSpan = option.querySelector('.vote-count');
+    if (voteSpan) voteSpan.textContent = voteCount;
+  });
+  
+  // Update result bars
+  document.querySelectorAll('.result-bar-item').forEach(item => {
+    const priceRange = item.dataset.price;
+    const voteCount = pollData[priceRange] || 0;
+    const percentage = totalVotes > 0 ? (voteCount / totalVotes) * 100 : 0;
+    
+    const percentSpan = item.querySelector('.result-percent');
+    const fillBar = item.querySelector('.result-bar-fill');
+    const votesSpan = item.querySelector('.result-votes-count');
+    
+    if (percentSpan) percentSpan.textContent = `${Math.round(percentage)}%`;
+    if (fillBar) fillBar.style.width = `${percentage}%`;
+    if (votesSpan) votesSpan.textContent = `${voteCount} vote${voteCount !== 1 ? 's' : ''}`;
+  });
+  
+  // Update total votes display
+  const totalVotesSpan = document.getElementById('totalVotes');
+  if (totalVotesSpan) totalVotesSpan.textContent = totalVotes;
+  
+  // Update last updated time
+  const lastUpdated = document.querySelector('.results-last-updated');
+  if (lastUpdated) {
+    const now = new Date();
+    lastUpdated.textContent = `Last updated: ${now.toLocaleTimeString()}`;
+  }
+}
+
+// Show toast message
+function showToast(message, isError = false) {
+  let toast = document.querySelector('.toast-message');
+  if (!toast) {
+    toast = document.createElement('div');
+    toast.className = 'toast-message';
+    document.body.appendChild(toast);
+  }
+  
+  toast.innerHTML = `<i class="fas ${isError ? 'fa-exclamation-triangle' : 'fa-check-circle'}"></i> ${message}`;
+  toast.classList.add('show');
+  
+  setTimeout(() => {
+    toast.classList.remove('show');
+  }, 3000);
+}
+
+// Handle option selection
+function initPollOptions() {
+  document.querySelectorAll('.poll-option').forEach(option => {
+    option.addEventListener('click', () => {
+      // Remove selected class from all options
+      document.querySelectorAll('.poll-option').forEach(opt => {
+        opt.classList.remove('selected');
+      });
+      // Add selected class to clicked option
+      option.classList.add('selected');
+      selectedPrice = option.dataset.price;
+    });
+  });
+}
+
+// Handle vote submission
+function initVoteSubmission() {
+  const submitBtn = document.getElementById('submitVoteBtn');
+  if (!submitBtn) return;
+  
+  submitBtn.addEventListener('click', () => {
+    if (!selectedPrice) {
+      showToast('Please select a price range first', true);
+      return;
+    }
+    
+    // Check if user has already voted (using sessionStorage for this session)
+    const hasVoted = sessionStorage.getItem('has_voted');
+    if (hasVoted) {
+      showToast('You have already voted! Thank you for your feedback.', true);
+      return;
+    }
+    
+    // Update poll data
+    pollData[selectedPrice] = (pollData[selectedPrice] || 0) + 1;
+    savePollData();
+    updateResultsUI();
+    
+    // Mark as voted for this session
+    sessionStorage.setItem('has_voted', 'true');
+    
+    // Show success message
+    const selectedOption = document.querySelector(`.poll-option[data-price="${selectedPrice}"]`);
+    const priceText = selectedOption?.querySelector('.poll-option-price')?.textContent || selectedPrice;
+    showToast(`Thank you! Your vote for ${priceText} has been recorded.`);
+    
+    // Optional: Scroll to results
+    setTimeout(() => {
+      document.querySelector('.results-card').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 1000);
+  });
+}
+
+// Reset poll (for admin purposes - optional)
+function resetPoll() {
+  if (confirm('Are you sure you want to reset all poll data? This cannot be undone.')) {
+    pollData = {
+      '5000-10000': 0,
+      '10000-20000': 0,
+      '20000-30000': 0,
+      '30000-50000': 0,
+      '50000-100000': 0,
+      'custom': 0
+    };
+    savePollData();
+    updateResultsUI();
+    sessionStorage.removeItem('has_voted');
+    showToast('Poll data has been reset successfully!');
+  }
+}
+
+// Initialize poll on page load
+document.addEventListener('DOMContentLoaded', function() {
+  loadPollData();
+  initPollOptions();
+  initVoteSubmission();
+  
+  // Optional: Add reset button in console for testing
+  console.log('Pricing Poll initialized! Type "resetPoll()" in console to reset data.');
+});
+
+// Make resetPoll available globally for console testing
+window.resetPoll = resetPoll;

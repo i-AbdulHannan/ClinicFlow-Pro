@@ -7,6 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=clash-display@200,300,400,500,600,700&display=swap" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -22,7 +23,7 @@
     </div>
     <ul class="nav-links">
       <li><a href="#features">Features</a></li>
-      <li><a href="#pricing">Pricing</a></li>
+      <li><a href="#pricingPoll">Pricing Poll</a></li>
       <li><a href="#tech">Tech Stack</a></li>
       <li><a href="#team">Team</a></li>
     </ul>
@@ -106,7 +107,7 @@
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </a>
       <a href="#features" class="btn-ghost">See Features</a>
-      <a href="#pricing" class="btn-outline">View Pricing</a>
+      <a href="#pricingPoll" class="btn-outline">Help Us Set Price</a>
     </div>
     <div class="hero-stats">
       <div class="hs"><span>500+</span> Active Clinics</div>
@@ -173,74 +174,195 @@
 </section>
 
 <!-- ═══════════════════════════════════════
-     PRICING SECTION
+     PRICING POLL SECTION (REPLACES PRICING)
 ══════════════════════════════════════════ -->
-<section id="pricing">
-  <div class="section-label">Simple, Transparent Pricing</div>
-  <h2 class="section-title">Choose the plan that fits your clinic</h2>
-  <p class="section-sub">Start for free. Upgrade anytime. No hidden fees.</p>
+<section id="pricingPoll">
+  <div class="section-label">Help Us Decide</div>
+  <h2 class="section-title">What Should Be the Price?</h2>
+  <p class="section-sub">We value your opinion! Choose the price range you'd pay for ClinicFlow Pro</p>
   
-  <div class="pricing-grid">
-    <div class="pricing-card">
-      <div class="pricing-badge">Most Popular</div>
-      <div class="pricing-header">
-        <h3>Free</h3>
-        <div class="pricing-price">$0<span>/month</span></div>
-        <p>Perfect for small clinics starting out</p>
+  <div class="poll-container">
+    <div class="poll-card">
+      <h3 class="poll-title">💰 ClinicFlow Pro Pricing Poll</h3>
+      <p class="poll-sub">Select the price range that seems fair to you</p>
+      
+      <div class="poll-options">
+        <div class="poll-option" data-price="5000-10000">
+          <div class="poll-option-radio">
+            <span class="radio-custom"></span>
+          </div>
+          <div class="poll-option-content">
+            <div class="poll-option-price">₨ 5,000 - 10,000</div>
+            <div class="poll-option-desc">Per month · Basic features</div>
+          </div>
+          <div class="poll-option-votes">
+            <span class="vote-count">0</span>
+            <span class="vote-label">votes</span>
+          </div>
+        </div>
+        
+        <div class="poll-option" data-price="10000-20000">
+          <div class="poll-option-radio">
+            <span class="radio-custom"></span>
+          </div>
+          <div class="poll-option-content">
+            <div class="poll-option-price">₨ 10,000 - 20,000</div>
+            <div class="poll-option-desc">Per month · Standard features</div>
+          </div>
+          <div class="poll-option-votes">
+            <span class="vote-count">0</span>
+            <span class="vote-label">votes</span>
+          </div>
+        </div>
+        
+        <div class="poll-option" data-price="20000-30000">
+          <div class="poll-option-radio">
+            <span class="radio-custom"></span>
+          </div>
+          <div class="poll-option-content">
+            <div class="poll-option-price">₨ 20,000 - 30,000</div>
+            <div class="poll-option-desc">Per month · Pro features</div>
+          </div>
+          <div class="poll-option-votes">
+            <span class="vote-count">0</span>
+            <span class="vote-label">votes</span>
+          </div>
+        </div>
+        
+        <div class="poll-option" data-price="30000-50000">
+          <div class="poll-option-radio">
+            <span class="radio-custom"></span>
+          </div>
+          <div class="poll-option-content">
+            <div class="poll-option-price">₨ 30,000 - 50,000</div>
+            <div class="poll-option-desc">Per month · Enterprise features</div>
+          </div>
+          <div class="poll-option-votes">
+            <span class="vote-count">0</span>
+            <span class="vote-label">votes</span>
+          </div>
+        </div>
+        
+        <div class="poll-option" data-price="50000-100000">
+          <div class="poll-option-radio">
+            <span class="radio-custom"></span>
+          </div>
+          <div class="poll-option-content">
+            <div class="poll-option-price">₨ 50,000 - 100,000</div>
+            <div class="poll-option-desc">Per month · Premium + Support</div>
+          </div>
+          <div class="poll-option-votes">
+            <span class="vote-count">0</span>
+            <span class="vote-label">votes</span>
+          </div>
+        </div>
+        
+        <div class="poll-option" data-price="custom">
+          <div class="poll-option-radio">
+            <span class="radio-custom"></span>
+          </div>
+          <div class="poll-option-content">
+            <div class="poll-option-price">Custom / One-time</div>
+            <div class="poll-option-desc">One-time payment or custom quote</div>
+          </div>
+          <div class="poll-option-votes">
+            <span class="vote-count">0</span>
+            <span class="vote-label">votes</span>
+          </div>
+        </div>
       </div>
-      <ul class="pricing-features">
-        <li><i class="fas fa-check"></i> Up to 100 patients</li>
-        <li><i class="fas fa-check"></i> Up to 2 doctors</li>
-        <li><i class="fas fa-check"></i> 200 appointments/month</li>
-        <li><i class="fas fa-check"></i> Basic analytics</li>
-        <li><i class="fas fa-check"></i> Email support</li>
-        <li class="disabled"><i class="fas fa-times"></i> Advanced analytics</li>
-        <li class="disabled"><i class="fas fa-times"></i> Priority support</li>
-        <li class="disabled"><i class="fas fa-times"></i> WhatsApp integration</li>
-      </ul>
-      <a href="register.php" class="pricing-btn">Get Started →</a>
+      
+      <div class="poll-action">
+        <button class="poll-submit-btn" id="submitVoteBtn">
+          <span>Submit Your Vote</span>
+          <i class="fas fa-arrow-right"></i>
+        </button>
+        <p class="poll-note">Your vote helps us set the right price for clinics in Pakistan</p>
+      </div>
     </div>
-
-    <div class="pricing-card featured">
-      <div class="pricing-badge">Recommended</div>
-      <div class="pricing-header">
-        <h3>Pro</h3>
-        <div class="pricing-price">$49<span>/month</span></div>
-        <p>For growing clinics with multiple doctors</p>
+    
+    <!-- Live Results Section -->
+    <div class="results-card">
+      <h3 class="results-title">📊 Live Poll Results</h3>
+      <p class="results-sub">Real-time voting data from clinics</p>
+      
+      <div class="results-bars">
+        <div class="result-bar-item" data-price="5000-10000">
+          <div class="result-bar-label">
+            <span>₨ 5,000 - 10,000</span>
+            <span class="result-percent">0%</span>
+          </div>
+          <div class="result-bar-bg">
+            <div class="result-bar-fill" style="width: 0%"></div>
+          </div>
+          <div class="result-votes-count">0 votes</div>
+        </div>
+        
+        <div class="result-bar-item" data-price="10000-20000">
+          <div class="result-bar-label">
+            <span>₨ 10,000 - 20,000</span>
+            <span class="result-percent">0%</span>
+          </div>
+          <div class="result-bar-bg">
+            <div class="result-bar-fill" style="width: 0%"></div>
+          </div>
+          <div class="result-votes-count">0 votes</div>
+        </div>
+        
+        <div class="result-bar-item" data-price="20000-30000">
+          <div class="result-bar-label">
+            <span>₨ 20,000 - 30,000</span>
+            <span class="result-percent">0%</span>
+          </div>
+          <div class="result-bar-bg">
+            <div class="result-bar-fill" style="width: 0%"></div>
+          </div>
+          <div class="result-votes-count">0 votes</div>
+        </div>
+        
+        <div class="result-bar-item" data-price="30000-50000">
+          <div class="result-bar-label">
+            <span>₨ 30,000 - 50,000</span>
+            <span class="result-percent">0%</span>
+          </div>
+          <div class="result-bar-bg">
+            <div class="result-bar-fill" style="width: 0%"></div>
+          </div>
+          <div class="result-votes-count">0 votes</div>
+        </div>
+        
+        <div class="result-bar-item" data-price="50000-100000">
+          <div class="result-bar-label">
+            <span>₨ 50,000 - 100,000</span>
+            <span class="result-percent">0%</span>
+          </div>
+          <div class="result-bar-bg">
+            <div class="result-bar-fill" style="width: 0%"></div>
+          </div>
+          <div class="result-votes-count">0 votes</div>
+        </div>
+        
+        <div class="result-bar-item" data-price="custom">
+          <div class="result-bar-label">
+            <span>Custom / One-time</span>
+            <span class="result-percent">0%</span>
+          </div>
+          <div class="result-bar-bg">
+            <div class="result-bar-fill" style="width: 0%"></div>
+          </div>
+          <div class="result-votes-count">0 votes</div>
+        </div>
       </div>
-      <ul class="pricing-features">
-        <li><i class="fas fa-check"></i> Unlimited patients</li>
-        <li><i class="fas fa-check"></i> Unlimited doctors</li>
-        <li><i class="fas fa-check"></i> Unlimited appointments</li>
-        <li><i class="fas fa-check"></i> Advanced analytics</li>
-        <li><i class="fas fa-check"></i> Priority support</li>
-        <li><i class="fas fa-check"></i> AI health predictions</li>
-        <li><i class="fas fa-check"></i> Doctor-patient chat</li>
-        <li><i class="fas fa-check"></i> Export reports (PDF/CSV)</li>
-        <li><i class="fas fa-check"></i> WhatsApp reminders</li>
-        <li><i class="fas fa-check"></i> AI Diagnosis Assistant</li>
-        <li><i class="fas fa-check"></i> Drag & Drop Dashboard</li>
-      </ul>
-      <a href="register.php" class="pricing-btn featured-btn">Start 14-day Trial →</a>
-    </div>
-
-    <div class="pricing-card">
-      <div class="pricing-badge">Enterprise</div>
-      <div class="pricing-header">
-        <h3>Custom</h3>
-        <div class="pricing-price">Custom<span>/month</span></div>
-        <p>For multi-branch hospitals and chains</p>
+      
+      <div class="results-total">
+        <span>Total Votes: <strong id="totalVotes">0</strong></span>
+        <span class="results-last-updated">Last updated: Just now</span>
       </div>
-      <ul class="pricing-features">
-        <li><i class="fas fa-check"></i> Everything in Pro</li>
-        <li><i class="fas fa-check"></i> Multi-branch support</li>
-        <li><i class="fas fa-check"></i> Dedicated account manager</li>
-        <li><i class="fas fa-check"></i> Custom integrations</li>
-        <li><i class="fas fa-check"></i> 99.99% SLA guarantee</li>
-        <li><i class="fas fa-check"></i> On-premise deployment</li>
-        <li><i class="fas fa-check"></i> 24/7 phone support</li>
-      </ul>
-      <a href="#contact" class="pricing-btn">Contact Sales →</a>
+      
+      <div class="results-note">
+        <i class="fas fa-chart-line"></i>
+        <span>Real-time data — every vote counts instantly!</span>
+      </div>
     </div>
   </div>
 </section>
@@ -331,36 +453,6 @@
 </section>
 
 <!-- ═══════════════════════════════════════
-     DOWNLOAD SECTION WITH MODAL
-══════════════════════════════════════════ -->
-<section id="download">
-  <div class="dl-glow-1"></div>
-  <div class="dl-glow-2"></div>
-  <div class="dl-inner">
-    <div class="dl-badge">Ready to Deploy</div>
-    <h2 class="dl-title">Download ClinicFlow Pro</h2>
-    <p class="dl-sub">Get the complete source code including database schema, all modules, documentation, and setup guides. Everything you need to deploy immediately.</p>
-    <div class="dl-features">
-      <div class="dl-feat">✅ Complete source code</div>
-      <div class="dl-feat">✅ MySQL database file</div>
-      <div class="dl-feat">✅ Setup documentation</div>
-      <div class="dl-feat">✅ All 4 dashboards</div>
-      <div class="dl-feat">✅ 42+ working pages</div>
-      <div class="dl-feat">✅ WhatsApp Integration</div>
-      <div class="dl-feat">✅ AI Diagnosis Assistant</div>
-      <div class="dl-feat">✅ Drag & Drop Dashboard</div>
-      <div class="dl-feat">✅ QR Code Prescriptions</div>
-      <div class="dl-feat">✅ No license restrictions</div>
-    </div>
-    <button class="btn-download" id="downloadNowBtn">
-      <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 2v10M6 9l4 4 4-4M3 15h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-      Download Full Project (.ZIP)
-    </button>
-    <div class="dl-note">Free download · No credit card required</div>
-  </div>
-</section>
-
-<!-- ═══════════════════════════════════════
      CTA SECTION
 ══════════════════════════════════════════ -->
 <section id="cta">
@@ -370,7 +462,7 @@
     <p class="cta-sub">Join 500+ clinics already using ClinicFlow Pro</p>
     <div class="cta-buttons">
       <a href="register.php" class="cta-primary">Start Free Trial <i class="fas fa-arrow-right"></i></a>
-      <a href="#pricing" class="cta-secondary">View Pricing <i class="fas fa-chevron-right"></i></a>
+      <a href="#pricingPoll" class="cta-secondary">Help Us Set Price <i class="fas fa-chevron-right"></i></a>
     </div>
     <p class="cta-note">No credit card required · Free forever plan available</p>
   </div>
@@ -383,7 +475,7 @@
   <div class="footer-inner">
     <div class="footer-brand"><div class="nav-logo"><span class="logo-icon">⬡</span><span class="logo-text">ClinicFlow <span class="logo-pro">Pro</span></span></div><p>Modern clinic management SaaS built for the future of healthcare.</p></div>
     <div class="footer-links">
-      <div class="fl-group"><h4>Product</h4><a href="#features">Features</a><a href="#pricing">Pricing</a><a href="#testimonials">Testimonials</a></div>
+      <div class="fl-group"><h4>Product</h4><a href="#features">Features</a><a href="#pricingPoll">Pricing Poll</a><a href="#testimonials">Testimonials</a></div>
       <div class="fl-group"><h4>Technology</h4><a href="#tech">Stack</a><a href="#security">Security</a><a href="#api">API</a></div>
       <div class="fl-group"><h4>Company</h4><a href="#team">Team</a><a href="#contact">Contact</a><a href="#blog">Blog</a></div>
       <div class="fl-group"><h4>Legal</h4><a href="#">Privacy</a><a href="#">Terms</a><a href="#">GDPR</a></div>
