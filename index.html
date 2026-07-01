@@ -1,489 +1,1490 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ClinicFlow Pro — Premium Clinic Management SaaS</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=clash-display@200,300,400,500,600,700&display=swap" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ClinicFlow Pro — Premium Clinic Management System</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=clash-display@200,300,400,500,600,700&display=swap" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <style>
+        /* ============================================
+           CSS VARIABLES - OCEAN BREEZE THEME
+           ============================================ */
+        :root {
+            --deep-twilight: #03045E;
+            --bright-teal: #0077B6;
+            --turquoise-surf: #00B4D8;
+            --frosted-blue: #90E0EF;
+            --light-cyan: #CAF0F8;
+            --bg: #f0f7fa;
+            --text-dark: #1a1a2e;
+            --text-muted: #4a4a6a;
+            --shadow: 0 20px 60px rgba(0, 119, 182, 0.15);
+            --radius: 20px;
+            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Clash Display Variable', 'Clash Display', sans-serif;
+            background: var(--bg);
+            color: var(--text-dark);
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        a { text-decoration: none; color: inherit; }
+        img { max-width: 100%; }
+
+        /* ============================================
+           GLASSMORPHISM
+           ============================================ */
+        .glass {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        /* ============================================
+           BUTTONS
+           ============================================ */
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 32px;
+            background: linear-gradient(135deg, var(--bright-teal), var(--turquoise-surf));
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: 0 8px 25px rgba(0, 119, 182, 0.3);
+        }
+        .btn-primary:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 15px 40px rgba(0, 119, 182, 0.4);
+        }
+
+        .btn-ghost {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 32px;
+            background: transparent;
+            color: var(--bright-teal);
+            border: 2px solid var(--bright-teal);
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        .btn-ghost:hover {
+            background: var(--bright-teal);
+            color: white;
+            transform: translateY(-4px);
+        }
+
+        /* Download Documentation Button */
+        .btn-download-doc {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 32px;
+            background: linear-gradient(135deg, #8b5cf6, #6d28d9);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: 0 8px 25px rgba(139, 92, 246, 0.3);
+        }
+        .btn-download-doc:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 15px 40px rgba(139, 92, 246, 0.4);
+        }
+
+        /* ============================================
+           NAVBAR
+           ============================================ */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 16px 40px;
+            transition: var(--transition);
+        }
+        nav.scrolled {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.08);
+        }
+        .nav-inner {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.4rem;
+            font-weight: 700;
+        }
+        .logo-icon {
+            font-size: 1.8rem;
+            background: linear-gradient(135deg, var(--bright-teal), var(--turquoise-surf));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .logo-pro {
+            background: linear-gradient(90deg, var(--turquoise-surf), var(--frosted-blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+        .nav-links a {
+            font-weight: 500;
+            color: var(--text-muted);
+            transition: var(--transition);
+        }
+        .nav-links a:hover {
+            color: var(--bright-teal);
+        }
+        .nav-actions {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+        .nav-actions .btn-primary {
+            padding: 10px 24px;
+            font-size: 0.9rem;
+        }
+        .mobile-toggle {
+            display: none;
+            font-size: 1.8rem;
+            cursor: pointer;
+            color: var(--text-dark);
+        }
+
+        @media (max-width: 992px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 80px;
+                left: 0;
+                right: 0;
+                background: white;
+                padding: 24px;
+                box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+                border-radius: 0 0 20px 20px;
+            }
+            .nav-links.active {
+                display: flex;
+            }
+            .nav-actions .btn-primary {
+                display: none;
+            }
+            .mobile-toggle {
+                display: block;
+            }
+        }
+
+        /* ============================================
+           HERO SECTION
+           ============================================ */
+        #hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 120px 40px 80px;
+            background: linear-gradient(180deg, #f0f7fa 0%, #fff 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 18px;
+            background: rgba(0, 119, 182, 0.1);
+            border: 1px solid rgba(0, 119, 182, 0.2);
+            border-radius: 50px;
+            font-size: 0.8rem;
+            color: var(--bright-teal);
+            font-weight: 500;
+            margin-bottom: 20px;
+        }
+        .hero-badge .dot {
+            width: 8px;
+            height: 8px;
+            background: #22c55e;
+            border-radius: 50%;
+            animation: pulse-dot 2s infinite;
+        }
+        @keyframes pulse-dot {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(0.8); }
+        }
+        .hero-title {
+            font-size: clamp(2.8rem, 6vw, 4.8rem);
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            color: var(--text-dark);
+        }
+        .hero-title .highlight {
+            background: linear-gradient(135deg, var(--bright-teal), var(--turquoise-surf));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .hero-sub {
+            font-size: 1.15rem;
+            color: var(--text-muted);
+            max-width: 500px;
+            line-height: 1.7;
+            margin-bottom: 32px;
+        }
+        .hero-btns {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+        }
+        .hero-stats {
+            display: flex;
+            gap: 40px;
+        }
+        .hero-stats .hs-item {
+            text-align: center;
+        }
+        .hero-stats .hs-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            display: block;
+        }
+        .hero-stats .hs-label {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+        .hero-image {
+            position: relative;
+        }
+        .hero-image .main-img {
+            width: 100%;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+        .hero-float-card {
+            position: absolute;
+            background: white;
+            padding: 16px 20px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .hero-float-card.fc1 {
+            bottom: -20px;
+            left: -20px;
+            animation: float 6s ease-in-out infinite;
+        }
+        .hero-float-card.fc2 {
+            top: -20px;
+            right: -20px;
+            animation: float 6s ease-in-out infinite 2s;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+        }
+        .hero-float-card .fc-icon {
+            font-size: 1.8rem;
+        }
+        .hero-float-card .fc-text {
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+        .hero-float-card .fc-sub {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+        }
+
+        @media (max-width: 992px) {
+            .hero-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .hero-sub {
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .hero-btns {
+                justify-content: center;
+            }
+            .hero-stats {
+                justify-content: center;
+            }
+            .hero-image .main-img {
+                max-width: 90%;
+                margin: 0 auto;
+                display: block;
+            }
+            .hero-float-card.fc1,
+            .hero-float-card.fc2 {
+                display: none;
+            }
+        }
+
+        /* ============================================
+           SECTIONS - SHARED
+           ============================================ */
+        section {
+            padding: 80px 40px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .section-label {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--bright-teal);
+            background: rgba(0, 119, 182, 0.08);
+            padding: 6px 16px;
+            border-radius: 50px;
+            margin-bottom: 16px;
+        }
+        .section-title {
+            font-size: clamp(2rem, 4vw, 3.2rem);
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: var(--text-dark);
+        }
+        .section-sub {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            line-height: 1.7;
+            margin-bottom: 48px;
+        }
+        .text-center { text-align: center; }
+        .mx-auto { margin-left: auto; margin-right: auto; }
+
+        /* ============================================
+           FEATURES GRID
+           ============================================ */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+        }
+        .feature-card {
+            background: white;
+            padding: 32px 24px;
+            border-radius: var(--radius);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+            transition: var(--transition);
+            border: 1px solid rgba(0,0,0,0.04);
+        }
+        .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow);
+            border-color: var(--light-cyan);
+        }
+        .feature-card .fc-icon {
+            font-size: 2.4rem;
+            margin-bottom: 16px;
+        }
+        .feature-card h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        .feature-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        .new-badge {
+            display: inline-block;
+            font-size: 0.6rem;
+            font-weight: 700;
+            color: white;
+            background: linear-gradient(135deg, #22c55e, #16a34a);
+            padding: 2px 10px;
+            border-radius: 50px;
+            margin-left: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* ============================================
+           PRICING POLL
+           ============================================ */
+        .poll-section {
+            background: white;
+            border-radius: var(--radius);
+            padding: 48px 32px;
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(0,0,0,0.04);
+            margin-top: 40px;
+        }
+        .poll-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 16px;
+            margin-top: 24px;
+        }
+        .poll-option {
+            background: var(--bg);
+            border: 2px solid transparent;
+            border-radius: var(--radius);
+            padding: 20px 16px;
+            text-align: center;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        .poll-option:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow);
+        }
+        .poll-option.selected {
+            border-color: var(--bright-teal);
+            background: rgba(0, 119, 182, 0.05);
+        }
+        .poll-option .poll-price {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--text-dark);
+        }
+        .poll-option .poll-votes {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--bright-teal);
+            margin-top: 4px;
+        }
+        .poll-option .poll-label {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-top: 4px;
+        }
+        .poll-option .poll-bar {
+            height: 6px;
+            background: var(--light-cyan);
+            border-radius: 10px;
+            margin-top: 10px;
+            overflow: hidden;
+            position: relative;
+        }
+        .poll-option .poll-bar .poll-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--bright-teal), var(--turquoise-surf));
+            border-radius: 10px;
+            transition: width 0.6s ease;
+            width: 0%;
+        }
+        .poll-total {
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-top: 20px;
+        }
+
+        /* ============================================
+           TECH STACK
+           ============================================ */
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 20px;
+        }
+        .tech-card {
+            background: white;
+            padding: 24px;
+            border-radius: var(--radius);
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+            border: 1px solid rgba(0,0,0,0.04);
+            transition: var(--transition);
+        }
+        .tech-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow);
+        }
+        .tech-card .tc-icon {
+            font-size: 2.8rem;
+            margin-bottom: 8px;
+        }
+        .tech-card h4 {
+            font-size: 1rem;
+            font-weight: 600;
+        }
+        .tech-card p {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        /* ============================================
+           ARCHITECTURE
+           ============================================ */
+        .arch-diagram {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            padding: 40px 20px;
+            background: white;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(0,0,0,0.04);
+        }
+        .arch-node {
+            text-align: center;
+            padding: 24px 32px;
+            background: var(--light-cyan);
+            border-radius: 12px;
+            min-width: 140px;
+            border: 1px solid rgba(0, 119, 182, 0.1);
+        }
+        .arch-node .an-icon {
+            font-size: 2.4rem;
+            margin-bottom: 8px;
+        }
+        .arch-node h4 {
+            font-size: 0.95rem;
+            font-weight: 600;
+        }
+        .arch-node p {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+        .arch-arrow {
+            font-size: 1.5rem;
+            color: var(--bright-teal);
+        }
+
+        @media (max-width: 768px) {
+            .arch-diagram {
+                flex-direction: column;
+            }
+            .arch-arrow {
+                transform: rotate(90deg);
+            }
+        }
+
+        /* ============================================
+           TESTIMONIALS
+           ============================================ */
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+        }
+        .testimonial-card {
+            background: white;
+            padding: 32px;
+            border-radius: var(--radius);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+            border: 1px solid rgba(0,0,0,0.04);
+        }
+        .testimonial-card .stars {
+            color: #f59e0b;
+            margin-bottom: 12px;
+        }
+        .testimonial-card blockquote {
+            font-size: 1rem;
+            line-height: 1.7;
+            color: var(--text-dark);
+            margin-bottom: 16px;
+        }
+        .testimonial-card .author {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .testimonial-card .author .avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--bright-teal), var(--turquoise-surf));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+        .testimonial-card .author .name {
+            font-weight: 600;
+        }
+        .testimonial-card .author .role {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        /* ============================================
+           REVIEW SYSTEM
+           ============================================ */
+        .review-section {
+            background: white;
+            border-radius: var(--radius);
+            padding: 48px 32px;
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(0,0,0,0.04);
+            margin-top: 40px;
+        }
+        .review-form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-bottom: 32px;
+        }
+        .review-form .full-width {
+            grid-column: 1 / -1;
+        }
+        .review-form input,
+        .review-form select,
+        .review-form textarea {
+            padding: 12px 16px;
+            border: 1px solid rgba(0,0,0,0.1);
+            border-radius: 12px;
+            font-family: inherit;
+            font-size: 0.95rem;
+            transition: var(--transition);
+            width: 100%;
+        }
+        .review-form input:focus,
+        .review-form select:focus,
+        .review-form textarea:focus {
+            outline: none;
+            border-color: var(--bright-teal);
+            box-shadow: 0 0 0 3px rgba(0, 119, 182, 0.1);
+        }
+        .review-form textarea {
+            resize: vertical;
+            min-height: 80px;
+        }
+        .star-rating {
+            display: flex;
+            gap: 8px;
+            font-size: 2rem;
+            cursor: pointer;
+            color: #ddd;
+            transition: var(--transition);
+        }
+        .star-rating .star.active {
+            color: #f59e0b;
+        }
+        .star-rating .star:hover {
+            transform: scale(1.2);
+        }
+        .review-list {
+            display: grid;
+            gap: 20px;
+        }
+        .review-item {
+            background: var(--bg);
+            padding: 20px 24px;
+            border-radius: var(--radius);
+            border: 1px solid rgba(0,0,0,0.04);
+        }
+        .review-item .review-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+        .review-item .review-name {
+            font-weight: 600;
+            font-size: 1.05rem;
+        }
+        .review-item .review-role {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+        .review-item .review-stars {
+            color: #f59e0b;
+            font-size: 1.1rem;
+        }
+        .review-item .review-text {
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+        .review-item .review-date {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            margin-top: 8px;
+        }
+        .review-item .review-verified {
+            display: inline-block;
+            font-size: 0.7rem;
+            color: #22c55e;
+            background: rgba(34, 197, 94, 0.1);
+            padding: 2px 10px;
+            border-radius: 50px;
+            margin-left: 8px;
+        }
+        .review-empty {
+            text-align: center;
+            padding: 40px 0;
+            color: var(--text-muted);
+        }
+        .review-empty .icon {
+            font-size: 3rem;
+            margin-bottom: 16px;
+            display: block;
+        }
+
+        @media (max-width: 768px) {
+            .review-form {
+                grid-template-columns: 1fr;
+            }
+            .review-form .full-width {
+                grid-column: 1;
+            }
+        }
+
+        /* ============================================
+           CTA / FOOTER
+           ============================================ */
+        .cta-section {
+            background: linear-gradient(135deg, var(--deep-twilight), var(--bright-teal));
+            border-radius: var(--radius);
+            padding: 60px 40px;
+            text-align: center;
+            color: white;
+            margin-top: 40px;
+        }
+        .cta-section h2 {
+            font-size: 2.4rem;
+            margin-bottom: 16px;
+        }
+        .cta-section p {
+            font-size: 1.1rem;
+            opacity: 0.8;
+            max-width: 500px;
+            margin: 0 auto 32px;
+        }
+        .cta-section .btn-primary {
+            background: white;
+            color: var(--bright-teal);
+        }
+        .cta-section .btn-primary:hover {
+            background: rgba(255,255,255,0.9);
+        }
+
+        footer {
+            padding: 40px;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(0,0,0,0.06);
+        }
+        footer .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            margin-bottom: 16px;
+            flex-wrap: wrap;
+        }
+        footer .footer-links a {
+            transition: var(--transition);
+        }
+        footer .footer-links a:hover {
+            color: var(--bright-teal);
+        }
+
+        /* ============================================
+           RESPONSIVE
+           ============================================ */
+        @media (max-width: 768px) {
+            nav { padding: 12px 20px; }
+            section { padding: 60px 20px; }
+            .hero-title { font-size: 2.2rem; }
+            .hero-stats { gap: 20px; }
+            .hero-stats .hs-number { font-size: 1.6rem; }
+            .cta-section { padding: 40px 20px; }
+            .cta-section h2 { font-size: 1.8rem; }
+            .poll-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
 
-<!-- ═══════════════════════════════════════
+<!-- ============================================
      NAVBAR
-══════════════════════════════════════════ -->
+     ============================================ -->
 <nav id="navbar">
-  <div class="nav-inner">
-    <div class="nav-logo">
-      <span class="logo-icon">⬡</span>
-      <span class="logo-text">ClinicFlow <span class="logo-pro">Pro</span></span>
+    <div class="nav-inner">
+        <div class="logo">
+            <span class="logo-icon">⬡</span>
+            <span>ClinicFlow <span class="logo-pro">Pro</span></span>
+        </div>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#features">Features</a></li>
+            <li><a href="#tech">Tech Stack</a></li>
+            <li><a href="#architecture">Architecture</a></li>
+            <li><a href="#pricing-poll">Pricing Poll</a></li>
+            <li><a href="#testimonials">Testimonials</a></li>
+            <li><a href="#reviews">Reviews</a></li>
+        </ul>
+        <div class="nav-actions">
+            <a href="#reviews" class="btn-primary">
+                <i class="fas fa-star"></i> Write Review
+            </a>
+            <div class="mobile-toggle" id="mobileToggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
     </div>
-    <ul class="nav-links">
-      <li><a href="#features">Features</a></li>
-      <li><a href="#pricingPoll">Pricing Poll</a></li>
-      <li><a href="#tech">Tech Stack</a></li>
-      <li><a href="#team">Team</a></li>
-    </ul>
-    <div class="nav-buttons">
-      <a href="login.php" class="nav-login">Login</a>
-      <a href="#download" class="nav-cta" id="headerDownloadBtn">
-        <span class="btn-text">Download Project</span>
-        <span class="btn-icon">⬇️</span>
-      </a>
-    </div>
-    <button class="menu-toggle" id="menuToggle">
-      <span></span><span></span><span></span>
-    </button>
-  </div>
 </nav>
 
-<!-- ═══════════════════════════════════════
+<!-- ============================================
      HERO SECTION
-══════════════════════════════════════════ -->
+     ============================================ -->
 <section id="hero">
-  <canvas id="particleCanvas"></canvas>
-  <div class="hero-grid-overlay"></div>
-  <div class="hero-glow glow-1"></div>
-  <div class="hero-glow glow-2"></div>
-  <div class="hero-glow glow-3"></div>
-
-  <!-- Floating Dashboard Panels -->
-  <div class="float-panel panel-admin" data-depth="0.3">
-    <div class="panel-header">
-      <span class="panel-dot red"></span><span class="panel-dot yellow"></span><span class="panel-dot green"></span>
-      <span class="panel-title">Admin Dashboard</span>
+    <div class="hero-grid">
+        <div class="hero-content">
+            <div class="hero-badge">
+                <span class="dot"></span>
+                Next Generation Healthcare Platform
+            </div>
+            <h1 class="hero-title">
+                Digitize Your Clinic<br>
+                <span class="highlight">Simplify Healthcare</span>
+            </h1>
+            <p class="hero-sub">
+                A modern clinic management SaaS designed for doctors, receptionists,
+                and patients. Built for real-world healthcare workflows with
+                <strong>AI-powered features</strong> and <strong>enterprise-grade security</strong>.
+            </p>
+            <div class="hero-btns">
+                <a href="#features" class="btn-primary">
+                    <i class="fas fa-play-circle"></i> Explore Features
+                </a>
+                <a href="#pricing-poll" class="btn-ghost">
+                    <i class="fas fa-poll"></i> Vote on Pricing
+                </a>
+                <!-- ==========================================
+                     DOWNLOAD DOCUMENTATION BUTTON (Direct PDF)
+                ========================================== -->
+                <a href="docs.pdf" target="_blank" class="btn-download-doc" id="downloadDocBtn">
+                    <i class="fas fa-file-pdf"></i> Download Documentation
+                </a>
+            </div>
+            <div class="hero-stats">
+                <div class="hs-item">
+                    <span class="hs-number">42+</span>
+                    <span class="hs-label">Pages</span>
+                </div>
+                <div class="hs-item">
+                    <span class="hs-number">4</span>
+                    <span class="hs-label">User Roles</span>
+                </div>
+                <div class="hs-item">
+                    <span class="hs-number">420+</span>
+                    <span class="hs-label">Dev Hours</span>
+                </div>
+                <div class="hs-item">
+                    <span class="hs-number">100%</span>
+                    <span class="hs-label">Secure</span>
+                </div>
+            </div>
+        </div>
+        <div class="hero-image">
+            <img src="https://via.placeholder.com/600x450/0077B6/FFFFFF?text=ClinicFlow+Pro+Dashboard"
+                 alt="ClinicFlow Pro Dashboard Preview" class="main-img">
+            <div class="hero-float-card fc1">
+                <span class="fc-icon">📊</span>
+                <div>
+                    <div class="fc-text">Live Analytics</div>
+                    <div class="fc-sub">Real-time insights</div>
+                </div>
+            </div>
+            <div class="hero-float-card fc2">
+                <span class="fc-icon">🤖</span>
+                <div>
+                    <div class="fc-text">AI Chatbot</div>
+                    <div class="fc-sub">5000+ responses</div>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="panel-stat-row">
-      <div class="panel-stat"><div class="stat-num">1,248</div><div class="stat-lbl">Patients</div></div>
-      <div class="panel-stat"><div class="stat-num">24</div><div class="stat-lbl">Doctors</div></div>
-      <div class="panel-stat"><div class="stat-num">99.9%</div><div class="stat-lbl">Uptime</div></div>
-    </div>
-    <div class="panel-bar-group">
-      <div class="panel-bar" style="--w:80%;--c:#0077B6"></div>
-      <div class="panel-bar" style="--w:60%;--c:#00B4D8"></div>
-      <div class="panel-bar" style="--w:45%;--c:#90E0EF"></div>
-    </div>
-  </div>
-
-  <div class="float-panel panel-doctor" data-depth="0.2">
-    <div class="panel-header">
-      <span class="panel-dot red"></span><span class="panel-dot yellow"></span><span class="panel-dot green"></span>
-      <span class="panel-title">Doctor Interface</span>
-    </div>
-    <div class="doctor-list">
-      <div class="doc-row"><div class="doc-avatar">AH</div><div class="doc-info"><div class="doc-name">Dr. Hannan</div><div class="doc-spec">Cardiologist</div></div><div class="doc-badge active">Available</div></div>
-      <div class="doc-row"><div class="doc-avatar">HA</div><div class="doc-info"><div class="doc-name">Dr. Hasnat</div><div class="doc-spec">Neurologist</div></div><div class="doc-badge busy">In Session</div></div>
-    </div>
-  </div>
-
-  <div class="float-panel panel-patient" data-depth="0.15">
-    <div class="panel-header">
-      <span class="panel-dot red"></span><span class="panel-dot yellow"></span><span class="panel-dot green"></span>
-      <span class="panel-title">Patient Portal</span>
-    </div>
-    <div class="appt-list">
-      <div class="appt-item"><div class="appt-time">09:00</div><div class="appt-name">Consultation</div><div class="appt-status confirmed">✓</div></div>
-      <div class="appt-item"><div class="appt-time">11:30</div><div class="appt-name">Blood Test</div><div class="appt-status pending">○</div></div>
-    </div>
-  </div>
-
-  <!-- Hero Content -->
-  <div class="hero-content">
-    <div class="hero-badge">
-      <span class="badge-pulse"></span>
-      #1 Healthcare SaaS Platform · Trusted by 500+ Clinics
-    </div>
-    <h1 class="hero-headline">
-      <span class="line-1">Modern Clinic Management</span>
-      <span class="line-2">That Actually <span class="gradient-text">Works</span></span>
-    </h1>
-    <p class="hero-sub">All-in-one platform for appointments, prescriptions, patient records, and analytics. Start for free — no credit card required.</p>
-    <div class="hero-btns">
-      <a href="register.php" class="btn-primary">
-        <span>Start Free Trial</span>
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </a>
-      <a href="#features" class="btn-ghost">See Features</a>
-      <a href="#pricingPoll" class="btn-outline">Help Us Set Price</a>
-    </div>
-    <div class="hero-stats">
-      <div class="hs"><span>500+</span> Active Clinics</div>
-      <div class="hs-div"></div>
-      <div class="hs"><span>50K+</span> Patients Served</div>
-      <div class="hs-div"></div>
-      <div class="hs"><span>99.9%</span> Uptime</div>
-    </div>
-  </div>
-
-  <div class="hero-scroll-hint">
-    <div class="scroll-wheel"></div>
-    <span>Scroll to explore</span>
-  </div>
 </section>
 
-<!-- ═══════════════════════════════════════
-     PROBLEM SOLUTION STORY
-══════════════════════════════════════════ -->
-<section id="story">
-  <div class="story-inner">
-    <div class="story-scene" id="scene-paper">
-      <div class="scene-icon">📋</div>
-      <h2 class="story-heading">75% of clinics still rely on <span class="strike">paper records</span></h2>
-      <p>Lost files. Missed appointments. Illegible prescriptions. Hours wasted on paperwork instead of patient care.</p>
-      <div class="paper-files"><div class="paper-file pf-1">📄</div><div class="paper-file pf-2">📄</div><div class="paper-file pf-3">📄</div><div class="paper-file pf-4">📄</div></div>
-    </div>
-    <div class="story-arrow">
-      <svg width="40" height="80" viewBox="0 0 40 80"><path d="M20 0v60M8 50l12 14 12-14" stroke="url(#ag)" stroke-width="2.5" stroke-linecap="round"/><defs><linearGradient id="ag" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#0077B6"/><stop offset="100%" stop-color="#00B4D8"/></linearGradient></defs></svg>
-    </div>
-    <div class="story-scene" id="scene-digital">
-      <div class="scene-icon">⚡</div>
-      <h2 class="story-heading">ClinicFlow Pro <span class="highlight">digitizes everything</span></h2>
-      <p>One unified platform for patients, doctors, receptionists, and admins. Save 20+ hours per week.</p>
-      <div class="digital-cards"><div class="dcard"><span>📅</span> Appointments</div><div class="dcard"><span>💊</span> Prescriptions</div><div class="dcard"><span>📊</span> Analytics</div><div class="dcard"><span>🔒</span> HIPAA Ready</div></div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════════════════════════════════
-     FEATURES
-══════════════════════════════════════════ -->
+<!-- ============================================
+     FEATURES SECTION
+     ============================================ -->
 <section id="features">
-  <div class="section-label">Why Choose ClinicFlow Pro</div>
-  <h2 class="section-title">Everything your clinic needs</h2>
-  <p class="section-sub">15 powerful modules designed for modern healthcare management.</p>
-  <div class="feature-grid">
-    <div class="feat-card"><div class="feat-icon">👥</div><h3>4 User Roles</h3><p>Admin, Doctor, Receptionist, Patient — tailored dashboards for each.</p></div>
-    <div class="feat-card"><div class="feat-icon">📅</div><h3>Smart Scheduling</h3><p>Real-time availability, conflict detection, automated reminders.</p></div>
-    <div class="feat-card"><div class="feat-icon">🕐</div><h3>Patient Timeline</h3><p>Complete chronological record of visits, diagnoses, treatments.</p></div>
-    <div class="feat-card"><div class="feat-icon">💊</div><h3>Digital Prescriptions</h3><p>E-prescribe with dosage tracking and QR codes for pharmacy.</p></div>
-    <div class="feat-card"><div class="feat-icon">🔬</div><h3>AI Symptom Checker</h3><p>Intelligent symptom analysis with urgency indicators.</p></div>
-    <div class="feat-card"><div class="feat-icon">📊</div><h3>Analytics Dashboard</h3><p>Real-time insights, revenue tracking, doctor performance.</p></div>
-    <div class="feat-card"><div class="feat-icon">💬</div><h3>Doctor-Patient Chat</h3><p>Secure messaging between doctors and patients.</p></div>
-    <div class="feat-card"><div class="feat-icon">🔮</div><h3>Health Predictor</h3><p>AI-powered health risk assessment based on medical history.</p></div>
-    <div class="feat-card"><div class="feat-icon">🔐</div><h3>Bank-Grade Security</h3><p>Role-based access, session management, audit trails.</p></div>
-    <div class="feat-card"><div class="feat-icon">📱</div><h3>PWA Ready</h3><p>Install as app on mobile — works offline too.</p></div>
-    <div class="feat-card"><div class="feat-icon">💳</div><h3>Subscription Plans</h3><p>Free tier available. Upgrade to Pro for unlimited features.</p></div>
-    <div class="feat-card"><div class="feat-icon">🤖</div><h3>AI Health Assistant</h3><p>24/7 chatbot for patient queries — 500+ responses.</p></div>
-    <div class="feat-card"><div class="feat-icon">📱</div><h3>WhatsApp Integration</h3><p>Send appointment reminders and prescriptions via WhatsApp.</p></div>
-    <div class="feat-card"><div class="feat-icon">🎛️</div><h3>Drag & Drop Dashboard</h3><p>Customize your dashboard layout — save your preferences.</p></div>
-    <div class="feat-card"><div class="feat-icon">🧠</div><h3>AI Diagnosis Assistant</h3><p>AI-powered differential diagnosis based on symptoms.</p></div>
-  </div>
+    <div class="text-center">
+        <span class="section-label">Core Capabilities</span>
+        <h2 class="section-title">Everything Your Clinic Needs</h2>
+        <p class="section-sub mx-auto">
+            12 powerful modules designed for modern healthcare management.
+        </p>
+    </div>
+
+    <div class="features-grid">
+        <div class="feature-card">
+            <div class="fc-icon">👥</div>
+            <h3>Multi-Role System</h3>
+            <p>Admin, Doctor, Receptionist, Patient — each with tailored dashboards.</p>
+        </div>
+        <div class="feature-card">
+            <div class="fc-icon">📅</div>
+            <h3>Smart Scheduling</h3>
+            <p>Real-time appointment booking with conflict detection and reminders.</p>
+        </div>
+        <div class="feature-card">
+            <div class="fc-icon">🕐</div>
+            <h3>Patient Timeline</h3>
+            <p>Complete record of visits, diagnoses, treatments, and prescriptions.</p>
+        </div>
+        <div class="feature-card">
+            <div class="fc-icon">💊</div>
+            <h3>Digital Prescriptions</h3>
+            <p>Electronic prescriptions with QR codes and printable formats.</p>
+        </div>
+        <div class="feature-card">
+            <div class="fc-icon">🔬</div>
+            <h3>AI Symptom Checker</h3>
+            <p>Intelligent symptom analysis with possible conditions. <span class="new-badge">New</span></p>
+        </div>
+        <div class="feature-card">
+            <div class="fc-icon">📊</div>
+            <h3>Analytics Dashboard</h3>
+            <p>Real-time charts on patient flow, revenue, doctor performance.</p>
+        </div>
+        <div class="feature-card">
+            <div class="fc-icon">🤖</div>
+            <h3>NLP AI Chatbot</h3>
+            <p>5000+ responses, trained on clinic operations. <span class="new-badge">New</span></p>
+        </div>
+        <div class="feature-card">
+            <div class="fc-icon">🧠</div>
+            <h3>Health Risk Predictor</h3>
+            <p>AI-powered risk assessment for diabetes, heart disease. <span class="new-badge">New</span></p>
+        </div>
+        <div class="feature-card">
+            <div class="fc-icon">💬</div>
+            <h3>Doctor-Patient Chat</h3>
+            <p>Secure real-time messaging with read receipts. <span class="new-badge">New</span></p>
+        </div>
+        <!-- <div class="feature-card">
+            <div class="fc-icon">📱</div>
+            <h3>PWA Ready</h3>
+            <p>Install as mobile app with offline support. <span class="new-badge">New</span></p>
+        </div> -->
+        <div class="feature-card">
+            <div class="fc-icon">🗄️</div>
+            <h3>Python + ML</h3>
+            <p>Machine learning models via Flask API. <span class="new-badge">New</span></p>
+        </div>
+        <div class="feature-card">
+            <div class="fc-icon">🔐</div>
+            <h3>Bank-Grade Security</h3>
+            <p>bcrypt hashing, SSL, RBAC, audit trails.</p>
+        </div>
+    </div>
 </section>
 
-<!-- ═══════════════════════════════════════
-     PRICING POLL SECTION (REPLACES PRICING)
-══════════════════════════════════════════ -->
-<section id="pricingPoll">
-  <div class="section-label">Help Us Decide</div>
-  <h2 class="section-title">What Should Be the Price?</h2>
-  <p class="section-sub">We value your opinion! Choose the price range you'd pay for ClinicFlow Pro</p>
-  
-  <div class="poll-container">
-    <div class="poll-card">
-      <h3 class="poll-title">💰 ClinicFlow Pro Pricing Poll</h3>
-      <p class="poll-sub">Select the price range that seems fair to you</p>
-      
-      <div class="poll-options">
-        <div class="poll-option" data-price="5000-10000">
-          <div class="poll-option-radio">
-            <span class="radio-custom"></span>
-          </div>
-          <div class="poll-option-content">
-            <div class="poll-option-price">₨ 5,000 - 10,000</div>
-            <div class="poll-option-desc">Per month · Basic features</div>
-          </div>
-          <div class="poll-option-votes">
-            <span class="vote-count">0</span>
-            <span class="vote-label">votes</span>
-          </div>
-        </div>
-        
-        <div class="poll-option" data-price="10000-20000">
-          <div class="poll-option-radio">
-            <span class="radio-custom"></span>
-          </div>
-          <div class="poll-option-content">
-            <div class="poll-option-price">₨ 10,000 - 20,000</div>
-            <div class="poll-option-desc">Per month · Standard features</div>
-          </div>
-          <div class="poll-option-votes">
-            <span class="vote-count">0</span>
-            <span class="vote-label">votes</span>
-          </div>
-        </div>
-        
-        <div class="poll-option" data-price="20000-30000">
-          <div class="poll-option-radio">
-            <span class="radio-custom"></span>
-          </div>
-          <div class="poll-option-content">
-            <div class="poll-option-price">₨ 20,000 - 30,000</div>
-            <div class="poll-option-desc">Per month · Pro features</div>
-          </div>
-          <div class="poll-option-votes">
-            <span class="vote-count">0</span>
-            <span class="vote-label">votes</span>
-          </div>
-        </div>
-        
-        <div class="poll-option" data-price="30000-50000">
-          <div class="poll-option-radio">
-            <span class="radio-custom"></span>
-          </div>
-          <div class="poll-option-content">
-            <div class="poll-option-price">₨ 30,000 - 50,000</div>
-            <div class="poll-option-desc">Per month · Enterprise features</div>
-          </div>
-          <div class="poll-option-votes">
-            <span class="vote-count">0</span>
-            <span class="vote-label">votes</span>
-          </div>
-        </div>
-        
-        <div class="poll-option" data-price="50000-100000">
-          <div class="poll-option-radio">
-            <span class="radio-custom"></span>
-          </div>
-          <div class="poll-option-content">
-            <div class="poll-option-price">₨ 50,000 - 100,000</div>
-            <div class="poll-option-desc">Per month · Premium + Support</div>
-          </div>
-          <div class="poll-option-votes">
-            <span class="vote-count">0</span>
-            <span class="vote-label">votes</span>
-          </div>
-        </div>
-        
-        <div class="poll-option" data-price="custom">
-          <div class="poll-option-radio">
-            <span class="radio-custom"></span>
-          </div>
-          <div class="poll-option-content">
-            <div class="poll-option-price">Custom / One-time</div>
-            <div class="poll-option-desc">One-time payment or custom quote</div>
-          </div>
-          <div class="poll-option-votes">
-            <span class="vote-count">0</span>
-            <span class="vote-label">votes</span>
-          </div>
-        </div>
-      </div>
-      
-      <div class="poll-action">
-        <button class="poll-submit-btn" id="submitVoteBtn">
-          <span>Submit Your Vote</span>
-          <i class="fas fa-arrow-right"></i>
-        </button>
-        <p class="poll-note">Your vote helps us set the right price for clinics in Pakistan</p>
-      </div>
+<!-- ============================================
+     PRICING POLL SECTION (NEW)
+     ============================================ -->
+<section id="pricing-poll">
+    <div class="text-center">
+        <span class="section-label">Community Pricing Poll</span>
+        <h2 class="section-title">What Should ClinicFlow Pro Cost?</h2>
+        <p class="section-sub mx-auto">
+            Help us determine the perfect price. Vote for what you think is fair.
+            Your feedback directly influences our pricing strategy.
+        </p>
     </div>
-    
-    <!-- Live Results Section -->
-    <div class="results-card">
-      <h3 class="results-title">📊 Live Poll Results</h3>
-      <p class="results-sub">Real-time voting data from clinics</p>
-      
-      <div class="results-bars">
-        <div class="result-bar-item" data-price="5000-10000">
-          <div class="result-bar-label">
-            <span>₨ 5,000 - 10,000</span>
-            <span class="result-percent">0%</span>
-          </div>
-          <div class="result-bar-bg">
-            <div class="result-bar-fill" style="width: 0%"></div>
-          </div>
-          <div class="result-votes-count">0 votes</div>
+
+    <div class="poll-section" id="pollSection">
+        <div class="poll-grid" id="pollGrid">
+            <!-- Options will be inserted by JavaScript -->
         </div>
-        
-        <div class="result-bar-item" data-price="10000-20000">
-          <div class="result-bar-label">
-            <span>₨ 10,000 - 20,000</span>
-            <span class="result-percent">0%</span>
-          </div>
-          <div class="result-bar-bg">
-            <div class="result-bar-fill" style="width: 0%"></div>
-          </div>
-          <div class="result-votes-count">0 votes</div>
+        <div class="poll-total" id="pollTotal">
+            Total Votes: <span id="totalVotes">0</span>
         </div>
-        
-        <div class="result-bar-item" data-price="20000-30000">
-          <div class="result-bar-label">
-            <span>₨ 20,000 - 30,000</span>
-            <span class="result-percent">0%</span>
-          </div>
-          <div class="result-bar-bg">
-            <div class="result-bar-fill" style="width: 0%"></div>
-          </div>
-          <div class="result-votes-count">0 votes</div>
+        <div style="text-align:center;margin-top:16px;">
+            <p style="font-size:0.85rem;color:var(--text-muted);">
+                <i class="fas fa-info-circle"></i> Your vote is anonymous and saved locally.
+                Refresh the page to see updated results.
+            </p>
         </div>
-        
-        <div class="result-bar-item" data-price="30000-50000">
-          <div class="result-bar-label">
-            <span>₨ 30,000 - 50,000</span>
-            <span class="result-percent">0%</span>
-          </div>
-          <div class="result-bar-bg">
-            <div class="result-bar-fill" style="width: 0%"></div>
-          </div>
-          <div class="result-votes-count">0 votes</div>
-        </div>
-        
-        <div class="result-bar-item" data-price="50000-100000">
-          <div class="result-bar-label">
-            <span>₨ 50,000 - 100,000</span>
-            <span class="result-percent">0%</span>
-          </div>
-          <div class="result-bar-bg">
-            <div class="result-bar-fill" style="width: 0%"></div>
-          </div>
-          <div class="result-votes-count">0 votes</div>
-        </div>
-        
-        <div class="result-bar-item" data-price="custom">
-          <div class="result-bar-label">
-            <span>Custom / One-time</span>
-            <span class="result-percent">0%</span>
-          </div>
-          <div class="result-bar-bg">
-            <div class="result-bar-fill" style="width: 0%"></div>
-          </div>
-          <div class="result-votes-count">0 votes</div>
-        </div>
-      </div>
-      
-      <div class="results-total">
-        <span>Total Votes: <strong id="totalVotes">0</strong></span>
-        <span class="results-last-updated">Last updated: Just now</span>
-      </div>
-      
-      <div class="results-note">
-        <i class="fas fa-chart-line"></i>
-        <span>Real-time data — every vote counts instantly!</span>
-      </div>
     </div>
-  </div>
 </section>
 
-<!-- ═══════════════════════════════════════
-     STATS SECTION
-══════════════════════════════════════════ -->
-<section id="stats">
-  <div class="stats-bg-glow"></div>
-  <div class="stats-grid">
-    <div class="stat-card" data-target="500" data-suffix="+"><div class="stat-counter">0</div><div class="stat-unit">Clinics</div><div class="stat-desc">Trust us worldwide</div></div>
-    <div class="stat-card" data-target="50000" data-suffix="+"><div class="stat-counter">0</div><div class="stat-unit">Patients</div><div class="stat-desc">Served digitally</div></div>
-    <div class="stat-card" data-target="99.9" data-suffix="%"><div class="stat-counter">0</div><div class="stat-unit">Uptime</div><div class="stat-desc">99.9% SLA guarantee</div></div>
-    <div class="stat-card" data-target="24" data-suffix="/7"><div class="stat-counter">0</div><div class="stat-unit">Support</div><div class="stat-desc">24/7 assistance</div></div>
-  </div>
-</section>
-
-<!-- ═══════════════════════════════════════
-     TESTIMONIALS
-══════════════════════════════════════════ -->
-<section id="testimonials">
-  <div class="section-label">Trusted by Healthcare Professionals</div>
-  <h2 class="section-title">What our clients say</h2>
-  <p class="section-sub">Join 500+ clinics already using ClinicFlow Pro</p>
-  
-  <div class="testimonial-grid">
-    <div class="testimonial-card">
-      <div class="testimonial-stars">★★★★★</div>
-      <p class="testimonial-text">"ClinicFlow Pro transformed our practice. We went from paper chaos to digital efficiency in just 2 days. The AI symptom checker is a game-changer for patient triage."</p>
-      <div class="testimonial-author">
-        <div class="author-avatar">DS</div>
-        <div class="author-info">
-          <h4>Dr. Sarah Khan</h4>
-          <p>City Medical Center</p>
-        </div>
-      </div>
-    </div>
-    <div class="testimonial-card">
-      <div class="testimonial-stars">★★★★★</div>
-      <p class="testimonial-text">"Managing appointments used to be a nightmare. Now with automated reminders, our no-show rate dropped by 70%. Best investment we made this year."</p>
-      <div class="testimonial-author">
-        <div class="author-avatar">AA</div>
-        <div class="author-info">
-          <h4>Ahmed Ali</h4>
-          <p>Clinic Manager, HealthPlus</p>
-        </div>
-      </div>
-    </div>
-    <div class="testimonial-card">
-      <div class="testimonial-stars">★★★★★</div>
-      <p class="testimonial-text">"The patient portal is amazing. My patients love being able to see their prescriptions and book appointments online. It's made my receptionist's job so much easier."</p>
-      <div class="testimonial-author">
-        <div class="author-avatar">FM</div>
-        <div class="author-info">
-          <h4>Dr. Fatima Malik</h4>
-          <p>Wellness Clinic</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════════════════════════════════
-     TECH STACK
-══════════════════════════════════════════ -->
+<!-- ============================================
+     TECH STACK SECTION
+     ============================================ -->
 <section id="tech">
-  <div class="section-label">Modern Technology</div>
-  <h2 class="section-title">Built with purpose</h2>
-  <p class="section-sub">Enterprise-grade tech stack powering your clinic</p>
-  <div class="tech-grid">
-    <div class="tech-card"><div class="tech-group-label">Frontend</div><div class="tech-items"><div class="tech-item"><div class="ti-icon">H</div><span>HTML5</span></div><div class="tech-item"><div class="ti-icon">C</div><span>CSS3</span></div><div class="tech-item"><div class="ti-icon">T</div><span>Tailwind</span></div><div class="tech-item"><div class="ti-icon">JS</div><span>JavaScript</span></div><div class="tech-item"><div class="ti-icon">G</div><span>GSAP</span></div></div></div>
-    <div class="tech-card"><div class="tech-group-label">Backend</div><div class="tech-items"><div class="tech-item"><div class="ti-icon">P</div><span>PHP 8.0+</span></div><div class="tech-item"><div class="ti-icon">M</div><span>MySQL</span></div><div class="tech-item"><div class="ti-icon">A</div><span>Apache</span></div></div></div>
-    <div class="tech-card"><div class="tech-group-label">Security</div><div class="tech-items"><div class="tech-item"><div class="ti-icon">🔒</div><span>HTTPS</span></div><div class="tech-item"><div class="ti-icon">🔐</div><span>RBAC</span></div><div class="tech-item"><div class="ti-icon">📝</div><span>Audit Logs</span></div></div></div>
-  </div>
+    <div class="text-center">
+        <span class="section-label">Technology Stack</span>
+        <h2 class="section-title">Built with Purpose</h2>
+        <p class="section-sub mx-auto">
+            Every tool chosen for performance, reliability, and developer experience.
+        </p>
+    </div>
+
+    <div class="tech-grid">
+        <div class="tech-card"><div class="tc-icon">🐘</div><h4>PHP 8.0+</h4><p>Backend Logic</p></div>
+        <div class="tech-card"><div class="tc-icon">🗄️</div><h4>MySQL</h4><p>Database</p></div>
+        <div class="tech-card"><div class="tc-icon">🎨</div><h4>Tailwind CSS</h4><p>Styling</p></div>
+        <div class="tech-card"><div class="tc-icon">⚡</div><h4>Vanilla JS</h4><p>Interactivity</p></div>
+        <div class="tech-card"><div class="tc-icon">🐍</div><h4>Python NLP</h4><p>AI Chatbot <span class="new-badge">New</span></p></div>
+        <div class="tech-card"><div class="tc-icon">📈</div><h4>Chart.js</h4><p>Analytics</p></div>
+        <div class="tech-card"><div class="tc-icon">🔄</div><h4>GSAP</h4><p>Animations</p></div>
+        <div class="tech-card"><div class="tc-icon">🔒</div><h4>bcrypt</h4><p>Security</p></div>
+        <div class="tech-card"><div class="tc-icon">🧠</div><h4>Scikit-learn</h4><p>ML Predictions <span class="new-badge">New</span></p></div>
+        <!-- <div class="tech-card"><div class="tc-icon">📱</div><h4>PWA</h4><p>Offline Support <span class="new-badge">New</span></p></div> -->
+    </div>
 </section>
 
-<!-- ═══════════════════════════════════════
-     TEAM
-══════════════════════════════════════════ -->
-<section id="team">
-  <div class="section-label">The Builders</div>
-  <h2 class="section-title">Meet the developers</h2>
-  <p class="section-sub">Crafted with precision by two passionate engineers</p>
-  <div class="team-grid">
-    <div class="team-card"><div class="team-avatar-ring"><div class="team-avatar">AHG</div></div><h3 class="team-name">Abdul Hannan</h3><div class="team-role">Lead Full Stack Developer</div><div class="team-tags"><span>PHP</span><span>MySQL</span><span>System Design</span></div><p class="team-bio">Architected server-side logic, database schema, and security infrastructure.</p><div class="team-stats"><div><strong>8</strong> DB Tables</div><div><strong>42+</strong> Modules</div><div><strong>250+</strong> Hours</div></div></div>
-    <div class="team-card"><div class="team-avatar-ring"><div class="team-avatar">HA</div></div><h3 class="team-name">Hasnat Ahmed</h3><div class="team-role">Lead Frontend Developer</div><div class="team-tags"><span>UI/UX</span><span>Tailwind</span><span>Animations</span></div><p class="team-bio">Designed and built every pixel — 4 dashboards, 42 pages, cinematic landing.</p><div class="team-stats"><div><strong>4</strong> Dashboards</div><div><strong>42+</strong> Pages</div><div><strong>220+</strong> Hours</div></div></div>
-  </div>
+<!-- ============================================
+     ARCHITECTURE SECTION
+     ============================================ -->
+<section id="architecture">
+    <div class="text-center">
+        <span class="section-label">System Architecture</span>
+        <h2 class="section-title">How It All Connects</h2>
+        <p class="section-sub mx-auto">
+            A clean three-tier architecture with Python AI layer for intelligent features.
+        </p>
+    </div>
+
+    <div class="arch-diagram">
+        <div class="arch-node">
+            <div class="an-icon">🌐</div>
+            <h4>Browser</h4>
+            <p>HTML · CSS · JS</p>
+        </div>
+        <span class="arch-arrow">→</span>
+        <div class="arch-node">
+            <div class="an-icon">⚙️</div>
+            <h4>Web Server</h4>
+            <p>Apache · HTTPS</p>
+        </div>
+        <span class="arch-arrow">→</span>
+        <div class="arch-node">
+            <div class="an-icon">🐘</div>
+            <h4>PHP Backend</h4>
+            <p>Business Logic · APIs</p>
+        </div>
+        <span class="arch-arrow">→</span>
+        <div class="arch-node">
+            <div class="an-icon">🗄️</div>
+            <h4>MySQL</h4>
+            <p>8 Tables · Relational</p>
+        </div>
+        <span class="arch-arrow">→</span>
+        <div class="arch-node" style="background:#e0f2fe;border-color:#0077B6;">
+            <div class="an-icon">🐍</div>
+            <h4>Python AI Layer</h4>
+            <p>NLP · ML Predictions <span class="new-badge">New</span></p>
+        </div>
+    </div>
 </section>
 
-<!-- ═══════════════════════════════════════
+<!-- ============================================
+     TESTIMONIALS SECTION
+     ============================================ -->
+<section id="testimonials">
+    <div class="text-center">
+        <span class="section-label">Testimonials</span>
+        <h2 class="section-title">Trusted by Healthcare Professionals</h2>
+        <p class="section-sub mx-auto">
+            Real feedback from real users who transformed their clinics.
+        </p>
+    </div>
+
+    <div class="testimonial-grid">
+        <div class="testimonial-card">
+            <div class="stars">⭐⭐⭐⭐⭐</div>
+            <blockquote>"ClinicFlow Pro has completely transformed how we manage patient records. The AI symptom checker alone saves us hours every day."</blockquote>
+            <div class="author">
+                <div class="avatar">DS</div>
+                <div><div class="name">Dr. David Smith</div><div class="role">Cardiologist, NY</div></div>
+            </div>
+        </div>
+        <div class="testimonial-card">
+            <div class="stars">⭐⭐⭐⭐⭐</div>
+            <blockquote>"The prescription system with QR codes is brilliant. Our pharmacy loves it. This is the future of healthcare administration."</blockquote>
+            <div class="author">
+                <div class="avatar">SG</div>
+                <div><div class="name">Dr. Sara Gomez</div><div class="role">Pediatrician, CA</div></div>
+            </div>
+        </div>
+        <div class="testimonial-card">
+            <div class="stars">⭐⭐⭐⭐⭐</div>
+            <blockquote>"I've used 5 different clinic management systems. ClinicFlow Pro is by far the most intuitive and feature-rich. The NLP chatbot is a game-changer."</blockquote>
+            <div class="author">
+                <div class="avatar">MA</div>
+                <div><div class="name">Dr. Michael Adams</div><div class="role">Clinic Owner, TX</div></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================
+     REVIEWS SECTION
+     ============================================ -->
+<section id="reviews">
+    <div class="text-center">
+        <span class="section-label">Community Reviews</span>
+        <h2 class="section-title">What People Are Saying</h2>
+        <p class="section-sub mx-auto">
+            Share your experience with ClinicFlow Pro and help others discover the future of healthcare management.
+        </p>
+    </div>
+
+    <div class="review-section">
+        <!-- Review Form -->
+        <div class="review-form" id="reviewForm">
+            <div class="full-width">
+                <label style="font-weight:600;display:block;margin-bottom:8px;">Your Rating</label>
+                <div class="star-rating" id="starRating">
+                    <span class="star" data-value="1">★</span>
+                    <span class="star" data-value="2">★</span>
+                    <span class="star" data-value="3">★</span>
+                    <span class="star" data-value="4">★</span>
+                    <span class="star" data-value="5">★</span>
+                </div>
+                <input type="hidden" id="ratingValue" value="5">
+            </div>
+            <div>
+                <label style="font-weight:600;display:block;margin-bottom:8px;">Full Name</label>
+                <input type="text" id="reviewName" placeholder="Dr. John Doe" required>
+            </div>
+            <div>
+                <label style="font-weight:600;display:block;margin-bottom:8px;">Role / Title</label>
+                <input type="text" id="reviewRole" placeholder="Cardiologist, NY" required>
+            </div>
+            <div class="full-width">
+                <label style="font-weight:600;display:block;margin-bottom:8px;">Your Review</label>
+                <textarea id="reviewText" placeholder="Share your experience with ClinicFlow Pro..." required></textarea>
+            </div>
+            <div class="full-width" style="text-align:center;">
+                <button class="btn-primary" id="submitReview" style="width:100%;justify-content:center;">
+                    <i class="fas fa-paper-plane"></i> Submit Review
+                </button>
+            </div>
+        </div>
+
+        <!-- Reviews List -->
+        <div id="reviewsList">
+            <!-- Reviews will be loaded here from localStorage -->
+        </div>
+    </div>
+</section>
+
+<!-- ============================================
      CTA SECTION
-══════════════════════════════════════════ -->
-<section id="cta">
-  <div class="cta-container">
-    <div class="cta-glow"></div>
-    <h2 class="cta-title">Ready to digitize your clinic?</h2>
-    <p class="cta-sub">Join 500+ clinics already using ClinicFlow Pro</p>
-    <div class="cta-buttons">
-      <a href="register.php" class="cta-primary">Start Free Trial <i class="fas fa-arrow-right"></i></a>
-      <a href="#pricingPoll" class="cta-secondary">Help Us Set Price <i class="fas fa-chevron-right"></i></a>
+     ============================================ -->
+<section>
+    <div class="cta-section">
+        <h2>Ready to Transform Your Clinic?</h2>
+        <p>Join 500+ clinics already using ClinicFlow Pro. Start your free trial today.</p>
+        <a href="#reviews" class="btn-primary">
+            <i class="fas fa-star"></i> Write a Review
+        </a>
     </div>
-    <p class="cta-note">No credit card required · Free forever plan available</p>
-  </div>
 </section>
 
-<!-- ═══════════════════════════════════════
+<!-- ============================================
      FOOTER
-══════════════════════════════════════════ -->
-<footer id="footer">
-  <div class="footer-inner">
-    <div class="footer-brand"><div class="nav-logo"><span class="logo-icon">⬡</span><span class="logo-text">ClinicFlow <span class="logo-pro">Pro</span></span></div><p>Modern clinic management SaaS built for the future of healthcare.</p></div>
+     ============================================ -->
+<footer>
     <div class="footer-links">
-      <div class="fl-group"><h4>Product</h4><a href="#features">Features</a><a href="#pricingPoll">Pricing Poll</a><a href="#testimonials">Testimonials</a></div>
-      <div class="fl-group"><h4>Technology</h4><a href="#tech">Stack</a><a href="#security">Security</a><a href="#api">API</a></div>
-      <div class="fl-group"><h4>Company</h4><a href="#team">Team</a><a href="#contact">Contact</a><a href="#blog">Blog</a></div>
-      <div class="fl-group"><h4>Legal</h4><a href="#">Privacy</a><a href="#">Terms</a><a href="#">GDPR</a></div>
+        <a href="#features">Features</a>
+        <a href="#tech">Tech Stack</a>
+        <a href="#architecture">Architecture</a>
+        <a href="#pricing-poll">Pricing Poll</a>
+        <a href="#testimonials">Testimonials</a>
+        <a href="#reviews">Reviews</a>
     </div>
-  </div>
-  <div class="footer-bottom"><span>© 2026 ClinicFlow Pro — Abdul Hannan & Hasnat Ahmed | Aligarh Institute of Technology</span></div>
+    <div>
+        <p>© 2026 ClinicFlow Pro — Developed by Abdul Hannan Ghaznavi & Hasnat Ahmed</p>
+        <p style="font-size:0.8rem;margin-top:4px;">Aligarh Institute of Technology | Software Technology</p>
+    </div>
 </footer>
 
-<script src="script.js"></script>
+<!-- ============================================
+     JAVASCRIPT
+     ============================================ -->
+<script>
+    // ============================================
+    // 1. NAVBAR
+    // ============================================
+    window.addEventListener('scroll', function() {
+        const nav = document.getElementById('navbar');
+        nav.classList.toggle('scrolled', window.scrollY > 60);
+    });
+
+    document.getElementById('mobileToggle').addEventListener('click', function() {
+        document.getElementById('navLinks').classList.toggle('active');
+    });
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                document.getElementById('navLinks').classList.remove('active');
+            }
+        });
+    });
+
+    // ============================================
+    // 2. STAR RATING
+    // ============================================
+    const stars = document.querySelectorAll('.star-rating .star');
+    const ratingInput = document.getElementById('ratingValue');
+
+    stars.forEach(star => {
+        star.addEventListener('click', function() {
+            const value = parseInt(this.dataset.value);
+            ratingInput.value = value;
+            stars.forEach(s => s.classList.toggle('active', parseInt(s.dataset.value) <= value));
+        });
+        star.addEventListener('mouseenter', function() {
+            const value = parseInt(this.dataset.value);
+            stars.forEach(s => s.classList.toggle('active', parseInt(s.dataset.value) <= value));
+        });
+        star.addEventListener('mouseleave', function() {
+            const currentValue = parseInt(ratingInput.value) || 5;
+            stars.forEach(s => s.classList.toggle('active', parseInt(s.dataset.value) <= currentValue));
+        });
+    });
+
+    // ============================================
+    // 3. PRICING POLL SYSTEM
+    // ============================================
+    const POLL_KEY = 'clinicflow_pricing_poll';
+
+    const pollOptions = [
+        { id: 1, price: '20,000 PKR', value: 20000 },
+        { id: 2, price: '40,000 PKR', value: 40000 },
+        { id: 3, price: '60,000 PKR', value: 60000 },
+        { id: 4, price: '80,000 PKR', value: 80000 }
+    ];
+
+    function getPollData() {
+        try {
+            const data = localStorage.getItem(POLL_KEY);
+            if (data) {
+                const parsed = JSON.parse(data);
+                pollOptions.forEach(opt => {
+                    if (!parsed[opt.id]) parsed[opt.id] = 0;
+                });
+                return parsed;
+            }
+        } catch (e) {}
+        const init = {};
+        pollOptions.forEach(opt => { init[opt.id] = 0; });
+        return init;
+    }
+
+    function savePollData(data) {
+        localStorage.setItem(POLL_KEY, JSON.stringify(data));
+    }
+
+    function renderPoll() {
+        const data = getPollData();
+        const totalVotes = Object.values(data).reduce((a, b) => a + b, 0);
+
+        const grid = document.getElementById('pollGrid');
+        grid.innerHTML = '';
+
+        pollOptions.forEach(opt => {
+            const votes = data[opt.id] || 0;
+            const percentage = totalVotes > 0 ? (votes / totalVotes) * 100 : 0;
+
+            const div = document.createElement('div');
+            div.className = 'poll-option';
+            div.dataset.id = opt.id;
+            div.innerHTML = `
+                <div class="poll-price">${opt.price}</div>
+                <div class="poll-votes">${votes} vote${votes !== 1 ? 's' : ''}</div>
+                <div class="poll-label">${percentage.toFixed(0)}%</div>
+                <div class="poll-bar">
+                    <div class="poll-fill" style="width:${percentage}%;"></div>
+                </div>
+            `;
+            div.addEventListener('click', function() {
+                const id = parseInt(this.dataset.id);
+                const pollData = getPollData();
+                pollData[id] = (pollData[id] || 0) + 1;
+                savePollData(pollData);
+                renderPoll();
+            });
+            grid.appendChild(div);
+        });
+
+        document.getElementById('totalVotes').textContent = totalVotes;
+    }
+
+    // ============================================
+    // 4. REVIEW SYSTEM
+    // ============================================
+    const STORAGE_KEY = 'clinicflow_reviews';
+
+    function getReviews() {
+        try {
+            const data = localStorage.getItem(STORAGE_KEY);
+            return data ? JSON.parse(data) : [];
+        } catch (e) { return []; }
+    }
+
+    function saveReviews(reviews) {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(reviews));
+    }
+
+    function renderReviews() {
+        const container = document.getElementById('reviewsList');
+        const reviews = getReviews();
+
+        if (reviews.length === 0) {
+            container.innerHTML = `
+                <div class="review-empty">
+                    <span class="icon">📝</span>
+                    <h3>No Reviews Yet</h3>
+                    <p>Be the first to share your experience with ClinicFlow Pro!</p>
+                </div>
+            `;
+            return;
+        }
+
+        reviews.sort((a, b) => new Date(b.date) - new Date(a.date));
+
+        let html = '';
+        reviews.forEach(review => {
+            const starsHtml = '★'.repeat(review.rating) + '☆'.repeat(5 - review.rating);
+            const date = new Date(review.date).toLocaleDateString('en-US', {
+                year: 'numeric', month: 'long', day: 'numeric'
+            });
+            html += `
+                <div class="review-item">
+                    <div class="review-header">
+                        <div>
+                            <span class="review-name">${escapeHtml(review.name)}</span>
+                            <span class="review-verified">✓ Verified</span>
+                            <span class="review-role">${escapeHtml(review.role)}</span>
+                        </div>
+                        <div class="review-stars">${starsHtml}</div>
+                    </div>
+                    <div class="review-text">${escapeHtml(review.text)}</div>
+                    <div class="review-date">${date}</div>
+                </div>
+            `;
+        });
+
+        container.innerHTML = html;
+    }
+
+    function escapeHtml(text) {
+        const div = document.createElement('div');
+        div.textContent = text;
+        return div.innerHTML;
+    }
+
+    document.getElementById('submitReview').addEventListener('click', function() {
+        const name = document.getElementById('reviewName').value.trim();
+        const role = document.getElementById('reviewRole').value.trim();
+        const text = document.getElementById('reviewText').value.trim();
+        const rating = parseInt(document.getElementById('ratingValue').value) || 5;
+
+        if (!name || !role || !text) {
+            alert('Please fill in all fields before submitting.');
+            return;
+        }
+
+        const newReview = {
+            id: Date.now(),
+            name: name,
+            role: role,
+            text: text,
+            rating: rating,
+            date: new Date().toISOString()
+        };
+
+        const reviews = getReviews();
+        reviews.push(newReview);
+        saveReviews(reviews);
+        renderReviews();
+
+        document.getElementById('reviewName').value = '';
+        document.getElementById('reviewRole').value = '';
+        document.getElementById('reviewText').value = '';
+        document.getElementById('ratingValue').value = 5;
+        stars.forEach(s => s.classList.toggle('active', parseInt(s.dataset.value) <= 5));
+
+        alert('✅ Thank you for your review! It has been published.');
+        document.getElementById('reviewsList').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+
+    // ============================================
+    // 5. DOWNLOAD DOCUMENTATION BUTTON (DIRECT PDF)
+    // ============================================
+    // Simple & Clean - Just download the PDF file directly
+    // The button already has href="docs.pdf" in HTML, so it works natively.
+    // We keep this for any additional functionality if needed.
+
+    // ============================================
+    // 6. INIT
+    // ============================================
+    document.addEventListener('DOMContentLoaded', function() {
+        renderPoll();
+        renderReviews();
+    });
+
+    window.addEventListener('resize', function() {
+        if (window.innerWidth > 992) {
+            document.getElementById('navLinks').classList.remove('active');
+        }
+    });
+</script>
+
 </body>
 </html>
