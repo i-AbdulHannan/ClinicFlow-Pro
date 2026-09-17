@@ -1,1490 +1,2452 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ClinicFlow Pro — Premium Clinic Management System</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=clash-display@200,300,400,500,600,700&display=swap" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
-    <style>
-        /* ============================================
-           CSS VARIABLES - OCEAN BREEZE THEME
-           ============================================ */
-        :root {
-            --deep-twilight: #03045E;
-            --bright-teal: #0077B6;
-            --turquoise-surf: #00B4D8;
-            --frosted-blue: #90E0EF;
-            --light-cyan: #CAF0F8;
-            --bg: #f0f7fa;
-            --text-dark: #1a1a2e;
-            --text-muted: #4a4a6a;
-            --shadow: 0 20px 60px rgba(0, 119, 182, 0.15);
-            --radius: 20px;
-            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="ClinicFlow Pro is a modern clinic management platform for appointments, patient records, prescriptions, analytics, communication and AI-assisted workflows." />
+  <meta name="theme-color" content="#07131f" />
+  <title>ClinicFlow Pro | Modern Clinic Management</title>
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <style>
+    :root {
+      --bg: #07131f;
+      --bg-soft: #0b1a29;
+      --surface: rgba(16, 33, 49, 0.76);
+      --surface-strong: #102238;
+      --surface-light: #142941;
+      --line: rgba(167, 205, 223, 0.14);
+      --text: #f4fbff;
+      --muted: #9db2c2;
+      --muted-strong: #c8d8e2;
+      --teal: #42dfcf;
+      --teal-strong: #25cdbb;
+      --indigo: #7b86ff;
+      --indigo-soft: #9aa2ff;
+      --success: #65e2a0;
+      --danger: #ff8b9a;
+      --warning: #ffd277;
+      --shadow: 0 30px 80px rgba(0, 0, 0, 0.32);
+      --radius-xl: 28px;
+      --radius-lg: 22px;
+      --radius-md: 16px;
+      --container: 1180px;
+    }
 
-        body {
-            font-family: 'Clash Display Variable', 'Clash Display', sans-serif;
-            background: var(--bg);
-            color: var(--text-dark);
-            overflow-x: hidden;
-            scroll-behavior: smooth;
-        }
+    * {
+      box-sizing: border-box;
+    }
 
-        a { text-decoration: none; color: inherit; }
-        img { max-width: 100%; }
+    html {
+      scroll-behavior: smooth;
+    }
 
-        /* ============================================
-           GLASSMORPHISM
-           ============================================ */
-        .glass {
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at 10% 0%, rgba(66, 223, 207, 0.09), transparent 26%),
+        radial-gradient(circle at 85% 10%, rgba(123, 134, 255, 0.1), transparent 28%),
+        linear-gradient(180deg, #07131f 0%, #091624 46%, #07131f 100%);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
 
-        /* ============================================
-           BUTTONS
-           ============================================ */
-        .btn-primary {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            padding: 14px 32px;
-            background: linear-gradient(135deg, var(--bright-teal), var(--turquoise-surf));
-            color: white;
-            border: none;
-            border-radius: 50px;
-            font-weight: 600;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: var(--transition);
-            box-shadow: 0 8px 25px rgba(0, 119, 182, 0.3);
-        }
-        .btn-primary:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 15px 40px rgba(0, 119, 182, 0.4);
-        }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
 
-        .btn-ghost {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            padding: 14px 32px;
-            background: transparent;
-            color: var(--bright-teal);
-            border: 2px solid var(--bright-teal);
-            border-radius: 50px;
-            font-weight: 600;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: var(--transition);
-        }
-        .btn-ghost:hover {
-            background: var(--bright-teal);
-            color: white;
-            transform: translateY(-4px);
-        }
+    button,
+    a {
+      -webkit-tap-highlight-color: transparent;
+    }
 
-        /* Download Documentation Button */
-        .btn-download-doc {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            padding: 14px 32px;
-            background: linear-gradient(135deg, #8b5cf6, #6d28d9);
-            color: white;
-            border: none;
-            border-radius: 50px;
-            font-weight: 600;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: var(--transition);
-            box-shadow: 0 8px 25px rgba(139, 92, 246, 0.3);
-        }
-        .btn-download-doc:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 15px 40px rgba(139, 92, 246, 0.4);
-        }
+    img {
+      max-width: 100%;
+      display: block;
+    }
 
-        /* ============================================
-           NAVBAR
-           ============================================ */
-        nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 1000;
-            padding: 16px 40px;
-            transition: var(--transition);
-        }
-        nav.scrolled {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(20px);
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.08);
-        }
-        .nav-inner {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 1.4rem;
-            font-weight: 700;
-        }
-        .logo-icon {
-            font-size: 1.8rem;
-            background: linear-gradient(135deg, var(--bright-teal), var(--turquoise-surf));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .logo-pro {
-            background: linear-gradient(90deg, var(--turquoise-surf), var(--frosted-blue));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .nav-links {
-            display: flex;
-            gap: 32px;
-            list-style: none;
-        }
-        .nav-links a {
-            font-weight: 500;
-            color: var(--text-muted);
-            transition: var(--transition);
-        }
-        .nav-links a:hover {
-            color: var(--bright-teal);
-        }
-        .nav-actions {
-            display: flex;
-            gap: 12px;
-            align-items: center;
-        }
-        .nav-actions .btn-primary {
-            padding: 10px 24px;
-            font-size: 0.9rem;
-        }
-        .mobile-toggle {
-            display: none;
-            font-size: 1.8rem;
-            cursor: pointer;
-            color: var(--text-dark);
-        }
+    .container {
+      width: min(var(--container), calc(100% - 40px));
+      margin: 0 auto;
+    }
 
-        @media (max-width: 992px) {
-            .nav-links {
-                display: none;
-                flex-direction: column;
-                position: absolute;
-                top: 80px;
-                left: 0;
-                right: 0;
-                background: white;
-                padding: 24px;
-                box-shadow: 0 20px 60px rgba(0,0,0,0.1);
-                border-radius: 0 0 20px 20px;
-            }
-            .nav-links.active {
-                display: flex;
-            }
-            .nav-actions .btn-primary {
-                display: none;
-            }
-            .mobile-toggle {
-                display: block;
-            }
-        }
+    .section {
+      padding: 110px 0;
+      position: relative;
+    }
 
-        /* ============================================
-           HERO SECTION
-           ============================================ */
-        #hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            padding: 120px 40px 80px;
-            background: linear-gradient(180deg, #f0f7fa 0%, #fff 100%);
-            position: relative;
-            overflow: hidden;
-        }
-        .hero-grid {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: center;
-            position: relative;
-            z-index: 1;
-        }
-        .hero-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 8px 18px;
-            background: rgba(0, 119, 182, 0.1);
-            border: 1px solid rgba(0, 119, 182, 0.2);
-            border-radius: 50px;
-            font-size: 0.8rem;
-            color: var(--bright-teal);
-            font-weight: 500;
-            margin-bottom: 20px;
-        }
-        .hero-badge .dot {
-            width: 8px;
-            height: 8px;
-            background: #22c55e;
-            border-radius: 50%;
-            animation: pulse-dot 2s infinite;
-        }
-        @keyframes pulse-dot {
-            0%, 100% { opacity: 1; transform: scale(1); }
-            50% { opacity: 0.5; transform: scale(0.8); }
-        }
-        .hero-title {
-            font-size: clamp(2.8rem, 6vw, 4.8rem);
-            font-weight: 700;
-            line-height: 1.1;
-            margin-bottom: 20px;
-            color: var(--text-dark);
-        }
-        .hero-title .highlight {
-            background: linear-gradient(135deg, var(--bright-teal), var(--turquoise-surf));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .hero-sub {
-            font-size: 1.15rem;
-            color: var(--text-muted);
-            max-width: 500px;
-            line-height: 1.7;
-            margin-bottom: 32px;
-        }
-        .hero-btns {
-            display: flex;
-            gap: 16px;
-            flex-wrap: wrap;
-            margin-bottom: 40px;
-        }
-        .hero-stats {
-            display: flex;
-            gap: 40px;
-        }
-        .hero-stats .hs-item {
-            text-align: center;
-        }
-        .hero-stats .hs-number {
-            font-size: 2rem;
-            font-weight: 700;
-            color: var(--text-dark);
-            display: block;
-        }
-        .hero-stats .hs-label {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-        }
-        .hero-image {
-            position: relative;
-        }
-        .hero-image .main-img {
-            width: 100%;
-            border-radius: var(--radius);
-            box-shadow: var(--shadow);
-            border: 1px solid rgba(255,255,255,0.3);
-        }
-        .hero-float-card {
-            position: absolute;
-            background: white;
-            padding: 16px 20px;
-            border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-        .hero-float-card.fc1 {
-            bottom: -20px;
-            left: -20px;
-            animation: float 6s ease-in-out infinite;
-        }
-        .hero-float-card.fc2 {
-            top: -20px;
-            right: -20px;
-            animation: float 6s ease-in-out infinite 2s;
-        }
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-15px); }
-        }
-        .hero-float-card .fc-icon {
-            font-size: 1.8rem;
-        }
-        .hero-float-card .fc-text {
-            font-size: 0.85rem;
-            font-weight: 600;
-        }
-        .hero-float-card .fc-sub {
-            font-size: 0.7rem;
-            color: var(--text-muted);
-        }
+    .section-sm {
+      padding: 78px 0;
+    }
 
-        @media (max-width: 992px) {
-            .hero-grid {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-            .hero-sub {
-                margin-left: auto;
-                margin-right: auto;
-            }
-            .hero-btns {
-                justify-content: center;
-            }
-            .hero-stats {
-                justify-content: center;
-            }
-            .hero-image .main-img {
-                max-width: 90%;
-                margin: 0 auto;
-                display: block;
-            }
-            .hero-float-card.fc1,
-            .hero-float-card.fc2 {
-                display: none;
-            }
-        }
+    .section-head {
+      max-width: 760px;
+      margin-bottom: 46px;
+    }
 
-        /* ============================================
-           SECTIONS - SHARED
-           ============================================ */
-        section {
-            padding: 80px 40px;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-        .section-label {
-            display: inline-block;
-            font-size: 0.75rem;
-            font-weight: 600;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            color: var(--bright-teal);
-            background: rgba(0, 119, 182, 0.08);
-            padding: 6px 16px;
-            border-radius: 50px;
-            margin-bottom: 16px;
-        }
-        .section-title {
-            font-size: clamp(2rem, 4vw, 3.2rem);
-            font-weight: 700;
-            margin-bottom: 16px;
-            color: var(--text-dark);
-        }
-        .section-sub {
-            font-size: 1.1rem;
-            color: var(--text-muted);
-            max-width: 600px;
-            line-height: 1.7;
-            margin-bottom: 48px;
-        }
-        .text-center { text-align: center; }
-        .mx-auto { margin-left: auto; margin-right: auto; }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      color: var(--teal);
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      font-weight: 800;
+      margin-bottom: 16px;
+    }
 
-        /* ============================================
-           FEATURES GRID
-           ============================================ */
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 24px;
-        }
-        .feature-card {
-            background: white;
-            padding: 32px 24px;
-            border-radius: var(--radius);
-            box-shadow: 0 4px 20px rgba(0,0,0,0.04);
-            transition: var(--transition);
-            border: 1px solid rgba(0,0,0,0.04);
-        }
-        .feature-card:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--shadow);
-            border-color: var(--light-cyan);
-        }
-        .feature-card .fc-icon {
-            font-size: 2.4rem;
-            margin-bottom: 16px;
-        }
-        .feature-card h3 {
-            font-size: 1.2rem;
-            font-weight: 600;
-            margin-bottom: 8px;
-        }
-        .feature-card p {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-            line-height: 1.6;
-        }
-        .new-badge {
-            display: inline-block;
-            font-size: 0.6rem;
-            font-weight: 700;
-            color: white;
-            background: linear-gradient(135deg, #22c55e, #16a34a);
-            padding: 2px 10px;
-            border-radius: 50px;
-            margin-left: 8px;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
+    .eyebrow::before {
+      content: "";
+      width: 24px;
+      height: 1px;
+      background: linear-gradient(90deg, var(--teal), transparent);
+    }
 
-        /* ============================================
-           PRICING POLL
-           ============================================ */
-        .poll-section {
-            background: white;
-            border-radius: var(--radius);
-            padding: 48px 32px;
-            box-shadow: var(--shadow);
-            border: 1px solid rgba(0,0,0,0.04);
-            margin-top: 40px;
-        }
-        .poll-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 16px;
-            margin-top: 24px;
-        }
-        .poll-option {
-            background: var(--bg);
-            border: 2px solid transparent;
-            border-radius: var(--radius);
-            padding: 20px 16px;
-            text-align: center;
-            cursor: pointer;
-            transition: var(--transition);
-        }
-        .poll-option:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow);
-        }
-        .poll-option.selected {
-            border-color: var(--bright-teal);
-            background: rgba(0, 119, 182, 0.05);
-        }
-        .poll-option .poll-price {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--text-dark);
-        }
-        .poll-option .poll-votes {
-            font-size: 1.2rem;
-            font-weight: 600;
-            color: var(--bright-teal);
-            margin-top: 4px;
-        }
-        .poll-option .poll-label {
-            font-size: 0.8rem;
-            color: var(--text-muted);
-            margin-top: 4px;
-        }
-        .poll-option .poll-bar {
-            height: 6px;
-            background: var(--light-cyan);
-            border-radius: 10px;
-            margin-top: 10px;
-            overflow: hidden;
-            position: relative;
-        }
-        .poll-option .poll-bar .poll-fill {
-            height: 100%;
-            background: linear-gradient(90deg, var(--bright-teal), var(--turquoise-surf));
-            border-radius: 10px;
-            transition: width 0.6s ease;
-            width: 0%;
-        }
-        .poll-total {
-            text-align: center;
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            margin-top: 20px;
-        }
+    h1,
+    h2,
+    h3,
+    p {
+      margin-top: 0;
+    }
 
-        /* ============================================
-           TECH STACK
-           ============================================ */
-        .tech-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-            gap: 20px;
-        }
-        .tech-card {
-            background: white;
-            padding: 24px;
-            border-radius: var(--radius);
-            text-align: center;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.04);
-            border: 1px solid rgba(0,0,0,0.04);
-            transition: var(--transition);
-        }
-        .tech-card:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow);
-        }
-        .tech-card .tc-icon {
-            font-size: 2.8rem;
-            margin-bottom: 8px;
-        }
-        .tech-card h4 {
-            font-size: 1rem;
-            font-weight: 600;
-        }
-        .tech-card p {
-            font-size: 0.8rem;
-            color: var(--text-muted);
-        }
+    h1 {
+      font-size: clamp(3.3rem, 7vw, 6.6rem);
+      line-height: 0.94;
+      letter-spacing: -0.065em;
+      max-width: 760px;
+      margin-bottom: 26px;
+    }
 
-        /* ============================================
-           ARCHITECTURE
-           ============================================ */
-        .arch-diagram {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-            padding: 40px 20px;
-            background: white;
-            border-radius: var(--radius);
-            box-shadow: var(--shadow);
-            border: 1px solid rgba(0,0,0,0.04);
-        }
-        .arch-node {
-            text-align: center;
-            padding: 24px 32px;
-            background: var(--light-cyan);
-            border-radius: 12px;
-            min-width: 140px;
-            border: 1px solid rgba(0, 119, 182, 0.1);
-        }
-        .arch-node .an-icon {
-            font-size: 2.4rem;
-            margin-bottom: 8px;
-        }
-        .arch-node h4 {
-            font-size: 0.95rem;
-            font-weight: 600;
-        }
-        .arch-node p {
-            font-size: 0.75rem;
-            color: var(--text-muted);
-        }
-        .arch-arrow {
-            font-size: 1.5rem;
-            color: var(--bright-teal);
-        }
+    h2 {
+      font-size: clamp(2.2rem, 4vw, 4.2rem);
+      line-height: 1;
+      letter-spacing: -0.045em;
+      margin-bottom: 18px;
+    }
 
-        @media (max-width: 768px) {
-            .arch-diagram {
-                flex-direction: column;
-            }
-            .arch-arrow {
-                transform: rotate(90deg);
-            }
-        }
+    h3 {
+      font-size: 1.15rem;
+      line-height: 1.2;
+      margin-bottom: 9px;
+    }
 
-        /* ============================================
-           TESTIMONIALS
-           ============================================ */
-        .testimonial-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 24px;
-        }
-        .testimonial-card {
-            background: white;
-            padding: 32px;
-            border-radius: var(--radius);
-            box-shadow: 0 4px 20px rgba(0,0,0,0.04);
-            border: 1px solid rgba(0,0,0,0.04);
-        }
-        .testimonial-card .stars {
-            color: #f59e0b;
-            margin-bottom: 12px;
-        }
-        .testimonial-card blockquote {
-            font-size: 1rem;
-            line-height: 1.7;
-            color: var(--text-dark);
-            margin-bottom: 16px;
-        }
-        .testimonial-card .author {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-        .testimonial-card .author .avatar {
-            width: 48px;
-            height: 48px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, var(--bright-teal), var(--turquoise-surf));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: 700;
-            font-size: 1.2rem;
-        }
-        .testimonial-card .author .name {
-            font-weight: 600;
-        }
-        .testimonial-card .author .role {
-            font-size: 0.8rem;
-            color: var(--text-muted);
-        }
+    .lead {
+      color: var(--muted);
+      font-size: clamp(1.05rem, 1.6vw, 1.26rem);
+      max-width: 680px;
+    }
 
-        /* ============================================
-           REVIEW SYSTEM
-           ============================================ */
-        .review-section {
-            background: white;
-            border-radius: var(--radius);
-            padding: 48px 32px;
-            box-shadow: var(--shadow);
-            border: 1px solid rgba(0,0,0,0.04);
-            margin-top: 40px;
-        }
-        .review-form {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 16px;
-            margin-bottom: 32px;
-        }
-        .review-form .full-width {
-            grid-column: 1 / -1;
-        }
-        .review-form input,
-        .review-form select,
-        .review-form textarea {
-            padding: 12px 16px;
-            border: 1px solid rgba(0,0,0,0.1);
-            border-radius: 12px;
-            font-family: inherit;
-            font-size: 0.95rem;
-            transition: var(--transition);
-            width: 100%;
-        }
-        .review-form input:focus,
-        .review-form select:focus,
-        .review-form textarea:focus {
-            outline: none;
-            border-color: var(--bright-teal);
-            box-shadow: 0 0 0 3px rgba(0, 119, 182, 0.1);
-        }
-        .review-form textarea {
-            resize: vertical;
-            min-height: 80px;
-        }
-        .star-rating {
-            display: flex;
-            gap: 8px;
-            font-size: 2rem;
-            cursor: pointer;
-            color: #ddd;
-            transition: var(--transition);
-        }
-        .star-rating .star.active {
-            color: #f59e0b;
-        }
-        .star-rating .star:hover {
-            transform: scale(1.2);
-        }
-        .review-list {
-            display: grid;
-            gap: 20px;
-        }
-        .review-item {
-            background: var(--bg);
-            padding: 20px 24px;
-            border-radius: var(--radius);
-            border: 1px solid rgba(0,0,0,0.04);
-        }
-        .review-item .review-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 8px;
-        }
-        .review-item .review-name {
-            font-weight: 600;
-            font-size: 1.05rem;
-        }
-        .review-item .review-role {
-            font-size: 0.8rem;
-            color: var(--text-muted);
-        }
-        .review-item .review-stars {
-            color: #f59e0b;
-            font-size: 1.1rem;
-        }
-        .review-item .review-text {
-            color: var(--text-muted);
-            line-height: 1.6;
-        }
-        .review-item .review-date {
-            font-size: 0.75rem;
-            color: var(--text-muted);
-            margin-top: 8px;
-        }
-        .review-item .review-verified {
-            display: inline-block;
-            font-size: 0.7rem;
-            color: #22c55e;
-            background: rgba(34, 197, 94, 0.1);
-            padding: 2px 10px;
-            border-radius: 50px;
-            margin-left: 8px;
-        }
-        .review-empty {
-            text-align: center;
-            padding: 40px 0;
-            color: var(--text-muted);
-        }
-        .review-empty .icon {
-            font-size: 3rem;
-            margin-bottom: 16px;
-            display: block;
-        }
+    .muted {
+      color: var(--muted);
+    }
 
-        @media (max-width: 768px) {
-            .review-form {
-                grid-template-columns: 1fr;
-            }
-            .review-form .full-width {
-                grid-column: 1;
-            }
-        }
+    .text-gradient {
+      background: linear-gradient(110deg, #ffffff 8%, #bffef5 50%, #adb5ff 96%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
 
-        /* ============================================
-           CTA / FOOTER
-           ============================================ */
-        .cta-section {
-            background: linear-gradient(135deg, var(--deep-twilight), var(--bright-teal));
-            border-radius: var(--radius);
-            padding: 60px 40px;
-            text-align: center;
-            color: white;
-            margin-top: 40px;
-        }
-        .cta-section h2 {
-            font-size: 2.4rem;
-            margin-bottom: 16px;
-        }
-        .cta-section p {
-            font-size: 1.1rem;
-            opacity: 0.8;
-            max-width: 500px;
-            margin: 0 auto 32px;
-        }
-        .cta-section .btn-primary {
-            background: white;
-            color: var(--bright-teal);
-        }
-        .cta-section .btn-primary:hover {
-            background: rgba(255,255,255,0.9);
-        }
+    .nav-wrap {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      padding-top: 14px;
+    }
 
-        footer {
-            padding: 40px;
-            text-align: center;
-            color: var(--text-muted);
-            font-size: 0.9rem;
-            border-top: 1px solid rgba(0,0,0,0.06);
-        }
-        footer .footer-links {
-            display: flex;
-            justify-content: center;
-            gap: 24px;
-            margin-bottom: 16px;
-            flex-wrap: wrap;
-        }
-        footer .footer-links a {
-            transition: var(--transition);
-        }
-        footer .footer-links a:hover {
-            color: var(--bright-teal);
-        }
+    .nav {
+      width: min(var(--container), calc(100% - 24px));
+      margin: 0 auto;
+      border: 1px solid var(--line);
+      background: rgba(7, 19, 31, 0.76);
+      backdrop-filter: blur(18px);
+      border-radius: 18px;
+      padding: 12px 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 12px 50px rgba(0, 0, 0, 0.18);
+    }
 
-        /* ============================================
-           RESPONSIVE
-           ============================================ */
-        @media (max-width: 768px) {
-            nav { padding: 12px 20px; }
-            section { padding: 60px 20px; }
-            .hero-title { font-size: 2.2rem; }
-            .hero-stats { gap: 20px; }
-            .hero-stats .hs-number { font-size: 1.6rem; }
-            .cta-section { padding: 40px 20px; }
-            .cta-section h2 { font-size: 1.8rem; }
-            .poll-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-        }
-    </style>
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      white-space: nowrap;
+    }
+
+    .brand-mark {
+      width: 34px;
+      height: 34px;
+      display: grid;
+      place-items: center;
+      border-radius: 10px;
+      border: 1px solid rgba(66, 223, 207, 0.36);
+      background:
+        radial-gradient(circle at 35% 25%, rgba(66, 223, 207, 0.52), transparent 42%),
+        rgba(66, 223, 207, 0.08);
+      box-shadow: inset 0 0 18px rgba(66, 223, 207, 0.08);
+      color: var(--teal);
+    }
+
+    .brand-mark svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+
+    .nav-links a {
+      padding: 9px 11px;
+      color: var(--muted-strong);
+      border-radius: 10px;
+      font-size: 0.9rem;
+      transition: 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--text);
+    }
+
+    .nav-cta,
+    .btn-primary {
+      background: linear-gradient(135deg, var(--teal-strong), #53e4d5);
+      color: #06141c;
+      font-weight: 900;
+      border: 0;
+      box-shadow: 0 12px 28px rgba(37, 205, 187, 0.18);
+    }
+
+    .nav-cta {
+      padding: 10px 15px;
+      border-radius: 10px;
+      font-size: 0.9rem;
+    }
+
+    .menu-btn {
+      display: none;
+      border: 1px solid var(--line);
+      background: transparent;
+      color: var(--text);
+      padding: 9px;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+
+    .hero {
+      min-height: calc(100vh - 90px);
+      padding: 90px 0 70px;
+      display: grid;
+      align-items: center;
+      position: relative;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background:
+        linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+      background-size: 46px 46px;
+      mask-image: radial-gradient(circle at 50% 20%, black, transparent 76%);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.02fr 0.98fr;
+      gap: 54px;
+      align-items: center;
+    }
+
+    .hero-copy {
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 7px 11px 7px 8px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.025);
+      color: var(--muted-strong);
+      font-size: 0.83rem;
+      margin-bottom: 24px;
+    }
+
+    .hero-tag .pulse {
+      width: 8px;
+      height: 8px;
+      border-radius: 99px;
+      background: var(--teal);
+      box-shadow: 0 0 0 7px rgba(66, 223, 207, 0.08);
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin: 32px 0 28px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0 18px;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      font-weight: 800;
+      font-size: 0.94rem;
+      cursor: pointer;
+      transition: transform 0.18s ease, border-color 0.18s ease, background 0.18s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      color: var(--muted-strong);
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    .btn-secondary:hover {
+      border-color: rgba(66, 223, 207, 0.35);
+      background: rgba(255, 255, 255, 0.035);
+    }
+
+    .micro-proof {
+      display: flex;
+      gap: 22px;
+      flex-wrap: wrap;
+      color: var(--muted);
+      font-size: 0.86rem;
+    }
+
+    .micro-proof strong {
+      color: var(--text);
+      display: block;
+      font-size: 1rem;
+      margin-bottom: 2px;
+    }
+
+    .hero-visual {
+      position: relative;
+    }
+
+    .dashboard-shell {
+      position: relative;
+      border: 1px solid rgba(163, 198, 218, 0.17);
+      background: linear-gradient(180deg, rgba(20, 41, 62, 0.96), rgba(9, 23, 36, 0.96));
+      border-radius: 28px;
+      padding: 14px;
+      box-shadow: var(--shadow);
+      transform: perspective(1200px) rotateY(-4deg) rotateX(1.5deg);
+    }
+
+    .dashboard-shell::before,
+    .dashboard-shell::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(50px);
+      pointer-events: none;
+      opacity: 0.46;
+    }
+
+    .dashboard-shell::before {
+      width: 170px;
+      height: 170px;
+      background: rgba(66, 223, 207, 0.17);
+      left: -60px;
+      top: 20%;
+    }
+
+    .dashboard-shell::after {
+      width: 190px;
+      height: 190px;
+      background: rgba(123, 134, 255, 0.17);
+      right: -50px;
+      bottom: 4%;
+    }
+
+    .dashboard-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 9px 9px 13px;
+      color: var(--muted);
+      font-size: 0.72rem;
+    }
+
+    .dashboard-top-left {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .window-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 99px;
+      background: rgba(255,255,255,0.22);
+    }
+
+    .window-dot.active {
+      background: var(--teal);
+      box-shadow: 0 0 0 5px rgba(66, 223, 207, 0.06);
+    }
+
+    .dashboard-frame {
+      background: #f6fbfd;
+      border-radius: 19px;
+      padding: 11px;
+      color: #0a1520;
+      overflow: hidden;
+      border: 1px solid rgba(0,0,0,0.08);
+    }
+
+    .dash-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 6px 5px 12px;
+    }
+
+    .dash-logo {
+      font-size: 0.77rem;
+      font-weight: 900;
+      color: #0d2133;
+    }
+
+    .dash-user {
+      width: 28px;
+      height: 28px;
+      border-radius: 99px;
+      background: #dce8ee;
+      display: grid;
+      place-items: center;
+      font-size: 0.68rem;
+      font-weight: 900;
+      color: #496174;
+    }
+
+    .dash-body {
+      display: grid;
+      grid-template-columns: 74px 1fr;
+      gap: 10px;
+    }
+
+    .dash-side {
+      border-radius: 12px;
+      background: #edf4f7;
+      padding: 8px 6px;
+      display: grid;
+      align-content: start;
+      gap: 6px;
+    }
+
+    .side-item {
+      padding: 7px 5px;
+      border-radius: 7px;
+      font-size: 0.5rem;
+      color: #7b8d98;
+    }
+
+    .side-item.active {
+      background: #d8f8f4;
+      color: #116e68;
+      font-weight: 800;
+    }
+
+    .dash-content {
+      display: grid;
+      gap: 10px;
+    }
+
+    .dash-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 9px;
+    }
+
+    .mini-card {
+      padding: 11px;
+      border: 1px solid #e3edf2;
+      border-radius: 12px;
+      background: white;
+      box-shadow: 0 8px 20px rgba(41, 63, 77, 0.06);
+    }
+
+    .mini-label {
+      color: #8497a3;
+      font-size: 0.5rem;
+      margin-bottom: 4px;
+    }
+
+    .mini-value {
+      font-size: 0.9rem;
+      font-weight: 900;
+      color: #0d2133;
+    }
+
+    .mini-good {
+      margin-top: 5px;
+      color: #11856d;
+      font-size: 0.46rem;
+      font-weight: 800;
+    }
+
+    .dash-main {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 10px;
+    }
+
+    .chart-card,
+    .queue-card {
+      border: 1px solid #e3edf2;
+      border-radius: 12px;
+      background: #fff;
+      padding: 12px;
+    }
+
+    .chart-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+
+    .chart-title {
+      font-size: 0.6rem;
+      font-weight: 900;
+    }
+
+    .chart-range {
+      font-size: 0.47rem;
+      color: #8da0ad;
+    }
+
+    .chart {
+      height: 112px;
+      position: relative;
+      border-radius: 8px;
+      background:
+        linear-gradient(to bottom, rgba(16,33,49,0.05) 1px, transparent 1px);
+      background-size: 100% 28px;
+      overflow: hidden;
+    }
+
+    .chart svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    .queue-list {
+      display: grid;
+      gap: 8px;
+      margin-top: 8px;
+    }
+
+    .queue-row {
+      display: grid;
+      grid-template-columns: 24px 1fr auto;
+      gap: 7px;
+      align-items: center;
+      font-size: 0.49rem;
+    }
+
+    .avatar {
+      width: 24px;
+      height: 24px;
+      border-radius: 8px;
+      background: #edf2f5;
+      display: grid;
+      place-items: center;
+      color: #6f8492;
+      font-size: 0.43rem;
+      font-weight: 900;
+    }
+
+    .queue-name {
+      font-weight: 800;
+      color: #172d3f;
+    }
+
+    .queue-time {
+      color: #8da0ad;
+    }
+
+    .floating-chip {
+      position: absolute;
+      border: 1px solid rgba(255,255,255,0.11);
+      background: rgba(9, 24, 38, 0.86);
+      backdrop-filter: blur(12px);
+      border-radius: 14px;
+      padding: 10px 12px;
+      box-shadow: 0 20px 45px rgba(0,0,0,0.28);
+    }
+
+    .chip-a {
+      left: -26px;
+      bottom: 38px;
+    }
+
+    .chip-b {
+      right: -28px;
+      top: 26px;
+    }
+
+    .chip-label {
+      color: var(--muted);
+      font-size: 0.62rem;
+      margin-bottom: 2px;
+    }
+
+    .chip-value {
+      font-weight: 900;
+      font-size: 0.95rem;
+    }
+
+    .chip-value.teal {
+      color: var(--teal);
+    }
+
+    .stats-bar {
+      margin-top: 54px;
+      padding: 18px 0;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    .stat {
+      padding: 8px 18px;
+      border-right: 1px solid var(--line);
+    }
+
+    .stat:last-child {
+      border-right: 0;
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 1.36rem;
+      letter-spacing: -0.03em;
+      margin-bottom: 2px;
+    }
+
+    .stat span {
+      color: var(--muted);
+      font-size: 0.8rem;
+    }
+
+    .problem-grid {
+      display: grid;
+      grid-template-columns: 0.82fr 1.18fr;
+      gap: 62px;
+      align-items: start;
+    }
+
+    .problem-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .problem-item {
+      padding: 17px 18px;
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.018);
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+    }
+
+    .problem-icon {
+      width: 28px;
+      height: 28px;
+      border-radius: 9px;
+      display: grid;
+      place-items: center;
+      background: rgba(255, 139, 154, 0.08);
+      color: var(--danger);
+      flex: 0 0 auto;
+    }
+
+    .problem-item strong {
+      display: block;
+      margin-bottom: 3px;
+      font-size: 0.95rem;
+    }
+
+    .problem-item span {
+      color: var(--muted);
+      font-size: 0.84rem;
+    }
+
+    .quote-card {
+      margin-top: 20px;
+      padding: 22px;
+      border: 1px solid rgba(66, 223, 207, 0.16);
+      background: linear-gradient(135deg, rgba(66, 223, 207, 0.06), rgba(123, 134, 255, 0.04));
+      border-radius: 18px;
+      color: var(--muted-strong);
+    }
+
+    .quote-card p {
+      font-size: 1.05rem;
+      margin-bottom: 9px;
+      color: #dcecf3;
+    }
+
+    .solution-flow {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 11px;
+    }
+
+    .flow-step {
+      position: relative;
+      padding: 20px 16px;
+      border: 1px solid var(--line);
+      border-radius: 17px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.025), rgba(255,255,255,0.012));
+      min-height: 165px;
+    }
+
+    .flow-step::after {
+      content: "→";
+      position: absolute;
+      right: -12px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: rgba(157, 178, 194, 0.45);
+      font-size: 1.1rem;
+    }
+
+    .flow-step:last-child::after {
+      display: none;
+    }
+
+    .step-number {
+      color: var(--teal);
+      font-size: 0.7rem;
+      font-weight: 900;
+      letter-spacing: 0.12em;
+      margin-bottom: 20px;
+    }
+
+    .step-text {
+      color: var(--muted);
+      font-size: 0.8rem;
+    }
+
+    .role-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+    }
+
+    .role-card {
+      padding: 23px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.025), rgba(255,255,255,0.012));
+    }
+
+    .role-label {
+      display: inline-flex;
+      padding: 5px 8px;
+      border-radius: 8px;
+      background: rgba(66, 223, 207, 0.08);
+      color: var(--teal);
+      font-size: 0.7rem;
+      font-weight: 800;
+      margin-bottom: 18px;
+    }
+
+    .role-card p {
+      color: var(--muted);
+      font-size: 0.83rem;
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+
+    .feature-card {
+      padding: 23px;
+      min-height: 194px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.028), rgba(255,255,255,0.011));
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(66, 223, 207, 0.24);
+    }
+
+    .feature-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: 11px;
+      display: grid;
+      place-items: center;
+      color: var(--teal);
+      background: rgba(66, 223, 207, 0.07);
+      border: 1px solid rgba(66, 223, 207, 0.11);
+      margin-bottom: 20px;
+    }
+
+    .feature-card p {
+      color: var(--muted);
+      font-size: 0.83rem;
+      margin-bottom: 0;
+    }
+
+    .ai-section {
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      background:
+        radial-gradient(circle at 20% 10%, rgba(66, 223, 207, 0.08), transparent 31%),
+        radial-gradient(circle at 80% 80%, rgba(123, 134, 255, 0.09), transparent 33%),
+        rgba(255,255,255,0.015);
+    }
+
+    .ai-grid {
+      display: grid;
+      grid-template-columns: 0.84fr 1.16fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .ai-panel {
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 18px;
+      background: rgba(8, 21, 34, 0.7);
+      box-shadow: var(--shadow);
+    }
+
+    .ai-panel-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 4px 5px 14px;
+      border-bottom: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 0.74rem;
+    }
+
+    .ai-status {
+      color: var(--success);
+      font-weight: 800;
+    }
+
+    .ai-cards {
+      display: grid;
+      gap: 11px;
+      margin-top: 14px;
+    }
+
+    .ai-card {
+      padding: 16px;
+      border-radius: 15px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.018);
+    }
+
+    .ai-card-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      margin-bottom: 7px;
+    }
+
+    .ai-card strong {
+      font-size: 0.88rem;
+    }
+
+    .ai-card span {
+      color: var(--muted);
+      font-size: 0.75rem;
+    }
+
+    .tag {
+      font-size: 0.62rem !important;
+      padding: 4px 6px;
+      border-radius: 7px;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .tag-teal {
+      color: var(--teal);
+      background: rgba(66, 223, 207, 0.08);
+    }
+
+    .tag-indigo {
+      color: var(--indigo-soft);
+      background: rgba(123, 134, 255, 0.08);
+    }
+
+    .ai-copy {
+      display: grid;
+      gap: 12px;
+    }
+
+    .ai-point {
+      display: grid;
+      grid-template-columns: 32px 1fr;
+      gap: 13px;
+      align-items: start;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .ai-point:last-child {
+      border-bottom: 0;
+    }
+
+    .ai-point-index {
+      width: 32px;
+      height: 32px;
+      border-radius: 9px;
+      display: grid;
+      place-items: center;
+      font-size: 0.7rem;
+      font-weight: 900;
+      color: var(--teal);
+      background: rgba(66, 223, 207, 0.08);
+    }
+
+    .ai-point p {
+      color: var(--muted);
+      font-size: 0.84rem;
+      margin-bottom: 0;
+    }
+
+    .note {
+      margin-top: 14px;
+      padding: 13px 14px;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 210, 119, 0.16);
+      color: #d8c8a6;
+      background: rgba(255, 210, 119, 0.045);
+      font-size: 0.75rem;
+    }
+
+    .security-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+
+    .security-card {
+      border: 1px solid var(--line);
+      padding: 21px;
+      border-radius: 17px;
+      background: rgba(255,255,255,0.018);
+    }
+
+    .security-card strong {
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    .security-card span {
+      color: var(--muted);
+      font-size: 0.78rem;
+    }
+
+    .local-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .local-card {
+      padding: 25px;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      background: linear-gradient(135deg, rgba(66,223,207,0.055), rgba(123,134,255,0.035));
+    }
+
+    .local-list {
+      display: grid;
+      gap: 10px;
+      margin-top: 17px;
+    }
+
+    .local-item {
+      display: flex;
+      gap: 9px;
+      align-items: center;
+      color: var(--muted-strong);
+      font-size: 0.84rem;
+    }
+
+    .check {
+      width: 18px;
+      height: 18px;
+      border-radius: 6px;
+      display: grid;
+      place-items: center;
+      background: rgba(66, 223, 207, 0.08);
+      color: var(--teal);
+      font-size: 0.65rem;
+      font-weight: 900;
+      flex: 0 0 auto;
+    }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      align-items: stretch;
+    }
+
+    .price-card {
+      padding: 27px;
+      border: 1px solid var(--line);
+      border-radius: 21px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.026), rgba(255,255,255,0.01));
+    }
+
+    .price-card.featured {
+      border-color: rgba(66, 223, 207, 0.3);
+      box-shadow: 0 20px 60px rgba(37, 205, 187, 0.08);
+      background: linear-gradient(160deg, rgba(66,223,207,0.07), rgba(123,134,255,0.05));
+    }
+
+    .price-range {
+      font-size: 2rem;
+      font-weight: 900;
+      letter-spacing: -0.045em;
+      margin: 14px 0 9px;
+    }
+
+    .price-note {
+      color: var(--muted);
+      font-size: 0.78rem;
+      margin-bottom: 18px;
+    }
+
+    .price-pills {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .pill {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 5px 8px;
+      font-size: 0.66rem;
+      color: var(--muted-strong);
+    }
+
+    .origin-grid {
+      display: grid;
+      grid-template-columns: 0.88fr 1.12fr;
+      gap: 54px;
+      align-items: center;
+    }
+
+    .portrait-wrap {
+      position: relative;
+      max-width: 420px;
+      margin: 0 auto;
+    }
+
+    .portrait-card {
+      position: relative;
+      border: 1px solid rgba(66,223,207,0.2);
+      border-radius: 28px;
+      padding: 12px;
+      background: linear-gradient(160deg, rgba(255,255,255,0.08), rgba(255,255,255,0.015));
+      box-shadow: var(--shadow);
+      transform: perspective(1000px) rotateY(4deg);
+    }
+
+    .portrait-card::before {
+      content: "";
+      position: absolute;
+      inset: 9% -10% -10% 13%;
+      border-radius: 32px;
+      background: linear-gradient(135deg, rgba(66,223,207,0.17), rgba(123,134,255,0.08));
+      filter: blur(28px);
+      z-index: -1;
+    }
+
+    .portrait {
+      width: 100%;
+      aspect-ratio: 0.85;
+      object-fit: cover;
+      border-radius: 20px;
+      background: linear-gradient(160deg, #173449, #0b1724);
+      border: 1px solid rgba(255,255,255,0.07);
+    }
+
+    .portrait-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 15px;
+      padding: 15px 5px 3px;
+    }
+
+    .portrait-name {
+      font-weight: 900;
+      line-height: 1.1;
+    }
+
+    .portrait-role {
+      color: var(--muted);
+      font-size: 0.75rem;
+      margin-top: 3px;
+    }
+
+    .socials {
+      display: flex;
+      gap: 7px;
+    }
+
+    .social-link {
+      width: 34px;
+      height: 34px;
+      border-radius: 10px;
+      border: 1px solid var(--line);
+      display: grid;
+      place-items: center;
+      color: var(--muted-strong);
+      transition: 0.18s ease;
+      font-size: 0.7rem;
+      font-weight: 900;
+    }
+
+    .social-link:hover {
+      color: var(--teal);
+      border-color: rgba(66,223,207,0.35);
+      transform: translateY(-2px);
+    }
+
+    .origin-copy p {
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+
+    .story-highlight {
+      margin: 24px 0 19px;
+      padding: 21px;
+      border-left: 2px solid var(--teal);
+      border-radius: 0 16px 16px 0;
+      background: rgba(66,223,207,0.035);
+      color: #dcecf2;
+      font-size: 1.02rem;
+    }
+
+    .build-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 13px;
+    }
+
+    .build-card {
+      padding: 21px;
+      border: 1px solid var(--line);
+      border-radius: 17px;
+      background: rgba(255,255,255,0.018);
+    }
+
+    .build-card span {
+      color: var(--muted);
+      font-size: 0.79rem;
+      display: block;
+      margin-top: 6px;
+    }
+
+    .faq-grid {
+      display: grid;
+      gap: 10px;
+      max-width: 880px;
+    }
+
+    .faq-item {
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: rgba(255,255,255,0.018);
+      overflow: hidden;
+    }
+
+    .faq-question {
+      width: 100%;
+      padding: 18px 20px;
+      border: 0;
+      background: transparent;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      cursor: pointer;
+      text-align: left;
+      font: inherit;
+      font-weight: 800;
+    }
+
+    .faq-question span:last-child {
+      color: var(--teal);
+      font-size: 1.1rem;
+      transition: transform 0.2s ease;
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.25s ease;
+    }
+
+    .faq-answer p {
+      padding: 0 20px 19px;
+      color: var(--muted);
+      font-size: 0.84rem;
+      margin: 0;
+    }
+
+    .faq-item.open .faq-question span:last-child {
+      transform: rotate(45deg);
+    }
+
+    .cta {
+      padding: 42px;
+      border-radius: 30px;
+      border: 1px solid rgba(66,223,207,0.18);
+      background:
+        radial-gradient(circle at 80% 10%, rgba(123,134,255,0.14), transparent 32%),
+        radial-gradient(circle at 20% 90%, rgba(66,223,207,0.12), transparent 36%),
+        linear-gradient(135deg, rgba(18,41,61,0.96), rgba(8,22,34,0.96));
+      box-shadow: var(--shadow);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 28px;
+    }
+
+    .cta h2 {
+      font-size: clamp(2rem, 4vw, 3.4rem);
+      margin-bottom: 8px;
+    }
+
+    .cta p {
+      margin-bottom: 0;
+      color: var(--muted);
+      max-width: 700px;
+    }
+
+    footer {
+      padding: 38px 0 44px;
+      border-top: 1px solid var(--line);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.3fr 1fr 1fr;
+      gap: 35px;
+    }
+
+    .footer-title {
+      color: var(--muted-strong);
+      font-weight: 800;
+      font-size: 0.78rem;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.11em;
+    }
+
+    .footer-links {
+      display: grid;
+      gap: 7px;
+    }
+
+    .footer-links a,
+    .footer-copy {
+      color: var(--muted);
+      font-size: 0.79rem;
+    }
+
+    .footer-links a:hover {
+      color: var(--teal);
+    }
+
+    .footer-bottom {
+      margin-top: 35px;
+      padding-top: 20px;
+      border-top: 1px solid var(--line);
+      display: flex;
+      justify-content: space-between;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 1050px) {
+      .hero-grid,
+      .problem-grid,
+      .ai-grid,
+      .origin-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding-top: 64px;
+      }
+
+      .hero-copy {
+        max-width: 780px;
+      }
+
+      .dashboard-shell {
+        max-width: 790px;
+        margin: 0 auto;
+      }
+
+      .solution-flow {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .flow-step:nth-child(3)::after {
+        display: none;
+      }
+
+      .role-grid,
+      .security-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .feature-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .local-grid,
+      .pricing-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .portrait-wrap {
+        max-width: 440px;
+      }
+    }
+
+    @media (max-width: 820px) {
+      .nav-links {
+        position: absolute;
+        top: calc(100% + 8px);
+        left: 12px;
+        right: 12px;
+        padding: 9px;
+        border: 1px solid var(--line);
+        border-radius: 15px;
+        background: rgba(7, 19, 31, 0.96);
+        backdrop-filter: blur(18px);
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .nav-links a,
+      .nav-cta {
+        width: 100%;
+        text-align: left;
+      }
+
+      .nav-cta {
+        display: block;
+      }
+
+      .menu-btn {
+        display: inline-grid;
+        place-items: center;
+      }
+
+      .desktop-only {
+        display: none;
+      }
+
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .stat:nth-child(2) {
+        border-right: 0;
+      }
+
+      .stat:nth-child(3) {
+        border-top: 1px solid var(--line);
+        padding-top: 18px;
+      }
+
+      .stat:nth-child(4) {
+        border-top: 1px solid var(--line);
+        border-right: 0;
+        padding-top: 18px;
+      }
+
+      .cta {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 30px 24px;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .container {
+        width: min(var(--container), calc(100% - 28px));
+      }
+
+      .section {
+        padding: 82px 0;
+      }
+
+      h1 {
+        font-size: clamp(2.85rem, 16vw, 4.7rem);
+      }
+
+      .hero {
+        min-height: auto;
+        padding-bottom: 48px;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .btn {
+        width: 100%;
+      }
+
+      .dashboard-shell {
+        padding: 9px;
+        border-radius: 21px;
+        transform: none;
+      }
+
+      .chip-a {
+        left: -7px;
+        bottom: 17px;
+      }
+
+      .chip-b {
+        right: -7px;
+        top: 17px;
+      }
+
+      .dash-body {
+        grid-template-columns: 1fr;
+      }
+
+      .dash-side {
+        display: none;
+      }
+
+      .dash-main {
+        grid-template-columns: 1fr;
+      }
+
+      .solution-flow {
+        grid-template-columns: 1fr;
+      }
+
+      .flow-step::after {
+        content: "↓";
+        top: auto;
+        right: 50%;
+        bottom: -14px;
+        transform: translateX(50%);
+      }
+
+      .flow-step:nth-child(3)::after {
+        display: block;
+      }
+
+      .flow-step:last-child::after {
+        display: none;
+      }
+
+      .role-grid,
+      .feature-grid,
+      .security-grid,
+      .build-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .origin-grid {
+        gap: 35px;
+      }
+
+      .portrait-card {
+        transform: none;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+      }
+    }
+  </style>
 </head>
+
 <body>
+  <div class="nav-wrap">
+    <nav class="nav" aria-label="Main navigation">
+      <a class="brand" href="#top" aria-label="ClinicFlow Pro home">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none">
+            <path d="M12 3L19 7V17L12 21L5 17V7L12 3Z" stroke="currentColor" stroke-width="1.7"/>
+            <path d="M8.5 12H15.5M12 8.5V15.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+          </svg>
+        </span>
+        <span>ClinicFlow Pro</span>
+      </a>
 
-<!-- ============================================
-     NAVBAR
-     ============================================ -->
-<nav id="navbar">
-    <div class="nav-inner">
-        <div class="logo">
-            <span class="logo-icon">⬡</span>
-            <span>ClinicFlow <span class="logo-pro">Pro</span></span>
-        </div>
-        <ul class="nav-links" id="navLinks">
-            <li><a href="#features">Features</a></li>
-            <li><a href="#tech">Tech Stack</a></li>
-            <li><a href="#architecture">Architecture</a></li>
-            <li><a href="#pricing-poll">Pricing Poll</a></li>
-            <li><a href="#testimonials">Testimonials</a></li>
-            <li><a href="#reviews">Reviews</a></li>
-        </ul>
-        <div class="nav-actions">
-            <a href="#reviews" class="btn-primary">
-                <i class="fas fa-star"></i> Write Review
-            </a>
-            <div class="mobile-toggle" id="mobileToggle">
-                <i class="fas fa-bars"></i>
-            </div>
-        </div>
-    </div>
-</nav>
-
-<!-- ============================================
-     HERO SECTION
-     ============================================ -->
-<section id="hero">
-    <div class="hero-grid">
-        <div class="hero-content">
-            <div class="hero-badge">
-                <span class="dot"></span>
-                Next Generation Healthcare Platform
-            </div>
-            <h1 class="hero-title">
-                Digitize Your Clinic<br>
-                <span class="highlight">Simplify Healthcare</span>
-            </h1>
-            <p class="hero-sub">
-                A modern clinic management SaaS designed for doctors, receptionists,
-                and patients. Built for real-world healthcare workflows with
-                <strong>AI-powered features</strong> and <strong>enterprise-grade security</strong>.
-            </p>
-            <div class="hero-btns">
-                <a href="#features" class="btn-primary">
-                    <i class="fas fa-play-circle"></i> Explore Features
-                </a>
-                <a href="#pricing-poll" class="btn-ghost">
-                    <i class="fas fa-poll"></i> Vote on Pricing
-                </a>
-                <!-- ==========================================
-                     DOWNLOAD DOCUMENTATION BUTTON (Direct PDF)
-                ========================================== -->
-                <a href="docs.pdf" target="_blank" class="btn-download-doc" id="downloadDocBtn">
-                    <i class="fas fa-file-pdf"></i> Download Documentation
-                </a>
-            </div>
-            <div class="hero-stats">
-                <div class="hs-item">
-                    <span class="hs-number">42+</span>
-                    <span class="hs-label">Pages</span>
-                </div>
-                <div class="hs-item">
-                    <span class="hs-number">4</span>
-                    <span class="hs-label">User Roles</span>
-                </div>
-                <div class="hs-item">
-                    <span class="hs-number">420+</span>
-                    <span class="hs-label">Dev Hours</span>
-                </div>
-                <div class="hs-item">
-                    <span class="hs-number">100%</span>
-                    <span class="hs-label">Secure</span>
-                </div>
-            </div>
-        </div>
-        <div class="hero-image">
-            <img src="https://via.placeholder.com/600x450/0077B6/FFFFFF?text=ClinicFlow+Pro+Dashboard"
-                 alt="ClinicFlow Pro Dashboard Preview" class="main-img">
-            <div class="hero-float-card fc1">
-                <span class="fc-icon">📊</span>
-                <div>
-                    <div class="fc-text">Live Analytics</div>
-                    <div class="fc-sub">Real-time insights</div>
-                </div>
-            </div>
-            <div class="hero-float-card fc2">
-                <span class="fc-icon">🤖</span>
-                <div>
-                    <div class="fc-text">AI Chatbot</div>
-                    <div class="fc-sub">5000+ responses</div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- ============================================
-     FEATURES SECTION
-     ============================================ -->
-<section id="features">
-    <div class="text-center">
-        <span class="section-label">Core Capabilities</span>
-        <h2 class="section-title">Everything Your Clinic Needs</h2>
-        <p class="section-sub mx-auto">
-            12 powerful modules designed for modern healthcare management.
-        </p>
-    </div>
-
-    <div class="features-grid">
-        <div class="feature-card">
-            <div class="fc-icon">👥</div>
-            <h3>Multi-Role System</h3>
-            <p>Admin, Doctor, Receptionist, Patient — each with tailored dashboards.</p>
-        </div>
-        <div class="feature-card">
-            <div class="fc-icon">📅</div>
-            <h3>Smart Scheduling</h3>
-            <p>Real-time appointment booking with conflict detection and reminders.</p>
-        </div>
-        <div class="feature-card">
-            <div class="fc-icon">🕐</div>
-            <h3>Patient Timeline</h3>
-            <p>Complete record of visits, diagnoses, treatments, and prescriptions.</p>
-        </div>
-        <div class="feature-card">
-            <div class="fc-icon">💊</div>
-            <h3>Digital Prescriptions</h3>
-            <p>Electronic prescriptions with QR codes and printable formats.</p>
-        </div>
-        <div class="feature-card">
-            <div class="fc-icon">🔬</div>
-            <h3>AI Symptom Checker</h3>
-            <p>Intelligent symptom analysis with possible conditions. <span class="new-badge">New</span></p>
-        </div>
-        <div class="feature-card">
-            <div class="fc-icon">📊</div>
-            <h3>Analytics Dashboard</h3>
-            <p>Real-time charts on patient flow, revenue, doctor performance.</p>
-        </div>
-        <div class="feature-card">
-            <div class="fc-icon">🤖</div>
-            <h3>NLP AI Chatbot</h3>
-            <p>5000+ responses, trained on clinic operations. <span class="new-badge">New</span></p>
-        </div>
-        <div class="feature-card">
-            <div class="fc-icon">🧠</div>
-            <h3>Health Risk Predictor</h3>
-            <p>AI-powered risk assessment for diabetes, heart disease. <span class="new-badge">New</span></p>
-        </div>
-        <div class="feature-card">
-            <div class="fc-icon">💬</div>
-            <h3>Doctor-Patient Chat</h3>
-            <p>Secure real-time messaging with read receipts. <span class="new-badge">New</span></p>
-        </div>
-        <!-- <div class="feature-card">
-            <div class="fc-icon">📱</div>
-            <h3>PWA Ready</h3>
-            <p>Install as mobile app with offline support. <span class="new-badge">New</span></p>
-        </div> -->
-        <div class="feature-card">
-            <div class="fc-icon">🗄️</div>
-            <h3>Python + ML</h3>
-            <p>Machine learning models via Flask API. <span class="new-badge">New</span></p>
-        </div>
-        <div class="feature-card">
-            <div class="fc-icon">🔐</div>
-            <h3>Bank-Grade Security</h3>
-            <p>bcrypt hashing, SSL, RBAC, audit trails.</p>
-        </div>
-    </div>
-</section>
-
-<!-- ============================================
-     PRICING POLL SECTION (NEW)
-     ============================================ -->
-<section id="pricing-poll">
-    <div class="text-center">
-        <span class="section-label">Community Pricing Poll</span>
-        <h2 class="section-title">What Should ClinicFlow Pro Cost?</h2>
-        <p class="section-sub mx-auto">
-            Help us determine the perfect price. Vote for what you think is fair.
-            Your feedback directly influences our pricing strategy.
-        </p>
-    </div>
-
-    <div class="poll-section" id="pollSection">
-        <div class="poll-grid" id="pollGrid">
-            <!-- Options will be inserted by JavaScript -->
-        </div>
-        <div class="poll-total" id="pollTotal">
-            Total Votes: <span id="totalVotes">0</span>
-        </div>
-        <div style="text-align:center;margin-top:16px;">
-            <p style="font-size:0.85rem;color:var(--text-muted);">
-                <i class="fas fa-info-circle"></i> Your vote is anonymous and saved locally.
-                Refresh the page to see updated results.
-            </p>
-        </div>
-    </div>
-</section>
-
-<!-- ============================================
-     TECH STACK SECTION
-     ============================================ -->
-<section id="tech">
-    <div class="text-center">
-        <span class="section-label">Technology Stack</span>
-        <h2 class="section-title">Built with Purpose</h2>
-        <p class="section-sub mx-auto">
-            Every tool chosen for performance, reliability, and developer experience.
-        </p>
-    </div>
-
-    <div class="tech-grid">
-        <div class="tech-card"><div class="tc-icon">🐘</div><h4>PHP 8.0+</h4><p>Backend Logic</p></div>
-        <div class="tech-card"><div class="tc-icon">🗄️</div><h4>MySQL</h4><p>Database</p></div>
-        <div class="tech-card"><div class="tc-icon">🎨</div><h4>Tailwind CSS</h4><p>Styling</p></div>
-        <div class="tech-card"><div class="tc-icon">⚡</div><h4>Vanilla JS</h4><p>Interactivity</p></div>
-        <div class="tech-card"><div class="tc-icon">🐍</div><h4>Python NLP</h4><p>AI Chatbot <span class="new-badge">New</span></p></div>
-        <div class="tech-card"><div class="tc-icon">📈</div><h4>Chart.js</h4><p>Analytics</p></div>
-        <div class="tech-card"><div class="tc-icon">🔄</div><h4>GSAP</h4><p>Animations</p></div>
-        <div class="tech-card"><div class="tc-icon">🔒</div><h4>bcrypt</h4><p>Security</p></div>
-        <div class="tech-card"><div class="tc-icon">🧠</div><h4>Scikit-learn</h4><p>ML Predictions <span class="new-badge">New</span></p></div>
-        <!-- <div class="tech-card"><div class="tc-icon">📱</div><h4>PWA</h4><p>Offline Support <span class="new-badge">New</span></p></div> -->
-    </div>
-</section>
-
-<!-- ============================================
-     ARCHITECTURE SECTION
-     ============================================ -->
-<section id="architecture">
-    <div class="text-center">
-        <span class="section-label">System Architecture</span>
-        <h2 class="section-title">How It All Connects</h2>
-        <p class="section-sub mx-auto">
-            A clean three-tier architecture with Python AI layer for intelligent features.
-        </p>
-    </div>
-
-    <div class="arch-diagram">
-        <div class="arch-node">
-            <div class="an-icon">🌐</div>
-            <h4>Browser</h4>
-            <p>HTML · CSS · JS</p>
-        </div>
-        <span class="arch-arrow">→</span>
-        <div class="arch-node">
-            <div class="an-icon">⚙️</div>
-            <h4>Web Server</h4>
-            <p>Apache · HTTPS</p>
-        </div>
-        <span class="arch-arrow">→</span>
-        <div class="arch-node">
-            <div class="an-icon">🐘</div>
-            <h4>PHP Backend</h4>
-            <p>Business Logic · APIs</p>
-        </div>
-        <span class="arch-arrow">→</span>
-        <div class="arch-node">
-            <div class="an-icon">🗄️</div>
-            <h4>MySQL</h4>
-            <p>8 Tables · Relational</p>
-        </div>
-        <span class="arch-arrow">→</span>
-        <div class="arch-node" style="background:#e0f2fe;border-color:#0077B6;">
-            <div class="an-icon">🐍</div>
-            <h4>Python AI Layer</h4>
-            <p>NLP · ML Predictions <span class="new-badge">New</span></p>
-        </div>
-    </div>
-</section>
-
-<!-- ============================================
-     TESTIMONIALS SECTION
-     ============================================ -->
-<section id="testimonials">
-    <div class="text-center">
-        <span class="section-label">Testimonials</span>
-        <h2 class="section-title">Trusted by Healthcare Professionals</h2>
-        <p class="section-sub mx-auto">
-            Real feedback from real users who transformed their clinics.
-        </p>
-    </div>
-
-    <div class="testimonial-grid">
-        <div class="testimonial-card">
-            <div class="stars">⭐⭐⭐⭐⭐</div>
-            <blockquote>"ClinicFlow Pro has completely transformed how we manage patient records. The AI symptom checker alone saves us hours every day."</blockquote>
-            <div class="author">
-                <div class="avatar">DS</div>
-                <div><div class="name">Dr. David Smith</div><div class="role">Cardiologist, NY</div></div>
-            </div>
-        </div>
-        <div class="testimonial-card">
-            <div class="stars">⭐⭐⭐⭐⭐</div>
-            <blockquote>"The prescription system with QR codes is brilliant. Our pharmacy loves it. This is the future of healthcare administration."</blockquote>
-            <div class="author">
-                <div class="avatar">SG</div>
-                <div><div class="name">Dr. Sara Gomez</div><div class="role">Pediatrician, CA</div></div>
-            </div>
-        </div>
-        <div class="testimonial-card">
-            <div class="stars">⭐⭐⭐⭐⭐</div>
-            <blockquote>"I've used 5 different clinic management systems. ClinicFlow Pro is by far the most intuitive and feature-rich. The NLP chatbot is a game-changer."</blockquote>
-            <div class="author">
-                <div class="avatar">MA</div>
-                <div><div class="name">Dr. Michael Adams</div><div class="role">Clinic Owner, TX</div></div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- ============================================
-     REVIEWS SECTION
-     ============================================ -->
-<section id="reviews">
-    <div class="text-center">
-        <span class="section-label">Community Reviews</span>
-        <h2 class="section-title">What People Are Saying</h2>
-        <p class="section-sub mx-auto">
-            Share your experience with ClinicFlow Pro and help others discover the future of healthcare management.
-        </p>
-    </div>
-
-    <div class="review-section">
-        <!-- Review Form -->
-        <div class="review-form" id="reviewForm">
-            <div class="full-width">
-                <label style="font-weight:600;display:block;margin-bottom:8px;">Your Rating</label>
-                <div class="star-rating" id="starRating">
-                    <span class="star" data-value="1">★</span>
-                    <span class="star" data-value="2">★</span>
-                    <span class="star" data-value="3">★</span>
-                    <span class="star" data-value="4">★</span>
-                    <span class="star" data-value="5">★</span>
-                </div>
-                <input type="hidden" id="ratingValue" value="5">
-            </div>
-            <div>
-                <label style="font-weight:600;display:block;margin-bottom:8px;">Full Name</label>
-                <input type="text" id="reviewName" placeholder="Dr. John Doe" required>
-            </div>
-            <div>
-                <label style="font-weight:600;display:block;margin-bottom:8px;">Role / Title</label>
-                <input type="text" id="reviewRole" placeholder="Cardiologist, NY" required>
-            </div>
-            <div class="full-width">
-                <label style="font-weight:600;display:block;margin-bottom:8px;">Your Review</label>
-                <textarea id="reviewText" placeholder="Share your experience with ClinicFlow Pro..." required></textarea>
-            </div>
-            <div class="full-width" style="text-align:center;">
-                <button class="btn-primary" id="submitReview" style="width:100%;justify-content:center;">
-                    <i class="fas fa-paper-plane"></i> Submit Review
-                </button>
-            </div>
-        </div>
-
-        <!-- Reviews List -->
-        <div id="reviewsList">
-            <!-- Reviews will be loaded here from localStorage -->
-        </div>
-    </div>
-</section>
-
-<!-- ============================================
-     CTA SECTION
-     ============================================ -->
-<section>
-    <div class="cta-section">
-        <h2>Ready to Transform Your Clinic?</h2>
-        <p>Join 500+ clinics already using ClinicFlow Pro. Start your free trial today.</p>
-        <a href="#reviews" class="btn-primary">
-            <i class="fas fa-star"></i> Write a Review
-        </a>
-    </div>
-</section>
-
-<!-- ============================================
-     FOOTER
-     ============================================ -->
-<footer>
-    <div class="footer-links">
+      <div class="nav-links" id="navLinks">
+        <a href="#solution">Solution</a>
         <a href="#features">Features</a>
-        <a href="#tech">Tech Stack</a>
-        <a href="#architecture">Architecture</a>
-        <a href="#pricing-poll">Pricing Poll</a>
-        <a href="#testimonials">Testimonials</a>
-        <a href="#reviews">Reviews</a>
-    </div>
-    <div>
-        <p>© 2026 ClinicFlow Pro — Developed by Abdul Hannan Ghaznavi & Hasnat Ahmed</p>
-        <p style="font-size:0.8rem;margin-top:4px;">Aligarh Institute of Technology | Software Technology</p>
-    </div>
-</footer>
+        <a href="#ai">AI</a>
+        <a href="#security">Security</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#story">Our Story</a>
+        <a href="#faq">FAQ</a>
+        <a class="nav-cta" href="#contact">Request a preview</a>
+      </div>
 
-<!-- ============================================
-     JAVASCRIPT
-     ============================================ -->
-<script>
-    // ============================================
-    // 1. NAVBAR
-    // ============================================
-    window.addEventListener('scroll', function() {
-        const nav = document.getElementById('navbar');
-        nav.classList.toggle('scrolled', window.scrollY > 60);
-    });
+      <button class="menu-btn" id="menuBtn" aria-label="Open navigation" aria-expanded="false">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+          <path d="M4 7H20M4 12H20M4 17H20" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+        </svg>
+      </button>
+    </nav>
+  </div>
 
-    document.getElementById('mobileToggle').addEventListener('click', function() {
-        document.getElementById('navLinks').classList.toggle('active');
-    });
+  <main id="top">
+    <section class="hero section-sm">
+      <div class="container">
+        <div class="hero-grid">
+          <div class="hero-copy reveal">
+            <div class="hero-tag">
+              <span class="pulse"></span>
+              Modern clinic management for real workflows
+            </div>
 
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                document.getElementById('navLinks').classList.remove('active');
-            }
-        });
-    });
+            <div class="eyebrow">ClinicFlow Pro</div>
 
-    // ============================================
-    // 2. STAR RATING
-    // ============================================
-    const stars = document.querySelectorAll('.star-rating .star');
-    const ratingInput = document.getElementById('ratingValue');
+            <h1>
+              Run the clinic.
+              <span class="text-gradient">Not the paperwork.</span>
+            </h1>
 
-    stars.forEach(star => {
-        star.addEventListener('click', function() {
-            const value = parseInt(this.dataset.value);
-            ratingInput.value = value;
-            stars.forEach(s => s.classList.toggle('active', parseInt(s.dataset.value) <= value));
-        });
-        star.addEventListener('mouseenter', function() {
-            const value = parseInt(this.dataset.value);
-            stars.forEach(s => s.classList.toggle('active', parseInt(s.dataset.value) <= value));
-        });
-        star.addEventListener('mouseleave', function() {
-            const currentValue = parseInt(ratingInput.value) || 5;
-            stars.forEach(s => s.classList.toggle('active', parseInt(s.dataset.value) <= currentValue));
-        });
-    });
+            <p class="lead">
+              ClinicFlow Pro brings appointments, patient timelines, digital prescriptions,
+              billing, analytics, communication and AI-assisted tools into one focused system
+              for doctors, receptionists, administrators and patients.
+            </p>
 
-    // ============================================
-    // 3. PRICING POLL SYSTEM
-    // ============================================
-    const POLL_KEY = 'clinicflow_pricing_poll';
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="#contact">Request a product preview</a>
+              <a class="btn btn-secondary" href="#features">Explore the platform</a>
+            </div>
 
-    const pollOptions = [
-        { id: 1, price: '20,000 PKR', value: 20000 },
-        { id: 2, price: '40,000 PKR', value: 40000 },
-        { id: 3, price: '60,000 PKR', value: 60000 },
-        { id: 4, price: '80,000 PKR', value: 80000 }
-    ];
+            <div class="micro-proof">
+              <div>
+                <strong>42+</strong>
+                Functional pages and modules
+              </div>
+              <div>
+                <strong>4</strong>
+                Role-specific dashboards
+              </div>
+              <div>
+                <strong>AI assisted</strong>
+                Workflow support built in
+              </div>
+            </div>
+          </div>
 
-    function getPollData() {
-        try {
-            const data = localStorage.getItem(POLL_KEY);
-            if (data) {
-                const parsed = JSON.parse(data);
-                pollOptions.forEach(opt => {
-                    if (!parsed[opt.id]) parsed[opt.id] = 0;
-                });
-                return parsed;
-            }
-        } catch (e) {}
-        const init = {};
-        pollOptions.forEach(opt => { init[opt.id] = 0; });
-        return init;
-    }
-
-    function savePollData(data) {
-        localStorage.setItem(POLL_KEY, JSON.stringify(data));
-    }
-
-    function renderPoll() {
-        const data = getPollData();
-        const totalVotes = Object.values(data).reduce((a, b) => a + b, 0);
-
-        const grid = document.getElementById('pollGrid');
-        grid.innerHTML = '';
-
-        pollOptions.forEach(opt => {
-            const votes = data[opt.id] || 0;
-            const percentage = totalVotes > 0 ? (votes / totalVotes) * 100 : 0;
-
-            const div = document.createElement('div');
-            div.className = 'poll-option';
-            div.dataset.id = opt.id;
-            div.innerHTML = `
-                <div class="poll-price">${opt.price}</div>
-                <div class="poll-votes">${votes} vote${votes !== 1 ? 's' : ''}</div>
-                <div class="poll-label">${percentage.toFixed(0)}%</div>
-                <div class="poll-bar">
-                    <div class="poll-fill" style="width:${percentage}%;"></div>
+          <div class="hero-visual reveal">
+            <div class="dashboard-shell">
+              <div class="dashboard-top">
+                <div class="dashboard-top-left">
+                  <span class="window-dot"></span>
+                  <span class="window-dot"></span>
+                  <span class="window-dot active"></span>
+                  <span style="margin-left:5px;">ClinicFlow workspace</span>
                 </div>
-            `;
-            div.addEventListener('click', function() {
-                const id = parseInt(this.dataset.id);
-                const pollData = getPollData();
-                pollData[id] = (pollData[id] || 0) + 1;
-                savePollData(pollData);
-                renderPoll();
-            });
-            grid.appendChild(div);
-        });
+                <span>Secure workspace</span>
+              </div>
 
-        document.getElementById('totalVotes').textContent = totalVotes;
-    }
-
-    // ============================================
-    // 4. REVIEW SYSTEM
-    // ============================================
-    const STORAGE_KEY = 'clinicflow_reviews';
-
-    function getReviews() {
-        try {
-            const data = localStorage.getItem(STORAGE_KEY);
-            return data ? JSON.parse(data) : [];
-        } catch (e) { return []; }
-    }
-
-    function saveReviews(reviews) {
-        localStorage.setItem(STORAGE_KEY, JSON.stringify(reviews));
-    }
-
-    function renderReviews() {
-        const container = document.getElementById('reviewsList');
-        const reviews = getReviews();
-
-        if (reviews.length === 0) {
-            container.innerHTML = `
-                <div class="review-empty">
-                    <span class="icon">📝</span>
-                    <h3>No Reviews Yet</h3>
-                    <p>Be the first to share your experience with ClinicFlow Pro!</p>
+              <div class="dashboard-frame">
+                <div class="dash-header">
+                  <div class="dash-logo">ClinicFlow Pro</div>
+                  <div class="dash-user">AH</div>
                 </div>
-            `;
-            return;
-        }
 
-        reviews.sort((a, b) => new Date(b.date) - new Date(a.date));
+                <div class="dash-body">
+                  <aside class="dash-side">
+                    <div class="side-item active">Overview</div>
+                    <div class="side-item">Appointments</div>
+                    <div class="side-item">Patients</div>
+                    <div class="side-item">Prescriptions</div>
+                    <div class="side-item">Billing</div>
+                    <div class="side-item">Analytics</div>
+                  </aside>
 
-        let html = '';
-        reviews.forEach(review => {
-            const starsHtml = '★'.repeat(review.rating) + '☆'.repeat(5 - review.rating);
-            const date = new Date(review.date).toLocaleDateString('en-US', {
-                year: 'numeric', month: 'long', day: 'numeric'
-            });
-            html += `
-                <div class="review-item">
-                    <div class="review-header">
-                        <div>
-                            <span class="review-name">${escapeHtml(review.name)}</span>
-                            <span class="review-verified">✓ Verified</span>
-                            <span class="review-role">${escapeHtml(review.role)}</span>
-                        </div>
-                        <div class="review-stars">${starsHtml}</div>
+                  <div class="dash-content">
+                    <div class="dash-row">
+                      <div class="mini-card">
+                        <div class="mini-label">Today's appointments</div>
+                        <div class="mini-value">36</div>
+                        <div class="mini-good">Live schedule</div>
+                      </div>
+                      <div class="mini-card">
+                        <div class="mini-label">Patients</div>
+                        <div class="mini-value">1,284</div>
+                        <div class="mini-good">Timeline ready</div>
+                      </div>
+                      <div class="mini-card">
+                        <div class="mini-label">Revenue view</div>
+                        <div class="mini-value">₨ 248K</div>
+                        <div class="mini-good">This month</div>
+                      </div>
                     </div>
-                    <div class="review-text">${escapeHtml(review.text)}</div>
-                    <div class="review-date">${date}</div>
+
+                    <div class="dash-main">
+                      <div class="chart-card">
+                        <div class="chart-head">
+                          <div class="chart-title">Patient flow</div>
+                          <div class="chart-range">Last 7 days</div>
+                        </div>
+                        <div class="chart" aria-label="Decorative patient flow chart">
+                          <svg viewBox="0 0 420 112" preserveAspectRatio="none" role="img">
+                            <defs>
+                              <linearGradient id="area" x1="0" y1="0" x2="0" y2="1">
+                                <stop offset="0%" stop-color="#42dfcf" stop-opacity=".30"/>
+                                <stop offset="100%" stop-color="#42dfcf" stop-opacity="0"/>
+                              </linearGradient>
+                            </defs>
+                            <path d="M0 88 C40 82, 48 70, 76 74 C104 78, 107 46, 138 58 C168 72, 184 54, 210 61 C236 68, 248 30, 279 45 C308 58, 322 38, 344 41 C373 45, 391 22, 420 29 L420 112 L0 112 Z" fill="url(#area)"/>
+                            <path d="M0 88 C40 82, 48 70, 76 74 C104 78, 107 46, 138 58 C168 72, 184 54, 210 61 C236 68, 248 30, 279 45 C308 58, 322 38, 344 41 C373 45, 391 22, 420 29" fill="none" stroke="#25cdbb" stroke-width="2.8" stroke-linecap="round"/>
+                          </svg>
+                        </div>
+                      </div>
+
+                      <div class="queue-card">
+                        <div class="chart-head">
+                          <div class="chart-title">Today's queue</div>
+                          <div class="chart-range">Live</div>
+                        </div>
+
+                        <div class="queue-list">
+                          <div class="queue-row">
+                            <div class="avatar">RS</div>
+                            <div class="queue-name">Riya Shah</div>
+                            <div class="queue-time">09:30</div>
+                          </div>
+                          <div class="queue-row">
+                            <div class="avatar">AM</div>
+                            <div class="queue-name">Ali Malik</div>
+                            <div class="queue-time">10:10</div>
+                          </div>
+                          <div class="queue-row">
+                            <div class="avatar">SA</div>
+                            <div class="queue-name">Sara Ahmed</div>
+                            <div class="queue-time">10:40</div>
+                          </div>
+                          <div class="queue-row">
+                            <div class="avatar">ZN</div>
+                            <div class="queue-name">Zain Noor</div>
+                            <div class="queue-time">11:20</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-            `;
-        });
+              </div>
+            </div>
 
-        container.innerHTML = html;
-    }
+            <div class="floating-chip chip-a">
+              <div class="chip-label">Access control</div>
+              <div class="chip-value teal">Role based</div>
+            </div>
 
-    function escapeHtml(text) {
-        const div = document.createElement('div');
-        div.textContent = text;
-        return div.innerHTML;
-    }
+            <div class="floating-chip chip-b">
+              <div class="chip-label">AI assistant</div>
+              <div class="chip-value">Available 24/7</div>
+            </div>
+          </div>
+        </div>
 
-    document.getElementById('submitReview').addEventListener('click', function() {
-        const name = document.getElementById('reviewName').value.trim();
-        const role = document.getElementById('reviewRole').value.trim();
-        const text = document.getElementById('reviewText').value.trim();
-        const rating = parseInt(document.getElementById('ratingValue').value) || 5;
+        <div class="stats-bar reveal">
+          <div class="stats-grid">
+            <div class="stat">
+              <strong>42+</strong>
+              <span>Functional pages across the platform</span>
+            </div>
+            <div class="stat">
+              <strong>4</strong>
+              <span>Dashboards built around distinct roles</span>
+            </div>
+            <div class="stat">
+              <strong>15</strong>
+              <span>Major feature groups</span>
+            </div>
+            <div class="stat">
+              <strong>WhatsApp + SMS</strong>
+              <span>Communication workflows</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-        if (!name || !role || !text) {
-            alert('Please fill in all fields before submitting.');
-            return;
+    <section class="section" id="problem">
+      <div class="container">
+        <div class="problem-grid">
+          <div class="section-head reveal">
+            <div class="eyebrow">The problem</div>
+            <h2>The clinic should feel busy. The back office should not feel broken.</h2>
+            <p class="lead">
+              ClinicFlow Pro was shaped around recurring operational problems observed in
+              local clinic workflows: paper records, scattered spreadsheets, phone-based
+              scheduling, handwritten prescriptions and limited visibility into what is happening.
+            </p>
+          </div>
+
+          <div class="reveal">
+            <div class="problem-list">
+              <div class="problem-item">
+                <div class="problem-icon">01</div>
+                <div>
+                  <strong>Patient history is scattered</strong>
+                  <span>Paper files and separate spreadsheets make the right information harder to find when it matters.</span>
+                </div>
+              </div>
+
+              <div class="problem-item">
+                <div class="problem-icon">02</div>
+                <div>
+                  <strong>Appointments depend on manual coordination</strong>
+                  <span>Calls and manual entries increase the chance of missed slots and scheduling conflicts.</span>
+                </div>
+              </div>
+
+              <div class="problem-item">
+                <div class="problem-icon">03</div>
+                <div>
+                  <strong>Prescriptions stay disconnected from the workflow</strong>
+                  <span>Handwritten processes create avoidable friction for doctors, patients and pharmacies.</span>
+                </div>
+              </div>
+
+              <div class="problem-item">
+                <div class="problem-icon">04</div>
+                <div>
+                  <strong>Owners lack operational visibility</strong>
+                  <span>Without a unified view, revenue, patient flow and doctor performance are difficult to review.</span>
+                </div>
+              </div>
+
+              <div class="problem-item">
+                <div class="problem-icon">05</div>
+                <div>
+                  <strong>Local context is often overlooked</strong>
+                  <span>International tools may not reflect PKR pricing, WhatsApp-first communication or local workflow expectations.</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="quote-card">
+              <p>
+                The idea started with a simple observation: clinics needed a system that felt
+                practical for how they already work, not a generic enterprise platform dropped
+                into a local clinic.
+              </p>
+              <span class="muted">Project direction documented by Abdul Hannan Ghaznavi</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-sm" id="solution">
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="eyebrow">The solution</div>
+          <h2>One connected flow from registration to follow up.</h2>
+          <p class="lead">
+            ClinicFlow Pro turns everyday clinic work into one connected operational system,
+            so the next action is easier to see and the right information stays in context.
+          </p>
+        </div>
+
+        <div class="solution-flow reveal">
+          <div class="flow-step">
+            <div class="step-number">01</div>
+            <h3>Register</h3>
+            <div class="step-text">Create a patient record from reception or the patient portal.</div>
+          </div>
+
+          <div class="flow-step">
+            <div class="step-number">02</div>
+            <h3>Schedule</h3>
+            <div class="step-text">Book against doctor availability with conflict detection and reminders.</div>
+          </div>
+
+          <div class="flow-step">
+            <div class="step-number">03</div>
+            <h3>Consult</h3>
+            <div class="step-text">Review the patient's timeline and record the consultation in one place.</div>
+          </div>
+
+          <div class="flow-step">
+            <div class="step-number">04</div>
+            <h3>Prescribe</h3>
+            <div class="step-text">Create digital prescriptions with dosage tracking and QR support.</div>
+          </div>
+
+          <div class="flow-step">
+            <div class="step-number">05</div>
+            <h3>Follow up</h3>
+            <div class="step-text">Use WhatsApp or SMS reminders to keep the next step visible.</div>
+          </div>
+
+          <div class="flow-step">
+            <div class="step-number">06</div>
+            <h3>Review</h3>
+            <div class="step-text">Use analytics to understand patient flow, revenue and operations.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="roles">
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="eyebrow">Built around people</div>
+          <h2>Four roles. One shared system.</h2>
+          <p class="lead">
+            Instead of forcing every person into the same dashboard, ClinicFlow Pro gives each
+            role the information and actions that match its work.
+          </p>
+        </div>
+
+        <div class="role-grid reveal">
+          <div class="role-card">
+            <span class="role-label">Admin</span>
+            <h3>See the whole clinic</h3>
+            <p>Manage staff, permissions, billing, analytics and audit visibility from one operational view.</p>
+          </div>
+
+          <div class="role-card">
+            <span class="role-label">Doctor</span>
+            <h3>Stay focused on care</h3>
+            <p>Review patient history, manage the schedule, issue prescriptions and use assistive AI tools during consultation.</p>
+          </div>
+
+          <div class="role-card">
+            <span class="role-label">Receptionist</span>
+            <h3>Keep the day moving</h3>
+            <p>Register patients, manage appointments, handle billing records and reduce front-desk coordination overhead.</p>
+          </div>
+
+          <div class="role-card">
+            <span class="role-label">Patient</span>
+            <h3>Stay in the loop</h3>
+            <p>View appointments, consultation history and digital prescriptions while receiving communication at the right time.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-sm" id="features">
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="eyebrow">Core capabilities</div>
+          <h2>Everything the clinic team needs to run the day.</h2>
+          <p class="lead">
+            The product already covers the core workflows, then adds communication, analytics
+            and intelligent assistance around them.
+          </p>
+        </div>
+
+        <div class="feature-grid reveal">
+          <div class="feature-card">
+            <div class="feature-icon">01</div>
+            <h3>Smart scheduling</h3>
+            <p>Manage doctor availability, appointment conflicts and reminders in a connected workflow.</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">02</div>
+            <h3>Patient timeline</h3>
+            <p>Keep visits, diagnoses, treatments and prescriptions together in chronological context.</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">03</div>
+            <h3>Digital prescriptions</h3>
+            <p>Create electronic prescriptions with dosage details and QR based verification support.</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">04</div>
+            <h3>Analytics dashboard</h3>
+            <p>Review revenue, appointment volume, patient flow and doctor performance from one place.</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">05</div>
+            <h3>Doctor patient chat</h3>
+            <p>Keep patient communication inside a secure in-app messaging workflow with read status.</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">06</div>
+            <h3>WhatsApp and SMS</h3>
+            <p>Use familiar channels for appointment reminders and prescription delivery workflows.</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">07</div>
+            <h3>Flexible dashboards</h3>
+            <p>Let users rearrange and save dashboard layouts around the information they use most.</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">08</div>
+            <h3>Billing and records</h3>
+            <p>Keep payment records and operational information connected to the wider clinic workflow.</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">09</div>
+            <h3>Patient portal</h3>
+            <p>Give patients a direct view into upcoming appointments, history and digital prescriptions.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section ai-section" id="ai">
+      <div class="container">
+        <div class="ai-grid">
+          <div class="reveal">
+            <div class="eyebrow">AI assisted care workflows</div>
+            <h2>Useful intelligence without pretending to replace the clinician.</h2>
+            <p class="lead">
+              AI is positioned as workflow support: helping surface information, organize inputs
+              and reduce repetitive work while clinical decisions stay with the healthcare professional.
+            </p>
+
+            <div class="note">
+              ClinicFlow Pro's AI tools are designed as assistive features. They should not be
+              presented as a substitute for professional medical judgement.
+            </div>
+          </div>
+
+          <div class="ai-panel reveal">
+            <div class="ai-panel-head">
+              <span>AI workspace</span>
+              <span class="ai-status">Assistive mode</span>
+            </div>
+
+            <div class="ai-cards">
+              <div class="ai-card">
+                <div class="ai-card-row">
+                  <strong>Symptom Checker</strong>
+                  <span class="tag tag-teal">Patient facing</span>
+                </div>
+                <span>Plain-language symptom input with intelligent analysis and urgency indicators.</span>
+              </div>
+
+              <div class="ai-card">
+                <div class="ai-card-row">
+                  <strong>Diagnosis Assistant</strong>
+                  <span class="tag tag-indigo">Doctor support</span>
+                </div>
+                <span>Provides possible differential diagnosis suggestions as a starting point for clinical review.</span>
+              </div>
+
+              <div class="ai-card">
+                <div class="ai-card-row">
+                  <strong>Health Predictor</strong>
+                  <span class="tag tag-indigo">Risk support</span>
+                </div>
+                <span>Uses recorded medical history to flag potential long-term risks that may deserve attention.</span>
+              </div>
+
+              <div class="ai-card">
+                <div class="ai-card-row">
+                  <strong>AI Health Assistant</strong>
+                  <span class="tag tag-teal">24/7</span>
+                </div>
+                <span>Handles general patient questions, appointment-related queries and platform help.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="security">
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="eyebrow">Security by design</div>
+          <h2>Healthcare workflows need clear boundaries and traceability.</h2>
+          <p class="lead">
+            Security is treated as a product requirement, with role based permissions,
+            protected sessions, HTTPS and audit visibility across important actions.
+          </p>
+        </div>
+
+        <div class="security-grid reveal">
+          <div class="security-card">
+            <strong>Role based access</strong>
+            <span>Users see data and actions relevant to their role and permissions.</span>
+          </div>
+
+          <div class="security-card">
+            <strong>HTTPS enforced</strong>
+            <span>Data in transit is protected through HTTPS across the application.</span>
+          </div>
+
+          <div class="security-card">
+            <strong>Audit trails</strong>
+            <span>Important actions are recorded to improve accountability and traceability.</span>
+          </div>
+
+          <div class="security-card">
+            <strong>HIPAA aligned principles</strong>
+            <span>The project documentation describes the platform as designed with healthcare-aligned security principles in mind.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-sm">
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="eyebrow">Built for the local workflow</div>
+          <h2>A product can be technically complete and still feel wrong. ClinicFlow Pro was designed around context.</h2>
+        </div>
+
+        <div class="local-grid reveal">
+          <div class="local-card">
+            <h3>Designed with Pakistan in mind</h3>
+            <p class="muted">
+              The project documentation specifically calls out local pricing, communication
+              and language considerations instead of copying an international SaaS model.
+            </p>
+
+            <div class="local-list">
+              <div class="local-item"><span class="check">✓</span> PKR based pricing strategy</div>
+              <div class="local-item"><span class="check">✓</span> WhatsApp first communication workflows</div>
+              <div class="local-item"><span class="check">✓</span> Urdu friendly design considerations</div>
+              <div class="local-item"><span class="check">✓</span> Practical fit for smaller clinics</div>
+            </div>
+          </div>
+
+          <div class="local-card">
+            <h3>Built to grow beyond one doctor's desk</h3>
+            <p class="muted">
+              The architecture and role model are intended to support individual practitioners,
+              small clinics and more structured multi-role operations.
+            </p>
+
+            <div class="local-list">
+              <div class="local-item"><span class="check">✓</span> Four dedicated dashboards</div>
+              <div class="local-item"><span class="check">✓</span> Modular clinic workflows</div>
+              <div class="local-item"><span class="check">✓</span> Billing and analytics visibility</div>
+              <div class="local-item"><span class="check">✓</span> Communication layer for patient follow up</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-sm" id="pricing">
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="eyebrow">Pricing</div>
+          <h2>Clear pricing should come after clear product value.</h2>
+          <p class="lead">
+            The current project documentation proposes PKR based tiers, while the original
+            landing page uses a pricing poll to validate market willingness. The ranges below
+            are therefore shown as proposed pricing, not final published plans.
+          </p>
+        </div>
+
+        <div class="pricing-grid reveal">
+          <div class="price-card">
+            <div class="pill">Free tier</div>
+            <div class="price-range">Start free</div>
+            <div class="price-note">Designed for individual practitioners or very small clinics exploring the core workflow.</div>
+            <div class="price-pills">
+              <span class="pill">Core scheduling</span>
+              <span class="pill">Basic records</span>
+              <span class="pill">Entry workflow</span>
+            </div>
+          </div>
+
+          <div class="price-card featured">
+            <div class="pill">Proposed PKR tiers</div>
+            <div class="price-range">₨ 5K to ₨ 100K+</div>
+            <div class="price-note">The project documentation proposes multiple tiers from a basic clinic plan through premium support and multi-branch capability.</div>
+            <div class="price-pills">
+              <span class="pill">₨ 5K to ₨ 10K</span>
+              <span class="pill">₨ 10K to ₨ 20K</span>
+              <span class="pill">₨ 20K to ₨ 30K</span>
+              <span class="pill">₨ 30K to ₨ 50K</span>
+              <span class="pill">₨ 50K to ₨ 100K</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="story">
+      <div class="container">
+        <div class="origin-grid">
+          <div class="portrait-wrap reveal">
+            <div class="portrait-card">
+              <img class="portrait" src="./f.png" alt="Abdul Hannan Ghaznavi, project lead of ClinicFlow Pro" />
+              <div class="portrait-meta">
+                <div>
+                  <div class="portrait-name">Abdul Hannan Ghaznavi</div>
+                  <div class="portrait-role">Project Lead and Lead Full Stack Developer</div>
+                </div>
+
+                <div class="socials">
+                  <a
+                    class="social-link"
+                    href="https://www.linkedin.com/in/abdulhannan-projects/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="LinkedIn"
+                    title="LinkedIn"
+                  >
+                    in
+                  </a>
+
+                  <a
+                    class="social-link"
+                    href="INSTAGRAM_URL_HERE"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Instagram"
+                    title="Instagram"
+                  >
+                    ig
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="origin-copy reveal">
+            <div class="eyebrow">Why ClinicFlow Pro exists</div>
+            <h2>Built after seeing how much clinic work still depends on disconnected systems.</h2>
+
+            <p>
+              The idea behind ClinicFlow Pro came from a practical problem: many clinics still
+              manage important work through paper registers, scattered spreadsheets, phone calls
+              and handwritten prescriptions. At the same time, many large healthcare systems are
+              built for enterprise environments rather than the day to day reality of smaller clinics.
+            </p>
+
+            <div class="story-highlight">
+              The product direction was simple: build a clinic management system that is practical
+              for local workflows, role aware, communication friendly and broad enough to cover the
+              operational journey from registration to follow up.
+            </div>
+
+            <p>
+              That thinking shaped the product's four dashboards, PKR based pricing strategy,
+              WhatsApp and SMS communication workflows, patient timeline, digital prescriptions,
+              analytics and AI assisted features. The result is not just a dashboard collection.
+              It is an attempt to make the clinic's entire operating flow feel connected.
+            </p>
+
+            <p class="muted">
+              Developed as a healthcare management SaaS project at Aligarh Institute of Technology.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-sm">
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="eyebrow">Engineering foundation</div>
+          <h2>Built as a real software system, not just a marketing shell.</h2>
+          <p class="lead">
+            The technical foundation is intentionally visible for technical buyers and evaluators,
+            while the product story stays focused on clinic outcomes.
+          </p>
+        </div>
+
+        <div class="build-grid reveal">
+          <div class="build-card">
+            <strong>Frontend</strong>
+            <span>HTML5, CSS3, Tailwind CSS, JavaScript and GSAP.</span>
+          </div>
+          <div class="build-card">
+            <strong>Backend</strong>
+            <span>PHP 8 with server side business logic and role based routing.</span>
+          </div>
+          <div class="build-card">
+            <strong>Data layer</strong>
+            <span>MySQL with core relational entities for clinic operations.</span>
+          </div>
+          <div class="build-card">
+            <strong>AI services</strong>
+            <span>Python based services supporting the intelligent workflow features.</span>
+          </div>
+          <div class="build-card">
+            <strong>Communication</strong>
+            <span>WhatsApp and SMS integrations for reminders and delivery workflows.</span>
+          </div>
+          <div class="build-card">
+            <strong>Security layer</strong>
+            <span>RBAC, audit logs, HTTPS and controlled session handling.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="faq">
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="eyebrow">FAQ</div>
+          <h2>Questions teams should not have to hunt for.</h2>
+        </div>
+
+        <div class="faq-grid reveal">
+          <div class="faq-item">
+            <button class="faq-question" type="button">
+              <span>Who is ClinicFlow Pro designed for?</span>
+              <span>+</span>
+            </button>
+            <div class="faq-answer">
+              <p>It is designed around clinic operations involving administrators, doctors, receptionists and patients, with each role receiving a dedicated dashboard experience.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" type="button">
+              <span>Does ClinicFlow Pro support digital prescriptions?</span>
+              <span>+</span>
+            </button>
+            <div class="faq-answer">
+              <p>Yes. The platform includes electronic prescriptions with dosage tracking and QR based verification support described in the project documentation.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" type="button">
+              <span>How does the AI layer work?</span>
+              <span>+</span>
+            </button>
+            <div class="faq-answer">
+              <p>The product includes a symptom checker, diagnosis assistant, health risk predictor and general health assistant. These are positioned as assistive workflow tools, with clinical judgement remaining with the healthcare professional.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" type="button">
+              <span>How are patient permissions handled?</span>
+              <span>+</span>
+            </button>
+            <div class="faq-answer">
+              <p>Role based access controls limit what each user can access, while session controls and audit trails help create a clearer security boundary.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" type="button">
+              <span>Is pricing finalized?</span>
+              <span>+</span>
+            </button>
+            <div class="faq-answer">
+              <p>The current project documentation contains proposed PKR based ranges, while the original landing page uses a pricing poll to validate willingness to pay. Final public pricing should be confirmed before launch.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" type="button">
+              <span>Where can I see the project documentation?</span>
+              <span>+</span>
+            </button>
+            <div class="faq-answer">
+              <p>Use the documentation link in the footer to open the current project report associated with the ClinicFlow Pro showcase.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-sm" id="contact">
+      <div class="container">
+        <div class="cta reveal">
+          <div>
+            <div class="eyebrow">Take the next look</div>
+            <h2>See the workflow before you make a decision.</h2>
+            <p>
+              The next step should be simple: walk through the product, see the roles,
+              understand the AI assistance and decide whether the workflow fits your clinic.
+            </p>
+          </div>
+
+          <div style="display:flex; gap:10px; flex-wrap:wrap;">
+            <a class="btn btn-primary" href="#story">Meet the project lead</a>
+            <a class="btn btn-secondary" href="docs.pdf" target="_blank" rel="noopener noreferrer">Read documentation</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a class="brand" href="#top">
+            <span class="brand-mark" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M12 3L19 7V17L12 21L5 17V7L12 3Z" stroke="currentColor" stroke-width="1.7"/>
+                <path d="M8.5 12H15.5M12 8.5V15.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+              </svg>
+            </span>
+            <span>ClinicFlow Pro</span>
+          </a>
+          <p class="footer-copy" style="max-width:430px; margin-top:13px;">
+            A modern clinic management platform built around practical workflows, role based access,
+            communication and assistive intelligence.
+          </p>
+        </div>
+
+        <div>
+          <div class="footer-title">Product</div>
+          <div class="footer-links">
+            <a href="#solution">Solution</a>
+            <a href="#features">Features</a>
+            <a href="#ai">AI</a>
+            <a href="#security">Security</a>
+            <a href="#pricing">Pricing</a>
+          </div>
+        </div>
+
+        <div>
+          <div class="footer-title">Project</div>
+          <div class="footer-links">
+            <a href="#story">Our Story</a>
+            <a href="#faq">FAQ</a>
+            <a href="docs.pdf" target="_blank" rel="noopener noreferrer">Documentation</a>
+            <a href="https://www.linkedin.com/in/abdulhannan-projects/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="footer-copy">© 2026 ClinicFlow Pro</div>
+        <div class="footer-copy">Developed by Abdul Hannan Ghaznavi</div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const menuBtn = document.getElementById("menuBtn");
+    const navLinks = document.getElementById("navLinks");
+
+    menuBtn?.addEventListener("click", () => {
+      const isOpen = navLinks.classList.toggle("open");
+      menuBtn.setAttribute("aria-expanded", String(isOpen));
+    });
+
+    navLinks?.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => {
+        navLinks.classList.remove("open");
+        menuBtn?.setAttribute("aria-expanded", "false");
+      });
+    });
+
+    document.querySelectorAll(".faq-item").forEach((item) => {
+      const button = item.querySelector(".faq-question");
+      const answer = item.querySelector(".faq-answer");
+
+      button.addEventListener("click", () => {
+        const open = item.classList.toggle("open");
+        answer.style.maxHeight = open ? answer.scrollHeight + "px" : "0px";
+      });
+    });
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          observer.unobserve(entry.target);
         }
+      });
+    }, { threshold: 0.12 });
 
-        const newReview = {
-            id: Date.now(),
-            name: name,
-            role: role,
-            text: text,
-            rating: rating,
-            date: new Date().toISOString()
-        };
-
-        const reviews = getReviews();
-        reviews.push(newReview);
-        saveReviews(reviews);
-        renderReviews();
-
-        document.getElementById('reviewName').value = '';
-        document.getElementById('reviewRole').value = '';
-        document.getElementById('reviewText').value = '';
-        document.getElementById('ratingValue').value = 5;
-        stars.forEach(s => s.classList.toggle('active', parseInt(s.dataset.value) <= 5));
-
-        alert('✅ Thank you for your review! It has been published.');
-        document.getElementById('reviewsList').scrollIntoView({ behavior: 'smooth', block: 'start' });
-    });
-
-    // ============================================
-    // 5. DOWNLOAD DOCUMENTATION BUTTON (DIRECT PDF)
-    // ============================================
-    // Simple & Clean - Just download the PDF file directly
-    // The button already has href="docs.pdf" in HTML, so it works natively.
-    // We keep this for any additional functionality if needed.
-
-    // ============================================
-    // 6. INIT
-    // ============================================
-    document.addEventListener('DOMContentLoaded', function() {
-        renderPoll();
-        renderReviews();
-    });
-
-    window.addEventListener('resize', function() {
-        if (window.innerWidth > 992) {
-            document.getElementById('navLinks').classList.remove('active');
-        }
-    });
-</script>
-
+    document.querySelectorAll(".reveal").forEach((element) => observer.observe(element));
+  </script>
 </body>
 </html>
