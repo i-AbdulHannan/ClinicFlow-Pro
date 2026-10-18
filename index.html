@@ -165,41 +165,32 @@
       background: rgba(7, 19, 31, 0.76);
       backdrop-filter: blur(18px);
       border-radius: 18px;
-      padding: 12px 14px;
+      padding: 10px 16px;
       display: flex;
       align-items: center;
       justify-content: space-between;
       box-shadow: 0 12px 50px rgba(0, 0, 0, 0.18);
     }
 
+    /* ---- Brand / Logo ---- */
     .brand {
-      display: flex;
+      display: inline-flex;
       align-items: center;
-      gap: 11px;
-      font-weight: 900;
-      letter-spacing: -0.03em;
-      white-space: nowrap;
+      text-decoration: none;
+      line-height: 0;
     }
 
-    .brand-mark {
-      width: 34px;
-      height: 34px;
-      display: grid;
-      place-items: center;
-      border-radius: 10px;
-      border: 1px solid rgba(66, 223, 207, 0.36);
-      background: rgba(66, 223, 207, 0.06);
-      box-shadow: inset 0 0 18px rgba(66, 223, 207, 0.08);
-      color: var(--teal);
-      overflow: hidden;
-      flex: 0 0 auto;
-    }
-
-    .brand-mark img {
-      width: 100%;
-      height: 100%;
+    .brand-logo {
+      display: block;
+      height: 46px;
+      width: auto;
+      max-width: 220px;
       object-fit: contain;
-      padding: 3px;
+    }
+
+    footer .brand-logo {
+      height: 56px;
+      max-width: 240px;
     }
 
     .nav-links {
@@ -838,7 +829,7 @@
       margin-bottom: 0;
     }
 
-    /* ---------- Operational backbone (new) ---------- */
+    /* ---------- Operational backbone ---------- */
     .ops-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -884,7 +875,7 @@
       line-height: 1.5;
     }
 
-    /* ---------- Loyalty (new) ---------- */
+    /* ---------- Loyalty ---------- */
     .loyalty-wrap {
       display: grid;
       grid-template-columns: 0.9fr 1.1fr;
@@ -1608,6 +1599,16 @@
         transform: none;
       }
 
+      .brand-logo {
+        height: 38px;
+        max-width: 170px;
+      }
+
+      footer .brand-logo {
+        height: 46px;
+        max-width: 200px;
+      }
+
       .chip-a {
         left: -7px;
         bottom: 17px;
@@ -1681,10 +1682,7 @@
   <div class="nav-wrap">
     <nav class="nav" aria-label="Main navigation">
       <a class="brand" href="#top" aria-label="ClinicFlow Pro home">
-        <span class="brand-mark" aria-hidden="true">
-          <img src="logo.png" alt="" />
-        </span>
-        <span>ClinicFlow Pro</span>
+        <img class="brand-logo" src="logo.png" alt="ClinicFlow Pro" />
       </a>
 
       <div class="nav-links" id="navLinks">
@@ -2140,7 +2138,6 @@
       </div>
     </section>
 
-    <!-- NEW: Operational backbone -->
     <section class="section" id="modules">
       <div class="container">
         <div class="section-head reveal">
@@ -2229,7 +2226,6 @@
       </div>
     </section>
 
-    <!-- NEW: Loyalty & rewards -->
     <section class="section-sm" id="loyalty">
       <div class="container">
         <div class="loyalty-wrap">
@@ -2736,11 +2732,8 @@
     <div class="container">
       <div class="footer-grid">
         <div>
-          <a class="brand" href="#top">
-            <span class="brand-mark" aria-hidden="true">
-              <img src="logo.png" alt="" />
-            </span>
-            <span>ClinicFlow Pro</span>
+          <a class="brand" href="#top" aria-label="ClinicFlow Pro home">
+            <img class="brand-logo" src="logo.png" alt="ClinicFlow Pro" />
           </a>
           <p class="footer-copy" style="max-width:430px; margin-top:13px;">
             A modern clinic management platform built around practical workflows, role based access,
