@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="ClinicFlow Pro is a modern clinic management platform with appointments, patient records, digital prescriptions, lab reports, refill tracking, loyalty rewards, analytics, communication and AI-assisted workflows." />
+  <meta name="description" content="ClinicFlow Pro is a modern clinic management platform for appointments, patient records, prescriptions, lab reports, loyalty, analytics, communication and AI-assisted workflows." />
   <meta name="theme-color" content="#07131f" />
-  <link rel="manifest" href="manifest.json" />
   <title>ClinicFlow Pro | Modern Clinic Management</title>
+  <link rel="manifest" href="manifest.json" />
 
   <style>
     :root {
@@ -33,8 +33,13 @@
       --container: 1180px;
     }
 
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
 
     body {
       margin: 0;
@@ -48,17 +53,34 @@
       overflow-x: hidden;
     }
 
-    a { color: inherit; text-decoration: none; }
-    button, a { -webkit-tap-highlight-color: transparent; }
-    img { max-width: 100%; display: block; }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    a {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
 
     .container {
       width: min(var(--container), calc(100% - 40px));
       margin: 0 auto;
     }
 
-    .section { padding: 110px 0; position: relative; }
-    .section-sm { padding: 78px 0; }
+    .section {
+      padding: 110px 0;
+      position: relative;
+    }
+
+    .section-sm {
+      padding: 78px 0;
+    }
 
     .section-head {
       max-width: 760px;
@@ -84,7 +106,12 @@
       background: linear-gradient(90deg, var(--teal), transparent);
     }
 
-    h1, h2, h3, p { margin-top: 0; }
+    h1,
+    h2,
+    h3,
+    p {
+      margin-top: 0;
+    }
 
     h1 {
       font-size: clamp(3.3rem, 7vw, 6.6rem);
@@ -101,7 +128,11 @@
       margin-bottom: 18px;
     }
 
-    h3 { font-size: 1.15rem; line-height: 1.2; margin-bottom: 9px; }
+    h3 {
+      font-size: 1.15rem;
+      line-height: 1.2;
+      margin-bottom: 9px;
+    }
 
     .lead {
       color: var(--muted);
@@ -109,7 +140,9 @@
       max-width: 680px;
     }
 
-    .muted { color: var(--muted); }
+    .muted {
+      color: var(--muted);
+    }
 
     .text-gradient {
       background: linear-gradient(110deg, #ffffff 8%, #bffef5 50%, #adb5ff 96%);
@@ -155,16 +188,25 @@
       place-items: center;
       border-radius: 10px;
       border: 1px solid rgba(66, 223, 207, 0.36);
-      background:
-        radial-gradient(circle at 35% 25%, rgba(66, 223, 207, 0.52), transparent 42%),
-        rgba(66, 223, 207, 0.08);
+      background: rgba(66, 223, 207, 0.06);
       box-shadow: inset 0 0 18px rgba(66, 223, 207, 0.08);
       color: var(--teal);
+      overflow: hidden;
+      flex: 0 0 auto;
     }
 
-    .brand-mark svg { width: 18px; height: 18px; }
+    .brand-mark img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      padding: 3px;
+    }
 
-    .nav-links { display: flex; align-items: center; gap: 7px; }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
 
     .nav-links a {
       padding: 9px 11px;
@@ -179,7 +221,8 @@
       color: var(--text);
     }
 
-    .nav-cta, .btn-primary {
+    .nav-cta,
+    .btn-primary {
       background: linear-gradient(135deg, var(--teal-strong), #53e4d5);
       color: #06141c;
       font-weight: 900;
@@ -187,7 +230,11 @@
       box-shadow: 0 12px 28px rgba(37, 205, 187, 0.18);
     }
 
-    .nav-cta { padding: 10px 15px; border-radius: 10px; font-size: 0.9rem; }
+    .nav-cta {
+      padding: 10px 15px;
+      border-radius: 10px;
+      font-size: 0.9rem;
+    }
 
     .menu-btn {
       display: none;
@@ -226,7 +273,10 @@
       align-items: center;
     }
 
-    .hero-copy { position: relative; z-index: 2; }
+    .hero-copy {
+      position: relative;
+      z-index: 2;
+    }
 
     .hero-tag {
       display: inline-flex;
@@ -270,7 +320,9 @@
       transition: transform 0.18s ease, border-color 0.18s ease, background 0.18s ease;
     }
 
-    .btn:hover { transform: translateY(-2px); }
+    .btn:hover {
+      transform: translateY(-2px);
+    }
 
     .btn-secondary {
       color: var(--muted-strong);
@@ -297,7 +349,9 @@
       margin-bottom: 2px;
     }
 
-    .hero-visual { position: relative; }
+    .hero-visual {
+      position: relative;
+    }
 
     .dashboard-shell {
       position: relative;
@@ -344,7 +398,11 @@
       font-size: 0.72rem;
     }
 
-    .dashboard-top-left { display: flex; align-items: center; gap: 8px; }
+    .dashboard-top-left {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
 
     .window-dot {
       width: 7px;
@@ -374,7 +432,11 @@
       padding: 6px 5px 12px;
     }
 
-    .dash-logo { font-size: 0.77rem; font-weight: 900; color: #0d2133; }
+    .dash-logo {
+      font-size: 0.77rem;
+      font-weight: 900;
+      color: #0d2133;
+    }
 
     .dash-user {
       width: 28px;
@@ -416,7 +478,10 @@
       font-weight: 800;
     }
 
-    .dash-content { display: grid; gap: 10px; }
+    .dash-content {
+      display: grid;
+      gap: 10px;
+    }
 
     .dash-row {
       display: grid;
@@ -432,9 +497,24 @@
       box-shadow: 0 8px 20px rgba(41, 63, 77, 0.06);
     }
 
-    .mini-label { color: #8497a3; font-size: 0.5rem; margin-bottom: 4px; }
-    .mini-value { font-size: 0.9rem; font-weight: 900; color: #0d2133; }
-    .mini-good { margin-top: 5px; color: #11856d; font-size: 0.46rem; font-weight: 800; }
+    .mini-label {
+      color: #8497a3;
+      font-size: 0.5rem;
+      margin-bottom: 4px;
+    }
+
+    .mini-value {
+      font-size: 0.9rem;
+      font-weight: 900;
+      color: #0d2133;
+    }
+
+    .mini-good {
+      margin-top: 5px;
+      color: #11856d;
+      font-size: 0.46rem;
+      font-weight: 800;
+    }
 
     .dash-main {
       display: grid;
@@ -442,7 +522,8 @@
       gap: 10px;
     }
 
-    .chart-card, .queue-card {
+    .chart-card,
+    .queue-card {
       border: 1px solid #e3edf2;
       border-radius: 12px;
       background: #fff;
@@ -456,21 +537,36 @@
       margin-bottom: 8px;
     }
 
-    .chart-title { font-size: 0.6rem; font-weight: 900; }
-    .chart-range { font-size: 0.47rem; color: #8da0ad; }
+    .chart-title {
+      font-size: 0.6rem;
+      font-weight: 900;
+    }
+
+    .chart-range {
+      font-size: 0.47rem;
+      color: #8da0ad;
+    }
 
     .chart {
       height: 112px;
       position: relative;
       border-radius: 8px;
-      background: linear-gradient(to bottom, rgba(16,33,49,0.05) 1px, transparent 1px);
+      background:
+        linear-gradient(to bottom, rgba(16,33,49,0.05) 1px, transparent 1px);
       background-size: 100% 28px;
       overflow: hidden;
     }
 
-    .chart svg { width: 100%; height: 100%; }
+    .chart svg {
+      width: 100%;
+      height: 100%;
+    }
 
-    .queue-list { display: grid; gap: 8px; margin-top: 8px; }
+    .queue-list {
+      display: grid;
+      gap: 8px;
+      margin-top: 8px;
+    }
 
     .queue-row {
       display: grid;
@@ -492,8 +588,14 @@
       font-weight: 900;
     }
 
-    .queue-name { font-weight: 800; color: #172d3f; }
-    .queue-time { color: #8da0ad; }
+    .queue-name {
+      font-weight: 800;
+      color: #172d3f;
+    }
+
+    .queue-time {
+      color: #8da0ad;
+    }
 
     .floating-chip {
       position: absolute;
@@ -505,12 +607,30 @@
       box-shadow: 0 20px 45px rgba(0,0,0,0.28);
     }
 
-    .chip-a { left: -26px; bottom: 38px; }
-    .chip-b { right: -28px; top: 26px; }
+    .chip-a {
+      left: -26px;
+      bottom: 38px;
+    }
 
-    .chip-label { color: var(--muted); font-size: 0.62rem; margin-bottom: 2px; }
-    .chip-value { font-weight: 900; font-size: 0.95rem; }
-    .chip-value.teal { color: var(--teal); }
+    .chip-b {
+      right: -28px;
+      top: 26px;
+    }
+
+    .chip-label {
+      color: var(--muted);
+      font-size: 0.62rem;
+      margin-bottom: 2px;
+    }
+
+    .chip-value {
+      font-weight: 900;
+      font-size: 0.95rem;
+    }
+
+    .chip-value.teal {
+      color: var(--teal);
+    }
 
     .stats-bar {
       margin-top: 54px;
@@ -525,10 +645,26 @@
       gap: 16px;
     }
 
-    .stat { padding: 8px 18px; border-right: 1px solid var(--line); }
-    .stat:last-child { border-right: 0; }
-    .stat strong { display: block; font-size: 1.36rem; letter-spacing: -0.03em; margin-bottom: 2px; }
-    .stat span { color: var(--muted); font-size: 0.8rem; }
+    .stat {
+      padding: 8px 18px;
+      border-right: 1px solid var(--line);
+    }
+
+    .stat:last-child {
+      border-right: 0;
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 1.36rem;
+      letter-spacing: -0.03em;
+      margin-bottom: 2px;
+    }
+
+    .stat span {
+      color: var(--muted);
+      font-size: 0.8rem;
+    }
 
     .problem-grid {
       display: grid;
@@ -537,7 +673,10 @@
       align-items: start;
     }
 
-    .problem-list { display: grid; gap: 12px; }
+    .problem-list {
+      display: grid;
+      gap: 12px;
+    }
 
     .problem-item {
       padding: 17px 18px;
@@ -558,10 +697,20 @@
       background: rgba(255, 139, 154, 0.08);
       color: var(--danger);
       flex: 0 0 auto;
+      font-size: 0.6rem;
+      font-weight: 900;
     }
 
-    .problem-item strong { display: block; margin-bottom: 3px; font-size: 0.95rem; }
-    .problem-item span { color: var(--muted); font-size: 0.84rem; }
+    .problem-item strong {
+      display: block;
+      margin-bottom: 3px;
+      font-size: 0.95rem;
+    }
+
+    .problem-item span {
+      color: var(--muted);
+      font-size: 0.84rem;
+    }
 
     .quote-card {
       margin-top: 20px;
@@ -572,17 +721,21 @@
       color: var(--muted-strong);
     }
 
-    .quote-card p { font-size: 1.05rem; margin-bottom: 9px; color: #dcecf3; }
+    .quote-card p {
+      font-size: 1.05rem;
+      margin-bottom: 9px;
+      color: #dcecf3;
+    }
 
     .solution-flow {
       display: grid;
-      grid-template-columns: repeat(7, 1fr);
+      grid-template-columns: repeat(6, 1fr);
       gap: 11px;
     }
 
     .flow-step {
       position: relative;
-      padding: 20px 14px;
+      padding: 20px 16px;
       border: 1px solid var(--line);
       border-radius: 17px;
       background: linear-gradient(180deg, rgba(255,255,255,0.025), rgba(255,255,255,0.012));
@@ -592,14 +745,16 @@
     .flow-step::after {
       content: "→";
       position: absolute;
-      right: -11px;
+      right: -12px;
       top: 50%;
       transform: translateY(-50%);
       color: rgba(157, 178, 194, 0.45);
       font-size: 1.1rem;
     }
 
-    .flow-step:last-child::after { display: none; }
+    .flow-step:last-child::after {
+      display: none;
+    }
 
     .step-number {
       color: var(--teal);
@@ -609,7 +764,10 @@
       margin-bottom: 20px;
     }
 
-    .step-text { color: var(--muted); font-size: 0.78rem; }
+    .step-text {
+      color: var(--muted);
+      font-size: 0.8rem;
+    }
 
     .role-grid {
       display: grid;
@@ -635,7 +793,10 @@
       margin-bottom: 18px;
     }
 
-    .role-card p { color: var(--muted); font-size: 0.83rem; }
+    .role-card p {
+      color: var(--muted);
+      font-size: 0.83rem;
+    }
 
     .feature-grid {
       display: grid;
@@ -667,48 +828,133 @@
       background: rgba(66, 223, 207, 0.07);
       border: 1px solid rgba(66, 223, 207, 0.11);
       margin-bottom: 20px;
-      font-size: 0.75rem;
-      font-weight: 800;
+      font-size: 0.72rem;
+      font-weight: 900;
     }
 
-    .feature-card p { color: var(--muted); font-size: 0.83rem; margin-bottom: 0; }
-
-    /* Loyalty section */
-    .loyalty-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 14px;
+    .feature-card p {
+      color: var(--muted);
+      font-size: 0.83rem;
+      margin-bottom: 0;
     }
 
-    .loyalty-card {
-      padding: 23px;
-      border: 1px solid var(--line);
-      border-radius: 18px;
-      background: linear-gradient(180deg, rgba(255,255,255,0.025), rgba(255,255,255,0.012));
-    }
-
-    .loyalty-card p { color: var(--muted); font-size: 0.83rem; margin-bottom: 0; }
-
-    .loyalty-earn {
+    /* ---------- Operational backbone (new) ---------- */
+    .ops-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 12px;
-      padding: 20px;
-      border: 1px solid rgba(66, 223, 207, 0.16);
-      border-radius: 18px;
-      background: linear-gradient(135deg, rgba(66, 223, 207, 0.06), rgba(123, 134, 255, 0.04));
-      margin-top: 16px;
     }
 
-    .earn-item strong {
-      display: block;
+    .ops-card {
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: 15px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.022), rgba(255,255,255,0.01));
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+
+    .ops-card:hover {
+      transform: translateY(-2px);
+      border-color: rgba(66, 223, 207, 0.22);
+    }
+
+    .ops-icon {
+      width: 30px;
+      height: 30px;
+      border-radius: 9px;
+      display: grid;
+      place-items: center;
       color: var(--teal);
-      font-size: 1.15rem;
-      margin-bottom: 4px;
-      letter-spacing: -0.02em;
+      background: rgba(66, 223, 207, 0.07);
+      border: 1px solid rgba(66, 223, 207, 0.11);
+      margin-bottom: 12px;
+      font-size: 0.66rem;
+      font-weight: 900;
     }
 
-    .earn-item span { color: var(--muted); font-size: 0.8rem; }
+    .ops-card h3 {
+      font-size: 0.95rem;
+      margin-bottom: 6px;
+    }
+
+    .ops-card p {
+      color: var(--muted);
+      font-size: 0.78rem;
+      margin-bottom: 0;
+      line-height: 1.5;
+    }
+
+    /* ---------- Loyalty (new) ---------- */
+    .loyalty-wrap {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 44px;
+      align-items: center;
+    }
+
+    .tier-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      margin-top: 6px;
+    }
+
+    .tier-card {
+      padding: 18px 10px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: rgba(255,255,255,0.018);
+      text-align: center;
+    }
+
+    .tier-card .tier-name {
+      font-weight: 900;
+      font-size: 0.86rem;
+      margin-bottom: 5px;
+      letter-spacing: -0.01em;
+    }
+
+    .tier-card .tier-discount {
+      color: var(--teal);
+      font-size: 0.72rem;
+      font-weight: 700;
+    }
+
+    .tier-card.bronze { border-color: rgba(205, 127, 50, 0.34); }
+    .tier-card.silver { border-color: rgba(192, 192, 192, 0.32); }
+    .tier-card.gold   { border-color: rgba(255, 215, 0, 0.32); }
+    .tier-card.platinum { border-color: rgba(229, 228, 226, 0.38); }
+
+    .reward-list {
+      display: grid;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .reward-item {
+      display: flex;
+      gap: 11px;
+      align-items: center;
+      padding: 12px 14px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: rgba(255,255,255,0.018);
+      font-size: 0.85rem;
+      color: var(--muted-strong);
+    }
+
+    .reward-icon {
+      width: 30px;
+      height: 30px;
+      border-radius: 9px;
+      display: grid;
+      place-items: center;
+      background: rgba(66, 223, 207, 0.08);
+      color: var(--teal);
+      font-size: 0.72rem;
+      font-weight: 900;
+      flex: 0 0 auto;
+    }
 
     .ai-section {
       border-top: 1px solid var(--line);
@@ -744,8 +990,16 @@
       font-size: 0.74rem;
     }
 
-    .ai-status { color: var(--success); font-weight: 800; }
-    .ai-cards { display: grid; gap: 11px; margin-top: 14px; }
+    .ai-status {
+      color: var(--success);
+      font-weight: 800;
+    }
+
+    .ai-cards {
+      display: grid;
+      gap: 11px;
+      margin-top: 14px;
+    }
 
     .ai-card {
       padding: 16px;
@@ -762,8 +1016,14 @@
       margin-bottom: 7px;
     }
 
-    .ai-card strong { font-size: 0.88rem; }
-    .ai-card span { color: var(--muted); font-size: 0.75rem; }
+    .ai-card strong {
+      font-size: 0.88rem;
+    }
+
+    .ai-card span {
+      color: var(--muted);
+      font-size: 0.75rem;
+    }
 
     .tag {
       font-size: 0.62rem !important;
@@ -773,10 +1033,20 @@
       white-space: nowrap;
     }
 
-    .tag-teal { color: var(--teal); background: rgba(66, 223, 207, 0.08); }
-    .tag-indigo { color: var(--indigo-soft); background: rgba(123, 134, 255, 0.08); }
+    .tag-teal {
+      color: var(--teal);
+      background: rgba(66, 223, 207, 0.08);
+    }
 
-    .ai-copy { display: grid; gap: 12px; }
+    .tag-indigo {
+      color: var(--indigo-soft);
+      background: rgba(123, 134, 255, 0.08);
+    }
+
+    .ai-copy {
+      display: grid;
+      gap: 12px;
+    }
 
     .ai-point {
       display: grid;
@@ -787,7 +1057,9 @@
       border-bottom: 1px solid var(--line);
     }
 
-    .ai-point:last-child { border-bottom: 0; }
+    .ai-point:last-child {
+      border-bottom: 0;
+    }
 
     .ai-point-index {
       width: 32px;
@@ -801,7 +1073,11 @@
       background: rgba(66, 223, 207, 0.08);
     }
 
-    .ai-point p { color: var(--muted); font-size: 0.84rem; margin-bottom: 0; }
+    .ai-point p {
+      color: var(--muted);
+      font-size: 0.84rem;
+      margin-bottom: 0;
+    }
 
     .note {
       margin-top: 14px;
@@ -826,8 +1102,15 @@
       background: rgba(255,255,255,0.018);
     }
 
-    .security-card strong { display: block; margin-bottom: 6px; }
-    .security-card span { color: var(--muted); font-size: 0.78rem; }
+    .security-card strong {
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    .security-card span {
+      color: var(--muted);
+      font-size: 0.78rem;
+    }
 
     .local-grid {
       display: grid;
@@ -842,7 +1125,11 @@
       background: linear-gradient(135deg, rgba(66,223,207,0.055), rgba(123,134,255,0.035));
     }
 
-    .local-list { display: grid; gap: 10px; margin-top: 17px; }
+    .local-list {
+      display: grid;
+      gap: 10px;
+      margin-top: 17px;
+    }
 
     .local-item {
       display: flex;
@@ -892,9 +1179,17 @@
       margin: 14px 0 9px;
     }
 
-    .price-note { color: var(--muted); font-size: 0.78rem; margin-bottom: 18px; }
+    .price-note {
+      color: var(--muted);
+      font-size: 0.78rem;
+      margin-bottom: 18px;
+    }
 
-    .price-pills { display: flex; gap: 8px; flex-wrap: wrap; }
+    .price-pills {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
 
     .pill {
       border: 1px solid var(--line);
@@ -904,14 +1199,6 @@
       color: var(--muted-strong);
     }
 
-    .subscription-note {
-      margin-top: 18px;
-      padding: 24px;
-      border: 1px solid rgba(66, 223, 207, 0.16);
-      border-radius: 20px;
-      background: linear-gradient(135deg, rgba(66, 223, 207, 0.05), rgba(123, 134, 255, 0.035));
-    }
-
     .origin-grid {
       display: grid;
       grid-template-columns: 0.88fr 1.12fr;
@@ -919,7 +1206,11 @@
       align-items: center;
     }
 
-    .portrait-wrap { position: relative; max-width: 420px; margin: 0 auto; }
+    .portrait-wrap {
+      position: relative;
+      max-width: 420px;
+      margin: 0 auto;
+    }
 
     .portrait-card {
       position: relative;
@@ -958,10 +1249,21 @@
       padding: 15px 5px 3px;
     }
 
-    .portrait-name { font-weight: 900; line-height: 1.1; }
-    .portrait-role { color: var(--muted); font-size: 0.75rem; margin-top: 3px; }
+    .portrait-name {
+      font-weight: 900;
+      line-height: 1.1;
+    }
 
-    .socials { display: flex; gap: 7px; }
+    .portrait-role {
+      color: var(--muted);
+      font-size: 0.75rem;
+      margin-top: 3px;
+    }
+
+    .socials {
+      display: flex;
+      gap: 7px;
+    }
 
     .social-link {
       width: 34px;
@@ -982,7 +1284,10 @@
       transform: translateY(-2px);
     }
 
-    .origin-copy p { color: var(--muted); font-size: 0.98rem; }
+    .origin-copy p {
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
 
     .story-highlight {
       margin: 24px 0 19px;
@@ -1007,9 +1312,18 @@
       background: rgba(255,255,255,0.018);
     }
 
-    .build-card span { color: var(--muted); font-size: 0.79rem; display: block; margin-top: 6px; }
+    .build-card span {
+      color: var(--muted);
+      font-size: 0.79rem;
+      display: block;
+      margin-top: 6px;
+    }
 
-    .faq-grid { display: grid; gap: 10px; max-width: 880px; }
+    .faq-grid {
+      display: grid;
+      gap: 10px;
+      max-width: 880px;
+    }
 
     .faq-item {
       border: 1px solid var(--line);
@@ -1040,7 +1354,11 @@
       transition: transform 0.2s ease;
     }
 
-    .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.25s ease; }
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.25s ease;
+    }
 
     .faq-answer p {
       padding: 0 20px 19px;
@@ -1049,7 +1367,9 @@
       margin: 0;
     }
 
-    .faq-item.open .faq-question span:last-child { transform: rotate(45deg); }
+    .faq-item.open .faq-question span:last-child {
+      transform: rotate(45deg);
+    }
 
     .cta {
       padding: 42px;
@@ -1066,10 +1386,21 @@
       gap: 28px;
     }
 
-    .cta h2 { font-size: clamp(2rem, 4vw, 3.4rem); margin-bottom: 8px; }
-    .cta p { margin-bottom: 0; color: var(--muted); max-width: 700px; }
+    .cta h2 {
+      font-size: clamp(2rem, 4vw, 3.4rem);
+      margin-bottom: 8px;
+    }
 
-    footer { padding: 38px 0 44px; border-top: 1px solid var(--line); }
+    .cta p {
+      margin-bottom: 0;
+      color: var(--muted);
+      max-width: 700px;
+    }
+
+    footer {
+      padding: 38px 0 44px;
+      border-top: 1px solid var(--line);
+    }
 
     .footer-grid {
       display: grid;
@@ -1086,10 +1417,20 @@
       letter-spacing: 0.11em;
     }
 
-    .footer-links { display: grid; gap: 7px; }
+    .footer-links {
+      display: grid;
+      gap: 7px;
+    }
 
-    .footer-links a, .footer-copy { color: var(--muted); font-size: 0.79rem; }
-    .footer-links a:hover { color: var(--teal); }
+    .footer-links a,
+    .footer-copy {
+      color: var(--muted);
+      font-size: 0.79rem;
+    }
+
+    .footer-links a:hover {
+      color: var(--teal);
+    }
 
     .footer-bottom {
       margin-top: 35px;
@@ -1107,28 +1448,62 @@
       transition: opacity 0.65s ease, transform 0.65s ease;
     }
 
-    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
 
     @media (max-width: 1050px) {
-      .hero-grid, .problem-grid, .ai-grid, .origin-grid {
+      .hero-grid,
+      .problem-grid,
+      .ai-grid,
+      .origin-grid,
+      .loyalty-wrap {
         grid-template-columns: 1fr;
       }
 
-      .hero { padding-top: 64px; }
-      .hero-copy { max-width: 780px; }
+      .hero {
+        padding-top: 64px;
+      }
 
-      .dashboard-shell { max-width: 790px; margin: 0 auto; }
+      .hero-copy {
+        max-width: 780px;
+      }
 
-      .solution-flow { grid-template-columns: repeat(3, 1fr); }
-      .flow-step:nth-child(3)::after,
-      .flow-step:nth-child(6)::after { display: none; }
+      .dashboard-shell {
+        max-width: 790px;
+        margin: 0 auto;
+      }
 
-      .role-grid, .security-grid, .loyalty-grid { grid-template-columns: repeat(2, 1fr); }
-      .feature-grid { grid-template-columns: repeat(2, 1fr); }
-      .loyalty-earn { grid-template-columns: repeat(2, 1fr); }
+      .solution-flow {
+        grid-template-columns: repeat(3, 1fr);
+      }
 
-      .local-grid, .pricing-grid { grid-template-columns: 1fr; }
-      .portrait-wrap { max-width: 440px; }
+      .flow-step:nth-child(3)::after {
+        display: none;
+      }
+
+      .role-grid,
+      .security-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .feature-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .ops-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .local-grid,
+      .pricing-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .portrait-wrap {
+        max-width: 440px;
+      }
     }
 
     @media (max-width: 820px) {
@@ -1147,46 +1522,117 @@
         align-items: stretch;
       }
 
-      .nav-links.open { display: flex; }
+      .nav-links.open {
+        display: flex;
+      }
 
-      .nav-links a, .nav-cta { width: 100%; text-align: left; }
-      .nav-cta { display: block; }
+      .nav-links a,
+      .nav-cta {
+        width: 100%;
+        text-align: left;
+      }
 
-      .menu-btn { display: inline-grid; place-items: center; }
-      .desktop-only { display: none; }
+      .nav-cta {
+        display: block;
+      }
 
-      .stats-grid { grid-template-columns: repeat(2, 1fr); }
-      .stat:nth-child(2) { border-right: 0; }
-      .stat:nth-child(3), .stat:nth-child(4) {
+      .menu-btn {
+        display: inline-grid;
+        place-items: center;
+      }
+
+      .desktop-only {
+        display: none;
+      }
+
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .stat:nth-child(2) {
+        border-right: 0;
+      }
+
+      .stat:nth-child(3) {
         border-top: 1px solid var(--line);
         padding-top: 18px;
       }
-      .stat:nth-child(4) { border-right: 0; }
 
-      .cta { flex-direction: column; align-items: flex-start; padding: 30px 24px; }
-      .footer-grid { grid-template-columns: 1fr; }
+      .stat:nth-child(4) {
+        border-top: 1px solid var(--line);
+        border-right: 0;
+        padding-top: 18px;
+      }
+
+      .cta {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 30px 24px;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
     }
 
     @media (max-width: 640px) {
-      .container { width: min(var(--container), calc(100% - 28px)); }
-      .section { padding: 82px 0; }
+      .container {
+        width: min(var(--container), calc(100% - 28px));
+      }
 
-      h1 { font-size: clamp(2.85rem, 16vw, 4.7rem); }
+      .section {
+        padding: 82px 0;
+      }
 
-      .hero { min-height: auto; padding-bottom: 48px; }
-      .hero-actions { flex-direction: column; align-items: stretch; }
-      .btn { width: 100%; }
+      h1 {
+        font-size: clamp(2.85rem, 16vw, 4.7rem);
+      }
 
-      .dashboard-shell { padding: 9px; border-radius: 21px; transform: none; }
+      .hero {
+        min-height: auto;
+        padding-bottom: 48px;
+      }
 
-      .chip-a { left: -7px; bottom: 17px; }
-      .chip-b { right: -7px; top: 17px; }
+      .hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
 
-      .dash-body { grid-template-columns: 1fr; }
-      .dash-side { display: none; }
-      .dash-main { grid-template-columns: 1fr; }
+      .btn {
+        width: 100%;
+      }
 
-      .solution-flow { grid-template-columns: 1fr; }
+      .dashboard-shell {
+        padding: 9px;
+        border-radius: 21px;
+        transform: none;
+      }
+
+      .chip-a {
+        left: -7px;
+        bottom: 17px;
+      }
+
+      .chip-b {
+        right: -7px;
+        top: 17px;
+      }
+
+      .dash-body {
+        grid-template-columns: 1fr;
+      }
+
+      .dash-side {
+        display: none;
+      }
+
+      .dash-main {
+        grid-template-columns: 1fr;
+      }
+
+      .solution-flow {
+        grid-template-columns: 1fr;
+      }
 
       .flow-step::after {
         content: "↓";
@@ -1196,18 +1642,37 @@
         transform: translateX(50%);
       }
 
-      .flow-step:nth-child(3)::after,
-      .flow-step:nth-child(6)::after { display: block; }
-      .flow-step:last-child::after { display: none; }
+      .flow-step:nth-child(3)::after {
+        display: block;
+      }
 
-      .role-grid, .feature-grid, .security-grid, .build-grid,
-      .loyalty-grid, .loyalty-earn {
+      .flow-step:last-child::after {
+        display: none;
+      }
+
+      .role-grid,
+      .feature-grid,
+      .security-grid,
+      .build-grid,
+      .ops-grid {
         grid-template-columns: 1fr;
       }
 
-      .origin-grid { gap: 35px; }
-      .portrait-card { transform: none; }
-      .footer-bottom { flex-direction: column; }
+      .tier-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .origin-grid {
+        gap: 35px;
+      }
+
+      .portrait-card {
+        transform: none;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+      }
     }
   </style>
 </head>
@@ -1217,10 +1682,7 @@
     <nav class="nav" aria-label="Main navigation">
       <a class="brand" href="#top" aria-label="ClinicFlow Pro home">
         <span class="brand-mark" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none">
-            <path d="M12 3L19 7V17L12 21L5 17V7L12 3Z" stroke="currentColor" stroke-width="1.7"/>
-            <path d="M8.5 12H15.5M12 8.5V15.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
-          </svg>
+          <img src="logo.png" alt="" />
         </span>
         <span>ClinicFlow Pro</span>
       </a>
@@ -1228,7 +1690,8 @@
       <div class="nav-links" id="navLinks">
         <a href="#solution">Solution</a>
         <a href="#features">Features</a>
-        <a href="#loyalty">Rewards</a>
+        <a href="#modules">Modules</a>
+        <a href="#loyalty">Loyalty</a>
         <a href="#ai">AI</a>
         <a href="#security">Security</a>
         <a href="#pricing">Pricing</a>
@@ -1264,9 +1727,8 @@
 
             <p class="lead">
               ClinicFlow Pro brings appointments, patient timelines, digital prescriptions,
-              lab reports, refill tracking, billing, loyalty rewards, analytics, communication
-              and AI-assisted tools into one focused system for doctors, receptionists,
-              administrators and patients.
+              lab reports, loyalty rewards, billing, analytics, communication and AI-assisted
+              tools into one focused system for doctors, receptionists, administrators and patients.
             </p>
 
             <div class="hero-actions">
@@ -1286,6 +1748,10 @@
               <div>
                 <strong>PWA</strong>
                 Installable on mobile
+              </div>
+              <div>
+                <strong>AI assisted</strong>
+                Workflow support built in
               </div>
             </div>
           </div>
@@ -1313,8 +1779,8 @@
                     <div class="side-item active">Overview</div>
                     <div class="side-item">Appointments</div>
                     <div class="side-item">Patients</div>
-                    <div class="side-item">Lab Reports</div>
                     <div class="side-item">Prescriptions</div>
+                    <div class="side-item">Lab Reports</div>
                     <div class="side-item">Billing</div>
                     <div class="side-item">Analytics</div>
                   </aside>
@@ -1394,13 +1860,13 @@
             </div>
 
             <div class="floating-chip chip-a">
-              <div class="chip-label">Lab reports</div>
-              <div class="chip-value teal">Uploaded</div>
+              <div class="chip-label">Access control</div>
+              <div class="chip-value teal">Role based</div>
             </div>
 
             <div class="floating-chip chip-b">
-              <div class="chip-label">Refill tracker</div>
-              <div class="chip-value">3 due today</div>
+              <div class="chip-label">AI assistant</div>
+              <div class="chip-value">Available 24/7</div>
             </div>
           </div>
         </div>
@@ -1416,12 +1882,12 @@
               <span>Dashboards built around distinct roles</span>
             </div>
             <div class="stat">
-              <strong>20+</strong>
-              <span>Major feature groups</span>
+              <strong>4 AI tools</strong>
+              <span>Symptom, diagnosis, risk, assistant</span>
             </div>
             <div class="stat">
-              <strong>PWA</strong>
-              <span>Installable app experience on mobile</span>
+              <strong>PWA installable</strong>
+              <span>Works like a native app on mobile</span>
             </div>
           </div>
         </div>
@@ -1462,21 +1928,13 @@
               <div class="problem-item">
                 <div class="problem-icon">03</div>
                 <div>
-                  <strong>Prescriptions and refills stay disconnected</strong>
-                  <span>Handwritten processes and untracked refills create avoidable friction for doctors, patients and pharmacies.</span>
+                  <strong>Prescriptions stay disconnected from the workflow</strong>
+                  <span>Handwritten processes create avoidable friction for doctors, patients and pharmacies.</span>
                 </div>
               </div>
 
               <div class="problem-item">
                 <div class="problem-icon">04</div>
-                <div>
-                  <strong>Lab reports live outside the workflow</strong>
-                  <span>Results arrive as loose files over messaging apps instead of being attached to the patient record.</span>
-                </div>
-              </div>
-
-              <div class="problem-item">
-                <div class="problem-icon">05</div>
                 <div>
                   <strong>Owners lack operational visibility</strong>
                   <span>Without a unified view, revenue, patient flow and doctor performance are difficult to review.</span>
@@ -1484,7 +1942,7 @@
               </div>
 
               <div class="problem-item">
-                <div class="problem-icon">06</div>
+                <div class="problem-icon">05</div>
                 <div>
                   <strong>Local context is often overlooked</strong>
                   <span>International tools may not reflect PKR pricing, WhatsApp-first communication or local workflow expectations.</span>
@@ -1537,24 +1995,18 @@
 
           <div class="flow-step">
             <div class="step-number">04</div>
-            <h3>Lab Reports</h3>
-            <div class="step-text">Receptionist uploads results, patient views them from the portal.</div>
+            <h3>Prescribe</h3>
+            <div class="step-text">Create digital prescriptions with dosage tracking, QR support and refill tracking.</div>
           </div>
 
           <div class="flow-step">
             <div class="step-number">05</div>
-            <h3>Prescribe</h3>
-            <div class="step-text">Create digital prescriptions with refill tracking and QR support.</div>
+            <h3>Follow up</h3>
+            <div class="step-text">Lab reports, WhatsApp reminders and loyalty points keep the next step visible.</div>
           </div>
 
           <div class="flow-step">
             <div class="step-number">06</div>
-            <h3>Follow up</h3>
-            <div class="step-text">Share reminders via WhatsApp and surface due refills automatically.</div>
-          </div>
-
-          <div class="flow-step">
-            <div class="step-number">07</div>
             <h3>Review</h3>
             <div class="step-text">Use analytics to understand patient flow, revenue and operations.</div>
           </div>
@@ -1577,25 +2029,25 @@
           <div class="role-card">
             <span class="role-label">Admin</span>
             <h3>See the whole clinic</h3>
-            <p>Manage staff, permissions, doctor fees, billing, subscriptions, holidays, analytics and audit visibility from one operational view.</p>
+            <p>Manage staff, permissions, doctor fees, subscriptions, holidays, billing, analytics and audit visibility from one operational view.</p>
           </div>
 
           <div class="role-card">
             <span class="role-label">Doctor</span>
             <h3>Stay focused on care</h3>
-            <p>Review patient history, manage the schedule, issue and refill prescriptions, upload context, request leave and use assistive AI tools during consultation.</p>
+            <p>Review patient history, manage the schedule, track refills, issue prescriptions and use assistive AI tools during consultation.</p>
           </div>
 
           <div class="role-card">
             <span class="role-label">Receptionist</span>
             <h3>Keep the day moving</h3>
-            <p>Register patients, manage appointments, upload lab reports, handle billing records and view the daily schedule without coordination overhead.</p>
+            <p>Register patients, manage appointments, upload lab reports, view the daily schedule, handle billing records and reduce front-desk overhead.</p>
           </div>
 
           <div class="role-card">
             <span class="role-label">Patient</span>
             <h3>Stay in the loop</h3>
-            <p>View appointments, consultation history, lab reports and digital prescriptions, earn loyalty points and share feedback after visits.</p>
+            <p>View appointments, lab reports, consultation history and digital prescriptions, cancel slots, earn loyalty points and receive reminders.</p>
           </div>
         </div>
       </div>
@@ -1607,8 +2059,8 @@
           <div class="eyebrow">Core capabilities</div>
           <h2>Everything the clinic team needs to run the day.</h2>
           <p class="lead">
-            The product covers the operational workflow end to end — then adds lab reports,
-            refill tracking, loyalty rewards, reviews and a PWA install experience around it.
+            The product covers the core workflows, then adds communication, lab reports,
+            loyalty rewards, refill tracking and intelligent assistance around them.
           </p>
         </div>
 
@@ -1628,19 +2080,19 @@
           <div class="feature-card">
             <div class="feature-icon">03</div>
             <h3>Digital prescriptions</h3>
-            <p>Create electronic prescriptions with dosage details and QR-based verification support.</p>
+            <p>Create electronic prescriptions with dosage details and QR based verification support.</p>
           </div>
 
           <div class="feature-card">
             <div class="feature-icon">04</div>
-            <h3>Lab reports module</h3>
-            <p>Receptionists upload and manage lab reports per patient; patients view and download them directly from the portal.</p>
+            <h3>Lab reports</h3>
+            <p>Receptionists upload and manage lab reports; patients view them from their own portal — a full workflow that used to be missing.</p>
           </div>
 
           <div class="feature-card">
             <div class="feature-icon">05</div>
             <h3>Prescription refill tracker</h3>
-            <p>Track due refills per prescription and surface them to the doctor, with scheduled reminder workflows for follow-up.</p>
+            <p>Doctors see due refills in a dedicated dashboard, while daily cron jobs trigger automated WhatsApp reminder workflows.</p>
           </div>
 
           <div class="feature-card">
@@ -1651,133 +2103,197 @@
 
           <div class="feature-card">
             <div class="feature-icon">07</div>
-            <h3>Doctor-patient chat</h3>
+            <h3>Doctor patient chat</h3>
             <p>Keep patient communication inside a secure in-app messaging workflow with read status.</p>
           </div>
 
           <div class="feature-card">
             <div class="feature-icon">08</div>
-            <h3>WhatsApp reminders & SMS preferences</h3>
-            <p>Share appointment reminders through WhatsApp deep links, with SMS notification preferences managed in admin settings.</p>
+            <h3>WhatsApp reminders</h3>
+            <p>Send appointment and prescription reminders through WhatsApp deep links, with SMS notification settings available in admin.</p>
           </div>
 
           <div class="feature-card">
             <div class="feature-icon">09</div>
-            <h3>Flexible dashboards</h3>
-            <p>Let users rearrange and save dashboard layouts around the information they use most.</p>
+            <h3>Patient reviews & feedback</h3>
+            <p>Patients share visit experiences and earn +20 loyalty points — building social proof for the clinic.</p>
           </div>
 
           <div class="feature-card">
             <div class="feature-icon">10</div>
-            <h3>Billing & doctor fee management</h3>
-            <p>Keep payment records connected to the wider workflow, with per-doctor fee configuration in the admin panel.</p>
+            <h3>Health tips</h3>
+            <p>Deliver patient education through health tips pages and dashboard widgets — natural fit alongside the AI section.</p>
           </div>
 
           <div class="feature-card">
             <div class="feature-icon">11</div>
             <h3>Patient portal</h3>
-            <p>Give patients a direct view into upcoming appointments, history, lab reports and digital prescriptions.</p>
+            <p>Give patients a direct view into upcoming appointments, lab reports, history and digital prescriptions.</p>
           </div>
 
           <div class="feature-card">
             <div class="feature-icon">12</div>
-            <h3>Loyalty & rewards</h3>
-            <p>Points, Bronze-to-Platinum tiers, tier-based discounts and referral bonuses that bring patients back.</p>
-          </div>
-
-          <div class="feature-card">
-            <div class="feature-icon">13</div>
-            <h3>Patient reviews & feedback</h3>
-            <p>Patients share visit experiences and earn reward points, building visible social proof for the clinic.</p>
-          </div>
-
-          <div class="feature-card">
-            <div class="feature-icon">14</div>
-            <h3>Health tips & education</h3>
-            <p>Patient-facing educational content surfaced alongside the consultation and portal experience.</p>
-          </div>
-
-          <div class="feature-card">
-            <div class="feature-icon">15</div>
-            <h3>Holiday & leave management</h3>
-            <p>Doctors request leave, admins approve or reject, and recurring clinic holidays stay visible in scheduling.</p>
-          </div>
-
-          <div class="feature-card">
-            <div class="feature-icon">16</div>
-            <h3>Staff management</h3>
-            <p>Add and manage doctors and receptionists from the admin panel, with subscription-aware limits.</p>
-          </div>
-
-          <div class="feature-card">
-            <div class="feature-icon">17</div>
-            <h3>Global search & master calendar</h3>
-            <p>Search across the app and view live slot availability from a shared calendar with a slot lookup API.</p>
-          </div>
-
-          <div class="feature-card">
-            <div class="feature-icon">18</div>
-            <h3>Installable PWA</h3>
-            <p>Install ClinicFlow Pro from the browser on mobile — manifest, service worker and app-style launch included.</p>
+            <h3>Flexible dashboards</h3>
+            <p>Let users rearrange and save dashboard layouts around the information they use most.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section section-sm" id="loyalty">
+    <!-- NEW: Operational backbone -->
+    <section class="section" id="modules">
       <div class="container">
         <div class="section-head reveal">
-          <div class="eyebrow">Patient loyalty & rewards</div>
-          <h2>Turn every visit into a reason to come back.</h2>
+          <div class="eyebrow">Operational backbone</div>
+          <h2>The admin and operations modules that keep the clinic running.</h2>
           <p class="lead">
-            Built-in loyalty and rewards give patients a reason to stay engaged — with points,
-            tiers, referral bonuses and review rewards that make retention part of the workflow
-            rather than an afterthought.
+            Beyond the core patient workflow, ClinicFlow Pro ships with a full set of
+            administrative and operational modules — staff, fees, holidays, subscriptions,
+            search, settings and statistics — so the system does not stop at clinical work.
           </p>
         </div>
 
-        <div class="loyalty-grid reveal">
-          <div class="loyalty-card">
-            <span class="role-label">Bronze</span>
-            <h3>Getting started</h3>
-            <p>Entry tier for new patients. Points begin accumulating from the first visit and build with every appointment.</p>
+        <div class="ops-grid reveal">
+          <div class="ops-card">
+            <div class="ops-icon">SM</div>
+            <h3>Staff management</h3>
+            <p>Add and manage doctors and receptionists, with subscription-based limits enforced across roles.</p>
           </div>
 
-          <div class="loyalty-card">
-            <span class="role-label">Silver</span>
-            <h3>Regular visits</h3>
-            <p>Unlock better discount bands as repeat visits build points history and engagement.</p>
+          <div class="ops-card">
+            <div class="ops-icon">DF</div>
+            <h3>Doctor fee management</h3>
+            <p>Configure per-doctor consultation fees, so billing reflects each doctor's actual pricing.</p>
           </div>
 
-          <div class="loyalty-card">
-            <span class="role-label">Gold</span>
-            <h3>Loyal patients</h3>
-            <p>Higher discount bands and priority visibility across the patient portal and reminder workflows.</p>
+          <div class="ops-card">
+            <div class="ops-icon">HL</div>
+            <h3>Holiday & leave management</h3>
+            <p>Doctors request leave; admins approve or reject. Recurring yearly clinic holidays are configurable.</p>
           </div>
 
-          <div class="loyalty-card">
-            <span class="role-label">Platinum</span>
-            <h3>Top tier</h3>
-            <p>Maximum discounts (up to 25%) and the strongest retention benefits for the clinic's most loyal patients.</p>
+          <div class="ops-card">
+            <div class="ops-icon">SE</div>
+            <h3>Subscription engine</h3>
+            <p>Free/Pro plans, plan-based limits, upgrade flows and a subscription growth chart — already built in admin.</p>
+          </div>
+
+          <div class="ops-card">
+            <div class="ops-icon">GS</div>
+            <h3>Global search</h3>
+            <p>App-wide search helps staff find patients, doctors, appointments and records in one query.</p>
+          </div>
+
+          <div class="ops-card">
+            <div class="ops-icon">MC</div>
+            <h3>Master calendar</h3>
+            <p>Unified calendar view gives admin and reception a single operational schedule across the clinic.</p>
+          </div>
+
+          <div class="ops-card">
+            <div class="ops-icon">LS</div>
+            <h3>Live slot availability</h3>
+            <p>get_slots.php and check_availability.php power a live slot API so booking reflects real-time availability.</p>
+          </div>
+
+          <div class="ops-card">
+            <div class="ops-icon">AS</div>
+            <h3>Admin settings panel</h3>
+            <p>Clinic information, notification toggles (including SMS) and other system-wide settings in one place.</p>
+          </div>
+
+          <div class="ops-card">
+            <div class="ops-icon">SS</div>
+            <h3>System statistics</h3>
+            <p>Admin-wide system stats plus a separate doctor personal stats page for performance visibility.</p>
+          </div>
+
+          <div class="ops-card">
+            <div class="ops-icon">BR</div>
+            <h3>Billing & records</h3>
+            <p>Payment records stay connected to the wider clinic workflow, including per-doctor fees.</p>
+          </div>
+
+          <div class="ops-card">
+            <div class="ops-icon">CR</div>
+            <h3>Automated cron jobs</h3>
+            <p>Daily cron scripts check due refills and trigger reminder workflows so nothing slips between visits.</p>
+          </div>
+
+          <div class="ops-card">
+            <div class="ops-icon">PW</div>
+            <h3>PWA installable app</h3>
+            <p>Manifest + service worker + install button make the platform installable like a native app on mobile.</p>
           </div>
         </div>
+      </div>
+    </section>
 
-        <div class="loyalty-earn reveal">
-          <div class="earn-item">
-            <strong>+100 points</strong>
-            <span>Referral bonus for both patient and friend</span>
+    <!-- NEW: Loyalty & rewards -->
+    <section class="section-sm" id="loyalty">
+      <div class="container">
+        <div class="loyalty-wrap">
+          <div class="reveal">
+            <div class="eyebrow">Loyalty & rewards</div>
+            <h2>Turn repeat visits into a real relationship.</h2>
+            <p class="lead">
+              ClinicFlow Pro ships with a built-in loyalty program — points, tiers, referral
+              bonuses and review rewards — giving local clinics a retention tool that fits
+              the PKR context and the way patients actually behave.
+            </p>
+
+            <div class="reward-list">
+              <div class="reward-item">
+                <span class="reward-icon">P</span>
+                Earn points on every visit and consultation
+              </div>
+              <div class="reward-item">
+                <span class="reward-icon">R</span>
+                Referral system — both patient and referrer earn 100 points
+              </div>
+              <div class="reward-item">
+                <span class="reward-icon">★</span>
+                +20 points for writing a review after a visit
+              </div>
+              <div class="reward-item">
+                <span class="reward-icon">%</span>
+                10–25% tier-based discounts on services
+              </div>
+            </div>
+
+            <div class="note">
+              Loyalty is fully implemented in <strong>patient/loyalty.php</strong> — points
+              history, tier progress and reward redemption are all visible from the patient dashboard.
+            </div>
           </div>
-          <div class="earn-item">
-            <strong>+20 points</strong>
-            <span>For leaving a verified review after a visit</span>
-          </div>
-          <div class="earn-item">
-            <strong>10% – 25%</strong>
-            <span>Tier-based discounts on services</span>
-          </div>
-          <div class="earn-item">
-            <strong>Points history</strong>
-            <span>Full ledger of earned and redeemed points</span>
+
+          <div class="reveal">
+            <div class="tier-grid">
+              <div class="tier-card bronze">
+                <div class="tier-name">Bronze</div>
+                <div class="tier-discount">Entry tier</div>
+              </div>
+              <div class="tier-card silver">
+                <div class="tier-name">Silver</div>
+                <div class="tier-discount">10% off</div>
+              </div>
+              <div class="tier-card gold">
+                <div class="tier-name">Gold</div>
+                <div class="tier-discount">15–20% off</div>
+              </div>
+              <div class="tier-card platinum">
+                <div class="tier-name">Platinum</div>
+                <div class="tier-discount">25% off</div>
+              </div>
+            </div>
+
+            <div class="quote-card" style="margin-top:22px;">
+              <p>
+                A loyalty program is not just a discount mechanism. It turns first-time patients
+                into repeat patients, and repeat patients into referrers.
+              </p>
+              <span class="muted">Patient reviews, referrals and health tips all feed the same points economy.</span>
+            </div>
           </div>
         </div>
       </div>
@@ -1792,7 +2308,6 @@
             <p class="lead">
               AI is positioned as workflow support: helping surface information, organize inputs
               and reduce repetitive work while clinical decisions stay with the healthcare professional.
-              The AI features are PHP-driven with Python service support for higher-level analysis.
             </p>
 
             <div class="note">
@@ -1838,14 +2353,6 @@
                   <span class="tag tag-teal">24/7</span>
                 </div>
                 <span>Handles general patient questions, appointment-related queries and platform help.</span>
-              </div>
-
-              <div class="ai-card">
-                <div class="ai-card-row">
-                  <strong>Health Tips</strong>
-                  <span class="tag tag-teal">Patient education</span>
-                </div>
-                <span>Curated patient-facing content surfaced in the portal and dashboard widgets.</span>
               </div>
             </div>
           </div>
@@ -1905,7 +2412,7 @@
 
             <div class="local-list">
               <div class="local-item"><span class="check">✓</span> PKR based pricing strategy</div>
-              <div class="local-item"><span class="check">✓</span> WhatsApp reminder sharing workflows</div>
+              <div class="local-item"><span class="check">✓</span> WhatsApp first communication workflows</div>
               <div class="local-item"><span class="check">✓</span> Urdu friendly design considerations</div>
               <div class="local-item"><span class="check">✓</span> Practical fit for smaller clinics</div>
             </div>
@@ -1920,9 +2427,9 @@
 
             <div class="local-list">
               <div class="local-item"><span class="check">✓</span> Four dedicated dashboards</div>
-              <div class="local-item"><span class="check">✓</span> Modular clinic workflows</div>
-              <div class="local-item"><span class="check">✓</span> Billing, doctor fee and subscription visibility</div>
-              <div class="local-item"><span class="check">✓</span> Communication layer for patient follow up</div>
+              <div class="local-item"><span class="check">✓</span> Subscription plans with plan-based limits</div>
+              <div class="local-item"><span class="check">✓</span> Staff, fee and holiday management</div>
+              <div class="local-item"><span class="check">✓</span> Loyalty, reviews and referral economy</div>
             </div>
           </div>
         </div>
@@ -1935,9 +2442,9 @@
           <div class="eyebrow">Pricing</div>
           <h2>Clear pricing should come after clear product value.</h2>
           <p class="lead">
-            The current project documentation proposes PKR based tiers, while the original
-            landing page uses a pricing poll to validate market willingness. The ranges below
-            are therefore shown as proposed pricing, not final published plans.
+            The subscription engine is already built — Free/Pro plans, plan-based limits,
+            upgrade flows and a subscription growth chart live in the admin module. Proposed
+            PKR tiers are still being validated via the landing page pricing poll.
           </p>
         </div>
 
@@ -1945,18 +2452,19 @@
           <div class="price-card">
             <div class="pill">Free tier</div>
             <div class="price-range">Start free</div>
-            <div class="price-note">Designed for individual practitioners or very small clinics exploring the core workflow.</div>
+            <div class="price-note">Designed for individual practitioners or very small clinics exploring the core workflow, including subscription limits enforced automatically.</div>
             <div class="price-pills">
               <span class="pill">Core scheduling</span>
               <span class="pill">Basic records</span>
-              <span class="pill">Entry workflow</span>
+              <span class="pill">Plan limits</span>
+              <span class="pill">PWA install</span>
             </div>
           </div>
 
           <div class="price-card featured">
             <div class="pill">Proposed PKR tiers</div>
             <div class="price-range">₨ 5K to ₨ 100K+</div>
-            <div class="price-note">The project documentation proposes multiple tiers from a basic clinic plan through premium support and multi-branch capability.</div>
+            <div class="price-note">The project documentation proposes multiple tiers from a basic clinic plan through premium support and multi-branch capability. The subscription engine, plan-based limits and growth chart are already functional in admin.</div>
             <div class="price-pills">
               <span class="pill">₨ 5K to ₨ 10K</span>
               <span class="pill">₨ 10K to ₨ 20K</span>
@@ -1965,16 +2473,6 @@
               <span class="pill">₨ 50K to ₨ 100K</span>
             </div>
           </div>
-        </div>
-
-        <div class="subscription-note reveal">
-          <div class="eyebrow">Built-in subscription engine</div>
-          <h3 style="margin-bottom:8px;">The admin panel already manages plans, upgrades and limits.</h3>
-          <p class="muted" style="margin-bottom:0; font-size:0.88rem;">
-            Free and Pro plan management, user upgrade flows, a subscription growth chart and
-            plan-based limits are already implemented in the admin module. The commercial tiers
-            above are the proposed packaging that sits on top of this engine.
-          </p>
         </div>
       </div>
     </section>
@@ -1992,8 +2490,27 @@
                 </div>
 
                 <div class="socials">
-                  <a class="social-link" href="https://www.linkedin.com/in/abdulhannan-projects/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn">in</a>
-                  <a class="social-link" href="https://www.instagram.com/hannanbuilds/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" title="Instagram">ig</a>
+                  <a
+                    class="social-link"
+                    href="https://www.linkedin.com/in/abdulhannan-projects/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="LinkedIn"
+                    title="LinkedIn"
+                  >
+                    in
+                  </a>
+
+                  <a
+                    class="social-link"
+                    href="https://www.instagram.com/hannanbuilds/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Instagram"
+                    title="Instagram"
+                  >
+                    ig
+                  </a>
                 </div>
               </div>
             </div>
@@ -2013,16 +2530,15 @@
             <div class="story-highlight">
               The product direction was simple: build a clinic management system that is practical
               for local workflows, role aware, communication friendly and broad enough to cover the
-              operational journey from registration to follow up — including lab reports,
-              refills and patient retention.
+              operational journey from registration to follow up.
             </div>
 
             <p>
               That thinking shaped the product's four dashboards, PKR based pricing strategy,
-              WhatsApp reminder sharing and SMS notification preferences, patient timeline,
-              digital prescriptions, lab reports, prescription refill tracking, loyalty rewards,
-              analytics and AI-assisted features. The result is not just a dashboard collection.
-              It is an attempt to make the clinic's entire operating flow feel connected.
+              WhatsApp reminder workflows, patient timeline, digital prescriptions, lab reports,
+              refill tracking, loyalty and rewards, analytics and AI assisted features. The result
+              is not just a dashboard collection. It is an attempt to make the clinic's entire
+              operating flow feel connected.
             </p>
 
             <p class="muted">
@@ -2047,11 +2563,11 @@
         <div class="build-grid reveal">
           <div class="build-card">
             <strong>Frontend</strong>
-            <span>HTML5, CSS3, Tailwind CSS, JavaScript and GSAP.</span>
+            <span>HTML5, CSS3, Tailwind CSS, JavaScript and GSAP, plus PWA manifest and service worker for installability.</span>
           </div>
           <div class="build-card">
             <strong>Backend</strong>
-            <span>PHP 8 with server-side business logic and role based routing.</span>
+            <span>PHP 8 with server side business logic and role based routing.</span>
           </div>
           <div class="build-card">
             <strong>Data layer</strong>
@@ -2059,27 +2575,15 @@
           </div>
           <div class="build-card">
             <strong>AI services</strong>
-            <span>PHP-based AI workflow logic with Python service support (api.py) for heavier analysis.</span>
+            <span>PHP-based AI logic with a Python service module (api.py) for extended intelligent workflow features.</span>
           </div>
           <div class="build-card">
             <strong>Communication</strong>
-            <span>WhatsApp reminder sharing via deep links and SMS notification preferences in admin settings.</span>
+            <span>WhatsApp deep-link reminders and an SMS notification settings toggle in admin.</span>
           </div>
           <div class="build-card">
             <strong>Security layer</strong>
             <span>RBAC, audit logs, HTTPS and controlled session handling.</span>
-          </div>
-          <div class="build-card">
-            <strong>PWA layer</strong>
-            <span>manifest.json + service worker + install-app button for mobile app-style launch.</span>
-          </div>
-          <div class="build-card">
-            <strong>Automation</strong>
-            <span>Cron jobs for refill checks and reminder dispatch workflows.</span>
-          </div>
-          <div class="build-card">
-            <strong>Subscription engine</strong>
-            <span>Admin plan management, growth chart and plan-based limits through config.</span>
           </div>
         </div>
       </div>
@@ -2109,7 +2613,7 @@
               <span>+</span>
             </button>
             <div class="faq-answer">
-              <p>Yes. The platform includes electronic prescriptions with dosage tracking, refill tracking and QR based verification support described in the project documentation.</p>
+              <p>Yes. The platform includes electronic prescriptions with dosage tracking and QR based verification support described in the project documentation.</p>
             </div>
           </div>
 
@@ -2119,27 +2623,27 @@
               <span>+</span>
             </button>
             <div class="faq-answer">
-              <p>Receptionists upload and manage lab reports per patient. Patients then view and download those reports directly from the patient portal, keeping diagnostics connected to the patient timeline.</p>
+              <p>Receptionists can upload and delete lab reports, and patients can view them from their own portal. It closes a workflow gap that most clinic tools ignore.</p>
             </div>
           </div>
 
           <div class="faq-item">
             <button class="faq-question" type="button">
-              <span>Is there a loyalty or rewards program?</span>
+              <span>What does the prescription refill tracker do?</span>
               <span>+</span>
             </button>
             <div class="faq-answer">
-              <p>Yes. Patients earn points through referrals (+100 for both sides) and verified reviews (+20), and tier status (Bronze, Silver, Gold, Platinum) unlocks 10–25% discounts based on engagement.</p>
+              <p>Doctors get a dedicated refill tracker dashboard. Daily cron jobs check for due refills and trigger WhatsApp reminder workflows, so patients do not miss a refill between visits.</p>
             </div>
           </div>
 
           <div class="faq-item">
             <button class="faq-question" type="button">
-              <span>Can the platform be installed as an app?</span>
+              <span>How does the loyalty program work?</span>
               <span>+</span>
             </button>
             <div class="faq-answer">
-              <p>Yes. ClinicFlow Pro is a PWA — a manifest, service worker and an install-app button in the sidebar let users install it from the browser and launch it like a mobile app.</p>
+              <p>Patients earn points on visits and reviews, refer friends for bonus points, and move through Bronze, Silver, Gold and Platinum tiers with 10–25% discounts. Points history and tier progress are visible in the patient dashboard.</p>
             </div>
           </div>
 
@@ -2165,11 +2669,21 @@
 
           <div class="faq-item">
             <button class="faq-question" type="button">
-              <span>Does the admin panel include subscription management?</span>
+              <span>Is the subscription billing engine built?</span>
               <span>+</span>
             </button>
             <div class="faq-answer">
-              <p>Yes. The admin module already includes Free/Pro plan management, user upgrade flows, a subscription growth chart and plan-based limits enforced through config. The public tiers shown above are proposed commercial packaging on top of that engine.</p>
+              <p>Yes. The admin module already includes Free/Pro plan management, plan-based limits, upgrade flows and a subscription growth chart. Proposed PKR tiers are still being validated on the landing page.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" type="button">
+              <span>Is there a mobile app?</span>
+              <span>+</span>
+            </button>
+            <div class="faq-answer">
+              <p>ClinicFlow Pro is a PWA (Progressive Web App). Users can install it directly from the browser to their home screen — no app store required — and the sidebar includes an "Install App" button.</p>
             </div>
           </div>
 
@@ -2224,16 +2738,13 @@
         <div>
           <a class="brand" href="#top">
             <span class="brand-mark" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none">
-                <path d="M12 3L19 7V17L12 21L5 17V7L12 3Z" stroke="currentColor" stroke-width="1.7"/>
-                <path d="M8.5 12H15.5M12 8.5V15.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
-              </svg>
+              <img src="logo.png" alt="" />
             </span>
             <span>ClinicFlow Pro</span>
           </a>
           <p class="footer-copy" style="max-width:430px; margin-top:13px;">
             A modern clinic management platform built around practical workflows, role based access,
-            communication, lab reports, loyalty rewards and assistive intelligence.
+            lab reports, loyalty rewards, communication and assistive intelligence.
           </p>
         </div>
 
@@ -2242,7 +2753,8 @@
           <div class="footer-links">
             <a href="#solution">Solution</a>
             <a href="#features">Features</a>
-            <a href="#loyalty">Rewards</a>
+            <a href="#modules">Modules</a>
+            <a href="#loyalty">Loyalty</a>
             <a href="#ai">AI</a>
             <a href="#security">Security</a>
             <a href="#pricing">Pricing</a>
@@ -2303,15 +2815,6 @@
     }, { threshold: 0.12 });
 
     document.querySelectorAll(".reveal").forEach((element) => observer.observe(element));
-
-    // PWA service worker registration (optional - safe fallback if file missing)
-    if ("serviceWorker" in navigator) {
-      window.addEventListener("load", () => {
-        navigator.serviceWorker.register("service-worker.js").catch(() => {
-          /* silent — SW not required for page to work */
-        });
-      });
-    }
   </script>
 </body>
 </html>
