@@ -3,18 +3,62 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="ClinicFlow Pro is a modern clinic management platform for appointments, patient records, prescriptions, lab reports, loyalty, analytics, communication and AI-assisted workflows." />
+  <title>ClinicFlow Pro | Modern Clinic Management for Pakistan</title>
+  <meta name="description" content="ClinicFlow Pro is a clinic management platform for appointments, patient records, prescriptions with QR, lab reports, loyalty and analytics. Built in Pakistan. 25-day free trial." />
   <meta name="theme-color" content="#07131f" />
-  <title>ClinicFlow Pro | Modern Clinic Management</title>
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://clinic-flow-landingpage.vercel.app/" />
+
+  <!-- Open Graph / Twitter (uses existing logo) -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="ClinicFlow Pro — Run the clinic. Not the paperwork." />
+  <meta property="og:description" content="A modern clinic management platform: appointments, prescriptions with QR, lab reports, loyalty rewards and analytics. Built in Pakistan." />
+  <meta property="og:url" content="https://clinic-flow-landingpage.vercel.app/" />
+  <meta property="og:image" content="logo.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="ClinicFlow Pro — Modern Clinic Management" />
+  <meta name="twitter:description" content="Appointments, prescriptions with QR, lab reports, loyalty and analytics. Built in Pakistan." />
+  <meta name="twitter:image" content="logo.png" />
+
   <link rel="manifest" href="manifest.json" />
+  <link rel="icon" href="logo.png" />
+  <link rel="apple-touch-icon" href="logo.png" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "ClinicFlow Pro",
+    "applicationCategory": "HealthApplication",
+    "operatingSystem": "Web, iOS, Android (PWA)",
+    "description": "Clinic management platform for appointments, patient records, prescriptions with QR, lab reports, loyalty, analytics and assistive AI.",
+    "url": "https://clinic-flow-landingpage.vercel.app/",
+    "offers": {
+      "@type": "AggregateOffer",
+      "priceCurrency": "PKR",
+      "lowPrice": "0",
+      "highPrice": "16000",
+      "offerCount": "4"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {"@type":"Question","name":"Who is ClinicFlow Pro designed for?","acceptedAnswer":{"@type":"Answer","text":"Administrators, doctors, receptionists and patients — each with a dedicated dashboard."}},
+      {"@type":"Question","name":"What happens after the 25-day free trial?","acceptedAnswer":{"@type":"Answer","text":"The clinic must choose a paid plan from Admin → Subscriptions to keep full access."}},
+      {"@type":"Question","name":"Can I change plan later?","acceptedAnswer":{"@type":"Answer","text":"Yes. Plans can be upgraded or downgraded from Admin → Subscriptions."}},
+      {"@type":"Question","name":"Is data exportable?","acceptedAnswer":{"@type":"Answer","text":"Yes. Patient records, appointments and reports can be exported before cancellation."}}
+    ]
+  }
+  </script>
 
   <style>
     :root {
       --bg: #07131f;
-      --bg-soft: #0b1a29;
       --surface: rgba(16, 33, 49, 0.76);
-      --surface-strong: #102238;
-      --surface-light: #142941;
       --line: rgba(167, 205, 223, 0.14);
       --text: #f4fbff;
       --muted: #9db2c2;
@@ -27,19 +71,12 @@
       --danger: #ff8b9a;
       --warning: #ffd277;
       --shadow: 0 30px 80px rgba(0, 0, 0, 0.32);
-      --radius-xl: 28px;
-      --radius-lg: 22px;
-      --radius-md: 16px;
       --container: 1180px;
+      --focus: 0 0 0 3px rgba(66, 223, 207, 0.55);
     }
 
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
 
     body {
       margin: 0;
@@ -53,1638 +90,1100 @@
       overflow-x: hidden;
     }
 
-    a {
-      color: inherit;
-      text-decoration: none;
+    a { color: inherit; text-decoration: none; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    img { max-width: 100%; display: block; }
+
+    :focus-visible { outline: none; box-shadow: var(--focus); border-radius: 6px; }
+    .skip-link {
+      position: absolute; left: 12px; top: -60px; z-index: 1000;
+      padding: 10px 16px; background: var(--teal); color: #06141c;
+      font-weight: 800; border-radius: 8px; transition: top 0.15s ease;
+    }
+    .skip-link:focus { top: 12px; }
+
+    .sr-only {
+      position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+      overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;
     }
 
-    button,
-    a {
-      -webkit-tap-highlight-color: transparent;
-    }
-
-    img {
-      max-width: 100%;
-      display: block;
-    }
-
-    .container {
-      width: min(var(--container), calc(100% - 40px));
-      margin: 0 auto;
-    }
-
-    .section {
-      padding: 110px 0;
-      position: relative;
-    }
-
-    .section-sm {
-      padding: 78px 0;
-    }
-
-    .section-head {
-      max-width: 760px;
-      margin-bottom: 46px;
-    }
+    .container { width: min(var(--container), calc(100% - 40px)); margin: 0 auto; }
+    .section { padding: 110px 0; position: relative; }
+    .section-sm { padding: 78px 0; }
+    .section-head { max-width: 760px; margin-bottom: 46px; }
 
     .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 9px;
-      color: var(--teal);
-      font-size: 0.78rem;
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      font-weight: 800;
-      margin-bottom: 16px;
+      display: inline-flex; align-items: center; gap: 9px;
+      color: var(--teal); font-size: 0.78rem; text-transform: uppercase;
+      letter-spacing: 0.14em; font-weight: 800; margin-bottom: 16px;
     }
-
     .eyebrow::before {
-      content: "";
-      width: 24px;
-      height: 1px;
+      content: ""; width: 24px; height: 1px;
       background: linear-gradient(90deg, var(--teal), transparent);
     }
 
-    h1,
-    h2,
-    h3,
-    p {
-      margin-top: 0;
-    }
+    h1, h2, h3, p { margin-top: 0; }
+    h1 { font-size: clamp(3.3rem, 7vw, 6.6rem); line-height: 0.94; letter-spacing: -0.065em; max-width: 760px; margin-bottom: 26px; }
+    h2 { font-size: clamp(2.2rem, 4vw, 4.2rem); line-height: 1; letter-spacing: -0.045em; margin-bottom: 18px; }
+    h3 { font-size: 1.15rem; line-height: 1.2; margin-bottom: 9px; }
 
-    h1 {
-      font-size: clamp(3.3rem, 7vw, 6.6rem);
-      line-height: 0.94;
-      letter-spacing: -0.065em;
-      max-width: 760px;
-      margin-bottom: 26px;
-    }
-
-    h2 {
-      font-size: clamp(2.2rem, 4vw, 4.2rem);
-      line-height: 1;
-      letter-spacing: -0.045em;
-      margin-bottom: 18px;
-    }
-
-    h3 {
-      font-size: 1.15rem;
-      line-height: 1.2;
-      margin-bottom: 9px;
-    }
-
-    .lead {
-      color: var(--muted);
-      font-size: clamp(1.05rem, 1.6vw, 1.26rem);
-      max-width: 680px;
-    }
-
-    .muted {
-      color: var(--muted);
-    }
-
+    .lead { color: var(--muted); font-size: clamp(1.05rem, 1.6vw, 1.26rem); max-width: 680px; }
+    .muted { color: var(--muted); }
     .text-gradient {
       background: linear-gradient(110deg, #ffffff 8%, #bffef5 50%, #adb5ff 96%);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
+      -webkit-background-clip: text; background-clip: text; color: transparent;
     }
 
-    .nav-wrap {
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      padding-top: 14px;
-    }
-
+    /* ---------- Nav ---------- */
+    .nav-wrap { position: sticky; top: 0; z-index: 50; padding-top: 14px; }
     .nav {
-      width: min(var(--container), calc(100% - 24px));
-      margin: 0 auto;
-      border: 1px solid var(--line);
-      background: rgba(7, 19, 31, 0.76);
-      backdrop-filter: blur(18px);
-      border-radius: 18px;
-      padding: 10px 16px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+      width: min(var(--container), calc(100% - 24px)); margin: 0 auto;
+      border: 1px solid var(--line); background: rgba(7, 19, 31, 0.76);
+      backdrop-filter: blur(18px); border-radius: 18px; padding: 10px 16px;
+      display: flex; align-items: center; justify-content: space-between;
       box-shadow: 0 12px 50px rgba(0, 0, 0, 0.18);
     }
+    .brand { display: inline-flex; align-items: center; line-height: 0; }
+    .brand-logo { display: block; height: 46px; width: auto; max-width: 220px; object-fit: contain; }
+    footer .brand-logo { height: 56px; max-width: 240px; }
 
-    /* ---- Brand / Logo ---- */
-    .brand {
-      display: inline-flex;
-      align-items: center;
-      text-decoration: none;
-      line-height: 0;
-    }
-
-    .brand-logo {
-      display: block;
-      height: 46px;
-      width: auto;
-      max-width: 220px;
-      object-fit: contain;
-    }
-
-    footer .brand-logo {
-      height: 56px;
-      max-width: 240px;
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 7px;
-    }
-
+    .nav-links { display: flex; align-items: center; gap: 7px; }
     .nav-links a {
-      padding: 9px 11px;
-      color: var(--muted-strong);
-      border-radius: 10px;
-      font-size: 0.9rem;
-      transition: 0.2s ease;
+      padding: 9px 11px; color: var(--muted-strong);
+      border-radius: 10px; font-size: 0.9rem; transition: 0.2s ease;
     }
+    .nav-links a:hover { background: rgba(255, 255, 255, 0.04); color: var(--text); }
 
-    .nav-links a:hover {
-      background: rgba(255, 255, 255, 0.04);
-      color: var(--text);
-    }
-
-    .nav-cta,
-    .btn-primary {
+    .nav-cta, .btn-primary {
       background: linear-gradient(135deg, var(--teal-strong), #53e4d5);
-      color: #06141c;
-      font-weight: 900;
-      border: 0;
+      color: #06141c; font-weight: 900; border: 0;
       box-shadow: 0 12px 28px rgba(37, 205, 187, 0.18);
     }
-
-    .nav-cta {
-      padding: 10px 15px;
-      border-radius: 10px;
-      font-size: 0.9rem;
-    }
+    .nav-cta { padding: 10px 15px; border-radius: 10px; font-size: 0.9rem; }
 
     .menu-btn {
-      display: none;
-      border: 1px solid var(--line);
-      background: transparent;
-      color: var(--text);
-      padding: 9px;
-      border-radius: 10px;
-      cursor: pointer;
+      display: none; border: 1px solid var(--line); background: transparent;
+      color: var(--text); padding: 9px; border-radius: 10px; cursor: pointer;
     }
 
+    /* ---------- Hero ---------- */
     .hero {
-      min-height: calc(100vh - 90px);
-      padding: 90px 0 70px;
-      display: grid;
-      align-items: center;
-      position: relative;
+      min-height: calc(100vh - 90px); padding: 90px 0 70px;
+      display: grid; align-items: center; position: relative;
     }
-
     .hero::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
+      content: ""; position: absolute; inset: 0; pointer-events: none;
       background:
         linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
         linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
       background-size: 46px 46px;
       mask-image: radial-gradient(circle at 50% 20%, black, transparent 76%);
+      -webkit-mask-image: radial-gradient(circle at 50% 20%, black, transparent 76%);
     }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.02fr 0.98fr;
-      gap: 54px;
-      align-items: center;
-    }
-
-    .hero-copy {
-      position: relative;
-      z-index: 2;
-    }
-
+    .hero-grid { display: grid; grid-template-columns: 1.02fr 0.98fr; gap: 54px; align-items: center; }
+    .hero-copy { position: relative; z-index: 2; }
     .hero-tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 7px 11px 7px 8px;
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      background: rgba(255, 255, 255, 0.025);
-      color: var(--muted-strong);
-      font-size: 0.83rem;
-      margin-bottom: 24px;
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 7px 11px 7px 8px; border: 1px solid var(--line);
+      border-radius: 999px; background: rgba(255, 255, 255, 0.025);
+      color: var(--muted-strong); font-size: 0.83rem; margin-bottom: 24px;
     }
-
     .hero-tag .pulse {
-      width: 8px;
-      height: 8px;
-      border-radius: 99px;
-      background: var(--teal);
+      width: 8px; height: 8px; border-radius: 99px; background: var(--teal);
       box-shadow: 0 0 0 7px rgba(66, 223, 207, 0.08);
     }
-
-    .hero-actions {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-      margin: 32px 0 28px;
-    }
+    .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; margin: 32px 0 22px; }
+    .hero-micro { color: var(--muted); font-size: 0.82rem; margin-bottom: 22px; }
 
     .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 48px;
-      padding: 0 18px;
-      border-radius: 12px;
-      border: 1px solid var(--line);
-      font-weight: 800;
-      font-size: 0.94rem;
-      cursor: pointer;
-      transition: transform 0.18s ease, border-color 0.18s ease, background 0.18s ease;
+      display: inline-flex; align-items: center; justify-content: center;
+      min-height: 48px; padding: 0 18px; border-radius: 12px;
+      border: 1px solid var(--line); font-weight: 800; font-size: 0.94rem;
+      cursor: pointer; transition: transform 0.18s ease, border-color 0.18s ease, background 0.18s ease;
     }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-secondary { color: var(--muted-strong); background: rgba(255, 255, 255, 0.02); }
+    .btn-secondary:hover { border-color: rgba(66, 223, 207, 0.35); background: rgba(255, 255, 255, 0.035); }
 
-    .btn:hover {
-      transform: translateY(-2px);
-    }
+    .micro-proof { display: flex; gap: 22px; flex-wrap: wrap; color: var(--muted); font-size: 0.86rem; }
+    .micro-proof strong { color: var(--text); display: block; font-size: 1rem; margin-bottom: 2px; }
 
-    .btn-secondary {
-      color: var(--muted-strong);
-      background: rgba(255, 255, 255, 0.02);
-    }
+    .hero-visual { position: relative; }
 
-    .btn-secondary:hover {
-      border-color: rgba(66, 223, 207, 0.35);
-      background: rgba(255, 255, 255, 0.035);
-    }
-
-    .micro-proof {
-      display: flex;
-      gap: 22px;
-      flex-wrap: wrap;
-      color: var(--muted);
-      font-size: 0.86rem;
-    }
-
-    .micro-proof strong {
-      color: var(--text);
-      display: block;
-      font-size: 1rem;
-      margin-bottom: 2px;
-    }
-
-    .hero-visual {
-      position: relative;
-    }
-
-    .dashboard-shell {
+    /* Shared SVG mockup frame */
+    .mockup-frame {
       position: relative;
       border: 1px solid rgba(163, 198, 218, 0.17);
       background: linear-gradient(180deg, rgba(20, 41, 62, 0.96), rgba(9, 23, 36, 0.96));
-      border-radius: 28px;
-      padding: 14px;
-      box-shadow: var(--shadow);
-      transform: perspective(1200px) rotateY(-4deg) rotateX(1.5deg);
+      border-radius: 28px; padding: 14px; box-shadow: var(--shadow);
     }
-
-    .dashboard-shell::before,
-    .dashboard-shell::after {
-      content: "";
-      position: absolute;
-      border-radius: 50%;
-      filter: blur(50px);
-      pointer-events: none;
-      opacity: 0.46;
+    .mockup-frame::before {
+      content: ""; position: absolute; width: 170px; height: 170px;
+      border-radius: 50%; background: rgba(66, 223, 207, 0.17);
+      filter: blur(50px); left: -60px; top: 20%; pointer-events: none;
+      opacity: 0.46; z-index: 0;
     }
-
-    .dashboard-shell::before {
-      width: 170px;
-      height: 170px;
-      background: rgba(66, 223, 207, 0.17);
-      left: -60px;
-      top: 20%;
+    .mockup-frame::after {
+      content: ""; position: absolute; width: 190px; height: 190px;
+      border-radius: 50%; background: rgba(123, 134, 255, 0.17);
+      filter: blur(50px); right: -50px; bottom: 4%; pointer-events: none;
+      opacity: 0.46; z-index: 0;
     }
-
-    .dashboard-shell::after {
-      width: 190px;
-      height: 190px;
-      background: rgba(123, 134, 255, 0.17);
-      right: -50px;
-      bottom: 4%;
+    .shot-chrome {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 4px 6px 12px; color: var(--muted); font-size: 0.72rem;
+      position: relative; z-index: 1;
     }
+    .shot-chrome-left { display: flex; align-items: center; gap: 7px; }
+    .window-dot { width: 7px; height: 7px; border-radius: 99px; background: rgba(255,255,255,0.22); }
+    .window-dot.active { background: var(--teal); box-shadow: 0 0 0 5px rgba(66, 223, 207, 0.06); }
 
-    .dashboard-top {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 9px 9px 13px;
-      color: var(--muted);
-      font-size: 0.72rem;
-    }
-
-    .dashboard-top-left {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .window-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 99px;
-      background: rgba(255,255,255,0.22);
-    }
-
-    .window-dot.active {
-      background: var(--teal);
-      box-shadow: 0 0 0 5px rgba(66, 223, 207, 0.06);
-    }
-
-    .dashboard-frame {
-      background: #f6fbfd;
-      border-radius: 19px;
-      padding: 11px;
-      color: #0a1520;
-      overflow: hidden;
-      border: 1px solid rgba(0,0,0,0.08);
-    }
-
-    .dash-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 6px 5px 12px;
-    }
-
-    .dash-logo {
-      font-size: 0.77rem;
-      font-weight: 900;
-      color: #0d2133;
-    }
-
-    .dash-user {
-      width: 28px;
-      height: 28px;
-      border-radius: 99px;
-      background: #dce8ee;
-      display: grid;
-      place-items: center;
-      font-size: 0.68rem;
-      font-weight: 900;
-      color: #496174;
-    }
-
-    .dash-body {
-      display: grid;
-      grid-template-columns: 74px 1fr;
-      gap: 10px;
-    }
-
-    .dash-side {
-      border-radius: 12px;
-      background: #edf4f7;
-      padding: 8px 6px;
-      display: grid;
-      align-content: start;
-      gap: 6px;
-    }
-
-    .side-item {
-      padding: 7px 5px;
-      border-radius: 7px;
-      font-size: 0.5rem;
-      color: #7b8d98;
-    }
-
-    .side-item.active {
-      background: #d8f8f4;
-      color: #116e68;
-      font-weight: 800;
-    }
-
-    .dash-content {
-      display: grid;
-      gap: 10px;
-    }
-
-    .dash-row {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 9px;
-    }
-
-    .mini-card {
-      padding: 11px;
-      border: 1px solid #e3edf2;
-      border-radius: 12px;
-      background: white;
-      box-shadow: 0 8px 20px rgba(41, 63, 77, 0.06);
-    }
-
-    .mini-label {
-      color: #8497a3;
-      font-size: 0.5rem;
-      margin-bottom: 4px;
-    }
-
-    .mini-value {
-      font-size: 0.9rem;
-      font-weight: 900;
-      color: #0d2133;
-    }
-
-    .mini-good {
-      margin-top: 5px;
-      color: #11856d;
-      font-size: 0.46rem;
-      font-weight: 800;
-    }
-
-    .dash-main {
-      display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 10px;
-    }
-
-    .chart-card,
-    .queue-card {
-      border: 1px solid #e3edf2;
-      border-radius: 12px;
-      background: #fff;
-      padding: 12px;
-    }
-
-    .chart-head {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 8px;
-    }
-
-    .chart-title {
-      font-size: 0.6rem;
-      font-weight: 900;
-    }
-
-    .chart-range {
-      font-size: 0.47rem;
-      color: #8da0ad;
-    }
-
-    .chart {
-      height: 112px;
-      position: relative;
-      border-radius: 8px;
-      background:
-        linear-gradient(to bottom, rgba(16,33,49,0.05) 1px, transparent 1px);
-      background-size: 100% 28px;
-      overflow: hidden;
-    }
-
-    .chart svg {
-      width: 100%;
-      height: 100%;
-    }
-
-    .queue-list {
-      display: grid;
-      gap: 8px;
-      margin-top: 8px;
-    }
-
-    .queue-row {
-      display: grid;
-      grid-template-columns: 24px 1fr auto;
-      gap: 7px;
-      align-items: center;
-      font-size: 0.49rem;
-    }
-
-    .avatar {
-      width: 24px;
-      height: 24px;
-      border-radius: 8px;
-      background: #edf2f5;
-      display: grid;
-      place-items: center;
-      color: #6f8492;
-      font-size: 0.43rem;
-      font-weight: 900;
-    }
-
-    .queue-name {
-      font-weight: 800;
-      color: #172d3f;
-    }
-
-    .queue-time {
-      color: #8da0ad;
+    .mockup {
+      display: block; width: 100%; aspect-ratio: 16 / 9; height: auto;
+      border-radius: 16px; background: #f6fbfd; overflow: hidden;
+      position: relative; z-index: 1; border: 1px solid rgba(0,0,0,0.08);
     }
 
     .floating-chip {
-      position: absolute;
-      border: 1px solid rgba(255,255,255,0.11);
-      background: rgba(9, 24, 38, 0.86);
-      backdrop-filter: blur(12px);
-      border-radius: 14px;
-      padding: 10px 12px;
-      box-shadow: 0 20px 45px rgba(0,0,0,0.28);
+      position: absolute; border: 1px solid rgba(255,255,255,0.11);
+      background: rgba(9, 24, 38, 0.86); backdrop-filter: blur(12px);
+      border-radius: 14px; padding: 10px 12px;
+      box-shadow: 0 20px 45px rgba(0,0,0,0.28); z-index: 2;
     }
-
-    .chip-a {
-      left: -26px;
-      bottom: 38px;
-    }
-
-    .chip-b {
-      right: -28px;
-      top: 26px;
-    }
-
-    .chip-label {
-      color: var(--muted);
-      font-size: 0.62rem;
-      margin-bottom: 2px;
-    }
-
-    .chip-value {
-      font-weight: 900;
-      font-size: 0.95rem;
-    }
-
-    .chip-value.teal {
-      color: var(--teal);
-    }
+    .chip-a { left: -26px; bottom: 38px; }
+    .chip-b { right: -28px; top: 26px; }
+    .chip-label { color: var(--muted); font-size: 0.62rem; margin-bottom: 2px; }
+    .chip-value { font-weight: 900; font-size: 0.95rem; }
+    .chip-value.teal { color: var(--teal); }
 
     .stats-bar {
-      margin-top: 54px;
-      padding: 18px 0;
-      border-top: 1px solid var(--line);
-      border-bottom: 1px solid var(--line);
+      margin-top: 54px; padding: 18px 0;
+      border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
     }
+    .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+    .stat { padding: 8px 18px; border-right: 1px solid var(--line); }
+    .stat:last-child { border-right: 0; }
+    .stat strong { display: block; font-size: 1.36rem; letter-spacing: -0.03em; margin-bottom: 2px; }
+    .stat span { color: var(--muted); font-size: 0.8rem; }
 
-    .stats-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 16px;
+    /* ---------- Gallery ---------- */
+    .gallery-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+    .gallery-item {
+      margin: 0; border: 1px solid var(--line); border-radius: 16px;
+      overflow: hidden; background: rgba(255, 255, 255, 0.018);
+      transition: transform 0.2s ease, border-color 0.2s ease;
     }
-
-    .stat {
-      padding: 8px 18px;
-      border-right: 1px solid var(--line);
+    .gallery-item:hover { transform: translateY(-3px); border-color: rgba(66,223,207,0.28); }
+    .gallery-thumb { display: block; width: 100%; aspect-ratio: 16/9; overflow: hidden; }
+    .gallery-cap {
+      padding: 12px 14px; font-size: 0.82rem; font-weight: 700;
+      color: var(--muted-strong); display: flex; justify-content: space-between;
+      align-items: center; gap: 8px;
     }
+    .gallery-cap::after { content: "·"; color: var(--teal); font-size: 1.2rem; }
 
-    .stat:last-child {
-      border-right: 0;
-    }
-
-    .stat strong {
-      display: block;
-      font-size: 1.36rem;
-      letter-spacing: -0.03em;
-      margin-bottom: 2px;
-    }
-
-    .stat span {
-      color: var(--muted);
-      font-size: 0.8rem;
-    }
-
-    .problem-grid {
-      display: grid;
-      grid-template-columns: 0.82fr 1.18fr;
-      gap: 62px;
-      align-items: start;
-    }
-
-    .problem-list {
-      display: grid;
-      gap: 12px;
-    }
-
+    /* ---------- Problem ---------- */
+    .problem-grid { display: grid; grid-template-columns: 0.82fr 1.18fr; gap: 62px; align-items: start; }
+    .problem-list { display: grid; gap: 12px; }
     .problem-item {
-      padding: 17px 18px;
-      border-radius: 14px;
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,0.018);
-      display: flex;
-      gap: 12px;
-      align-items: flex-start;
+      padding: 17px 18px; border-radius: 14px; border: 1px solid var(--line);
+      background: rgba(255,255,255,0.018); display: flex; gap: 12px; align-items: flex-start;
     }
-
     .problem-icon {
-      width: 28px;
-      height: 28px;
-      border-radius: 9px;
-      display: grid;
-      place-items: center;
-      background: rgba(255, 139, 154, 0.08);
-      color: var(--danger);
-      flex: 0 0 auto;
-      font-size: 0.6rem;
-      font-weight: 900;
+      width: 28px; height: 28px; border-radius: 9px;
+      display: grid; place-items: center;
+      background: rgba(255, 139, 154, 0.08); color: var(--danger);
+      flex: 0 0 auto; font-size: 0.6rem; font-weight: 900;
     }
-
-    .problem-item strong {
-      display: block;
-      margin-bottom: 3px;
-      font-size: 0.95rem;
-    }
-
-    .problem-item span {
-      color: var(--muted);
-      font-size: 0.84rem;
-    }
+    .problem-item strong { display: block; margin-bottom: 3px; font-size: 0.95rem; }
+    .problem-item span { color: var(--muted); font-size: 0.84rem; }
 
     .quote-card {
-      margin-top: 20px;
-      padding: 22px;
+      margin-top: 20px; padding: 22px;
       border: 1px solid rgba(66, 223, 207, 0.16);
       background: linear-gradient(135deg, rgba(66, 223, 207, 0.06), rgba(123, 134, 255, 0.04));
-      border-radius: 18px;
-      color: var(--muted-strong);
+      border-radius: 18px; color: var(--muted-strong);
     }
+    .quote-card p { font-size: 1.05rem; margin-bottom: 9px; color: #dcecf3; }
 
-    .quote-card p {
-      font-size: 1.05rem;
-      margin-bottom: 9px;
-      color: #dcecf3;
-    }
-
-    .solution-flow {
-      display: grid;
-      grid-template-columns: repeat(6, 1fr);
-      gap: 11px;
-    }
-
+    /* ---------- Solution ---------- */
+    .solution-flow { display: grid; grid-template-columns: repeat(6, 1fr); gap: 11px; }
     .flow-step {
-      position: relative;
-      padding: 20px 16px;
-      border: 1px solid var(--line);
-      border-radius: 17px;
+      position: relative; padding: 20px 16px;
+      border: 1px solid var(--line); border-radius: 17px;
       background: linear-gradient(180deg, rgba(255,255,255,0.025), rgba(255,255,255,0.012));
       min-height: 165px;
     }
-
     .flow-step::after {
-      content: "→";
-      position: absolute;
-      right: -12px;
-      top: 50%;
-      transform: translateY(-50%);
-      color: rgba(157, 178, 194, 0.45);
-      font-size: 1.1rem;
+      content: "→"; position: absolute; right: -12px; top: 50%;
+      transform: translateY(-50%); color: rgba(157, 178, 194, 0.45); font-size: 1.1rem;
     }
+    .flow-step:last-child::after { display: none; }
+    .step-number { color: var(--teal); font-size: 0.7rem; font-weight: 900; letter-spacing: 0.12em; margin-bottom: 20px; }
+    .step-text { color: var(--muted); font-size: 0.8rem; }
 
-    .flow-step:last-child::after {
-      display: none;
+    .before-after { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 40px; }
+    .ba-col {
+      padding: 20px; border-radius: 16px;
+      border: 1px solid var(--line); background: rgba(255,255,255,0.015);
     }
-
-    .step-number {
-      color: var(--teal);
-      font-size: 0.7rem;
-      font-weight: 900;
-      letter-spacing: 0.12em;
-      margin-bottom: 20px;
+    .ba-col.after { border-color: rgba(66,223,207,0.28); background: rgba(66,223,207,0.035); }
+    .ba-label {
+      font-size: 0.72rem; font-weight: 900; letter-spacing: 0.14em;
+      text-transform: uppercase; margin-bottom: 12px;
     }
-
-    .step-text {
-      color: var(--muted);
-      font-size: 0.8rem;
+    .ba-col.before .ba-label { color: var(--danger); }
+    .ba-col.after .ba-label { color: var(--teal); }
+    .ba-steps {
+      display: flex; align-items: center; flex-wrap: wrap; gap: 6px;
+      font-size: 0.82rem; color: var(--muted-strong);
     }
+    .ba-steps span { padding: 4px 8px; border-radius: 6px; background: rgba(255,255,255,0.03); }
+    .ba-steps em { font-style: normal; color: var(--muted); font-size: 0.78rem; }
 
-    .role-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 14px;
-    }
-
+    /* ---------- Roles ---------- */
+    .role-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
     .role-card {
-      padding: 23px;
-      border: 1px solid var(--line);
-      border-radius: 18px;
+      padding: 23px; border: 1px solid var(--line); border-radius: 18px;
       background: linear-gradient(180deg, rgba(255,255,255,0.025), rgba(255,255,255,0.012));
+      display: flex; flex-direction: column;
     }
-
     .role-label {
-      display: inline-flex;
-      padding: 5px 8px;
-      border-radius: 8px;
-      background: rgba(66, 223, 207, 0.08);
-      color: var(--teal);
-      font-size: 0.7rem;
-      font-weight: 800;
-      margin-bottom: 18px;
+      display: inline-flex; padding: 5px 8px; border-radius: 8px;
+      background: rgba(66, 223, 207, 0.08); color: var(--teal);
+      font-size: 0.7rem; font-weight: 800; margin-bottom: 18px; align-self: flex-start;
+    }
+    .role-card p { color: var(--muted); font-size: 0.83rem; }
+    .role-stops {
+      margin-top: auto; padding-top: 12px; border-top: 1px solid var(--line);
+      color: var(--muted); font-size: 0.78rem; font-style: italic;
     }
 
-    .role-card p {
-      color: var(--muted);
-      font-size: 0.83rem;
+    /* ---------- Demo ---------- */
+    .demo-panel {
+      border: 1px solid var(--line); border-radius: 20px;
+      background: rgba(255,255,255,0.018); padding: 18px;
     }
-
-    .feature-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 14px;
+    .demo-stage {
+      position: relative; border-radius: 14px; overflow: hidden;
+      aspect-ratio: 16 / 9; background: #0b1a29;
     }
+    .demo-stage svg { width: 100%; height: 100%; display: block; }
+    .demo-controls {
+      display: flex; justify-content: space-between; align-items: center;
+      gap: 12px; margin-top: 14px; flex-wrap: wrap;
+    }
+    .demo-label { font-size: 0.85rem; color: var(--muted-strong); font-weight: 700; }
+    .demo-buttons { display: flex; gap: 8px; }
+    .demo-btn {
+      padding: 8px 14px; border-radius: 9px; border: 1px solid var(--line);
+      background: rgba(255,255,255,0.03); color: var(--muted-strong);
+      font-weight: 800; font-size: 0.82rem; cursor: pointer;
+    }
+    .demo-btn:hover:not(:disabled) { border-color: rgba(66,223,207,0.35); color: var(--text); }
+    .demo-btn:disabled { opacity: 0.4; cursor: not-allowed; }
 
+    /* ---------- Features ---------- */
+    .feature-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
     .feature-card {
-      padding: 23px;
-      min-height: 194px;
-      border: 1px solid var(--line);
-      border-radius: 18px;
+      padding: 23px; min-height: 194px;
+      border: 1px solid var(--line); border-radius: 18px;
       background: linear-gradient(180deg, rgba(255,255,255,0.028), rgba(255,255,255,0.011));
       transition: transform 0.2s ease, border-color 0.2s ease;
     }
-
-    .feature-card:hover {
-      transform: translateY(-3px);
-      border-color: rgba(66, 223, 207, 0.24);
-    }
-
+    .feature-card:hover { transform: translateY(-3px); border-color: rgba(66, 223, 207, 0.24); }
     .feature-icon {
-      width: 38px;
-      height: 38px;
-      border-radius: 11px;
-      display: grid;
-      place-items: center;
-      color: var(--teal);
+      width: 38px; height: 38px; border-radius: 11px;
+      display: grid; place-items: center; color: var(--teal);
       background: rgba(66, 223, 207, 0.07);
       border: 1px solid rgba(66, 223, 207, 0.11);
-      margin-bottom: 20px;
-      font-size: 0.72rem;
-      font-weight: 900;
+      margin-bottom: 20px; font-size: 0.72rem; font-weight: 900;
+    }
+    .feature-card p { color: var(--muted); font-size: 0.83rem; margin-bottom: 0; }
+    .feature-thumb {
+      display: block; width: 100%; aspect-ratio: 16/9;
+      border-radius: 10px; margin-bottom: 14px;
+      border: 1px solid var(--line); background: #f6fbfd;
     }
 
-    .feature-card p {
-      color: var(--muted);
-      font-size: 0.83rem;
-      margin-bottom: 0;
-    }
-
-    /* ---------- Operational backbone ---------- */
-    .ops-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 12px;
-    }
-
+    /* ---------- Ops ---------- */
+    .ops-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
     .ops-card {
-      padding: 18px;
-      border: 1px solid var(--line);
-      border-radius: 15px;
+      padding: 18px; border: 1px solid var(--line); border-radius: 15px;
       background: linear-gradient(180deg, rgba(255,255,255,0.022), rgba(255,255,255,0.01));
       transition: transform 0.2s ease, border-color 0.2s ease;
     }
-
-    .ops-card:hover {
-      transform: translateY(-2px);
-      border-color: rgba(66, 223, 207, 0.22);
-    }
-
+    .ops-card:hover { transform: translateY(-2px); border-color: rgba(66, 223, 207, 0.22); }
     .ops-icon {
-      width: 30px;
-      height: 30px;
-      border-radius: 9px;
-      display: grid;
-      place-items: center;
-      color: var(--teal);
+      width: 30px; height: 30px; border-radius: 9px;
+      display: grid; place-items: center; color: var(--teal);
       background: rgba(66, 223, 207, 0.07);
       border: 1px solid rgba(66, 223, 207, 0.11);
-      margin-bottom: 12px;
-      font-size: 0.66rem;
-      font-weight: 900;
+      margin-bottom: 12px; font-size: 0.66rem; font-weight: 900;
     }
-
-    .ops-card h3 {
-      font-size: 0.95rem;
-      margin-bottom: 6px;
-    }
-
-    .ops-card p {
-      color: var(--muted);
-      font-size: 0.78rem;
-      margin-bottom: 0;
-      line-height: 1.5;
+    .ops-card h3 { font-size: 0.95rem; margin-bottom: 6px; }
+    .ops-card p { color: var(--muted); font-size: 0.78rem; margin-bottom: 0; line-height: 1.5; }
+    .ops-tag {
+      display: inline-block; margin-top: 10px; padding: 3px 7px;
+      border-radius: 6px; background: rgba(123,134,255,0.09);
+      color: var(--indigo-soft); font-size: 0.65rem; font-weight: 800;
+      letter-spacing: 0.04em; text-transform: uppercase;
     }
 
     /* ---------- Loyalty ---------- */
-    .loyalty-wrap {
-      display: grid;
-      grid-template-columns: 0.9fr 1.1fr;
-      gap: 44px;
-      align-items: center;
-    }
-
-    .tier-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 10px;
-      margin-top: 6px;
-    }
-
+    .loyalty-wrap { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 44px; align-items: center; }
+    .tier-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-top: 6px; }
     .tier-card {
-      padding: 18px 10px;
-      border: 1px solid var(--line);
-      border-radius: 14px;
-      background: rgba(255,255,255,0.018);
-      text-align: center;
+      padding: 18px 10px; border: 1px solid var(--line); border-radius: 14px;
+      background: rgba(255,255,255,0.018); text-align: center;
     }
-
-    .tier-card .tier-name {
-      font-weight: 900;
-      font-size: 0.86rem;
-      margin-bottom: 5px;
-      letter-spacing: -0.01em;
-    }
-
-    .tier-card .tier-discount {
-      color: var(--teal);
-      font-size: 0.72rem;
-      font-weight: 700;
-    }
-
+    .tier-card .tier-name { font-weight: 900; font-size: 0.86rem; margin-bottom: 5px; letter-spacing: -0.01em; }
+    .tier-card .tier-discount { color: var(--teal); font-size: 0.72rem; font-weight: 700; }
     .tier-card.bronze { border-color: rgba(205, 127, 50, 0.34); }
     .tier-card.silver { border-color: rgba(192, 192, 192, 0.32); }
-    .tier-card.gold   { border-color: rgba(255, 215, 0, 0.32); }
+    .tier-card.gold { border-color: rgba(255, 215, 0, 0.32); }
     .tier-card.platinum { border-color: rgba(229, 228, 226, 0.38); }
 
-    .reward-list {
-      display: grid;
-      gap: 10px;
-      margin-top: 20px;
-    }
-
+    .reward-list { display: grid; gap: 10px; margin-top: 20px; }
     .reward-item {
-      display: flex;
-      gap: 11px;
-      align-items: center;
-      padding: 12px 14px;
-      border: 1px solid var(--line);
-      border-radius: 12px;
-      background: rgba(255,255,255,0.018);
-      font-size: 0.85rem;
-      color: var(--muted-strong);
+      display: flex; gap: 11px; align-items: center;
+      padding: 12px 14px; border: 1px solid var(--line); border-radius: 12px;
+      background: rgba(255,255,255,0.018); font-size: 0.85rem; color: var(--muted-strong);
     }
-
     .reward-icon {
-      width: 30px;
-      height: 30px;
-      border-radius: 9px;
-      display: grid;
-      place-items: center;
-      background: rgba(66, 223, 207, 0.08);
-      color: var(--teal);
-      font-size: 0.72rem;
-      font-weight: 900;
-      flex: 0 0 auto;
+      width: 30px; height: 30px; border-radius: 9px;
+      display: grid; place-items: center;
+      background: rgba(66, 223, 207, 0.08); color: var(--teal);
+      font-size: 0.72rem; font-weight: 900; flex: 0 0 auto;
     }
+    .worked-example {
+      margin-top: 22px; padding: 18px 20px;
+      border: 1px solid rgba(66,223,207,0.28);
+      background: rgba(66,223,207,0.06); border-radius: 14px;
+      color: var(--muted-strong); font-size: 0.9rem; line-height: 1.6;
+    }
+    .worked-example strong { color: var(--text); }
 
+    /* ---------- AI ---------- */
     .ai-section {
-      border-top: 1px solid var(--line);
-      border-bottom: 1px solid var(--line);
+      border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
       background:
         radial-gradient(circle at 20% 10%, rgba(66, 223, 207, 0.08), transparent 31%),
         radial-gradient(circle at 80% 80%, rgba(123, 134, 255, 0.09), transparent 33%),
         rgba(255,255,255,0.015);
     }
-
-    .ai-grid {
-      display: grid;
-      grid-template-columns: 0.84fr 1.16fr;
-      gap: 48px;
-      align-items: center;
-    }
-
+    .ai-grid { display: grid; grid-template-columns: 0.84fr 1.16fr; gap: 48px; align-items: center; }
     .ai-panel {
-      border: 1px solid var(--line);
-      border-radius: 24px;
-      padding: 18px;
-      background: rgba(8, 21, 34, 0.7);
-      box-shadow: var(--shadow);
+      border: 1px solid var(--line); border-radius: 24px; padding: 18px;
+      background: rgba(8, 21, 34, 0.7); box-shadow: var(--shadow);
     }
-
     .ai-panel-head {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 4px 5px 14px;
-      border-bottom: 1px solid var(--line);
-      color: var(--muted);
-      font-size: 0.74rem;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 4px 5px 14px; border-bottom: 1px solid var(--line);
+      color: var(--muted); font-size: 0.74rem;
     }
-
-    .ai-status {
-      color: var(--success);
-      font-weight: 800;
-    }
-
-    .ai-cards {
-      display: grid;
-      gap: 11px;
-      margin-top: 14px;
-    }
-
+    .ai-status { color: var(--success); font-weight: 800; }
+    .ai-cards { display: grid; gap: 11px; margin-top: 14px; }
     .ai-card {
-      padding: 16px;
-      border-radius: 15px;
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,0.018);
+      padding: 16px; border-radius: 15px;
+      border: 1px solid var(--line); background: rgba(255,255,255,0.018);
     }
-
     .ai-card-row {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 14px;
-      margin-bottom: 7px;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 14px; margin-bottom: 7px; flex-wrap: wrap;
     }
-
-    .ai-card strong {
-      font-size: 0.88rem;
-    }
-
-    .ai-card span {
-      color: var(--muted);
-      font-size: 0.75rem;
-    }
-
+    .ai-card strong { font-size: 0.88rem; }
+    .ai-card span { color: var(--muted); font-size: 0.75rem; }
     .tag {
-      font-size: 0.62rem !important;
-      padding: 4px 6px;
-      border-radius: 7px;
-      font-weight: 800;
-      white-space: nowrap;
+      font-size: 0.62rem !important; padding: 4px 6px; border-radius: 7px;
+      font-weight: 800; white-space: nowrap;
     }
+    .tag-teal { color: var(--teal); background: rgba(66, 223, 207, 0.08); }
+    .tag-indigo { color: var(--indigo-soft); background: rgba(123, 134, 255, 0.08); }
+    .tag-roadmap { color: var(--warning); background: rgba(255, 210, 119, 0.08); }
+    .tag-status { color: var(--success); background: rgba(101, 226, 160, 0.09); }
 
-    .tag-teal {
-      color: var(--teal);
-      background: rgba(66, 223, 207, 0.08);
+    .ai-wont-do {
+      margin-top: 14px; padding: 16px 18px; border-radius: 12px;
+      border: 1px solid rgba(255, 210, 119, 0.18); color: #d8c8a6;
+      background: rgba(255, 210, 119, 0.045); font-size: 0.84rem;
     }
+    .ai-wont-do strong { color: var(--warning); display: block; margin-bottom: 6px; }
+    .ai-wont-do ul { margin: 0; padding-left: 1.2em; }
 
-    .tag-indigo {
-      color: var(--indigo-soft);
-      background: rgba(123, 134, 255, 0.08);
+    /* ---------- Security table ---------- */
+    .controls-table {
+      width: 100%; border-collapse: collapse;
+      border: 1px solid var(--line); border-radius: 14px;
+      overflow: hidden; font-size: 0.85rem;
     }
-
-    .ai-copy {
-      display: grid;
-      gap: 12px;
+    .controls-table th, .controls-table td {
+      text-align: left; padding: 12px 16px;
+      border-bottom: 1px solid var(--line); vertical-align: top;
     }
-
-    .ai-point {
-      display: grid;
-      grid-template-columns: 32px 1fr;
-      gap: 13px;
-      align-items: start;
-      padding: 16px 0;
-      border-bottom: 1px solid var(--line);
+    .controls-table th {
+      color: var(--teal); font-size: 0.72rem;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      background: rgba(255,255,255,0.02);
     }
+    .controls-table tr:last-child td { border-bottom: 0; }
+    .controls-table td:first-child { color: var(--text); font-weight: 800; white-space: nowrap; }
+    .controls-table td:last-child { color: var(--muted-strong); }
 
-    .ai-point:last-child {
-      border-bottom: 0;
+    .security-note {
+      margin-top: 20px; padding: 14px 16px; border-radius: 12px;
+      border: 1px solid rgba(255, 210, 119, 0.16); color: #d8c8a6;
+      background: rgba(255, 210, 119, 0.045); font-size: 0.82rem;
     }
+    .security-cta { margin-top: 20px; display: flex; gap: 12px; flex-wrap: wrap; }
 
-    .ai-point-index {
-      width: 32px;
-      height: 32px;
-      border-radius: 9px;
-      display: grid;
-      place-items: center;
-      font-size: 0.7rem;
-      font-weight: 900;
-      color: var(--teal);
-      background: rgba(66, 223, 207, 0.08);
+    /* ---------- Comparison ---------- */
+    .compare-table {
+      width: 100%; border-collapse: collapse;
+      border: 1px solid var(--line); border-radius: 14px;
+      overflow: hidden; font-size: 0.85rem;
     }
-
-    .ai-point p {
-      color: var(--muted);
-      font-size: 0.84rem;
-      margin-bottom: 0;
+    .compare-table th, .compare-table td {
+      padding: 12px 14px; border-bottom: 1px solid var(--line); text-align: center;
     }
-
-    .note {
-      margin-top: 14px;
-      padding: 13px 14px;
-      border-radius: 12px;
-      border: 1px solid rgba(255, 210, 119, 0.16);
-      color: #d8c8a6;
-      background: rgba(255, 210, 119, 0.045);
-      font-size: 0.75rem;
+    .compare-table th:first-child, .compare-table td:first-child { text-align: left; }
+    .compare-table th {
+      color: var(--teal); font-size: 0.72rem;
+      text-transform: uppercase; letter-spacing: 0.08em;
+      background: rgba(255,255,255,0.02);
     }
+    .compare-table tr:last-child td { border-bottom: 0; }
+    .compare-table td { color: var(--muted-strong); }
+    .compare-table td:first-child { font-weight: 700; color: var(--text); }
+    .compare-table .yes { color: var(--success); font-weight: 900; }
+    .compare-table .no  { color: var(--danger); font-weight: 900; }
+    .compare-table .partial { color: var(--warning); font-weight: 900; }
+    .compare-table tr:nth-child(even) td { background: rgba(255,255,255,0.012); }
 
-    .security-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 12px;
+    /* ---------- Pricing ---------- */
+    .pricing-grid-4 {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; align-items: stretch;
     }
-
-    .security-card {
-      border: 1px solid var(--line);
-      padding: 21px;
-      border-radius: 17px;
-      background: rgba(255,255,255,0.018);
-    }
-
-    .security-card strong {
-      display: block;
-      margin-bottom: 6px;
-    }
-
-    .security-card span {
-      color: var(--muted);
-      font-size: 0.78rem;
-    }
-
-    .local-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-    }
-
-    .local-card {
-      padding: 25px;
-      border: 1px solid var(--line);
-      border-radius: 20px;
-      background: linear-gradient(135deg, rgba(66,223,207,0.055), rgba(123,134,255,0.035));
-    }
-
-    .local-list {
-      display: grid;
-      gap: 10px;
-      margin-top: 17px;
-    }
-
-    .local-item {
-      display: flex;
-      gap: 9px;
-      align-items: center;
-      color: var(--muted-strong);
-      font-size: 0.84rem;
-    }
-
-    .check {
-      width: 18px;
-      height: 18px;
-      border-radius: 6px;
-      display: grid;
-      place-items: center;
-      background: rgba(66, 223, 207, 0.08);
-      color: var(--teal);
-      font-size: 0.65rem;
-      font-weight: 900;
-      flex: 0 0 auto;
-    }
-
-    .pricing-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-      align-items: stretch;
-    }
-
-    .price-card {
-      padding: 27px;
-      border: 1px solid var(--line);
-      border-radius: 21px;
+    .plan-card {
+      padding: 24px 20px; border: 1px solid var(--line); border-radius: 18px;
       background: linear-gradient(180deg, rgba(255,255,255,0.026), rgba(255,255,255,0.01));
+      display: flex; flex-direction: column; position: relative;
     }
-
-    .price-card.featured {
-      border-color: rgba(66, 223, 207, 0.3);
-      box-shadow: 0 20px 60px rgba(37, 205, 187, 0.08);
+    .plan-card.featured {
+      border-color: rgba(66, 223, 207, 0.4);
+      box-shadow: 0 20px 60px rgba(37, 205, 187, 0.1);
       background: linear-gradient(160deg, rgba(66,223,207,0.07), rgba(123,134,255,0.05));
     }
+    .plan-badge {
+      position: absolute; top: -10px; left: 20px;
+      background: var(--teal); color: #06141c;
+      font-size: 0.66rem; font-weight: 900;
+      text-transform: uppercase; letter-spacing: 0.08em;
+      padding: 4px 8px; border-radius: 6px;
+    }
+    .plan-name {
+      font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.1em;
+      color: var(--muted-strong); font-weight: 800; margin-bottom: 8px;
+    }
+    .plan-price { font-size: 1.7rem; font-weight: 900; letter-spacing: -0.03em; margin: 4px 0; }
+    .plan-price span { font-size: 0.8rem; color: var(--muted); font-weight: 500; }
+    .plan-note { color: var(--muted); font-size: 0.78rem; margin-bottom: 14px; }
+    .plan-features { list-style: none; padding: 0; margin: 0 0 16px; display: grid; gap: 7px; }
+    .plan-features li {
+      font-size: 0.8rem; color: var(--muted-strong);
+      display: flex; gap: 8px; align-items: flex-start;
+    }
+    .plan-features li::before {
+      content: "✓"; color: var(--teal); font-weight: 900; flex: 0 0 auto;
+    }
+    .plan-features li.off::before { content: "–"; color: var(--muted); }
+    .plan-features li.off { color: var(--muted); }
 
-    .price-range {
-      font-size: 2rem;
-      font-weight: 900;
-      letter-spacing: -0.045em;
-      margin: 14px 0 9px;
+    .pricing-note {
+      margin-top: 24px; padding: 14px 18px; border-radius: 12px;
+      border: 1px solid var(--line); background: rgba(255,255,255,0.02);
+      color: var(--muted-strong); font-size: 0.85rem;
     }
 
-    .price-note {
-      color: var(--muted);
-      font-size: 0.78rem;
-      margin-bottom: 18px;
+    /* ---------- Contact ---------- */
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: start; }
+    .contact-card {
+      padding: 26px; border: 1px solid var(--line); border-radius: 18px;
+      background: rgba(255,255,255,0.02);
     }
+    .contact-card h3 { margin-bottom: 6px; font-size: 1.05rem; }
+    .contact-card .contact-sub { color: var(--muted); font-size: 0.85rem; margin-bottom: 20px; }
 
-    .price-pills {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
+    .contact-action {
+      display: flex; gap: 12px; align-items: center;
+      padding: 14px 16px; border-radius: 12px;
+      border: 1px solid var(--line); background: rgba(255,255,255,0.025);
+      margin-bottom: 10px; transition: 0.18s ease;
     }
-
-    .pill {
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      padding: 5px 8px;
-      font-size: 0.66rem;
-      color: var(--muted-strong);
+    .contact-action:hover {
+      border-color: rgba(66,223,207,0.35);
+      background: rgba(66,223,207,0.04); transform: translateY(-1px);
     }
-
-    .origin-grid {
-      display: grid;
-      grid-template-columns: 0.88fr 1.12fr;
-      gap: 54px;
-      align-items: center;
+    .contact-icon {
+      width: 34px; height: 34px; border-radius: 9px;
+      display: grid; place-items: center;
+      background: rgba(66,223,207,0.09); color: var(--teal);
+      font-weight: 900; font-size: 0.8rem; flex: 0 0 auto;
     }
+    .contact-action-body { flex: 1; }
+    .contact-action-body strong { display: block; font-size: 0.9rem; }
+    .contact-action-body span { color: var(--muted); font-size: 0.78rem; }
 
-    .portrait-wrap {
-      position: relative;
-      max-width: 420px;
-      margin: 0 auto;
+    .contact-info {
+      padding: 18px 20px; border: 1px solid var(--line); border-radius: 14px;
+      background: rgba(255,255,255,0.02); margin-top: 14px;
+      font-size: 0.85rem; color: var(--muted-strong);
     }
+    .contact-info strong { color: var(--text); }
+    .contact-privacy { margin-top: 14px; font-size: 0.78rem; color: var(--muted); }
+    .contact-privacy a { color: var(--teal); text-decoration: underline; text-underline-offset: 3px; }
 
+    /* ---------- Story ---------- */
+    .origin-grid { display: grid; grid-template-columns: 0.88fr 1.12fr; gap: 54px; align-items: center; }
+    .portrait-wrap { position: relative; max-width: 420px; margin: 0 auto; }
     .portrait-card {
-      position: relative;
-      border: 1px solid rgba(66,223,207,0.2);
-      border-radius: 28px;
-      padding: 12px;
+      position: relative; border: 1px solid rgba(66,223,207,0.2);
+      border-radius: 28px; padding: 12px;
       background: linear-gradient(160deg, rgba(255,255,255,0.08), rgba(255,255,255,0.015));
       box-shadow: var(--shadow);
-      transform: perspective(1000px) rotateY(4deg);
     }
-
-    .portrait-card::before {
-      content: "";
-      position: absolute;
-      inset: 9% -10% -10% 13%;
-      border-radius: 32px;
-      background: linear-gradient(135deg, rgba(66,223,207,0.17), rgba(123,134,255,0.08));
-      filter: blur(28px);
-      z-index: -1;
-    }
-
     .portrait {
-      width: 100%;
-      aspect-ratio: 0.85;
-      object-fit: cover;
-      border-radius: 20px;
-      background: linear-gradient(160deg, #173449, #0b1724);
+      width: 100%; aspect-ratio: 0.85; object-fit: cover;
+      border-radius: 20px; background: linear-gradient(160deg, #173449, #0b1724);
       border: 1px solid rgba(255,255,255,0.07);
     }
-
     .portrait-meta {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 15px;
-      padding: 15px 5px 3px;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 15px; padding: 15px 5px 3px;
     }
-
-    .portrait-name {
-      font-weight: 900;
-      line-height: 1.1;
-    }
-
-    .portrait-role {
-      color: var(--muted);
-      font-size: 0.75rem;
-      margin-top: 3px;
-    }
-
-    .socials {
-      display: flex;
-      gap: 7px;
-    }
-
+    .portrait-name { font-weight: 900; line-height: 1.1; }
+    .portrait-role { color: var(--muted); font-size: 0.75rem; margin-top: 3px; }
+    .socials { display: flex; gap: 7px; }
     .social-link {
-      width: 34px;
-      height: 34px;
-      border-radius: 10px;
-      border: 1px solid var(--line);
-      display: grid;
-      place-items: center;
-      color: var(--muted-strong);
-      transition: 0.18s ease;
-      font-size: 0.7rem;
-      font-weight: 900;
+      width: 34px; height: 34px; border-radius: 10px;
+      border: 1px solid var(--line); display: grid; place-items: center;
+      color: var(--muted-strong); transition: 0.18s ease;
+      font-size: 0.7rem; font-weight: 900;
     }
+    .social-link:hover { color: var(--teal); border-color: rgba(66,223,207,0.35); transform: translateY(-2px); }
 
-    .social-link:hover {
-      color: var(--teal);
-      border-color: rgba(66,223,207,0.35);
-      transform: translateY(-2px);
-    }
-
-    .origin-copy p {
-      color: var(--muted);
-      font-size: 0.98rem;
-    }
-
+    .origin-copy p { color: var(--muted); font-size: 0.98rem; }
     .story-highlight {
-      margin: 24px 0 19px;
-      padding: 21px;
-      border-left: 2px solid var(--teal);
-      border-radius: 0 16px 16px 0;
-      background: rgba(66,223,207,0.035);
-      color: #dcecf2;
-      font-size: 1.02rem;
+      margin: 24px 0 19px; padding: 21px;
+      border-left: 2px solid var(--teal); border-radius: 0 16px 16px 0;
+      background: rgba(66,223,207,0.035); color: #dcecf2; font-size: 1.02rem;
     }
 
-    .build-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 13px;
-    }
-
+    /* ---------- Build ---------- */
+    .build-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 13px; }
     .build-card {
-      padding: 21px;
-      border: 1px solid var(--line);
-      border-radius: 17px;
+      padding: 21px; border: 1px solid var(--line); border-radius: 17px;
       background: rgba(255,255,255,0.018);
     }
+    .build-card span { color: var(--muted); font-size: 0.79rem; display: block; margin-top: 6px; }
 
-    .build-card span {
-      color: var(--muted);
-      font-size: 0.79rem;
-      display: block;
-      margin-top: 6px;
+    /* ---------- Local ---------- */
+    .local-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .local-card {
+      padding: 25px; border: 1px solid var(--line); border-radius: 20px;
+      background: linear-gradient(135deg, rgba(66,223,207,0.055), rgba(123,134,255,0.035));
+    }
+    .local-list { display: grid; gap: 10px; margin-top: 17px; }
+    .local-item { display: flex; gap: 9px; align-items: center; color: var(--muted-strong); font-size: 0.84rem; }
+    .check {
+      width: 18px; height: 18px; border-radius: 6px;
+      display: grid; place-items: center;
+      background: rgba(66, 223, 207, 0.08); color: var(--teal);
+      font-size: 0.65rem; font-weight: 900; flex: 0 0 auto;
     }
 
-    .faq-grid {
-      display: grid;
-      gap: 10px;
-      max-width: 880px;
-    }
-
+    /* ---------- FAQ ---------- */
+    .faq-grid { display: grid; gap: 10px; max-width: 880px; }
     .faq-item {
-      border: 1px solid var(--line);
-      border-radius: 16px;
-      background: rgba(255,255,255,0.018);
-      overflow: hidden;
+      border: 1px solid var(--line); border-radius: 16px;
+      background: rgba(255,255,255,0.018); overflow: hidden;
     }
-
     .faq-question {
-      width: 100%;
-      padding: 18px 20px;
-      border: 0;
-      background: transparent;
-      color: var(--text);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      cursor: pointer;
-      text-align: left;
-      font: inherit;
-      font-weight: 800;
+      width: 100%; padding: 18px 20px; border: 0; background: transparent;
+      color: var(--text); display: flex; align-items: center;
+      justify-content: space-between; gap: 16px; cursor: pointer;
+      text-align: left; font: inherit; font-weight: 800;
     }
+    .faq-question span:last-child { color: var(--teal); font-size: 1.1rem; transition: transform 0.2s ease; }
+    .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.25s ease; }
+    .faq-answer p { padding: 0 20px 19px; color: var(--muted); font-size: 0.84rem; margin: 0; }
+    .faq-item.open .faq-question span:last-child { transform: rotate(45deg); }
 
-    .faq-question span:last-child {
-      color: var(--teal);
-      font-size: 1.1rem;
-      transition: transform 0.2s ease;
-    }
-
-    .faq-answer {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.25s ease;
-    }
-
-    .faq-answer p {
-      padding: 0 20px 19px;
-      color: var(--muted);
-      font-size: 0.84rem;
-      margin: 0;
-    }
-
-    .faq-item.open .faq-question span:last-child {
-      transform: rotate(45deg);
-    }
-
+    /* ---------- CTA ---------- */
     .cta {
-      padding: 42px;
-      border-radius: 30px;
+      padding: 42px; border-radius: 30px;
       border: 1px solid rgba(66,223,207,0.18);
       background:
         radial-gradient(circle at 80% 10%, rgba(123,134,255,0.14), transparent 32%),
         radial-gradient(circle at 20% 90%, rgba(66,223,207,0.12), transparent 36%),
         linear-gradient(135deg, rgba(18,41,61,0.96), rgba(8,22,34,0.96));
       box-shadow: var(--shadow);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 28px;
+      display: flex; align-items: center; justify-content: space-between; gap: 28px;
     }
+    .cta h2 { font-size: clamp(2rem, 4vw, 3.4rem); margin-bottom: 8px; }
+    .cta p { margin-bottom: 0; color: var(--muted); max-width: 700px; }
 
-    .cta h2 {
-      font-size: clamp(2rem, 4vw, 3.4rem);
-      margin-bottom: 8px;
-    }
-
-    .cta p {
-      margin-bottom: 0;
-      color: var(--muted);
-      max-width: 700px;
-    }
-
-    footer {
-      padding: 38px 0 44px;
-      border-top: 1px solid var(--line);
-    }
-
-    .footer-grid {
-      display: grid;
-      grid-template-columns: 1.3fr 1fr 1fr;
-      gap: 35px;
-    }
-
+    /* ---------- Footer ---------- */
+    footer { padding: 46px 0 44px; border-top: 1px solid var(--line); }
+    .footer-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr 1fr; gap: 30px; }
     .footer-title {
-      color: var(--muted-strong);
-      font-weight: 800;
-      font-size: 0.78rem;
-      margin-bottom: 10px;
-      text-transform: uppercase;
-      letter-spacing: 0.11em;
+      color: var(--muted-strong); font-weight: 800; font-size: 0.78rem;
+      margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.11em;
     }
-
-    .footer-links {
-      display: grid;
-      gap: 7px;
-    }
-
+    .footer-links { display: grid; gap: 7px; }
     .footer-links a,
+    .footer-links button,
     .footer-copy {
-      color: var(--muted);
-      font-size: 0.79rem;
+      color: var(--muted); font-size: 0.79rem; text-align: left;
+      background: transparent; border: 0; padding: 0; cursor: pointer;
+      font-family: inherit; transition: color 0.15s ease;
     }
-
-    .footer-links a:hover {
-      color: var(--teal);
-    }
-
+    .footer-links a:hover,
+    .footer-links button:hover { color: var(--teal); }
     .footer-bottom {
-      margin-top: 35px;
-      padding-top: 20px;
-      border-top: 1px solid var(--line);
-      display: flex;
-      justify-content: space-between;
-      gap: 15px;
-      flex-wrap: wrap;
+      margin-top: 35px; padding-top: 20px; border-top: 1px solid var(--line);
+      display: flex; justify-content: space-between; gap: 15px;
+      flex-wrap: wrap; align-items: center;
     }
+    .lang-switch { display: inline-flex; gap: 6px; align-items: center; font-size: 0.78rem; color: var(--muted); }
+    .lang-switch a { padding: 3px 7px; border-radius: 6px; }
+    .lang-switch a.active { color: var(--teal); background: rgba(66,223,207,0.08); font-weight: 800; }
 
-    .reveal {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.65s ease, transform 0.65s ease;
+    /* ---------- Legal dialogs ---------- */
+    dialog.legal {
+      border: 1px solid var(--line); background: #0b1a29; color: var(--text);
+      border-radius: 18px; padding: 0;
+      max-width: min(720px, calc(100vw - 32px)); width: 100%;
+      box-shadow: var(--shadow);
     }
-
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
+    dialog::backdrop { background: rgba(2, 8, 14, 0.78); backdrop-filter: blur(4px); }
+    .dialog-head {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 12px; padding: 14px 18px; border-bottom: 1px solid var(--line);
     }
+    .dialog-title { margin: 0; font-size: 1rem; letter-spacing: -0.01em; }
+    .dialog-close {
+      background: transparent; border: 1px solid var(--line);
+      color: var(--muted-strong); width: 34px; height: 34px;
+      border-radius: 9px; cursor: pointer; font-size: 1.1rem;
+      display: grid; place-items: center;
+    }
+    .dialog-close:hover { color: var(--text); border-color: rgba(66,223,207,0.35); }
+    .dialog-body.legal-body {
+      padding: 18px; max-height: 70vh; overflow-y: auto;
+      font-size: 0.9rem; color: var(--muted-strong);
+    }
+    .dialog-body.legal-body h3 { color: var(--text); margin-top: 1.4em; }
+    .dialog-body.legal-body p { color: var(--muted-strong); }
+    .dialog-body.legal-body ul { color: var(--muted-strong); padding-left: 1.2em; }
+    .dialog-body.legal-body .last-updated { color: var(--muted); font-size: 0.78rem; margin-top: 0; }
 
+    /* ---------- Reveal ---------- */
+    .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.65s ease, transform 0.65s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* ---------- Responsive ---------- */
     @media (max-width: 1050px) {
-      .hero-grid,
-      .problem-grid,
-      .ai-grid,
-      .origin-grid,
-      .loyalty-wrap {
-        grid-template-columns: 1fr;
-      }
-
-      .hero {
-        padding-top: 64px;
-      }
-
-      .hero-copy {
-        max-width: 780px;
-      }
-
-      .dashboard-shell {
-        max-width: 790px;
-        margin: 0 auto;
-      }
-
-      .solution-flow {
-        grid-template-columns: repeat(3, 1fr);
-      }
-
-      .flow-step:nth-child(3)::after {
-        display: none;
-      }
-
-      .role-grid,
-      .security-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .feature-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .ops-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .local-grid,
-      .pricing-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .portrait-wrap {
-        max-width: 440px;
-      }
+      .hero-grid, .problem-grid, .ai-grid, .origin-grid, .loyalty-wrap, .contact-grid { grid-template-columns: 1fr; }
+      .hero { padding-top: 64px; }
+      .hero-copy { max-width: 780px; }
+      .mockup-frame { max-width: 790px; margin: 0 auto; }
+      .solution-flow { grid-template-columns: repeat(3, 1fr); }
+      .flow-step:nth-child(3)::after { display: none; }
+      .role-grid { grid-template-columns: repeat(2, 1fr); }
+      .feature-grid { grid-template-columns: repeat(2, 1fr); }
+      .ops-grid { grid-template-columns: repeat(2, 1fr); }
+      .local-grid { grid-template-columns: 1fr; }
+      .pricing-grid-4 { grid-template-columns: repeat(2, 1fr); }
+      .gallery-grid { grid-template-columns: repeat(3, 1fr); }
+      .portrait-wrap { max-width: 440px; }
+      .footer-grid { grid-template-columns: 1.5fr 1fr 1fr 1fr; }
+      .footer-grid > div:last-child { grid-column: span 4; }
     }
 
     @media (max-width: 820px) {
       .nav-links {
-        position: absolute;
-        top: calc(100% + 8px);
-        left: 12px;
-        right: 12px;
-        padding: 9px;
-        border: 1px solid var(--line);
-        border-radius: 15px;
-        background: rgba(7, 19, 31, 0.96);
-        backdrop-filter: blur(18px);
-        display: none;
-        flex-direction: column;
-        align-items: stretch;
+        position: absolute; top: calc(100% + 8px); left: 12px; right: 12px;
+        padding: 9px; border: 1px solid var(--line); border-radius: 15px;
+        background: rgba(7, 19, 31, 0.96); backdrop-filter: blur(18px);
+        display: none; flex-direction: column; align-items: stretch;
       }
-
-      .nav-links.open {
-        display: flex;
-      }
-
-      .nav-links a,
-      .nav-cta {
-        width: 100%;
-        text-align: left;
-      }
-
-      .nav-cta {
-        display: block;
-      }
-
-      .menu-btn {
-        display: inline-grid;
-        place-items: center;
-      }
-
-      .desktop-only {
-        display: none;
-      }
-
-      .stats-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .stat:nth-child(2) {
-        border-right: 0;
-      }
-
-      .stat:nth-child(3) {
-        border-top: 1px solid var(--line);
-        padding-top: 18px;
-      }
-
-      .stat:nth-child(4) {
-        border-top: 1px solid var(--line);
-        border-right: 0;
-        padding-top: 18px;
-      }
-
-      .cta {
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 30px 24px;
-      }
-
-      .footer-grid {
-        grid-template-columns: 1fr;
-      }
+      .nav-links.open { display: flex; }
+      .nav-links a, .nav-cta { width: 100%; text-align: left; }
+      .nav-cta { display: block; }
+      .menu-btn { display: inline-grid; place-items: center; }
+      .stats-grid { grid-template-columns: repeat(2, 1fr); }
+      .stat:nth-child(2) { border-right: 0; }
+      .stat:nth-child(3) { border-top: 1px solid var(--line); padding-top: 18px; }
+      .stat:nth-child(4) { border-top: 1px solid var(--line); border-right: 0; padding-top: 18px; }
+      .cta { flex-direction: column; align-items: flex-start; padding: 30px 24px; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .footer-grid > div:first-child { grid-column: span 2; }
+      .footer-grid > div:last-child { grid-column: span 2; }
+      .before-after { grid-template-columns: 1fr; }
     }
 
     @media (max-width: 640px) {
-      .container {
-        width: min(var(--container), calc(100% - 28px));
-      }
+      .container { width: min(var(--container), calc(100% - 28px)); }
+      .section { padding: 82px 0; }
+      h1 { font-size: clamp(2.85rem, 16vw, 4.7rem); }
+      .hero { min-height: auto; padding-bottom: 48px; }
+      .hero-actions { flex-direction: column; align-items: stretch; }
+      .btn { width: 100%; }
+      .mockup-frame { padding: 9px; border-radius: 21px; }
+      .brand-logo { height: 38px; max-width: 170px; }
+      footer .brand-logo { height: 46px; max-width: 200px; }
+      .chip-a { left: -7px; bottom: 17px; }
+      .chip-b { right: -7px; top: 17px; }
+      .solution-flow { grid-template-columns: 1fr; }
+      .flow-step::after { content: "↓"; top: auto; right: 50%; bottom: -14px; transform: translateX(50%); }
+      .flow-step:nth-child(3)::after { display: block; }
+      .flow-step:last-child::after { display: none; }
+      .role-grid, .feature-grid, .ops-grid, .build-grid, .pricing-grid-4 { grid-template-columns: 1fr; }
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+      .tier-grid { grid-template-columns: repeat(2, 1fr); }
+      .origin-grid { gap: 35px; }
+      .footer-bottom { flex-direction: column; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .footer-grid > div:first-child,
+      .footer-grid > div:last-child { grid-column: span 1; }
+      .controls-table, .compare-table { font-size: 0.78rem; }
+      .controls-table th, .controls-table td,
+      .compare-table th, .compare-table td { padding: 9px 10px; }
+      .controls-table td:first-child { white-space: normal; }
+    }
 
-      .section {
-        padding: 82px 0;
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001ms !important;
+        scroll-behavior: auto !important;
       }
-
-      h1 {
-        font-size: clamp(2.85rem, 16vw, 4.7rem);
-      }
-
-      .hero {
-        min-height: auto;
-        padding-bottom: 48px;
-      }
-
-      .hero-actions {
-        flex-direction: column;
-        align-items: stretch;
-      }
-
-      .btn {
-        width: 100%;
-      }
-
-      .dashboard-shell {
-        padding: 9px;
-        border-radius: 21px;
-        transform: none;
-      }
-
-      .brand-logo {
-        height: 38px;
-        max-width: 170px;
-      }
-
-      footer .brand-logo {
-        height: 46px;
-        max-width: 200px;
-      }
-
-      .chip-a {
-        left: -7px;
-        bottom: 17px;
-      }
-
-      .chip-b {
-        right: -7px;
-        top: 17px;
-      }
-
-      .dash-body {
-        grid-template-columns: 1fr;
-      }
-
-      .dash-side {
-        display: none;
-      }
-
-      .dash-main {
-        grid-template-columns: 1fr;
-      }
-
-      .solution-flow {
-        grid-template-columns: 1fr;
-      }
-
-      .flow-step::after {
-        content: "↓";
-        top: auto;
-        right: 50%;
-        bottom: -14px;
-        transform: translateX(50%);
-      }
-
-      .flow-step:nth-child(3)::after {
-        display: block;
-      }
-
-      .flow-step:last-child::after {
-        display: none;
-      }
-
-      .role-grid,
-      .feature-grid,
-      .security-grid,
-      .build-grid,
-      .ops-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .tier-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .origin-grid {
-        gap: 35px;
-      }
-
-      .portrait-card {
-        transform: none;
-      }
-
-      .footer-bottom {
-        flex-direction: column;
-      }
+      .reveal { opacity: 1 !important; transform: none !important; }
     }
   </style>
 </head>
-
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- ========== SVG SPRITE — all UI mockups defined once ========== -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <defs>
+      <!-- 1. Admin dashboard -->
+      <symbol id="mock-admin" viewBox="0 0 320 180">
+        <rect width="320" height="180" fill="#f6fbfd"/>
+        <rect width="40" height="180" fill="#edf4f7"/>
+        <rect x="6" y="10" width="28" height="4" rx="1" fill="#42dfcf"/>
+        <rect x="6" y="22" width="28" height="3" rx="1" fill="#c8d8e2"/>
+        <rect x="6" y="30" width="28" height="3" rx="1" fill="#c8d8e2"/>
+        <rect x="6" y="38" width="28" height="3" rx="1" fill="#c8d8e2"/>
+        <g fill="#fff" stroke="#e3edf2" stroke-width="1">
+          <rect x="48" y="8" width="62" height="28" rx="3"/>
+          <rect x="116" y="8" width="62" height="28" rx="3"/>
+          <rect x="184" y="8" width="62" height="28" rx="3"/>
+          <rect x="252" y="8" width="60" height="28" rx="3"/>
+          <rect x="48" y="44" width="198" height="128" rx="3"/>
+          <rect x="252" y="44" width="60" height="128" rx="3"/>
+        </g>
+        <g fill="#0d2133">
+          <rect x="54" y="14" width="24" height="3" rx="1"/>
+          <rect x="54" y="22" width="18" height="8" rx="1"/>
+          <rect x="122" y="14" width="24" height="3" rx="1"/>
+          <rect x="122" y="22" width="18" height="8" rx="1"/>
+          <rect x="190" y="14" width="24" height="3" rx="1"/>
+          <rect x="190" y="22" width="18" height="8" rx="1"/>
+          <rect x="258" y="14" width="24" height="3" rx="1"/>
+          <rect x="258" y="22" width="18" height="8" rx="1"/>
+        </g>
+        <path d="M58 158 L78 146 L98 150 L118 130 L138 138 L158 116 L178 122 L198 102 L218 106 L234 88" stroke="#25cdbb" stroke-width="2" fill="none" stroke-linecap="round"/>
+        <g fill="#42dfcf">
+          <circle cx="262" cy="56" r="4"/><circle cx="262" cy="74" r="4"/>
+        </g>
+        <g fill="#7b86ff">
+          <circle cx="262" cy="92" r="4"/><circle cx="262" cy="110" r="4"/>
+        </g>
+        <g fill="#c8d8e2">
+          <rect x="270" y="54" width="34" height="3" rx="1"/>
+          <rect x="270" y="72" width="34" height="3" rx="1"/>
+          <rect x="270" y="90" width="34" height="3" rx="1"/>
+          <rect x="270" y="108" width="34" height="3" rx="1"/>
+        </g>
+      </symbol>
+
+      <!-- 2. Appointments calendar -->
+      <symbol id="mock-appointments" viewBox="0 0 320 180">
+        <rect width="320" height="180" fill="#f6fbfd"/>
+        <rect x="10" y="8" width="100" height="10" rx="2" fill="#0d2133"/>
+        <g fill="#fff" stroke="#e3edf2">
+          <rect x="10" y="30" width="58" height="24" rx="2"/><rect x="72" y="30" width="58" height="24" rx="2"/><rect x="134" y="30" width="58" height="24" rx="2"/><rect x="196" y="30" width="58" height="24" rx="2"/><rect x="258" y="30" width="52" height="24" rx="2"/>
+          <rect x="10" y="58" width="58" height="24" rx="2"/><rect x="72" y="58" width="58" height="24" rx="2"/><rect x="134" y="58" width="58" height="24" rx="2"/><rect x="196" y="58" width="58" height="24" rx="2"/><rect x="258" y="58" width="52" height="24" rx="2"/>
+          <rect x="10" y="86" width="58" height="24" rx="2"/><rect x="72" y="86" width="58" height="24" rx="2"/><rect x="134" y="86" width="58" height="24" rx="2"/><rect x="196" y="86" width="58" height="24" rx="2"/><rect x="258" y="86" width="52" height="24" rx="2"/>
+          <rect x="10" y="114" width="58" height="24" rx="2"/><rect x="72" y="114" width="58" height="24" rx="2"/><rect x="134" y="114" width="58" height="24" rx="2"/><rect x="196" y="114" width="58" height="24" rx="2"/><rect x="258" y="114" width="52" height="24" rx="2"/>
+          <rect x="10" y="142" width="58" height="24" rx="2"/><rect x="72" y="142" width="58" height="24" rx="2"/><rect x="134" y="142" width="58" height="24" rx="2"/><rect x="196" y="142" width="58" height="24" rx="2"/><rect x="258" y="142" width="52" height="24" rx="2"/>
+        </g>
+        <rect x="72" y="30" width="58" height="24" rx="2" fill="#d8f8f4" stroke="#42dfcf" stroke-width="1.5"/>
+        <rect x="134" y="58" width="58" height="24" rx="2" fill="#e8e9ff" stroke="#7b86ff" stroke-width="1.5"/>
+        <rect x="196" y="86" width="58" height="24" rx="2" fill="#d8f8f4" stroke="#42dfcf" stroke-width="1.5"/>
+        <rect x="72" y="114" width="58" height="24" rx="2" fill="#d8f8f4" stroke="#42dfcf" stroke-width="1.5"/>
+      </symbol>
+
+      <!-- 3. Patient timeline -->
+      <symbol id="mock-timeline" viewBox="0 0 320 180">
+        <rect width="320" height="180" fill="#f6fbfd"/>
+        <rect x="10" y="8" width="100" height="10" rx="2" fill="#0d2133"/>
+        <rect x="10" y="24" width="70" height="3" rx="1" fill="#c8d8e2"/>
+        <line x1="24" y1="42" x2="24" y2="172" stroke="#c8d8e2" stroke-width="2"/>
+        <g fill="#42dfcf">
+          <circle cx="24" cy="52" r="5"/><circle cx="24" cy="92" r="5"/><circle cx="24" cy="132" r="5"/>
+        </g>
+        <circle cx="24" cy="172" r="5" fill="#7b86ff"/>
+        <g fill="#fff" stroke="#e3edf2">
+          <rect x="38" y="44" width="272" height="18" rx="3"/>
+          <rect x="38" y="84" width="272" height="18" rx="3"/>
+          <rect x="38" y="124" width="272" height="18" rx="3"/>
+          <rect x="38" y="160" width="272" height="14" rx="3"/>
+        </g>
+        <g fill="#0d2133">
+          <rect x="44" y="50" width="60" height="3" rx="1"/>
+          <rect x="44" y="90" width="60" height="3" rx="1"/>
+          <rect x="44" y="130" width="60" height="3" rx="1"/>
+        </g>
+        <g fill="#c8d8e2">
+          <rect x="110" y="50" width="140" height="3" rx="1"/>
+          <rect x="110" y="90" width="140" height="3" rx="1"/>
+          <rect x="110" y="130" width="140" height="3" rx="1"/>
+        </g>
+      </symbol>
+
+      <!-- 4. Prescription with QR -->
+      <symbol id="mock-prescription" viewBox="0 0 320 180">
+        <rect width="320" height="180" fill="#f6fbfd"/>
+        <rect x="70" y="10" width="180" height="160" rx="3" fill="#fff" stroke="#e3edf2"/>
+        <rect x="82" y="20" width="100" height="8" rx="1" fill="#0d2133"/>
+        <rect x="82" y="32" width="60" height="3" rx="1" fill="#c8d8e2"/>
+        <line x1="82" y1="44" x2="238" y2="44" stroke="#e3edf2"/>
+        <g fill="#c8d8e2">
+          <rect x="82" y="52" width="120" height="3" rx="1"/>
+          <rect x="82" y="60" width="140" height="3" rx="1"/>
+          <rect x="82" y="68" width="100" height="3" rx="1"/>
+          <rect x="82" y="76" width="130" height="3" rx="1"/>
+          <rect x="82" y="84" width="90" height="3" rx="1"/>
+        </g>
+        <rect x="190" y="100" width="44" height="44" fill="#0d2133"/>
+        <g fill="#fff">
+          <rect x="194" y="104" width="6" height="6"/><rect x="208" y="104" width="6" height="6"/>
+          <rect x="222" y="104" width="6" height="6"/>
+          <rect x="194" y="118" width="6" height="6"/><rect x="208" y="118" width="6" height="6"/>
+          <rect x="194" y="132" width="6" height="6"/><rect x="222" y="132" width="6" height="6"/>
+          <rect x="208" y="132" width="6" height="6"/>
+        </g>
+        <rect x="82" y="130" width="60" height="4" rx="1" fill="#c8d8e2"/>
+        <rect x="82" y="140" width="80" height="4" rx="1" fill="#c8d8e2"/>
+        <rect x="82" y="150" width="50" height="4" rx="1" fill="#c8d8e2"/>
+      </symbol>
+
+      <!-- 5. Lab reports -->
+      <symbol id="mock-lab" viewBox="0 0 320 180">
+        <rect width="320" height="180" fill="#f6fbfd"/>
+        <rect x="10" y="8" width="100" height="10" rx="2" fill="#0d2133"/>
+        <rect x="10" y="24" width="70" height="3" rx="1" fill="#c8d8e2"/>
+        <g fill="#fff" stroke="#e3edf2">
+          <rect x="10" y="38" width="300" height="28" rx="3"/>
+          <rect x="10" y="72" width="300" height="28" rx="3"/>
+          <rect x="10" y="106" width="300" height="28" rx="3"/>
+          <rect x="10" y="140" width="300" height="28" rx="3"/>
+        </g>
+        <g fill="#d8f8f4">
+          <rect x="18" y="45" width="14" height="14" rx="2"/>
+          <rect x="18" y="79" width="14" height="14" rx="2"/>
+          <rect x="18" y="113" width="14" height="14" rx="2"/>
+          <rect x="18" y="147" width="14" height="14" rx="2"/>
+        </g>
+        <g fill="#42dfcf">
+          <rect x="22" y="49" width="6" height="6"/><rect x="22" y="83" width="6" height="6"/>
+          <rect x="22" y="117" width="6" height="6"/><rect x="22" y="151" width="6" height="6"/>
+        </g>
+        <g fill="#0d2133">
+          <rect x="40" y="44" width="120" height="3" rx="1"/>
+          <rect x="40" y="78" width="120" height="3" rx="1"/>
+          <rect x="40" y="112" width="120" height="3" rx="1"/>
+          <rect x="40" y="146" width="120" height="3" rx="1"/>
+        </g>
+        <g fill="#c8d8e2">
+          <rect x="40" y="52" width="80" height="2" rx="1"/><rect x="40" y="86" width="80" height="2" rx="1"/>
+          <rect x="40" y="120" width="80" height="2" rx="1"/><rect x="40" y="154" width="80" height="2" rx="1"/>
+        </g>
+        <g fill="#d8f8f4">
+          <rect x="250" y="46" width="50" height="12" rx="2"/>
+          <rect x="250" y="80" width="50" height="12" rx="2"/>
+          <rect x="250" y="114" width="50" height="12" rx="2"/>
+          <rect x="250" y="148" width="50" height="12" rx="2"/>
+        </g>
+      </symbol>
+
+      <!-- 6. Refill tracker -->
+      <symbol id="mock-refill" viewBox="0 0 320 180">
+        <rect width="320" height="180" fill="#f6fbfd"/>
+        <rect x="10" y="8" width="120" height="10" rx="2" fill="#0d2133"/>
+        <g fill="#fff" stroke="#e3edf2">
+          <rect x="10" y="30" width="300" height="22" rx="2"/>
+          <rect x="10" y="56" width="300" height="22" rx="2"/>
+          <rect x="10" y="82" width="300" height="22" rx="2"/>
+          <rect x="10" y="108" width="300" height="22" rx="2"/>
+          <rect x="10" y="134" width="300" height="22" rx="2"/>
+        </g>
+        <g fill="#0d2133">
+          <rect x="20" y="38" width="80" height="3" rx="1"/>
+          <rect x="20" y="64" width="80" height="3" rx="1"/>
+          <rect x="20" y="90" width="80" height="3" rx="1"/>
+          <rect x="20" y="116" width="80" height="3" rx="1"/>
+          <rect x="20" y="142" width="80" height="3" rx="1"/>
+        </g>
+        <g fill="#c8d8e2">
+          <rect x="110" y="38" width="60" height="3" rx="1"/><rect x="110" y="64" width="60" height="3" rx="1"/>
+          <rect x="110" y="90" width="60" height="3" rx="1"/><rect x="110" y="116" width="60" height="3" rx="1"/>
+          <rect x="110" y="142" width="60" height="3" rx="1"/>
+        </g>
+        <g fill="#d8f8f4">
+          <rect x="230" y="34" width="60" height="12" rx="6"/>
+          <rect x="230" y="60" width="60" height="12" rx="6"/>
+          <rect x="230" y="86" width="60" height="12" rx="6"/>
+          <rect x="230" y="112" width="60" height="12" rx="6"/>
+          <rect x="230" y="138" width="60" height="12" rx="6"/>
+        </g>
+        <g fill="#42dfcf">
+          <rect x="240" y="39" width="40" height="2" rx="1"/><rect x="240" y="65" width="40" height="2" rx="1"/>
+          <rect x="240" y="91" width="40" height="2" rx="1"/><rect x="240" y="117" width="40" height="2" rx="1"/>
+          <rect x="240" y="143" width="40" height="2" rx="1"/>
+        </g>
+      </symbol>
+
+      <!-- 7. Loyalty tiers -->
+      <symbol id="mock-loyalty" viewBox="0 0 320 180">
+        <rect width="320" height="180" fill="#f6fbfd"/>
+        <rect x="10" y="8" width="100" height="10" rx="2" fill="#0d2133"/>
+        <rect x="10" y="40" width="72" height="100" rx="4" fill="#fff" stroke="#cd7f32" stroke-width="1.5"/>
+        <rect x="88" y="40" width="72" height="100" rx="4" fill="#fff" stroke="#c0c0c0" stroke-width="1.5"/>
+        <rect x="166" y="40" width="72" height="100" rx="4" fill="#fff" stroke="#ffd700" stroke-width="1.5"/>
+        <rect x="244" y="40" width="72" height="100" rx="4" fill="#fff" stroke="#e5e4e2" stroke-width="1.5"/>
+        <g fill="#0d2133">
+          <rect x="22" y="50" width="48" height="4" rx="1"/>
+          <rect x="100" y="50" width="48" height="4" rx="1"/>
+          <rect x="178" y="50" width="48" height="4" rx="1"/>
+          <rect x="256" y="50" width="48" height="4" rx="1"/>
+        </g>
+        <g fill="#cd7f32"><rect x="22" y="60" width="48" height="3" rx="1"/></g>
+        <g fill="#c0c0c0"><rect x="100" y="60" width="48" height="3" rx="1"/></g>
+        <g fill="#b8860b"><rect x="178" y="60" width="48" height="3" rx="1"/></g>
+        <g fill="#7b86ff"><rect x="256" y="60" width="48" height="3" rx="1"/></g>
+        <g fill="#e3edf2">
+          <rect x="22" y="80" width="48" height="2" rx="1"/><rect x="22" y="88" width="40" height="2" rx="1"/>
+          <rect x="100" y="80" width="48" height="2" rx="1"/><rect x="100" y="88" width="40" height="2" rx="1"/>
+          <rect x="178" y="80" width="48" height="2" rx="1"/><rect x="178" y="88" width="40" height="2" rx="1"/>
+          <rect x="256" y="80" width="48" height="2" rx="1"/><rect x="256" y="88" width="40" height="2" rx="1"/>
+        </g>
+      </symbol>
+
+      <!-- 8. Analytics -->
+      <symbol id="mock-analytics" viewBox="0 0 320 180">
+        <rect width="320" height="180" fill="#f6fbfd"/>
+        <rect x="10" y="8" width="100" height="10" rx="2" fill="#0d2133"/>
+        <rect x="10" y="26" width="140" height="60" rx="3" fill="#fff" stroke="#e3edf2"/>
+        <rect x="158" y="26" width="152" height="60" rx="3" fill="#fff" stroke="#e3edf2"/>
+        <rect x="10" y="94" width="300" height="78" rx="3" fill="#fff" stroke="#e3edf2"/>
+        <path d="M20 76 L40 66 L60 70 L80 54 L100 60 L120 44 L140 50" stroke="#25cdbb" stroke-width="2" fill="none" stroke-linecap="round"/>
+        <g fill="#42dfcf">
+          <rect x="172" y="60" width="12" height="20" rx="1"/>
+          <rect x="188" y="50" width="12" height="30" rx="1"/>
+          <rect x="204" y="55" width="12" height="25" rx="1"/>
+          <rect x="220" y="42" width="12" height="38" rx="1"/>
+          <rect x="236" y="48" width="12" height="32" rx="1"/>
+          <rect x="252" y="38" width="12" height="42" rx="1"/>
+          <rect x="268" y="55" width="12" height="25" rx="1"/>
+          <rect x="284" y="45" width="12" height="35" rx="1"/>
+        </g>
+        <path d="M20 160 L50 148 L80 152 L110 132 L140 140 L170 118 L200 126 L230 106 L260 112 L290 92" stroke="#7b86ff" stroke-width="2" fill="none" stroke-linecap="round"/>
+      </symbol>
+
+      <!-- 9. Register form (for demo) -->
+      <symbol id="mock-register" viewBox="0 0 320 180">
+        <rect width="320" height="180" fill="#f6fbfd"/>
+        <rect x="10" y="8" width="140" height="10" rx="2" fill="#0d2133"/>
+        <rect x="10" y="28" width="300" height="18" rx="2" fill="#fff" stroke="#e3edf2"/>
+        <rect x="10" y="52" width="300" height="18" rx="2" fill="#fff" stroke="#e3edf2"/>
+        <rect x="10" y="76" width="300" height="18" rx="2" fill="#fff" stroke="#e3edf2"/>
+        <rect x="10" y="100" width="145" height="18" rx="2" fill="#fff" stroke="#e3edf2"/>
+        <rect x="165" y="100" width="145" height="18" rx="2" fill="#fff" stroke="#e3edf2"/>
+        <rect x="10" y="128" width="300" height="18" rx="2" fill="#fff" stroke="#e3edf2"/>
+        <rect x="10" y="154" width="80" height="18" rx="2" fill="#42dfcf"/>
+        <rect x="24" y="161" width="52" height="4" rx="1" fill="#06141c"/>
+        <g fill="#c8d8e2">
+          <rect x="20" y="33" width="60" height="3" rx="1"/>
+          <rect x="20" y="57" width="80" height="3" rx="1"/>
+          <rect x="20" y="81" width="70" height="3" rx="1"/>
+          <rect x="20" y="105" width="40" height="3" rx="1"/>
+          <rect x="175" y="105" width="40" height="3" rx="1"/>
+          <rect x="20" y="133" width="90" height="3" rx="1"/>
+        </g>
+      </symbol>
+
+      <!-- 10. Consult view (patient + note) -->
+      <symbol id="mock-consult" viewBox="0 0 320 180">
+        <rect width="320" height="180" fill="#f6fbfd"/>
+        <rect x="0" y="0" width="320" height="30" fill="#fff" stroke="#e3edf2"/>
+        <circle cx="18" cy="15" r="8" fill="#d8f8f4"/>
+        <rect x="32" y="10" width="80" height="4" rx="1" fill="#0d2133"/>
+        <rect x="32" y="18" width="50" height="3" rx="1" fill="#c8d8e2"/>
+        <rect x="220" y="8" width="90" height="14" rx="7" fill="#d8f8f4"/>
+        <rect x="232" y="13" width="66" height="4" rx="1" fill="#42dfcf"/>
+        <rect x="10" y="40" width="145" height="130" rx="3" fill="#fff" stroke="#e3edf2"/>
+        <rect x="20" y="48" width="80" height="4" rx="1" fill="#0d2133"/>
+        <g fill="#c8d8e2">
+          <rect x="20" y="60" width="125" height="3" rx="1"/>
+          <rect x="20" y="68" width="110" height="3" rx="1"/>
+          <rect x="20" y="76" width="125" height="3" rx="1"/>
+          <rect x="20" y="84" width="90" height="3" rx="1"/>
+        </g>
+        <rect x="20" y="98" width="125" height="3" rx="1" fill="#0d2133"/>
+        <g fill="#c8d8e2">
+          <rect x="20" y="108" width="120" height="3" rx="1"/>
+          <rect x="20" y="116" width="100" height="3" rx="1"/>
+          <rect x="20" y="124" width="115" height="3" rx="1"/>
+        </g>
+        <rect x="165" y="40" width="145" height="130" rx="3" fill="#fff" stroke="#e3edf2"/>
+        <rect x="175" y="48" width="80" height="4" rx="1" fill="#0d2133"/>
+        <g fill="#d8f8f4">
+          <rect x="175" y="60" width="125" height="14" rx="2"/>
+          <rect x="175" y="80" width="125" height="14" rx="2"/>
+          <rect x="175" y="100" width="125" height="14" rx="2"/>
+        </g>
+        <g fill="#42dfcf">
+          <rect x="180" y="65" width="60" height="3" rx="1"/>
+          <rect x="180" y="85" width="80" height="3" rx="1"/>
+          <rect x="180" y="105" width="50" height="3" rx="1"/>
+        </g>
+        <rect x="175" y="130" width="60" height="18" rx="2" fill="#42dfcf"/>
+        <rect x="188" y="137" width="35" height="4" rx="1" fill="#06141c"/>
+      </symbol>
+    </defs>
+  </svg>
+
   <div class="nav-wrap">
     <nav class="nav" aria-label="Main navigation">
       <a class="brand" href="#top" aria-label="ClinicFlow Pro home">
-        <img class="brand-logo" src="logo.png" alt="ClinicFlow Pro" />
+        <img class="brand-logo" src="logo.png" alt="ClinicFlow Pro" width="220" height="46" />
       </a>
-
       <div class="nav-links" id="navLinks">
         <a href="#solution">Solution</a>
         <a href="#features">Features</a>
@@ -1697,201 +1196,129 @@
         <a href="#faq">FAQ</a>
         <a class="nav-cta" href="#contact">Request a preview</a>
       </div>
-
-      <button class="menu-btn" id="menuBtn" aria-label="Open navigation" aria-expanded="false">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+      <button class="menu-btn" id="menuBtn" aria-label="Open navigation" aria-expanded="false" aria-controls="navLinks">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
           <path d="M4 7H20M4 12H20M4 17H20" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
         </svg>
       </button>
     </nav>
   </div>
 
-  <main id="top">
-    <section class="hero section-sm">
+  <main id="main">
+    <!-- ============ HERO ============ -->
+    <section class="hero section-sm" id="top">
       <div class="container">
         <div class="hero-grid">
           <div class="hero-copy reveal">
             <div class="hero-tag">
-              <span class="pulse"></span>
+              <span class="pulse" aria-hidden="true"></span>
               Modern clinic management for real workflows
             </div>
-
             <div class="eyebrow">ClinicFlow Pro</div>
-
-            <h1>
-              Run the clinic.
-              <span class="text-gradient">Not the paperwork.</span>
-            </h1>
-
+            <h1>Run the clinic.<br><span class="text-gradient">Not the paperwork.</span></h1>
             <p class="lead">
-              ClinicFlow Pro brings appointments, patient timelines, digital prescriptions,
-              lab reports, loyalty rewards, billing, analytics, communication and AI-assisted
-              tools into one focused system for doctors, receptionists, administrators and patients.
+              ClinicFlow Pro brings appointments, patient timelines, digital prescriptions
+              with QR, lab reports, loyalty rewards, billing, analytics, communication and
+              AI-assisted tools into one focused system for doctors, receptionists,
+              administrators and patients.
             </p>
-
             <div class="hero-actions">
               <a class="btn btn-primary" href="#contact">Request a product preview</a>
               <a class="btn btn-secondary" href="#features">Explore the platform</a>
             </div>
-
+            <p class="hero-micro">25-day free trial · no card required · runs on standard PHP / MySQL hosting</p>
             <div class="micro-proof">
-              <div>
-                <strong>42+</strong>
-                Functional pages and modules
-              </div>
-              <div>
-                <strong>4</strong>
-                Role-specific dashboards
-              </div>
-              <div>
-                <strong>PWA</strong>
-                Installable on mobile
-              </div>
-              <div>
-                <strong>AI assisted</strong>
-                Workflow support built in
-              </div>
+              <div><strong>40+</strong>Pages and modules</div>
+              <div><strong>4</strong>Role-specific dashboards</div>
+              <div><strong>PWA</strong>Installable on mobile</div>
+              <div><strong>AI assisted</strong>Workflow support built in</div>
             </div>
           </div>
-
           <div class="hero-visual reveal">
-            <div class="dashboard-shell">
-              <div class="dashboard-top">
-                <div class="dashboard-top-left">
-                  <span class="window-dot"></span>
-                  <span class="window-dot"></span>
-                  <span class="window-dot active"></span>
+            <div class="mockup-frame">
+              <div class="shot-chrome">
+                <div class="shot-chrome-left">
+                  <span class="window-dot" aria-hidden="true"></span>
+                  <span class="window-dot" aria-hidden="true"></span>
+                  <span class="window-dot active" aria-hidden="true"></span>
                   <span style="margin-left:5px;">ClinicFlow workspace</span>
                 </div>
                 <span>Secure workspace</span>
               </div>
-
-              <div class="dashboard-frame">
-                <div class="dash-header">
-                  <div class="dash-logo">ClinicFlow Pro</div>
-                  <div class="dash-user">AH</div>
-                </div>
-
-                <div class="dash-body">
-                  <aside class="dash-side">
-                    <div class="side-item active">Overview</div>
-                    <div class="side-item">Appointments</div>
-                    <div class="side-item">Patients</div>
-                    <div class="side-item">Prescriptions</div>
-                    <div class="side-item">Lab Reports</div>
-                    <div class="side-item">Billing</div>
-                    <div class="side-item">Analytics</div>
-                  </aside>
-
-                  <div class="dash-content">
-                    <div class="dash-row">
-                      <div class="mini-card">
-                        <div class="mini-label">Today's appointments</div>
-                        <div class="mini-value">36</div>
-                        <div class="mini-good">Live schedule</div>
-                      </div>
-                      <div class="mini-card">
-                        <div class="mini-label">Patients</div>
-                        <div class="mini-value">1,284</div>
-                        <div class="mini-good">Timeline ready</div>
-                      </div>
-                      <div class="mini-card">
-                        <div class="mini-label">Revenue view</div>
-                        <div class="mini-value">₨ 248K</div>
-                        <div class="mini-good">This month</div>
-                      </div>
-                    </div>
-
-                    <div class="dash-main">
-                      <div class="chart-card">
-                        <div class="chart-head">
-                          <div class="chart-title">Patient flow</div>
-                          <div class="chart-range">Last 7 days</div>
-                        </div>
-                        <div class="chart" aria-label="Decorative patient flow chart">
-                          <svg viewBox="0 0 420 112" preserveAspectRatio="none" role="img">
-                            <defs>
-                              <linearGradient id="area" x1="0" y1="0" x2="0" y2="1">
-                                <stop offset="0%" stop-color="#42dfcf" stop-opacity=".30"/>
-                                <stop offset="100%" stop-color="#42dfcf" stop-opacity="0"/>
-                              </linearGradient>
-                            </defs>
-                            <path d="M0 88 C40 82, 48 70, 76 74 C104 78, 107 46, 138 58 C168 72, 184 54, 210 61 C236 68, 248 30, 279 45 C308 58, 322 38, 344 41 C373 45, 391 22, 420 29 L420 112 L0 112 Z" fill="url(#area)"/>
-                            <path d="M0 88 C40 82, 48 70, 76 74 C104 78, 107 46, 138 58 C168 72, 184 54, 210 61 C236 68, 248 30, 279 45 C308 58, 322 38, 344 41 C373 45, 391 22, 420 29" fill="none" stroke="#25cdbb" stroke-width="2.8" stroke-linecap="round"/>
-                          </svg>
-                        </div>
-                      </div>
-
-                      <div class="queue-card">
-                        <div class="chart-head">
-                          <div class="chart-title">Today's queue</div>
-                          <div class="chart-range">Live</div>
-                        </div>
-
-                        <div class="queue-list">
-                          <div class="queue-row">
-                            <div class="avatar">RS</div>
-                            <div class="queue-name">Riya Shah</div>
-                            <div class="queue-time">09:30</div>
-                          </div>
-                          <div class="queue-row">
-                            <div class="avatar">AM</div>
-                            <div class="queue-name">Ali Malik</div>
-                            <div class="queue-time">10:10</div>
-                          </div>
-                          <div class="queue-row">
-                            <div class="avatar">SA</div>
-                            <div class="queue-name">Sara Ahmed</div>
-                            <div class="queue-time">10:40</div>
-                          </div>
-                          <div class="queue-row">
-                            <div class="avatar">ZN</div>
-                            <div class="queue-name">Zain Noor</div>
-                            <div class="queue-time">11:20</div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <svg class="mockup" aria-hidden="true"><use href="#mock-admin"/></svg>
+              <span class="sr-only">Representative admin dashboard with today's appointments, revenue, patient flow and queue.</span>
             </div>
-
-            <div class="floating-chip chip-a">
+            <div class="floating-chip chip-a" aria-hidden="true">
               <div class="chip-label">Access control</div>
               <div class="chip-value teal">Role based</div>
             </div>
-
-            <div class="floating-chip chip-b">
+            <div class="floating-chip chip-b" aria-hidden="true">
               <div class="chip-label">AI assistant</div>
-              <div class="chip-value">Available 24/7</div>
+              <div class="chip-value">Assistive</div>
             </div>
           </div>
         </div>
 
         <div class="stats-bar reveal">
           <div class="stats-grid">
-            <div class="stat">
-              <strong>42+</strong>
-              <span>Functional pages across the platform</span>
-            </div>
-            <div class="stat">
-              <strong>4</strong>
-              <span>Dashboards built around distinct roles</span>
-            </div>
-            <div class="stat">
-              <strong>4 AI tools</strong>
-              <span>Symptom, diagnosis, risk, assistant</span>
-            </div>
-            <div class="stat">
-              <strong>PWA installable</strong>
-              <span>Works like a native app on mobile</span>
-            </div>
+            <div class="stat"><strong>40+</strong><span>Pages and modules</span></div>
+            <div class="stat"><strong>4</strong><span>Role-based dashboards</span></div>
+            <div class="stat"><strong>PWA</strong><span>Installable like a native app</span></div>
+            <div class="stat"><strong>AI assisted</strong><span>Workflow support, not diagnosis</span></div>
           </div>
         </div>
       </div>
     </section>
 
+    <!-- ============ GALLERY ============ -->
+    <section class="section section-sm" id="gallery" aria-labelledby="gallery-heading">
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="eyebrow">Product preview</div>
+          <h2 id="gallery-heading">Eight screens from the actual workflow.</h2>
+          <p class="lead">
+            Illustrative previews of the admin, doctor, reception and patient workspaces —
+            a quick way to understand the shape of the product before a live walkthrough.
+          </p>
+        </div>
+        <div class="gallery-grid reveal">
+          <figure class="gallery-item">
+            <div class="gallery-thumb"><svg class="mockup" aria-hidden="true"><use href="#mock-admin"/></svg></div>
+            <figcaption class="gallery-cap">Admin dashboard</figcaption>
+          </figure>
+          <figure class="gallery-item">
+            <div class="gallery-thumb"><svg class="mockup" aria-hidden="true"><use href="#mock-appointments"/></svg></div>
+            <figcaption class="gallery-cap">Appointments calendar</figcaption>
+          </figure>
+          <figure class="gallery-item">
+            <div class="gallery-thumb"><svg class="mockup" aria-hidden="true"><use href="#mock-timeline"/></svg></div>
+            <figcaption class="gallery-cap">Patient timeline</figcaption>
+          </figure>
+          <figure class="gallery-item">
+            <div class="gallery-thumb"><svg class="mockup" aria-hidden="true"><use href="#mock-prescription"/></svg></div>
+            <figcaption class="gallery-cap">Prescription with QR</figcaption>
+          </figure>
+          <figure class="gallery-item">
+            <div class="gallery-thumb"><svg class="mockup" aria-hidden="true"><use href="#mock-lab"/></svg></div>
+            <figcaption class="gallery-cap">Lab reports</figcaption>
+          </figure>
+          <figure class="gallery-item">
+            <div class="gallery-thumb"><svg class="mockup" aria-hidden="true"><use href="#mock-refill"/></svg></div>
+            <figcaption class="gallery-cap">Refill tracker</figcaption>
+          </figure>
+          <figure class="gallery-item">
+            <div class="gallery-thumb"><svg class="mockup" aria-hidden="true"><use href="#mock-loyalty"/></svg></div>
+            <figcaption class="gallery-cap">Loyalty tiers</figcaption>
+          </figure>
+          <figure class="gallery-item">
+            <div class="gallery-thumb"><svg class="mockup" aria-hidden="true"><use href="#mock-analytics"/></svg></div>
+            <figcaption class="gallery-cap">Analytics</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PROBLEM ============ -->
     <section class="section" id="problem">
       <div class="container">
         <div class="problem-grid">
@@ -1901,59 +1328,34 @@
             <p class="lead">
               ClinicFlow Pro was shaped around recurring operational problems observed in
               local clinic workflows: paper records, scattered spreadsheets, phone-based
-              scheduling, handwritten prescriptions and limited visibility into what is happening.
+              scheduling, handwritten prescriptions and limited visibility.
             </p>
           </div>
-
           <div class="reveal">
             <div class="problem-list">
               <div class="problem-item">
-                <div class="problem-icon">01</div>
-                <div>
-                  <strong>Patient history is scattered</strong>
-                  <span>Paper files and separate spreadsheets make the right information harder to find when it matters.</span>
-                </div>
+                <div class="problem-icon" aria-hidden="true">01</div>
+                <div><strong>Patient history is scattered</strong><span>Paper files and spreadsheets make the right information hard to find.</span></div>
               </div>
-
               <div class="problem-item">
-                <div class="problem-icon">02</div>
-                <div>
-                  <strong>Appointments depend on manual coordination</strong>
-                  <span>Calls and manual entries increase the chance of missed slots and scheduling conflicts.</span>
-                </div>
+                <div class="problem-icon" aria-hidden="true">02</div>
+                <div><strong>Appointments depend on manual coordination</strong><span>Phone calls and manual entries cause missed slots and conflicts.</span></div>
               </div>
-
               <div class="problem-item">
-                <div class="problem-icon">03</div>
-                <div>
-                  <strong>Prescriptions stay disconnected from the workflow</strong>
-                  <span>Handwritten processes create avoidable friction for doctors, patients and pharmacies.</span>
-                </div>
+                <div class="problem-icon" aria-hidden="true">03</div>
+                <div><strong>Prescriptions stay disconnected</strong><span>Handwritten slips create avoidable friction for doctors and patients.</span></div>
               </div>
-
               <div class="problem-item">
-                <div class="problem-icon">04</div>
-                <div>
-                  <strong>Owners lack operational visibility</strong>
-                  <span>Without a unified view, revenue, patient flow and doctor performance are difficult to review.</span>
-                </div>
+                <div class="problem-icon" aria-hidden="true">04</div>
+                <div><strong>Owners lack operational visibility</strong><span>Revenue, patient flow and doctor performance are hard to review.</span></div>
               </div>
-
               <div class="problem-item">
-                <div class="problem-icon">05</div>
-                <div>
-                  <strong>Local context is often overlooked</strong>
-                  <span>International tools may not reflect PKR pricing, WhatsApp-first communication or local workflow expectations.</span>
-                </div>
+                <div class="problem-icon" aria-hidden="true">05</div>
+                <div><strong>Local context is often overlooked</strong><span>Global tools may not fit PKR pricing, WhatsApp or local workflows.</span></div>
               </div>
             </div>
-
             <div class="quote-card">
-              <p>
-                The idea started with a simple observation: clinics needed a system that felt
-                practical for how they already work, not a generic enterprise platform dropped
-                into a local clinic.
-              </p>
+              <p>Every one of these problems is a place where information gets lost between people.</p>
               <span class="muted">Project direction documented by Abdul Hannan Ghaznavi</span>
             </div>
           </div>
@@ -1961,6 +1363,7 @@
       </div>
     </section>
 
+    <!-- ============ SOLUTION ============ -->
     <section class="section section-sm" id="solution">
       <div class="container">
         <div class="section-head reveal">
@@ -1971,47 +1374,35 @@
             so the next action is easier to see and the right information stays in context.
           </p>
         </div>
-
         <div class="solution-flow reveal">
-          <div class="flow-step">
-            <div class="step-number">01</div>
-            <h3>Register</h3>
-            <div class="step-text">Create a patient record from reception or the patient portal.</div>
-          </div>
+          <div class="flow-step"><div class="step-number">01</div><h3>Register</h3><div class="step-text">Create a patient record from reception or the patient portal.</div></div>
+          <div class="flow-step"><div class="step-number">02</div><h3>Schedule</h3><div class="step-text">Book against doctor availability with conflict detection.</div></div>
+          <div class="flow-step"><div class="step-number">03</div><h3>Consult</h3><div class="step-text">Review the patient's timeline and record the visit in one place.</div></div>
+          <div class="flow-step"><div class="step-number">04</div><h3>Prescribe</h3><div class="step-text">Digital prescriptions with dosage tracking, QR and refills.</div></div>
+          <div class="flow-step"><div class="step-number">05</div><h3>Follow up</h3><div class="step-text">Lab reports, reminders and loyalty points keep the next step visible.</div></div>
+          <div class="flow-step"><div class="step-number">06</div><h3>Review</h3><div class="step-text">Analytics for patient flow, revenue and operations.</div></div>
+        </div>
 
-          <div class="flow-step">
-            <div class="step-number">02</div>
-            <h3>Schedule</h3>
-            <div class="step-text">Book against doctor availability with conflict detection and reminders.</div>
+        <div class="before-after reveal">
+          <div class="ba-col before">
+            <div class="ba-label">Before ClinicFlow</div>
+            <div class="ba-steps">
+              <span>Register</span><em>→</em><span>Paper file</span><em>→</em>
+              <span>Phone call</span><em>→</em><span>Handwritten Rx</span><em>→</em><span>Lost follow-up</span>
+            </div>
           </div>
-
-          <div class="flow-step">
-            <div class="step-number">03</div>
-            <h3>Consult</h3>
-            <div class="step-text">Review the patient's timeline and record the consultation in one place.</div>
-          </div>
-
-          <div class="flow-step">
-            <div class="step-number">04</div>
-            <h3>Prescribe</h3>
-            <div class="step-text">Create digital prescriptions with dosage tracking, QR support and refill tracking.</div>
-          </div>
-
-          <div class="flow-step">
-            <div class="step-number">05</div>
-            <h3>Follow up</h3>
-            <div class="step-text">Lab reports, WhatsApp reminders and loyalty points keep the next step visible.</div>
-          </div>
-
-          <div class="flow-step">
-            <div class="step-number">06</div>
-            <h3>Review</h3>
-            <div class="step-text">Use analytics to understand patient flow, revenue and operations.</div>
+          <div class="ba-col after">
+            <div class="ba-label">After ClinicFlow</div>
+            <div class="ba-steps">
+              <span>Register</span><em>→</em><span>Timeline</span><em>→</em>
+              <span>Live slot</span><em>→</em><span>Digital Rx + QR</span><em>→</em><span>Automated reminder</span>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
+    <!-- ============ ROLES ============ -->
     <section class="section" id="roles">
       <div class="container">
         <div class="section-head reveal">
@@ -2022,35 +1413,62 @@
             role the information and actions that match its work.
           </p>
         </div>
-
         <div class="role-grid reveal">
           <div class="role-card">
             <span class="role-label">Admin</span>
             <h3>See the whole clinic</h3>
-            <p>Manage staff, permissions, doctor fees, subscriptions, holidays, billing, analytics and audit visibility from one operational view.</p>
+            <p>Manage staff, permissions, doctor fees, subscriptions, holidays, billing, analytics and audit visibility.</p>
+            <div class="role-stops">stops chasing spreadsheets for revenue and staff records.</div>
           </div>
-
           <div class="role-card">
             <span class="role-label">Doctor</span>
             <h3>Stay focused on care</h3>
-            <p>Review patient history, manage the schedule, track refills, issue prescriptions and use assistive AI tools during consultation.</p>
+            <p>Review patient history, manage the schedule, track refills, issue prescriptions and use assistive AI tools.</p>
+            <div class="role-stops">stops flipping through paper files mid-consultation.</div>
           </div>
-
           <div class="role-card">
             <span class="role-label">Receptionist</span>
             <h3>Keep the day moving</h3>
-            <p>Register patients, manage appointments, upload lab reports, view the daily schedule, handle billing records and reduce front-desk overhead.</p>
+            <p>Register patients, manage appointments, upload lab reports, view the schedule and handle billing records.</p>
+            <div class="role-stops">stops re-entering the same patient details on paper and in a register.</div>
           </div>
-
           <div class="role-card">
             <span class="role-label">Patient</span>
             <h3>Stay in the loop</h3>
-            <p>View appointments, lab reports, consultation history and digital prescriptions, cancel slots, earn loyalty points and receive reminders.</p>
+            <p>View appointments, lab reports, history and prescriptions, cancel slots, earn loyalty points and receive reminders.</p>
+            <div class="role-stops">stops calling the clinic to ask for a report or a prescription copy.</div>
           </div>
         </div>
       </div>
     </section>
 
+    <!-- ============ DEMO / GUIDED TOUR ============ -->
+    <section class="section section-sm" id="demo" aria-labelledby="demo-heading">
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="eyebrow">Guided tour</div>
+          <h2 id="demo-heading">Walk through the workflow in five steps.</h2>
+          <p class="lead">
+            A short tour of the five screens that matter most to a clinic owner.
+            Use the buttons below or the left/right arrow keys.
+          </p>
+        </div>
+        <div class="demo-panel reveal" tabindex="0" aria-describedby="demoStepLabel">
+          <div class="demo-stage">
+            <svg class="mockup" id="demoSvg" aria-hidden="true"><use id="demoUse" href="#mock-register"/></svg>
+          </div>
+          <div class="demo-controls">
+            <span class="demo-label" id="demoStepLabel">Step 1 of 5 — Register a patient</span>
+            <div class="demo-buttons">
+              <button class="demo-btn" id="demoPrev" type="button" disabled>← Prev</button>
+              <button class="demo-btn" id="demoNext" type="button">Next →</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FEATURES ============ -->
     <section class="section section-sm" id="features">
       <div class="container">
         <div class="section-head reveal">
@@ -2061,233 +1479,93 @@
             loyalty rewards, refill tracking and intelligent assistance around them.
           </p>
         </div>
-
         <div class="feature-grid reveal">
+          <div class="feature-card"><div class="feature-icon" aria-hidden="true">01</div><h3>Smart scheduling</h3><p>Manage doctor availability, appointment conflicts and reminders in one workflow.</p></div>
+          <div class="feature-card"><div class="feature-icon" aria-hidden="true">02</div><h3>Patient timeline</h3><p>Keep visits, diagnoses, treatments and prescriptions in chronological context.</p></div>
+          <div class="feature-card"><div class="feature-icon" aria-hidden="true">03</div><h3>Digital prescriptions</h3><p>Create electronic prescriptions with dosage details and QR verification.</p></div>
           <div class="feature-card">
-            <div class="feature-icon">01</div>
-            <h3>Smart scheduling</h3>
-            <p>Manage doctor availability, appointment conflicts and reminders in a connected workflow.</p>
-          </div>
-
-          <div class="feature-card">
-            <div class="feature-icon">02</div>
-            <h3>Patient timeline</h3>
-            <p>Keep visits, diagnoses, treatments and prescriptions together in chronological context.</p>
-          </div>
-
-          <div class="feature-card">
-            <div class="feature-icon">03</div>
-            <h3>Digital prescriptions</h3>
-            <p>Create electronic prescriptions with dosage details and QR based verification support.</p>
-          </div>
-
-          <div class="feature-card">
-            <div class="feature-icon">04</div>
+            <svg class="feature-thumb" aria-hidden="true"><use href="#mock-lab"/></svg>
             <h3>Lab reports</h3>
-            <p>Receptionists upload and manage lab reports; patients view them from their own portal — a full workflow that used to be missing.</p>
+            <p>Receptionists upload and manage lab reports; patients view them from their portal.</p>
           </div>
-
           <div class="feature-card">
-            <div class="feature-icon">05</div>
+            <svg class="feature-thumb" aria-hidden="true"><use href="#mock-refill"/></svg>
             <h3>Prescription refill tracker</h3>
-            <p>Doctors see due refills in a dedicated dashboard, while daily cron jobs trigger automated WhatsApp reminder workflows.</p>
+            <p>Doctors see due refills in a dashboard; daily cron jobs trigger WhatsApp reminders.</p>
           </div>
-
-          <div class="feature-card">
-            <div class="feature-icon">06</div>
-            <h3>Analytics dashboard</h3>
-            <p>Review revenue, appointment volume, patient flow and doctor performance from one place.</p>
-          </div>
-
-          <div class="feature-card">
-            <div class="feature-icon">07</div>
-            <h3>Doctor patient chat</h3>
-            <p>Keep patient communication inside a secure in-app messaging workflow with read status.</p>
-          </div>
-
-          <div class="feature-card">
-            <div class="feature-icon">08</div>
-            <h3>WhatsApp reminders</h3>
-            <p>Send appointment and prescription reminders through WhatsApp deep links, with SMS notification settings available in admin.</p>
-          </div>
-
-          <div class="feature-card">
-            <div class="feature-icon">09</div>
-            <h3>Patient reviews & feedback</h3>
-            <p>Patients share visit experiences and earn +20 loyalty points — building social proof for the clinic.</p>
-          </div>
-
-          <div class="feature-card">
-            <div class="feature-icon">10</div>
-            <h3>Health tips</h3>
-            <p>Deliver patient education through health tips pages and dashboard widgets — natural fit alongside the AI section.</p>
-          </div>
-
-          <div class="feature-card">
-            <div class="feature-icon">11</div>
-            <h3>Patient portal</h3>
-            <p>Give patients a direct view into upcoming appointments, lab reports, history and digital prescriptions.</p>
-          </div>
-
-          <div class="feature-card">
-            <div class="feature-icon">12</div>
-            <h3>Flexible dashboards</h3>
-            <p>Let users rearrange and save dashboard layouts around the information they use most.</p>
-          </div>
+          <div class="feature-card"><div class="feature-icon" aria-hidden="true">06</div><h3>Analytics dashboard</h3><p>Review revenue, appointment volume, patient flow and doctor performance.</p></div>
+          <div class="feature-card"><div class="feature-icon" aria-hidden="true">07</div><h3>Doctor patient chat</h3><p>Keep patient communication inside a secure in-app messaging workflow.</p></div>
+          <div class="feature-card"><div class="feature-icon" aria-hidden="true">08</div><h3>WhatsApp reminders</h3><p>Send appointment and prescription reminders through WhatsApp deep links.</p></div>
+          <div class="feature-card"><div class="feature-icon" aria-hidden="true">09</div><h3>Patient reviews</h3><p>Patients share visit experiences and earn +20 loyalty points.</p></div>
+          <div class="feature-card"><div class="feature-icon" aria-hidden="true">10</div><h3>Health tips</h3><p>Deliver patient education through health tips pages and dashboard widgets.</p></div>
+          <div class="feature-card"><div class="feature-icon" aria-hidden="true">11</div><h3>Patient portal</h3><p>Give patients a direct view into appointments, reports, history and prescriptions.</p></div>
+          <div class="feature-card"><div class="feature-icon" aria-hidden="true">12</div><h3>Flexible dashboards</h3><p>Let users rearrange and save dashboard layouts around their most-used data.</p></div>
         </div>
       </div>
     </section>
 
+    <!-- ============ MODULES ============ -->
     <section class="section" id="modules">
       <div class="container">
         <div class="section-head reveal">
           <div class="eyebrow">Operational backbone</div>
           <h2>The admin and operations modules that keep the clinic running.</h2>
           <p class="lead">
-            Beyond the core patient workflow, ClinicFlow Pro ships with a full set of
-            administrative and operational modules — staff, fees, holidays, subscriptions,
-            search, settings and statistics — so the system does not stop at clinical work.
+            Beyond the patient workflow, ClinicFlow Pro ships with admin and operational
+            modules — staff, fees, holidays, subscriptions, search, settings and statistics.
           </p>
         </div>
-
         <div class="ops-grid reveal">
-          <div class="ops-card">
-            <div class="ops-icon">SM</div>
-            <h3>Staff management</h3>
-            <p>Add and manage doctors and receptionists, with subscription-based limits enforced across roles.</p>
-          </div>
-
-          <div class="ops-card">
-            <div class="ops-icon">DF</div>
-            <h3>Doctor fee management</h3>
-            <p>Configure per-doctor consultation fees, so billing reflects each doctor's actual pricing.</p>
-          </div>
-
-          <div class="ops-card">
-            <div class="ops-icon">HL</div>
-            <h3>Holiday & leave management</h3>
-            <p>Doctors request leave; admins approve or reject. Recurring yearly clinic holidays are configurable.</p>
-          </div>
-
-          <div class="ops-card">
-            <div class="ops-icon">SE</div>
-            <h3>Subscription engine</h3>
-            <p>Free/Pro plans, plan-based limits, upgrade flows and a subscription growth chart — already built in admin.</p>
-          </div>
-
-          <div class="ops-card">
-            <div class="ops-icon">GS</div>
-            <h3>Global search</h3>
-            <p>App-wide search helps staff find patients, doctors, appointments and records in one query.</p>
-          </div>
-
-          <div class="ops-card">
-            <div class="ops-icon">MC</div>
-            <h3>Master calendar</h3>
-            <p>Unified calendar view gives admin and reception a single operational schedule across the clinic.</p>
-          </div>
-
-          <div class="ops-card">
-            <div class="ops-icon">LS</div>
-            <h3>Live slot availability</h3>
-            <p>get_slots.php and check_availability.php power a live slot API so booking reflects real-time availability.</p>
-          </div>
-
-          <div class="ops-card">
-            <div class="ops-icon">AS</div>
-            <h3>Admin settings panel</h3>
-            <p>Clinic information, notification toggles (including SMS) and other system-wide settings in one place.</p>
-          </div>
-
-          <div class="ops-card">
-            <div class="ops-icon">SS</div>
-            <h3>System statistics</h3>
-            <p>Admin-wide system stats plus a separate doctor personal stats page for performance visibility.</p>
-          </div>
-
-          <div class="ops-card">
-            <div class="ops-icon">BR</div>
-            <h3>Billing & records</h3>
-            <p>Payment records stay connected to the wider clinic workflow, including per-doctor fees.</p>
-          </div>
-
-          <div class="ops-card">
-            <div class="ops-icon">CR</div>
-            <h3>Automated cron jobs</h3>
-            <p>Daily cron scripts check due refills and trigger reminder workflows so nothing slips between visits.</p>
-          </div>
-
-          <div class="ops-card">
-            <div class="ops-icon">PW</div>
-            <h3>PWA installable app</h3>
-            <p>Manifest + service worker + install button make the platform installable like a native app on mobile.</p>
-          </div>
+          <div class="ops-card"><div class="ops-icon" aria-hidden="true">SM</div><h3>Staff management</h3><p>Add and manage doctors and receptionists, with plan-based limits enforced.</p><span class="ops-tag">Admin</span></div>
+          <div class="ops-card"><div class="ops-icon" aria-hidden="true">DF</div><h3>Doctor fee management</h3><p>Configure per-doctor consultation fees so billing reflects actual pricing.</p><span class="ops-tag">Admin</span></div>
+          <div class="ops-card"><div class="ops-icon" aria-hidden="true">HL</div><h3>Holiday &amp; leave</h3><p>Doctors request leave; admins approve. Recurring clinic holidays are configurable.</p><span class="ops-tag">Admin</span></div>
+          <div class="ops-card"><div class="ops-icon" aria-hidden="true">SE</div><h3>Subscription engine</h3><p>Free/Pro plans, plan-based limits, upgrade flows and a subscription growth chart.</p><span class="ops-tag">Admin</span></div>
+          <div class="ops-card"><div class="ops-icon" aria-hidden="true">GS</div><h3>Global search</h3><p>App-wide search for patients, doctors, appointments and records in one query.</p><span class="ops-tag">All</span></div>
+          <div class="ops-card"><div class="ops-icon" aria-hidden="true">MC</div><h3>Master calendar</h3><p>A unified calendar view across the clinic for admin and reception.</p><span class="ops-tag">Reception</span></div>
+          <div class="ops-card"><div class="ops-icon" aria-hidden="true">LS</div><h3>Live slot availability</h3><p>Live slot API so booking reflects real-time availability.</p><span class="ops-tag">Reception</span></div>
+          <div class="ops-card"><div class="ops-icon" aria-hidden="true">AS</div><h3>Admin settings</h3><p>Clinic info, notification toggles (including SMS) and system-wide settings.</p><span class="ops-tag">Admin</span></div>
+          <div class="ops-card"><div class="ops-icon" aria-hidden="true">SS</div><h3>System statistics</h3><p>Admin-wide stats plus a separate doctor personal stats page.</p><span class="ops-tag">Admin</span></div>
+          <div class="ops-card"><div class="ops-icon" aria-hidden="true">BR</div><h3>Billing &amp; records</h3><p>Payment records stay connected to the wider workflow, with per-doctor fees.</p><span class="ops-tag">Reception</span></div>
+          <div class="ops-card"><div class="ops-icon" aria-hidden="true">CR</div><h3>Automated cron jobs</h3><p>Daily cron scripts check due refills and trigger reminders.</p><span class="ops-tag">All</span></div>
+          <div class="ops-card"><div class="ops-icon" aria-hidden="true">PW</div><h3>PWA installable app</h3><p>Manifest + service worker + install button make the platform installable.</p><span class="ops-tag">All</span></div>
         </div>
       </div>
     </section>
 
+    <!-- ============ LOYALTY ============ -->
     <section class="section-sm" id="loyalty">
       <div class="container">
         <div class="loyalty-wrap">
           <div class="reveal">
-            <div class="eyebrow">Loyalty & rewards</div>
+            <div class="eyebrow">Loyalty &amp; rewards</div>
             <h2>Turn repeat visits into a real relationship.</h2>
             <p class="lead">
               ClinicFlow Pro ships with a built-in loyalty program — points, tiers, referral
               bonuses and review rewards — giving local clinics a retention tool that fits
-              the PKR context and the way patients actually behave.
+              the PKR context.
             </p>
-
             <div class="reward-list">
-              <div class="reward-item">
-                <span class="reward-icon">P</span>
-                Earn points on every visit and consultation
-              </div>
-              <div class="reward-item">
-                <span class="reward-icon">R</span>
-                Referral system — both patient and referrer earn 100 points
-              </div>
-              <div class="reward-item">
-                <span class="reward-icon">★</span>
-                +20 points for writing a review after a visit
-              </div>
-              <div class="reward-item">
-                <span class="reward-icon">%</span>
-                10–25% tier-based discounts on services
-              </div>
+              <div class="reward-item"><span class="reward-icon" aria-hidden="true">P</span>Earn points on every visit and consultation</div>
+              <div class="reward-item"><span class="reward-icon" aria-hidden="true">R</span>Referral system — both patient and referrer earn 100 points</div>
+              <div class="reward-item"><span class="reward-icon" aria-hidden="true">★</span>+20 points for writing a review after a visit</div>
+              <div class="reward-item"><span class="reward-icon" aria-hidden="true">%</span>10–25% tier-based discounts on services</div>
             </div>
-
-            <div class="note">
-              Loyalty is fully implemented in <strong>patient/loyalty.php</strong> — points
-              history, tier progress and reward redemption are all visible from the patient dashboard.
+            <div class="worked-example">
+              <strong>Example:</strong> A patient visits 4 times and refers 1 friend →
+              4 visit points + 100 referral points → reaches <strong>Silver</strong> →
+              10% off the next consultation.
             </div>
           </div>
-
           <div class="reveal">
             <div class="tier-grid">
-              <div class="tier-card bronze">
-                <div class="tier-name">Bronze</div>
-                <div class="tier-discount">Entry tier</div>
-              </div>
-              <div class="tier-card silver">
-                <div class="tier-name">Silver</div>
-                <div class="tier-discount">10% off</div>
-              </div>
-              <div class="tier-card gold">
-                <div class="tier-name">Gold</div>
-                <div class="tier-discount">15–20% off</div>
-              </div>
-              <div class="tier-card platinum">
-                <div class="tier-name">Platinum</div>
-                <div class="tier-discount">25% off</div>
-              </div>
+              <div class="tier-card bronze"><div class="tier-name">Bronze</div><div class="tier-discount">Entry tier</div></div>
+              <div class="tier-card silver"><div class="tier-name">Silver</div><div class="tier-discount">10% off</div></div>
+              <div class="tier-card gold"><div class="tier-name">Gold</div><div class="tier-discount">15–20% off</div></div>
+              <div class="tier-card platinum"><div class="tier-name">Platinum</div><div class="tier-discount">25% off</div></div>
             </div>
-
-            <div class="quote-card" style="margin-top:22px;">
-              <p>
-                A loyalty program is not just a discount mechanism. It turns first-time patients
-                into repeat patients, and repeat patients into referrers.
-              </p>
+            <svg class="feature-thumb" style="margin-top:22px; aspect-ratio:16/9;" aria-hidden="true"><use href="#mock-loyalty"/></svg>
+            <div class="quote-card" style="margin-top:16px;">
+              <p>A loyalty program is not just a discount mechanism. It turns first-time patients into repeat patients, and repeat patients into referrers.</p>
               <span class="muted">Patient reviews, referrals and health tips all feed the same points economy.</span>
             </div>
           </div>
@@ -2295,6 +1573,7 @@
       </div>
     </section>
 
+    <!-- ============ AI ============ -->
     <section class="section ai-section" id="ai">
       <div class="container">
         <div class="ai-grid">
@@ -2302,53 +1581,67 @@
             <div class="eyebrow">AI assisted care workflows</div>
             <h2>Useful intelligence without pretending to replace the clinician.</h2>
             <p class="lead">
-              AI is positioned as workflow support: helping surface information, organize inputs
-              and reduce repetitive work while clinical decisions stay with the healthcare professional.
+              AI is positioned as workflow support: helping surface information, organize
+              inputs and reduce repetitive work while clinical decisions stay with the
+              healthcare professional.
             </p>
-
-            <div class="note">
-              ClinicFlow Pro's AI tools are designed as assistive features. They should not be
-              presented as a substitute for professional medical judgement.
+            <div class="ai-wont-do">
+              <strong>What it will not do:</strong>
+              <ul>
+                <li>It does not diagnose.</li>
+                <li>It does not prescribe.</li>
+                <li>It does not replace the treating doctor.</li>
+              </ul>
             </div>
+            <p class="muted" style="margin-top:14px; font-size:0.85rem;">
+              Clinical judgement always remains with the healthcare professional.
+            </p>
           </div>
-
           <div class="ai-panel reveal">
             <div class="ai-panel-head">
               <span>AI workspace</span>
               <span class="ai-status">Assistive mode</span>
             </div>
-
             <div class="ai-cards">
               <div class="ai-card">
                 <div class="ai-card-row">
                   <strong>Symptom Checker</strong>
-                  <span class="tag tag-teal">Patient facing</span>
+                  <div style="display:flex;gap:6px;">
+                    <span class="tag tag-teal">Patient facing</span>
+                    <span class="tag tag-roadmap">Roadmap</span>
+                  </div>
                 </div>
-                <span>Plain-language symptom input with intelligent analysis and urgency indicators.</span>
+                <span>Plain-language symptom input with urgency indicators.</span>
               </div>
-
               <div class="ai-card">
                 <div class="ai-card-row">
                   <strong>Diagnosis Assistant</strong>
-                  <span class="tag tag-indigo">Doctor support</span>
+                  <div style="display:flex;gap:6px;">
+                    <span class="tag tag-indigo">Doctor support</span>
+                    <span class="tag tag-roadmap">Roadmap</span>
+                  </div>
                 </div>
-                <span>Provides possible differential diagnosis suggestions as a starting point for clinical review.</span>
+                <span>Possible differential suggestions as a starting point for clinical review.</span>
               </div>
-
               <div class="ai-card">
                 <div class="ai-card-row">
                   <strong>Health Predictor</strong>
-                  <span class="tag tag-indigo">Risk support</span>
+                  <div style="display:flex;gap:6px;">
+                    <span class="tag tag-indigo">Risk support</span>
+                    <span class="tag tag-roadmap">Roadmap</span>
+                  </div>
                 </div>
-                <span>Uses recorded medical history to flag potential long-term risks that may deserve attention.</span>
+                <span>Uses recorded history to flag potential long-term risks for review.</span>
               </div>
-
               <div class="ai-card">
                 <div class="ai-card-row">
                   <strong>AI Health Assistant</strong>
-                  <span class="tag tag-teal">24/7</span>
+                  <div style="display:flex;gap:6px;">
+                    <span class="tag tag-teal">24/7</span>
+                    <span class="tag tag-status">Available</span>
+                  </div>
                 </div>
-                <span>Handles general patient questions, appointment-related queries and platform help.</span>
+                <span>Handles general patient questions and platform help.</span>
               </div>
             </div>
           </div>
@@ -2356,391 +1649,351 @@
       </div>
     </section>
 
+    <!-- ============ SECURITY ============ -->
     <section class="section" id="security">
       <div class="container">
         <div class="section-head reveal">
           <div class="eyebrow">Security by design</div>
-          <h2>Healthcare workflows need clear boundaries and traceability.</h2>
+          <h2>Healthcare-grade security practices, not certifications we don't hold.</h2>
           <p class="lead">
-            Security is treated as a product requirement, with role based permissions,
-            protected sessions, HTTPS and audit visibility across important actions.
+            Concrete, verifiable controls — not generic claims. Formal compliance depends on
+            the hosting environment and the clinic's own policies.
           </p>
         </div>
-
-        <div class="security-grid reveal">
-          <div class="security-card">
-            <strong>Role based access</strong>
-            <span>Users see data and actions relevant to their role and permissions.</span>
+        <div class="reveal">
+          <table class="controls-table">
+            <thead><tr><th scope="col">Control</th><th scope="col">What is implemented</th></tr></thead>
+            <tbody>
+              <tr><td>Authentication</td><td>Bcrypt password hashing, 10-character minimum policy, generic login errors</td></tr>
+              <tr><td>Brute force</td><td>5 failed attempts per 15 minutes per username and per IP → temporary lockout</td></tr>
+              <tr><td>Two-factor auth</td><td>Optional TOTP for admin and superadmin, enforced at login when enabled</td></tr>
+              <tr><td>Sessions</td><td>HttpOnly + SameSite cookies, idle timeout, absolute timeout, revocation on deactivate/delete</td></tr>
+              <tr><td>CSRF</td><td>Token required on every POST/PUT/PATCH/DELETE and every state-changing GET</td></tr>
+              <tr><td>Access control</td><td>Role based, clinic-scoped queries, ownership checks on every download</td></tr>
+              <tr><td>Uploads</td><td>MIME/extension whitelist, size limit, stored outside web root, served through authorised download script</td></tr>
+              <tr><td>Audit</td><td>Activity log + security event log (append-only)</td></tr>
+              <tr><td>Backups</td><td>AES-256-GCM encrypted, 7 daily / 4 weekly / 12 monthly retention, restore tested</td></tr>
+              <tr><td>Transport</td><td>HTTPS enforced at the hosting layer</td></tr>
+            </tbody>
+          </table>
+          <div class="security-note">
+            Built with healthcare-grade security practices. Formal compliance depends on the hosting
+            environment and the clinic's own policies.
           </div>
-
-          <div class="security-card">
-            <strong>HTTPS enforced</strong>
-            <span>Data in transit is protected through HTTPS across the application.</span>
-          </div>
-
-          <div class="security-card">
-            <strong>Audit trails</strong>
-            <span>Important actions are recorded to improve accountability and traceability.</span>
-          </div>
-
-          <div class="security-card">
-            <strong>HIPAA aligned principles</strong>
-            <span>The project documentation describes the platform as designed with healthcare-aligned security principles in mind.</span>
+          <div class="security-cta">
+            <button class="btn btn-secondary" type="button" data-dialog="securityDialog">Read full security details</button>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section section-sm">
+    <!-- ============ COMPARISON ============ -->
+    <section class="section section-sm" id="compare" aria-labelledby="compare-heading">
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="eyebrow">Why ClinicFlow Pro</div>
+          <h2 id="compare-heading">Why not just use a spreadsheet?</h2>
+          <p class="lead">
+            A spreadsheet is flexible. A clinic is not just rows and columns. Here is what
+            changes when the workflow lives in a purpose-built system.
+          </p>
+        </div>
+        <div class="reveal" style="overflow-x:auto;">
+          <table class="compare-table">
+            <thead>
+              <tr><th scope="col">Capability</th><th scope="col">Paper register</th><th scope="col">Spreadsheets</th><th scope="col">ClinicFlow Pro</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Appointment conflict detection</td><td class="no" aria-label="No">✗</td><td class="partial" aria-label="Partial">~</td><td class="yes" aria-label="Yes">✓</td></tr>
+              <tr><td>Patient history in one place</td><td class="no" aria-label="No">✗</td><td class="partial" aria-label="Partial">~</td><td class="yes" aria-label="Yes">✓</td></tr>
+              <tr><td>Prescription with QR</td><td class="no" aria-label="No">✗</td><td class="no" aria-label="No">✗</td><td class="yes" aria-label="Yes">✓</td></tr>
+              <tr><td>Lab reports in patient portal</td><td class="no" aria-label="No">✗</td><td class="no" aria-label="No">✗</td><td class="yes" aria-label="Yes">✓</td></tr>
+              <tr><td>Automated reminders</td><td class="no" aria-label="No">✗</td><td class="no" aria-label="No">✗</td><td class="yes" aria-label="Yes">✓</td></tr>
+              <tr><td>Revenue visibility</td><td class="partial" aria-label="Partial">~</td><td class="partial" aria-label="Partial">~</td><td class="yes" aria-label="Yes">✓</td></tr>
+              <tr><td>Staff role permissions</td><td class="no" aria-label="No">✗</td><td class="no" aria-label="No">✗</td><td class="yes" aria-label="Yes">✓</td></tr>
+              <tr><td>Audit trail</td><td class="no" aria-label="No">✗</td><td class="no" aria-label="No">✗</td><td class="yes" aria-label="Yes">✓</td></tr>
+              <tr><td>Encrypted backups</td><td class="no" aria-label="No">✗</td><td class="partial" aria-label="Partial">~</td><td class="yes" aria-label="Yes">✓</td></tr>
+              <tr><td>Mobile access</td><td class="no" aria-label="No">✗</td><td class="partial" aria-label="Partial">~</td><td class="yes" aria-label="Yes">✓</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ LOCAL WORKFLOW ============ -->
+    <section class="section">
       <div class="container">
         <div class="section-head reveal">
           <div class="eyebrow">Built for the local workflow</div>
           <h2>A product can be technically complete and still feel wrong. ClinicFlow Pro was designed around context.</h2>
         </div>
-
         <div class="local-grid reveal">
           <div class="local-card">
             <h3>Designed with Pakistan in mind</h3>
-            <p class="muted">
-              The project documentation specifically calls out local pricing, communication
-              and language considerations instead of copying an international SaaS model.
-            </p>
-
+            <p class="muted">Local pricing, communication and language considerations — not a copied international SaaS model.</p>
             <div class="local-list">
-              <div class="local-item"><span class="check">✓</span> PKR based pricing strategy</div>
-              <div class="local-item"><span class="check">✓</span> WhatsApp first communication workflows</div>
-              <div class="local-item"><span class="check">✓</span> Urdu friendly design considerations</div>
-              <div class="local-item"><span class="check">✓</span> Practical fit for smaller clinics</div>
+              <div class="local-item"><span class="check" aria-hidden="true">✓</span>PKR based pricing</div>
+              <div class="local-item"><span class="check" aria-hidden="true">✓</span>WhatsApp first communication</div>
+              <div class="local-item"><span class="check" aria-hidden="true">✓</span>Urdu friendly design considerations</div>
+              <div class="local-item"><span class="check" aria-hidden="true">✓</span>Practical fit for smaller clinics</div>
             </div>
           </div>
-
           <div class="local-card">
             <h3>Built to grow beyond one doctor's desk</h3>
-            <p class="muted">
-              The architecture and role model are intended to support individual practitioners,
-              small clinics and more structured multi-role operations.
-            </p>
-
+            <p class="muted">The architecture and role model support individual practitioners, small clinics and more structured multi-role operations.</p>
             <div class="local-list">
-              <div class="local-item"><span class="check">✓</span> Four dedicated dashboards</div>
-              <div class="local-item"><span class="check">✓</span> Subscription plans with plan-based limits</div>
-              <div class="local-item"><span class="check">✓</span> Staff, fee and holiday management</div>
-              <div class="local-item"><span class="check">✓</span> Loyalty, reviews and referral economy</div>
+              <div class="local-item"><span class="check" aria-hidden="true">✓</span>Four dedicated dashboards</div>
+              <div class="local-item"><span class="check" aria-hidden="true">✓</span>Subscription plans with plan-based limits</div>
+              <div class="local-item"><span class="check" aria-hidden="true">✓</span>Staff, fee and holiday management</div>
+              <div class="local-item"><span class="check" aria-hidden="true">✓</span>Loyalty, reviews and referral economy</div>
             </div>
           </div>
         </div>
       </div>
     </section>
 
+    <!-- ============ PRICING ============ -->
     <section class="section section-sm" id="pricing">
       <div class="container">
         <div class="section-head reveal">
           <div class="eyebrow">Pricing</div>
-          <h2>Clear pricing should come after clear product value.</h2>
-          <p class="lead">
-            The subscription engine is already built — Free/Pro plans, plan-based limits,
-            upgrade flows and a subscription growth chart live in the admin module. Proposed
-            PKR tiers are still being validated via the landing page pricing poll.
-          </p>
+          <h2>Clear plans. Clear limits. No surprises.</h2>
+          <p class="lead">These are the plans the product actually enforces in the admin module. Every clinic starts on the Free plan for 25 days.</p>
+        </div>
+        <div class="pricing-grid-4 reveal">
+          <div class="plan-card">
+            <div class="plan-name">Free</div>
+            <div class="plan-price">₨ 0<span> / month</span></div>
+            <div class="plan-note">25-day trial · no card required</div>
+            <ul class="plan-features">
+              <li>20 patients</li><li>3 doctors</li><li>1 receptionist</li><li>20 appointments / month</li><li class="off">Analytics: No</li>
+            </ul>
+          </div>
+          <div class="plan-card">
+            <div class="plan-name">1x</div>
+            <div class="plan-price">₨ 6,000<span> / month</span></div>
+            <div class="plan-note">For growing small clinics</div>
+            <ul class="plan-features">
+              <li>300 patients</li><li>3 doctors</li><li>2 receptionists</li><li>800 appointments / month</li><li>Analytics included</li>
+            </ul>
+          </div>
+          <div class="plan-card featured">
+            <div class="plan-badge">Most popular</div>
+            <div class="plan-name">2x</div>
+            <div class="plan-price">₨ 10,000<span> / month</span></div>
+            <div class="plan-note">For established multi-doctor clinics</div>
+            <ul class="plan-features">
+              <li>1,000 patients</li><li>8 doctors</li><li>5 receptionists</li><li>2,500 appointments / month</li><li>Analytics included</li>
+            </ul>
+          </div>
+          <div class="plan-card">
+            <div class="plan-name">3x</div>
+            <div class="plan-price">₨ 16,000<span> / month</span></div>
+            <div class="plan-note">For larger clinics and multi-branch setups</div>
+            <ul class="plan-features">
+              <li>5,000 patients</li><li>20 doctors</li><li>15 receptionists</li><li>10,000 appointments / month</li><li>Analytics included</li>
+            </ul>
+          </div>
+        </div>
+        <div class="pricing-note">
+          Every clinic starts on the Free plan for 25 days. Paid plans are activated from <strong>Admin → Subscriptions</strong>.
         </div>
 
-        <div class="pricing-grid reveal">
-          <div class="price-card">
-            <div class="pill">Free tier</div>
-            <div class="price-range">Start free</div>
-            <div class="price-note">Designed for individual practitioners or very small clinics exploring the core workflow, including subscription limits enforced automatically.</div>
-            <div class="price-pills">
-              <span class="pill">Core scheduling</span>
-              <span class="pill">Basic records</span>
-              <span class="pill">Plan limits</span>
-              <span class="pill">PWA install</span>
-            </div>
+        <div class="faq-grid reveal" style="margin-top:34px; max-width:none;">
+          <div class="faq-item">
+            <button class="faq-question" type="button" aria-expanded="false"><span>What counts as a patient?</span><span aria-hidden="true">+</span></button>
+            <div class="faq-answer"><p>Any patient record created in the system. Records you delete do not count toward the plan limit; retained records do.</p></div>
           </div>
-
-          <div class="price-card featured">
-            <div class="pill">Proposed PKR tiers</div>
-            <div class="price-range">₨ 5K to ₨ 100K+</div>
-            <div class="price-note">The project documentation proposes multiple tiers from a basic clinic plan through premium support and multi-branch capability. The subscription engine, plan-based limits and growth chart are already functional in admin.</div>
-            <div class="price-pills">
-              <span class="pill">₨ 5K to ₨ 10K</span>
-              <span class="pill">₨ 10K to ₨ 20K</span>
-              <span class="pill">₨ 20K to ₨ 30K</span>
-              <span class="pill">₨ 30K to ₨ 50K</span>
-              <span class="pill">₨ 50K to ₨ 100K</span>
-            </div>
+          <div class="faq-item">
+            <button class="faq-question" type="button" aria-expanded="false"><span>What happens at 25 days?</span><span aria-hidden="true">+</span></button>
+            <div class="faq-answer"><p>The clinic needs to choose a paid plan to keep full access. Free-plan limits still apply — 20 patients, 3 doctors, 1 receptionist, 20 appointments per month.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" type="button" aria-expanded="false"><span>Can I change plan?</span><span aria-hidden="true">+</span></button>
+            <div class="faq-answer"><p>Yes. Plans can be upgraded or downgraded at any time from Admin → Subscriptions. New limits take effect immediately.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" type="button" aria-expanded="false"><span>Is my data exportable?</span><span aria-hidden="true">+</span></button>
+            <div class="faq-answer"><p>Yes. Patient records, appointments, prescriptions and reports can be exported before cancellation. A data export window applies after cancellation — see the Refund &amp; Cancellation page.</p></div>
           </div>
         </div>
       </div>
     </section>
 
+    <!-- ============ STORY ============ -->
     <section class="section" id="story">
       <div class="container">
         <div class="origin-grid">
           <div class="portrait-wrap reveal">
             <div class="portrait-card">
-              <img class="portrait" src="f.jpg" alt="Abdul Hannan Ghaznavi, project lead of ClinicFlow Pro" />
+              <img class="portrait" src="f.jpg" alt="Abdul Hannan Ghaznavi, founder and software engineer of ClinicFlow Pro" width="420" height="494" loading="lazy" decoding="async" />
               <div class="portrait-meta">
                 <div>
                   <div class="portrait-name">Abdul Hannan Ghaznavi</div>
-                  <div class="portrait-role">Founder & Software engineer</div>
+                  <div class="portrait-role">Founder &amp; Software engineer</div>
                 </div>
-
                 <div class="socials">
-                  <a
-                    class="social-link"
-                    href="https://www.linkedin.com/in/abdulhannan-projects/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="LinkedIn"
-                    title="LinkedIn"
-                  >
-                    in
-                  </a>
-
-                  <a
-                    class="social-link"
-                    href="https://www.instagram.com/hannanbuilds/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="Instagram"
-                    title="Instagram"
-                  >
-                    ig
-                  </a>
+                  <a class="social-link" href="https://www.linkedin.com/in/abdulhannan-projects/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile">in</a>
+                  <a class="social-link" href="https://www.instagram.com/hannanbuilds/" target="_blank" rel="noopener noreferrer" aria-label="Instagram profile">ig</a>
                 </div>
               </div>
             </div>
           </div>
-
           <div class="origin-copy reveal">
             <div class="eyebrow">Why ClinicFlow Pro exists</div>
             <h2>Built after seeing how much clinic work still depends on disconnected systems.</h2>
-
             <p>
-              The idea behind ClinicFlow Pro came from a practical problem: many clinics still
-              manage important work through paper registers, scattered spreadsheets, phone calls
-              and handwritten prescriptions. At the same time, many large healthcare systems are
-              built for enterprise environments rather than the day to day reality of smaller clinics.
+              The idea came from a practical problem: many clinics still manage important work
+              through paper registers, scattered spreadsheets, phone calls and handwritten
+              prescriptions — while large healthcare systems are built for enterprise
+              environments, not the day to day reality of smaller clinics.
             </p>
-
             <div class="story-highlight">
-              The product direction was simple: build a clinic management system that is practical
-              for local workflows, role aware, communication friendly and broad enough to cover the
-              operational journey from registration to follow up.
+              The product direction was simple: build a clinic management system that is
+              practical for local workflows, role aware, communication friendly and broad
+              enough to cover the operational journey from registration to follow up.
             </div>
-
             <p>
-              That thinking shaped the product's four dashboards, PKR based pricing strategy,
-              WhatsApp reminder workflows, patient timeline, digital prescriptions, lab reports,
-              refill tracking, loyalty and rewards, analytics and AI assisted features. The result
-              is not just a dashboard collection. It is an attempt to make the clinic's entire
-              operating flow feel connected.
+              That shaped the four dashboards, PKR pricing, WhatsApp reminders, patient
+              timeline, digital prescriptions, lab reports, refill tracking, loyalty and
+              rewards, analytics and AI assisted features.
             </p>
-
-            <p class="muted">
-              Developed as a healthcare management SaaS project at Aligarh Institute of Technology.
-            </p>
+            <p class="muted">Developed as a healthcare management SaaS project at Aligarh Institute of Technology.</p>
           </div>
         </div>
       </div>
     </section>
 
+    <!-- ============ ENGINEERING ============ -->
     <section class="section section-sm">
       <div class="container">
         <div class="section-head reveal">
           <div class="eyebrow">Engineering foundation</div>
           <h2>Built as a real software system, not just a marketing shell.</h2>
-          <p class="lead">
-            The technical foundation is intentionally visible for technical buyers and evaluators,
-            while the product story stays focused on clinic outcomes.
-          </p>
         </div>
-
         <div class="build-grid reveal">
-          <div class="build-card">
-            <strong>Frontend</strong>
-            <span>HTML5, CSS3, Tailwind CSS, JavaScript and GSAP, plus PWA manifest and service worker for installability.</span>
-          </div>
-          <div class="build-card">
-            <strong>Backend</strong>
-            <span>PHP 8 with server side business logic and role based routing.</span>
-          </div>
-          <div class="build-card">
-            <strong>Data layer</strong>
-            <span>MySQL with core relational entities for clinic operations.</span>
-          </div>
-          <div class="build-card">
-            <strong>AI services</strong>
-            <span>PHP-based AI logic with a Python service module (api.py) for extended intelligent workflow features.</span>
-          </div>
-          <div class="build-card">
-            <strong>Communication</strong>
-            <span>WhatsApp deep-link reminders and an SMS notification settings toggle in admin.</span>
-          </div>
-          <div class="build-card">
-            <strong>Security layer</strong>
-            <span>RBAC, audit logs, HTTPS and controlled session handling.</span>
-          </div>
+          <div class="build-card"><strong>Frontend</strong><span>HTML5, CSS3, Tailwind CSS, JavaScript, PWA manifest and service worker.</span></div>
+          <div class="build-card"><strong>Backend</strong><span>PHP 8 with server side business logic and role based routing.</span></div>
+          <div class="build-card"><strong>Data layer</strong><span>MySQL with core relational entities for clinic operations.</span></div>
+          <div class="build-card"><strong>AI services</strong><span>PHP-based AI logic with a Python service module for extended workflow features.</span></div>
+          <div class="build-card"><strong>Communication</strong><span>WhatsApp deep-link reminders and an SMS notification toggle in admin.</span></div>
+          <div class="build-card"><strong>Security layer</strong><span>RBAC, audit logs, HTTPS and controlled session handling.</span></div>
         </div>
       </div>
     </section>
 
+    <!-- ============ FAQ ============ -->
     <section class="section" id="faq">
       <div class="container">
         <div class="section-head reveal">
           <div class="eyebrow">FAQ</div>
           <h2>Questions teams should not have to hunt for.</h2>
         </div>
-
         <div class="faq-grid reveal">
           <div class="faq-item">
-            <button class="faq-question" type="button">
-              <span>Who is ClinicFlow Pro designed for?</span>
-              <span>+</span>
-            </button>
-            <div class="faq-answer">
-              <p>It is designed around clinic operations involving administrators, doctors, receptionists and patients, with each role receiving a dedicated dashboard experience.</p>
-            </div>
+            <button class="faq-question" type="button" aria-expanded="false"><span>Who is ClinicFlow Pro designed for?</span><span aria-hidden="true">+</span></button>
+            <div class="faq-answer"><p>Administrators, doctors, receptionists and patients — each with a dedicated dashboard experience.</p></div>
           </div>
-
           <div class="faq-item">
-            <button class="faq-question" type="button">
-              <span>Does ClinicFlow Pro support digital prescriptions?</span>
-              <span>+</span>
-            </button>
-            <div class="faq-answer">
-              <p>Yes. The platform includes electronic prescriptions with dosage tracking and QR based verification support described in the project documentation.</p>
-            </div>
+            <button class="faq-question" type="button" aria-expanded="false"><span>Does ClinicFlow Pro support digital prescriptions?</span><span aria-hidden="true">+</span></button>
+            <div class="faq-answer"><p>Yes. Electronic prescriptions include dosage tracking and QR based verification.</p></div>
           </div>
-
           <div class="faq-item">
-            <button class="faq-question" type="button">
-              <span>How do lab reports work?</span>
-              <span>+</span>
-            </button>
-            <div class="faq-answer">
-              <p>Receptionists can upload and delete lab reports, and patients can view them from their own portal. It closes a workflow gap that most clinic tools ignore.</p>
-            </div>
+            <button class="faq-question" type="button" aria-expanded="false"><span>How do lab reports work?</span><span aria-hidden="true">+</span></button>
+            <div class="faq-answer"><p>Receptionists upload and manage lab reports, and patients can view them from their own portal.</p></div>
           </div>
-
           <div class="faq-item">
-            <button class="faq-question" type="button">
-              <span>What does the prescription refill tracker do?</span>
-              <span>+</span>
-            </button>
-            <div class="faq-answer">
-              <p>Doctors get a dedicated refill tracker dashboard. Daily cron jobs check for due refills and trigger WhatsApp reminder workflows, so patients do not miss a refill between visits.</p>
-            </div>
+            <button class="faq-question" type="button" aria-expanded="false"><span>What does the prescription refill tracker do?</span><span aria-hidden="true">+</span></button>
+            <div class="faq-answer"><p>Doctors get a dedicated refill tracker. Daily cron jobs check for due refills and trigger WhatsApp reminder workflows.</p></div>
           </div>
-
           <div class="faq-item">
-            <button class="faq-question" type="button">
-              <span>How does the loyalty program work?</span>
-              <span>+</span>
-            </button>
-            <div class="faq-answer">
-              <p>Patients earn points on visits and reviews, refer friends for bonus points, and move through Bronze, Silver, Gold and Platinum tiers with 10–25% discounts. Points history and tier progress are visible in the patient dashboard.</p>
-            </div>
+            <button class="faq-question" type="button" aria-expanded="false"><span>How does the loyalty program work?</span><span aria-hidden="true">+</span></button>
+            <div class="faq-answer"><p>Patients earn points on visits and reviews, refer friends for bonus points, and move through Bronze, Silver, Gold and Platinum tiers with 10–25% discounts.</p></div>
           </div>
-
           <div class="faq-item">
-            <button class="faq-question" type="button">
-              <span>How does the AI layer work?</span>
-              <span>+</span>
-            </button>
-            <div class="faq-answer">
-              <p>The product includes a symptom checker, diagnosis assistant, health risk predictor and general health assistant. These are positioned as assistive workflow tools, with clinical judgement remaining with the healthcare professional.</p>
-            </div>
+            <button class="faq-question" type="button" aria-expanded="false"><span>How does the AI layer work?</span><span aria-hidden="true">+</span></button>
+            <div class="faq-answer"><p>Assistive tools: symptom checker, diagnosis assistant, health predictor and general assistant. They support — they do not diagnose, prescribe or replace the treating doctor.</p></div>
           </div>
-
           <div class="faq-item">
-            <button class="faq-question" type="button">
-              <span>How are patient permissions handled?</span>
-              <span>+</span>
-            </button>
-            <div class="faq-answer">
-              <p>Role based access controls limit what each user can access, while session controls and audit trails help create a clearer security boundary.</p>
-            </div>
+            <button class="faq-question" type="button" aria-expanded="false"><span>How are patient permissions handled?</span><span aria-hidden="true">+</span></button>
+            <div class="faq-answer"><p>Role based access limits what each user can access; session controls and audit trails create a clear security boundary. See the Security section for concrete controls.</p></div>
           </div>
-
           <div class="faq-item">
-            <button class="faq-question" type="button">
-              <span>Is the subscription billing engine built?</span>
-              <span>+</span>
-            </button>
-            <div class="faq-answer">
-              <p>Yes. The admin module already includes Free/Pro plan management, plan-based limits, upgrade flows and a subscription growth chart. Proposed PKR tiers are still being validated on the landing page.</p>
-            </div>
+            <button class="faq-question" type="button" aria-expanded="false"><span>Is the subscription billing engine built?</span><span aria-hidden="true">+</span></button>
+            <div class="faq-answer"><p>Yes. Admin → Subscriptions contains the four plans (Free, 1x, 2x, 3x), their limits and upgrade flows.</p></div>
           </div>
-
           <div class="faq-item">
-            <button class="faq-question" type="button">
-              <span>Is there a mobile app?</span>
-              <span>+</span>
-            </button>
-            <div class="faq-answer">
-              <p>ClinicFlow Pro is a PWA (Progressive Web App). Users can install it directly from the browser to their home screen — no app store required — and the sidebar includes an "Install App" button.</p>
-            </div>
+            <button class="faq-question" type="button" aria-expanded="false"><span>Is there a mobile app?</span><span aria-hidden="true">+</span></button>
+            <div class="faq-answer"><p>ClinicFlow Pro is a PWA. Users install it from the browser to their home screen — no app store required.</p></div>
           </div>
-
           <div class="faq-item">
-            <button class="faq-question" type="button">
-              <span>Is pricing finalized?</span>
-              <span>+</span>
-            </button>
-            <div class="faq-answer">
-              <p>The current project documentation contains proposed PKR based ranges, while the original landing page uses a pricing poll to validate willingness to pay. Final public pricing should be confirmed before launch.</p>
-            </div>
-          </div>
-
-          <div class="faq-item">
-            <button class="faq-question" type="button">
-              <span>Where can I see the project documentation?</span>
-              <span>+</span>
-            </button>
-            <div class="faq-answer">
-              <p>Use the documentation link in the footer to open the current project report associated with the ClinicFlow Pro showcase.</p>
-            </div>
+            <button class="faq-question" type="button" aria-expanded="false"><span>Where can I see the project documentation?</span><span aria-hidden="true">+</span></button>
+            <div class="faq-answer"><p>Use the Documentation link in the footer for the HTML index, or download the PDF report.</p></div>
           </div>
         </div>
       </div>
     </section>
 
+    <!-- ============ CONTACT ============ -->
     <section class="section section-sm" id="contact">
       <div class="container">
-        <div class="cta reveal">
-          <div>
-            <div class="eyebrow">Take the next look</div>
-            <h2>See the workflow before you make a decision.</h2>
-            <p>
-              The next step should be simple: walk through the product, see the roles,
-              explore lab reports, refill tracking and loyalty, understand the AI assistance
-              and decide whether the workflow fits your clinic.
+        <div class="section-head reveal">
+          <div class="eyebrow">Take the next look</div>
+          <h2>See the workflow before you make a decision.</h2>
+          <p class="lead">Pick the channel that's most convenient. We reply within 1 working day.</p>
+        </div>
+        <div class="contact-grid reveal">
+          <div class="contact-card">
+            <h3>Talk to us</h3>
+            <p class="contact-sub">Fastest reply: WhatsApp. Otherwise, email works.</p>
+            <!-- Replace the number and email below with real contact details. -->
+            <a class="contact-action" href="https://wa.me/923001234567?text=Hi%2C%20I%27d%20like%20a%20ClinicFlow%20Pro%20preview." target="_blank" rel="noopener noreferrer">
+              <span class="contact-icon" aria-hidden="true">WA</span>
+              <span class="contact-action-body"><strong>WhatsApp</strong><span>+92 300 1234567</span></span>
+            </a>
+            <a class="contact-action" href="mailto:hello@clinicflowpro.com?subject=ClinicFlow%20Pro%20preview%20request">
+              <span class="contact-icon" aria-hidden="true">@</span>
+              <span class="contact-action-body"><strong>Email</strong><span>hello@clinicflowpro.com</span></span>
+            </a>
+            <a class="contact-action" href="#pricing">
+              <span class="contact-icon" aria-hidden="true">→</span>
+              <span class="contact-action-body"><strong>Start free trial</strong><span>25 days · no card required</span></span>
+            </a>
+            <div class="contact-info"><strong>Based in Karachi, Pakistan.</strong><br />We reply within 1 working day.</div>
+            <p class="contact-privacy">
+              By contacting us you agree to our <a href="#" data-dialog="privacyDialog">Privacy Policy</a>.
+              We never share your clinic's data with third parties.
             </p>
           </div>
-
-          <div style="display:flex; gap:10px; flex-wrap:wrap;">
-            <a class="btn btn-primary" href="#story">Meet the project lead</a>
-            <a class="btn btn-secondary" href="docs.pdf" target="_blank" rel="noopener noreferrer">Read documentation</a>
+          <div class="contact-card">
+            <h3>What happens next</h3>
+            <p class="contact-sub">A short, honest walkthrough — no sales script.</p>
+            <div class="local-list" style="margin-top:0;">
+              <div class="local-item"><span class="check" aria-hidden="true">1</span>We reply within 1 working day with a short questionnaire.</div>
+              <div class="local-item"><span class="check" aria-hidden="true">2</span>We schedule a 20-minute walkthrough of the real product.</div>
+              <div class="local-item"><span class="check" aria-hidden="true">3</span>You get a 25-day free trial with the actual limits, not a stripped demo.</div>
+              <div class="local-item"><span class="check" aria-hidden="true">4</span>If it fits, we activate a paid plan from Admin → Subscriptions.</div>
+            </div>
+            <div class="contact-info"><strong>No sales pressure.</strong> The trial is fully self-serve. If it doesn't fit your clinic, no upgrade is required.</div>
           </div>
         </div>
       </div>
     </section>
   </main>
 
+  <!-- ============ FOOTER ============ -->
   <footer>
     <div class="container">
       <div class="footer-grid">
         <div>
           <a class="brand" href="#top" aria-label="ClinicFlow Pro home">
-            <img class="brand-logo" src="logo.png" alt="ClinicFlow Pro" />
+            <img class="brand-logo" src="logo.png" alt="ClinicFlow Pro" width="240" height="56" />
           </a>
-          <p class="footer-copy" style="max-width:430px; margin-top:13px;">
+          <p class="footer-copy" style="max-width:380px; margin-top:13px;">
             A modern clinic management platform built around practical workflows, role based access,
             lab reports, loyalty rewards, communication and assistive intelligence.
           </p>
         </div>
-
         <div>
           <div class="footer-title">Product</div>
           <div class="footer-links">
@@ -2749,38 +2002,217 @@
             <a href="#modules">Modules</a>
             <a href="#loyalty">Loyalty</a>
             <a href="#ai">AI</a>
-            <a href="#security">Security</a>
             <a href="#pricing">Pricing</a>
           </div>
         </div>
-
         <div>
-          <div class="footer-title">Project</div>
+          <div class="footer-title">Platform</div>
           <div class="footer-links">
-            <a href="#story">Our Story</a>
-            <a href="#faq">FAQ</a>
-            <a href="docs.pdf" target="_blank" rel="noopener noreferrer">Documentation</a>
+            <a href="#security">Security</a>
+            <button type="button" data-dialog="docsDialog">Documentation</button>
+            <button type="button" data-dialog="roadmapDialog">Roadmap</button>
+            <button type="button" data-dialog="changelogDialog">Changelog</button>
+          </div>
+        </div>
+        <div>
+          <div class="footer-title">Company</div>
+          <div class="footer-links">
+            <a href="#story">Our story</a>
+            <a href="#contact">Contact</a>
             <a href="https://www.linkedin.com/in/abdulhannan-projects/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <a href="https://www.instagram.com/hannanbuilds/" target="_blank" rel="noopener noreferrer">Instagram</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-title">Legal</div>
+          <div class="footer-links">
+            <button type="button" data-dialog="privacyDialog">Privacy</button>
+            <button type="button" data-dialog="termsDialog">Terms</button>
+            <button type="button" data-dialog="refundDialog">Refunds</button>
+            <button type="button" data-dialog="cookiesDialog">Cookies</button>
           </div>
         </div>
       </div>
-
       <div class="footer-bottom">
-        <div class="footer-copy">© 2026 ClinicFlow Pro</div>
+        <div class="footer-copy">© 2026 ClinicFlow Pro · Built in Pakistan</div>
+        <div class="lang-switch" aria-label="Language">
+          <a href="#" class="active" aria-current="page">EN</a>
+          <span aria-hidden="true">·</span>
+          <a href="#" aria-disabled="true" title="Urdu page coming soon">اردو</a>
+        </div>
         <div class="footer-copy">Developed by Abdul Hannan Ghaznavi</div>
       </div>
     </div>
   </footer>
 
+  <!-- ============ LEGAL DIALOGS ============ -->
+  <dialog class="legal" id="privacyDialog" aria-labelledby="privacyTitle">
+    <div class="dialog-head">
+      <h2 class="dialog-title" id="privacyTitle">Privacy Policy</h2>
+      <button class="dialog-close" type="button" aria-label="Close" data-close>×</button>
+    </div>
+    <div class="dialog-body legal-body">
+      <p class="last-updated">Last updated: 2026-01-01</p>
+      <h3>What we collect</h3>
+      <p>Clinic account data (name, email, phone), patient data entered by the clinic (name, contact, visit history), and server logs. We do not run third-party tracking analytics.</p>
+      <h3>Where it is stored</h3>
+      <p>On the hosting environment chosen by the clinic, with encrypted backups retained for disaster recovery.</p>
+      <h3>Who can access it</h3>
+      <p>Only authenticated clinic staff within the same clinic. Access is role-scoped and logged.</p>
+      <h3>Retention</h3>
+      <p>Patient and operational records remain until the clinic deletes them or cancels the account. Logs rotate on a 90-day cycle.</p>
+      <h3>Your rights</h3>
+      <p>Clinics may request data export or deletion at any time by contacting the address on the contact section.</p>
+      <h3>Contact</h3>
+      <p>hello@clinicflowpro.com</p>
+    </div>
+  </dialog>
+
+  <dialog class="legal" id="termsDialog" aria-labelledby="termsTitle">
+    <div class="dialog-head">
+      <h2 class="dialog-title" id="termsTitle">Terms of Service</h2>
+      <button class="dialog-close" type="button" aria-label="Close" data-close>×</button>
+    </div>
+    <div class="dialog-body legal-body">
+      <p class="last-updated">Last updated: 2026-01-01</p>
+      <h3>Service</h3>
+      <p>ClinicFlow Pro is a clinic management platform. The clinic is responsible for accurate data entry and lawful use of patient information.</p>
+      <h3>Account responsibilities</h3>
+      <p>Accounts are for the clinic that purchased the plan. Sharing credentials outside the clinic is not permitted.</p>
+      <h3>Acceptable use</h3>
+      <p>Do not use the platform to store data you are not authorised to hold, to impersonate another clinic, or to attack the service.</p>
+      <h3>Plan limits</h3>
+      <p>Limits are enforced automatically per plan. Upgrades and downgrades are available from Admin → Subscriptions.</p>
+      <h3>Suspension</h3>
+      <p>Accounts may be suspended for non-payment or violation of these terms, with prior notice where possible.</p>
+      <h3>Liability</h3>
+      <p>The platform is a workflow tool. It does not provide medical advice, and clinical judgement remains with the treating professional.</p>
+      <h3>Governing law</h3>
+      <p>Pakistan.</p>
+    </div>
+  </dialog>
+
+  <dialog class="legal" id="refundDialog" aria-labelledby="refundTitle">
+    <div class="dialog-head">
+      <h2 class="dialog-title" id="refundTitle">Refund &amp; Cancellation</h2>
+      <button class="dialog-close" type="button" aria-label="Close" data-close>×</button>
+    </div>
+    <div class="dialog-body legal-body">
+      <p class="last-updated">Last updated: 2026-01-01</p>
+      <h3>Trial</h3><p>Every clinic starts on a 25-day Free plan. No card is required to start the trial.</p>
+      <h3>Upgrade / downgrade</h3><p>Plans can be changed at any time from Admin → Subscriptions. Plan limits apply immediately.</p>
+      <h3>Cancellation</h3><p>You can cancel from the same screen. Access continues until the end of the paid period.</p>
+      <h3>Data export window</h3><p>After cancellation, a 30-day export window is available before records are deleted. Exports include patients, appointments, prescriptions and lab reports.</p>
+      <h3>Refunds</h3><p>Monthly plans are not refunded pro-rata. Contact us within 7 days of a charge if you believe the charge is in error.</p>
+    </div>
+  </dialog>
+
+  <dialog class="legal" id="cookiesDialog" aria-labelledby="cookiesTitle">
+    <div class="dialog-head">
+      <h2 class="dialog-title" id="cookiesTitle">Cookie Notice</h2>
+      <button class="dialog-close" type="button" aria-label="Close" data-close>×</button>
+    </div>
+    <div class="dialog-body legal-body">
+      <p class="last-updated">Last updated: 2026-01-01</p>
+      <h3>No tracking cookies</h3><p>This marketing site does not use third-party tracking or analytics cookies.</p>
+      <h3>Essential cookies</h3><p>The ClinicFlow Pro application, once logged in, uses essential session cookies to keep you signed in. These are HttpOnly and SameSite, and are not used for advertising.</p>
+      <h3>Contact</h3><p>hello@clinicflowpro.com</p>
+    </div>
+  </dialog>
+
+  <dialog class="legal" id="securityDialog" aria-labelledby="securityDialogTitle">
+    <div class="dialog-head">
+      <h2 class="dialog-title" id="securityDialogTitle">Security Controls</h2>
+      <button class="dialog-close" type="button" aria-label="Close" data-close>×</button>
+    </div>
+    <div class="dialog-body legal-body">
+      <p class="last-updated">Last updated: 2026-01-01</p>
+      <h3>Authentication</h3><p>Bcrypt hashing, 10-character minimum, generic error messages.</p>
+      <h3>Brute force protection</h3><p>5 failed attempts per 15 minutes per username and per IP → lockout.</p>
+      <h3>Two-factor</h3><p>Optional TOTP for admin and superadmin accounts, enforced at login when enabled.</p>
+      <h3>Sessions</h3><p>HttpOnly, SameSite cookies, idle and absolute timeouts, revoked on deactivation.</p>
+      <h3>CSRF</h3><p>Token required on all state-changing requests.</p>
+      <h3>Access control</h3><p>Role-based, clinic-scoped queries, ownership checks on every file download.</p>
+      <h3>Uploads</h3><p>MIME / extension whitelist, size limit, stored outside web root, served through authorised download script.</p>
+      <h3>Audit</h3><p>Activity log and append-only security event log.</p>
+      <h3>Backups</h3><p>AES-256-GCM encrypted, retention 7 daily / 4 weekly / 12 monthly, restore tested.</p>
+      <h3>Transport</h3><p>HTTPS enforced at the hosting layer.</p>
+      <p class="muted" style="margin-top:18px;">Formal compliance depends on the hosting environment and the clinic's own policies.</p>
+    </div>
+  </dialog>
+
+  <dialog class="legal" id="docsDialog" aria-labelledby="docsTitle">
+    <div class="dialog-head">
+      <h2 class="dialog-title" id="docsTitle">Documentation</h2>
+      <button class="dialog-close" type="button" aria-label="Close" data-close>×</button>
+    </div>
+    <div class="dialog-body legal-body">
+      <p class="last-updated">Last updated: 2026-01-01</p>
+      <h3>Sections</h3>
+      <ul>
+        <li><strong>Getting started</strong> — clinic onboarding, plan selection</li>
+        <li><strong>Roles</strong> — admin, doctor, reception, patient</li>
+        <li><strong>Patient workflow</strong> — registration, appointments, prescriptions</li>
+        <li><strong>Lab reports</strong> — upload, patient portal, download permissions</li>
+        <li><strong>Loyalty</strong> — points, tiers, referrals</li>
+        <li><strong>AI tools</strong> — status per tool, disclaimers</li>
+        <li><strong>Security</strong> — see the controls table</li>
+      </ul>
+      <p style="margin-top:14px;">The full project report is available as a PDF: <a href="docs.pdf" target="_blank" rel="noopener noreferrer" style="color:var(--teal); text-decoration:underline;">download docs.pdf</a>.</p>
+    </div>
+  </dialog>
+
+  <dialog class="legal" id="roadmapDialog" aria-labelledby="roadmapTitle">
+    <div class="dialog-head">
+      <h2 class="dialog-title" id="roadmapTitle">Roadmap</h2>
+      <button class="dialog-close" type="button" aria-label="Close" data-close>×</button>
+    </div>
+    <div class="dialog-body legal-body">
+      <h3>Shipped</h3>
+      <ul>
+        <li>Admin / Doctor / Reception / Patient dashboards</li>
+        <li>Appointments with conflict detection</li>
+        <li>Digital prescriptions with QR</li>
+        <li>Lab report upload and patient portal</li>
+        <li>Refill tracker and automated reminders</li>
+        <li>Loyalty tiers and referrals</li>
+        <li>Subscription engine with plan limits</li>
+        <li>PWA install</li>
+      </ul>
+      <h3>In progress</h3>
+      <ul><li>AI Health Assistant refinements</li><li>Urdu UI translation</li><li>Dedicated HTML documentation site</li></ul>
+      <h3>Planned</h3>
+      <ul><li>Symptom Checker (assistive)</li><li>Diagnosis Assistant (assistive)</li><li>Health Predictor (assistive)</li><li>Multi-branch management</li></ul>
+    </div>
+  </dialog>
+
+  <dialog class="legal" id="changelogDialog" aria-labelledby="changelogTitle">
+    <div class="dialog-head">
+      <h2 class="dialog-title" id="changelogTitle">Changelog</h2>
+      <button class="dialog-close" type="button" aria-label="Close" data-close>×</button>
+    </div>
+    <div class="dialog-body legal-body">
+      <h3>2026-01</h3>
+      <ul>
+        <li>Published an illustrated preview of the product screens and a five-step guided tour.</li>
+        <li>Security section updated to concrete controls.</li>
+        <li>Pricing aligned with the plans enforced in Admin → Subscriptions.</li>
+        <li>Contact section rebuilt with WhatsApp and email.</li>
+        <li>Legal pages published: Privacy, Terms, Refund &amp; Cancellation, Cookies.</li>
+      </ul>
+      <h3>2025-12</h3>
+      <ul><li>Loyalty, refill tracker and lab reports shipped.</li><li>PWA install button added to the sidebar.</li></ul>
+    </div>
+  </dialog>
+
   <script>
+    // ---------- Menu toggle ----------
     const menuBtn = document.getElementById("menuBtn");
     const navLinks = document.getElementById("navLinks");
-
     menuBtn?.addEventListener("click", () => {
       const isOpen = navLinks.classList.toggle("open");
       menuBtn.setAttribute("aria-expanded", String(isOpen));
     });
-
     navLinks?.querySelectorAll("a").forEach((link) => {
       link.addEventListener("click", () => {
         navLinks.classList.remove("open");
@@ -2788,26 +2220,87 @@
       });
     });
 
+    // ---------- FAQ accordion ----------
     document.querySelectorAll(".faq-item").forEach((item) => {
       const button = item.querySelector(".faq-question");
       const answer = item.querySelector(".faq-answer");
-
       button.addEventListener("click", () => {
         const open = item.classList.toggle("open");
+        button.setAttribute("aria-expanded", String(open));
         answer.style.maxHeight = open ? answer.scrollHeight + "px" : "0px";
       });
     });
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("visible");
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.12 });
+    // ---------- Reveal ----------
+    const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (!prefersReduced && "IntersectionObserver" in window) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12 });
+      document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
+    } else {
+      document.querySelectorAll(".reveal").forEach((el) => el.classList.add("visible"));
+    }
 
-    document.querySelectorAll(".reveal").forEach((element) => observer.observe(element));
+    // ---------- Guided demo tour (uses <use href> to swap SVG symbols) ----------
+    const demoSteps = [
+      { label: "Step 1 of 5 — Register a patient", icon: "#mock-register" },
+      { label: "Step 2 of 5 — Book an appointment", icon: "#mock-appointments" },
+      { label: "Step 3 of 5 — Doctor consults", icon: "#mock-consult" },
+      { label: "Step 4 of 5 — Digital prescription with QR", icon: "#mock-prescription" },
+      { label: "Step 5 of 5 — Patient portal view", icon: "#mock-lab" }
+    ];
+    let demoIndex = 0;
+    const demoUse = document.getElementById("demoUse");
+    const demoLabel = document.getElementById("demoStepLabel");
+    const demoPrev = document.getElementById("demoPrev");
+    const demoNext = document.getElementById("demoNext");
+    function renderDemo() {
+      const s = demoSteps[demoIndex];
+      demoUse.setAttribute("href", s.icon);
+      demoUse.setAttributeNS("http://www.w3.org/1999/xlink", "xlink:href", s.icon);
+      demoLabel.textContent = s.label;
+      demoPrev.disabled = demoIndex === 0;
+      demoNext.disabled = demoIndex === demoSteps.length - 1;
+    }
+    demoPrev?.addEventListener("click", () => { demoIndex = Math.max(0, demoIndex - 1); renderDemo(); });
+    demoNext?.addEventListener("click", () => { demoIndex = Math.min(demoSteps.length - 1, demoIndex + 1); renderDemo(); });
+    document.getElementById("demo")?.addEventListener("keydown", (e) => {
+      if (e.key === "ArrowRight") { demoNext?.click(); }
+      if (e.key === "ArrowLeft") { demoPrev?.click(); }
+    });
+    renderDemo();
+
+    // ---------- Legal dialog open/close ----------
+    function openDialog(id, triggerEl) {
+      const dlg = document.getElementById(id);
+      if (!dlg) return;
+      dlg._trigger = triggerEl || document.activeElement;
+      if (typeof dlg.showModal === "function") dlg.showModal();
+      else dlg.setAttribute("open", "");
+      dlg.querySelector("[data-close]")?.focus();
+    }
+    function closeDialog(dlg) {
+      if (typeof dlg.close === "function") dlg.close();
+      else dlg.removeAttribute("open");
+      dlg._trigger?.focus?.();
+    }
+    document.querySelectorAll("[data-dialog]").forEach((el) => {
+      el.addEventListener("click", (e) => {
+        e.preventDefault();
+        openDialog(el.getAttribute("data-dialog"), el);
+      });
+    });
+    document.querySelectorAll("dialog.legal").forEach((dlg) => {
+      dlg.querySelector("[data-close]")?.addEventListener("click", () => closeDialog(dlg));
+      dlg.addEventListener("click", (e) => { if (e.target === dlg) closeDialog(dlg); });
+      dlg.addEventListener("close", () => dlg._trigger?.focus?.());
+    });
   </script>
 </body>
 </html>
