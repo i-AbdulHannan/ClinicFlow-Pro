@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ClinicFlow Pro | Modern Clinic Management for Pakistan</title>
-  <meta name="description" content="ClinicFlow Pro is a clinic management platform for appointments, patient records, prescriptions with QR, lab reports, loyalty and analytics. Built in Pakistan. 25-day free trial." />
+  <meta name="description" content="ClinicFlow Pro helps clinics reduce repeated admin work, organise appointments and patient history, and make follow-ups easier to manage. Built in Pakistan. 25-day free trial." />
   <meta name="theme-color" content="#07131f" />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://clinic-flow-landingpage.vercel.app/" />
@@ -12,7 +12,7 @@
   <!-- Open Graph / Twitter (uses existing logo) -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content="ClinicFlow Pro — Run the clinic. Not the paperwork." />
-  <meta property="og:description" content="A modern clinic management platform: appointments, prescriptions with QR, lab reports, loyalty rewards and analytics. Built in Pakistan." />
+  <meta property="og:description" content="Reduce admin friction, keep appointments and patient history organised, and make clinic operations easier to review. Built in Pakistan." />
   <meta property="og:url" content="https://clinic-flow-landingpage.vercel.app/" />
   <meta property="og:image" content="logo.png" />
   <meta name="twitter:card" content="summary_large_image" />
@@ -281,6 +281,11 @@
       align-items: center; gap: 8px;
     }
     .gallery-cap::after { content: "·"; color: var(--teal); font-size: 1.2rem; }
+
+    /* ---------- Instagram motion-graphics reel ---------- */
+    .reel-layout { display: grid; grid-template-columns: 1fr 0.9fr; gap: 42px; align-items: center; }
+    .reel-panel { min-width: 0; padding: 14px; border: 1px solid var(--line); border-radius: 20px; background: rgba(255,255,255,0.018); }
+    .reel-embed { display: block; width: 100%; max-width: 420px; height: 540px; margin: 0 auto; border: 0; border-radius: 14px; background: #fff; }
 
     /* ---------- Problem ---------- */
     .problem-grid { display: grid; grid-template-columns: 0.82fr 1.18fr; gap: 62px; align-items: start; }
@@ -794,7 +799,7 @@
 
     /* ---------- Responsive ---------- */
     @media (max-width: 1050px) {
-      .hero-grid, .problem-grid, .ai-grid, .origin-grid, .loyalty-wrap, .contact-grid { grid-template-columns: 1fr; }
+      .hero-grid, .problem-grid, .ai-grid, .origin-grid, .loyalty-wrap, .contact-grid, .reel-layout { grid-template-columns: 1fr; }
       .hero { padding-top: 64px; }
       .hero-copy { max-width: 780px; }
       .mockup-frame { max-width: 790px; margin: 0 auto; }
@@ -857,6 +862,7 @@
       .footer-grid { grid-template-columns: 1fr; }
       .footer-grid > div:first-child,
       .footer-grid > div:last-child { grid-column: span 1; }
+      .reel-embed { height: 480px; }
       .controls-table, .compare-table { font-size: 0.78rem; }
       .controls-table th, .controls-table td,
       .compare-table th, .compare-table td { padding: 9px 10px; }
@@ -1187,6 +1193,8 @@
       <div class="nav-links" id="navLinks">
         <a href="#solution">Solution</a>
         <a href="#features">Features</a>
+        <a href="#motion">Video</a>
+        <a href="#pilot">Pilot clinics</a>
         <a href="#modules">Modules</a>
         <a href="#loyalty">Loyalty</a>
         <a href="#ai">AI</a>
@@ -1217,16 +1225,13 @@
             <div class="eyebrow">ClinicFlow Pro</div>
             <h1>Run the clinic.<br><span class="text-gradient">Not the paperwork.</span></h1>
             <p class="lead">
-              ClinicFlow Pro brings appointments, patient timelines, digital prescriptions
-              with QR, lab reports, loyalty rewards, billing, analytics, communication and
-              AI-assisted tools into one focused system for doctors, receptionists,
-              administrators and patients.
+              Paper registers, missed follow-ups, repeated data entry and appointment clashes consume staff time and make daily performance harder to review. ClinicFlow Pro is designed to bring appointments, patient history and clinic workflows into one place.
             </p>
             <div class="hero-actions">
               <a class="btn btn-primary" href="#contact">Request a product preview</a>
               <a class="btn btn-secondary" href="#features">Explore the platform</a>
             </div>
-            <p class="hero-micro">25-day free trial · no card required · runs on standard PHP / MySQL hosting</p>
+            <p class="hero-micro">25-day free trial · up to 20 patients on Free · no card required</p>
             <div class="micro-proof">
               <div><strong>40+</strong>Pages and modules</div>
               <div><strong>4</strong>Role-specific dashboards</div>
@@ -1275,10 +1280,9 @@
       <div class="container">
         <div class="section-head reveal">
           <div class="eyebrow">Product preview</div>
-          <h2 id="gallery-heading">Eight screens from the actual workflow.</h2>
+          <h2 id="gallery-heading">A visual preview of the clinic workflow.</h2>
           <p class="lead">
-            Illustrative previews of the admin, doctor, reception and patient workspaces —
-            a quick way to understand the shape of the product before a live walkthrough.
+            These are illustrative mockups, not recordings of the live application. Request a walkthrough to see the real product in action.
           </p>
         </div>
         <div class="gallery-grid reveal">
@@ -1318,36 +1322,55 @@
       </div>
     </section>
 
+    <!-- ============ MOTION GRAPHICS VIDEO ============ -->
+    <section class="section section-sm" id="motion" aria-labelledby="motion-heading">
+      <div class="container">
+        <div class="reel-layout">
+          <div class="section-head reveal">
+            <div class="eyebrow">Watch the overview</div>
+            <h2 id="motion-heading">See the ClinicFlow story in motion.</h2>
+            <p class="lead">Watch the motion-graphics overview on Instagram. This is a promotional video, not a real screen recording of the application; ask us for a live product walkthrough to inspect the actual workflow.</p>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="https://www.instagram.com/reel/DeYarNSC1XN/" target="_blank" rel="noopener noreferrer">Watch the Instagram Reel ↗</a>
+              <a class="btn btn-secondary" href="#contact">Request a live walkthrough</a>
+            </div>
+          </div>
+          <div class="reel-panel reveal">
+            <iframe class="reel-embed" src="https://www.instagram.com/reel/DeYarNSC1XN/embed/" title="ClinicFlow Pro motion-graphics overview on Instagram" loading="lazy" allowtransparency="true" allow="encrypted-media; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+            <p class="muted" style="font-size:.78rem; margin:10px 2px 0;">If Instagram does not load here, use the Watch the Instagram Reel button.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- ============ PROBLEM ============ -->
     <section class="section" id="problem">
       <div class="container">
         <div class="problem-grid">
           <div class="section-head reveal">
             <div class="eyebrow">The problem</div>
-            <h2>The clinic should feel busy. The back office should not feel broken.</h2>
+            <h2>The hidden cost is repeated work, missed follow-ups and blind spots.</h2>
             <p class="lead">
-              ClinicFlow Pro was shaped around recurring operational problems observed in
-              local clinic workflows: paper records, scattered spreadsheets, phone-based
-              scheduling, handwritten prescriptions and limited visibility.
+              These problems do not just create paperwork. They consume receptionist time, make follow-ups easier to miss and leave owners piecing together the day from scattered records.
             </p>
           </div>
           <div class="reveal">
             <div class="problem-list">
               <div class="problem-item">
                 <div class="problem-icon" aria-hidden="true">01</div>
-                <div><strong>Patient history is scattered</strong><span>Paper files and spreadsheets make the right information hard to find.</span></div>
+                <div><strong>Staff time disappears into file hunting</strong><span>Paper files and spreadsheets slow down the search for patient history and previous visits.</span></div>
               </div>
               <div class="problem-item">
                 <div class="problem-icon" aria-hidden="true">02</div>
-                <div><strong>Appointments depend on manual coordination</strong><span>Phone calls and manual entries cause missed slots and conflicts.</span></div>
+                <div><strong>Empty slots and booking clashes add up</strong><span>Manual coordination makes the daily schedule harder to keep accurate.</span></div>
               </div>
               <div class="problem-item">
                 <div class="problem-icon" aria-hidden="true">03</div>
-                <div><strong>Prescriptions stay disconnected</strong><span>Handwritten slips create avoidable friction for doctors and patients.</span></div>
+                <div><strong>Follow-ups fall through the cracks</strong><span>Disconnected prescriptions and visit notes make it harder to see what needs attention next.</span></div>
               </div>
               <div class="problem-item">
                 <div class="problem-icon" aria-hidden="true">04</div>
-                <div><strong>Owners lack operational visibility</strong><span>Revenue, patient flow and doctor performance are hard to review.</span></div>
+                <div><strong>Owners cannot see the full picture</strong><span>Revenue, patient flow and clinic activity can be difficult to review from scattered records.</span></div>
               </div>
               <div class="problem-item">
                 <div class="problem-icon" aria-hidden="true">05</div>
@@ -1355,10 +1378,29 @@
               </div>
             </div>
             <div class="quote-card">
-              <p>Every one of these problems is a place where information gets lost between people.</p>
+              <p>Every repeated entry, missed slot and delayed follow-up has an operational cost—even when it never appears as a separate line on the expense sheet.</p>
               <span class="muted">Project direction documented by Abdul Hannan Ghaznavi</span>
             </div>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PILOT CLINICS ============ -->
+    <section class="section section-sm" id="pilot" aria-labelledby="pilot-heading">
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="eyebrow">Founding clinic pilot</div>
+          <h2 id="pilot-heading">Help shape ClinicFlow around a real clinic day.</h2>
+          <p class="lead">We are inviting the first five clinics to test the workflow, share practical feedback and help prioritise what matters at reception and in the doctor's room.</p>
+        </div>
+        <div class="build-grid reveal">
+          <div class="build-card"><strong>01 · See the real product</strong><span>Get a guided walkthrough of the actual application before deciding whether it fits your clinic.</span></div>
+          <div class="build-card"><strong>02 · Guided first 20 records</strong><span>Pilot onboarding can help your team set up its first 20 patient records. The Free plan remains capped at 20 patients; we are not advertising an unsupported 100-patient limit.</span></div>
+          <div class="build-card"><strong>03 · Feedback directly to the builder</strong><span>Tell us where time is lost, which follow-ups are hard to manage and what reception staff need next. Any public case study will require clinic permission.</span></div>
+        </div>
+        <div class="pricing-note reveal" style="margin-top:20px;">
+          <strong>No invented testimonials:</strong> ClinicFlow Pro is looking for its first pilot clinics, so this page does not claim that named clinics have adopted it or publish unverified results. <a href="mailto:projects.abdulhannan@gmail.com?subject=ClinicFlow%20Pro%20pilot%20clinic" style="color:var(--teal); text-decoration:underline; text-underline-offset:3px;">Apply by email</a> or message <a href="https://www.instagram.com/hannanbuilds/" target="_blank" rel="noopener noreferrer" style="color:var(--teal); text-decoration:underline; text-underline-offset:3px;">@hannanbuilds</a> on Instagram.
         </div>
       </div>
     </section>
@@ -1758,13 +1800,13 @@
         <div class="section-head reveal">
           <div class="eyebrow">Pricing</div>
           <h2>Clear plans. Clear limits. No surprises.</h2>
-          <p class="lead">These are the plans the product actually enforces in the admin module. Every clinic starts on the Free plan for 25 days.</p>
+          <p class="lead">Transparent limits, so you can judge fit before onboarding. The application Free plan currently allows 20 patients and 20 appointments per month for 25 days; pilot clinics can request help setting up their first 20 records.</p>
         </div>
         <div class="pricing-grid-4 reveal">
           <div class="plan-card">
             <div class="plan-name">Free</div>
             <div class="plan-price">₨ 0<span> / month</span></div>
-            <div class="plan-note">25-day trial · no card required</div>
+            <div class="plan-note">25-day trial · no card required · 20-patient cap</div>
             <ul class="plan-features">
               <li>20 patients</li><li>3 doctors</li><li>1 receptionist</li><li>20 appointments / month</li><li class="off">Analytics: No</li>
             </ul>
@@ -1796,7 +1838,7 @@
           </div>
         </div>
         <div class="pricing-note">
-          Every clinic starts on the Free plan for 25 days. Paid plans are activated from <strong>Admin → Subscriptions</strong>.
+          Every clinic starts on the Free plan for 25 days. Paid plans are activated from <strong>Admin → Subscriptions</strong>. Free is capped at 20 patients and 20 appointments per month. <strong>Need help getting started?</strong> Join the pilot for guided setup of your first 20 records.
         </div>
 
         <div class="faq-grid reveal" style="margin-top:34px; max-width:none;">
@@ -1806,7 +1848,11 @@
           </div>
           <div class="faq-item">
             <button class="faq-question" type="button" aria-expanded="false"><span>What happens at 25 days?</span><span aria-hidden="true">+</span></button>
-            <div class="faq-answer"><p>The clinic needs to choose a paid plan to keep full access. Free-plan limits still apply — 20 patients, 3 doctors, 1 receptionist, 20 appointments per month.</p></div>
+            <div class="faq-answer"><p>The clinic needs to choose a paid plan to keep full access. The current Free-plan limits are 20 patients, 3 doctors, 1 receptionist and 20 appointments per month. Pilot clinics can request guided onboarding for the first 20 records.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" type="button" aria-expanded="false"><span>Is the interface available in Urdu?</span><span aria-hidden="true">+</span></button>
+            <div class="faq-answer"><p>Not yet—the current application interface is not fully available in Urdu. We are collecting pilot-clinic feedback to prioritise the Urdu workflows reception teams need most. <a href="mailto:projects.abdulhannan@gmail.com?subject=Urdu%20UI%20pilot%20request" style="color:var(--teal); text-decoration:underline;">Ask to join the Urdu UI pilot</a>.</p></div>
           </div>
           <div class="faq-item">
             <button class="faq-question" type="button" aria-expanded="false"><span>Can I change plan?</span><span aria-hidden="true">+</span></button>
@@ -1940,20 +1986,19 @@
         <div class="section-head reveal">
           <div class="eyebrow">Take the next look</div>
           <h2>See the workflow before you make a decision.</h2>
-          <p class="lead">Pick the channel that's most convenient. We reply within 1 working day.</p>
+          <p class="lead">Reach out by email or Instagram DM. We aim to reply within 1 working day.</p>
         </div>
         <div class="contact-grid reveal">
           <div class="contact-card">
             <h3>Talk to us</h3>
-            <p class="contact-sub">Fastest reply: WhatsApp. Otherwise, email works.</p>
-            <!-- Replace the number and email below with real contact details. -->
-            <a class="contact-action" href="https://wa.me/923001234567?text=Hi%2C%20I%27d%20like%20a%20ClinicFlow%20Pro%20preview." target="_blank" rel="noopener noreferrer">
-              <span class="contact-icon" aria-hidden="true">WA</span>
-              <span class="contact-action-body"><strong>WhatsApp</strong><span>+92 300 1234567</span></span>
-            </a>
-            <a class="contact-action" href="mailto:hello@clinicflowpro.com?subject=ClinicFlow%20Pro%20preview%20request">
+            <p class="contact-sub">Send an Instagram DM or email—no phone number listed.</p>
+            <a class="contact-action" href="mailto:projects.abdulhannan@gmail.com?subject=ClinicFlow%20Pro%20preview%20request">
               <span class="contact-icon" aria-hidden="true">@</span>
-              <span class="contact-action-body"><strong>Email</strong><span>hello@clinicflowpro.com</span></span>
+              <span class="contact-action-body"><strong>Email</strong><span>projects.abdulhannan@gmail.com</span></span>
+            </a>
+            <a class="contact-action" href="https://www.instagram.com/hannanbuilds/" target="_blank" rel="noopener noreferrer">
+              <span class="contact-icon" aria-hidden="true">ig</span>
+              <span class="contact-action-body"><strong>Instagram</strong><span>@hannanbuilds · message us directly</span></span>
             </a>
             <a class="contact-action" href="#pricing">
               <span class="contact-icon" aria-hidden="true">→</span>
@@ -1971,10 +2016,10 @@
             <div class="local-list" style="margin-top:0;">
               <div class="local-item"><span class="check" aria-hidden="true">1</span>We reply within 1 working day with a short questionnaire.</div>
               <div class="local-item"><span class="check" aria-hidden="true">2</span>We schedule a 20-minute walkthrough of the real product.</div>
-              <div class="local-item"><span class="check" aria-hidden="true">3</span>You get a 25-day free trial with the actual limits, not a stripped demo.</div>
+              <div class="local-item"><span class="check" aria-hidden="true">3</span>You get a 25-day free trial with the actual limits, including the 20-patient cap.</div>
               <div class="local-item"><span class="check" aria-hidden="true">4</span>If it fits, we activate a paid plan from Admin → Subscriptions.</div>
             </div>
-            <div class="contact-info"><strong>No sales pressure.</strong> The trial is fully self-serve. If it doesn't fit your clinic, no upgrade is required.</div>
+            <div class="contact-info"><strong>No sales pressure.</strong> The product trial is self-serve. Pilot clinics can also request guided setup for the first 20 records. If it does not fit your clinic, no upgrade is required.</div>
           </div>
         </div>
       </div>
@@ -2038,7 +2083,7 @@
         <div class="lang-switch" aria-label="Language">
           <a href="#" class="active" aria-current="page">EN</a>
           <span aria-hidden="true">·</span>
-          <a href="#" aria-disabled="true" title="Urdu page coming soon">اردو</a>
+          <a href="mailto:projects.abdulhannan@gmail.com?subject=Urdu%20UI%20pilot%20request" title="Urdu interface is not live yet; ask about the pilot">اردو UI pilot</a>
         </div>
         <div class="footer-copy">Developed by Abdul Hannan Ghaznavi</div>
       </div>
@@ -2064,7 +2109,7 @@
       <h3>Your rights</h3>
       <p>Clinics may request data export or deletion at any time by contacting the address on the contact section.</p>
       <h3>Contact</h3>
-      <p>hello@clinicflowpro.com</p>
+      <p>projects.abdulhannan@gmail.com</p>
     </div>
   </dialog>
 
@@ -2116,7 +2161,7 @@
       <p class="last-updated">Last updated: 2026-01-01</p>
       <h3>No tracking cookies</h3><p>This marketing site does not use third-party tracking or analytics cookies.</p>
       <h3>Essential cookies</h3><p>The ClinicFlow Pro application, once logged in, uses essential session cookies to keep you signed in. These are HttpOnly and SameSite, and are not used for advertising.</p>
-      <h3>Contact</h3><p>hello@clinicflowpro.com</p>
+      <h3>Contact</h3><p>projects.abdulhannan@gmail.com</p>
     </div>
   </dialog>
 
@@ -2180,7 +2225,7 @@
         <li>PWA install</li>
       </ul>
       <h3>In progress</h3>
-      <ul><li>AI Health Assistant refinements</li><li>Urdu UI translation</li><li>Dedicated HTML documentation site</li></ul>
+      <ul><li>AI Health Assistant refinements</li><li>Urdu UI translation — not live yet; pilot feedback welcome</li><li>Dedicated HTML documentation site</li></ul>
       <h3>Planned</h3>
       <ul><li>Symptom Checker (assistive)</li><li>Diagnosis Assistant (assistive)</li><li>Health Predictor (assistive)</li><li>Multi-branch management</li></ul>
     </div>
@@ -2194,10 +2239,10 @@
     <div class="dialog-body legal-body">
       <h3>2026-01</h3>
       <ul>
-        <li>Published an illustrated preview of the product screens and a five-step guided tour.</li>
+        <li>Published an illustrated preview of the product screens and a five-step guided tour; mockups are labelled as illustrative.</li>
         <li>Security section updated to concrete controls.</li>
         <li>Pricing aligned with the plans enforced in Admin → Subscriptions.</li>
-        <li>Contact section rebuilt with WhatsApp and email.</li>
+        <li>Contact section updated with Instagram and email; placeholder phone contact removed.</li>
         <li>Legal pages published: Privacy, Terms, Refund &amp; Cancellation, Cookies.</li>
       </ul>
       <h3>2025-12</h3>
